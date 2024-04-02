@@ -973,10 +973,6 @@ video {
   width: 100vw;
 }
 
-.min-w-\[150px\] {
-  min-width: 150px;
-}
-
 .min-w-\[800px\] {
   min-width: 800px;
 }
@@ -1137,7 +1133,7 @@ video {
 
 .border-color-main {
   --tw-border-opacity: 1;
-  border-color: rgb(54 149 255 / var(--tw-border-opacity));
+  border-color: rgb(113 22 19 / var(--tw-border-opacity));
 }
 
 .border-gray-300 {
@@ -1161,7 +1157,7 @@ video {
 
 .bg-color-main {
   --tw-bg-opacity: 1;
-  background-color: rgb(54 149 255 / var(--tw-bg-opacity));
+  background-color: rgb(113 22 19 / var(--tw-bg-opacity));
 }
 
 .bg-danger {
@@ -1407,7 +1403,7 @@ video {
 
 .text-color-main {
   --tw-text-opacity: 1;
-  color: rgb(54 149 255 / var(--tw-text-opacity));
+  color: rgb(113 22 19 / var(--tw-text-opacity));
 }
 
 .text-danger {
@@ -1535,15 +1531,15 @@ video {
 }
 
 .btn-color-main {
-  background-color: #3695FF;
-  border: 1px solid #3695FF;
+  background-color: #711613;
+  border: 1px solid #711613;
   color: #fff;
   transition: .4s all;
 }
 
 .btn-color-main:hover {
   background-color: #fff;
-  color: #3695FF;
+  color: #711613;
 }
 
 .btn-secondary {
@@ -1654,12 +1650,12 @@ video {
 
 .hover\:border-color-main:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(54 149 255 / var(--tw-border-opacity));
+  border-color: rgb(113 22 19 / var(--tw-border-opacity));
 }
 
 .hover\:bg-color-main:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(54 149 255 / var(--tw-bg-opacity));
+  background-color: rgb(113 22 19 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-danger:hover {
@@ -1684,7 +1680,7 @@ video {
 
 .hover\:text-color-main:hover {
   --tw-text-opacity: 1;
-  color: rgb(54 149 255 / var(--tw-text-opacity));
+  color: rgb(113 22 19 / var(--tw-text-opacity));
 }
 
 .hover\:text-gray-800:hover {
@@ -1703,7 +1699,7 @@ video {
 
 .focus\:border-color-main:focus {
   --tw-border-opacity: 1;
-  border-color: rgb(54 149 255 / var(--tw-border-opacity));
+  border-color: rgb(113 22 19 / var(--tw-border-opacity));
 }
 
 .focus\:outline-none:focus {
@@ -1730,12 +1726,12 @@ video {
 
 .focus\:ring-color-main:focus {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(54 149 255 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(113 22 19 / var(--tw-ring-opacity));
 }
 
 .peer:checked ~ .peer-checked\:bg-color-main {
   --tw-bg-opacity: 1;
-  background-color: rgb(54 149 255 / var(--tw-bg-opacity));
+  background-color: rgb(113 22 19 / var(--tw-bg-opacity));
 }
 
 .peer:checked ~ .peer-checked\:after\:translate-x-full::after {
