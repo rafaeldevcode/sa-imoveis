@@ -7,9 +7,12 @@ const colors = require('./tailwind-colors');
 module.exports = {
     content: [
         "./public/libs/tailwind/import.css",
+        "./resources/client/**/*.php",
         "./public/assets/scripts/**/*.js",
         "./resources/partials/**/*.php",
         "./policies/*.php",
+        "./body/*.php",
+        "./*.php"
     ],
     theme: {
         screens: {
