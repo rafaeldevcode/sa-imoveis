@@ -48,88 +48,88 @@
                     <h2 class="font-bold text-xl font-main">Contatos</h2>
 
                     <ul>
-                        <?php if(! empty(SETTINGS->email)): ?>
+                        <?php if (! empty(SETTINGS->email)) { ?>
                             <li>
                                 <i class="bi bi-envelope-fill"></i>
                                 <a href="mailto:<?php echo SETTINGS->email ?>" title="Email para contato">
                                     E-mail: <?php echo SETTINGS->email ?>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if(! empty(SETTINGS->phone)): ?>
+                        <?php if (! empty(SETTINGS->phone)) { ?>
                             <li>
                                 <i class="bi bi-telephone-fill"></i>
                                 <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->phone) ?>" title="Telefone para contato">
                                     Telefone: <?php echo substr(SETTINGS->phone, 4) ?>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if(! empty(SETTINGS->whatsapp)): ?>
+                        <?php if (! empty(SETTINGS->whatsapp)) { ?>
                             <li>
                                 <i class="bi bi-whatsapp"></i>
                                 <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" target="_blank" rel="noopener" title="Telefone e Whataspp para contato">
                                     Whatsapp: <?php echo substr(SETTINGS->whatsapp, 4) ?>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
 
             <div class="w-full md:w-6/12 lg:w-3/12 py-4 space-y-4">
-                <?php if(! empty(SETTINGS->andress)): ?>
+                <?php if (! empty(SETTINGS->andress)) { ?>
                     <div>
                         <h2 class="font-bold text-xl font-main">Endereço</h2>
 
                         <p><?php echo SETTINGS->andress ?></p>
                     </div>
-                <?php endif; ?>
+                <?php } ?>
 
                 <div>
                     <h2 class="font-bold text-xl font-main">Redes Sociais</h2>
 
                     <ul class="flex space-x-4">
-                        <?php if(! empty(SETTINGS->profile_facebook)): ?>
+                        <?php if (! empty(SETTINGS->profile_facebook)) { ?>
                             <li>
                                 <a href="<?php echo SETTINGS->profile_facebook ?>" target="_blank" rel="noopener" title="Nosso perfil no facebook">
                                     <i class="bi bi-facebook"></i>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if(! empty(SETTINGS->profile_instagram)): ?>
+                        <?php if (! empty(SETTINGS->profile_instagram)) { ?>
                             <li>
                                 <a href="<?php echo SETTINGS->profile_instagram ?>" target="_blank" rel="noopener" title="Nosso perfil no instagram">
                                     <i class="bi bi-instagram"></i>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if(! empty(SETTINGS->profile_linkedin)): ?>
+                        <?php if (! empty(SETTINGS->profile_linkedin)) { ?>
                             <li>
                                 <a href="<?php echo SETTINGS->profile_linkedin ?>" target="_blank" rel="noopener" title="Nosso perfil no linkedin">
                                     <i class="bi bi-linkedin"></i>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if(! empty(SETTINGS->profile_twitter)): ?>
+                        <?php if (! empty(SETTINGS->profile_twitter)) { ?>
                             <li>
                                 <a href="<?php echo SETTINGS->profile_twitter ?>" target="_blank" rel="noopener" title="Nosso perfil no twitter">
                                     <i class="bi bi-twitter"></i>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if(! empty(SETTINGS->telegram)): ?>
+                        <?php if (! empty(SETTINGS->telegram)) { ?>
                             <li>
                                 <a href="https://t.me/<?php echo SETTINGS->telegram ?>?text=<?php echo SETTINGS->telegram_message ?>" target="_blank" rel="noopener" title="Contate nos via telegram">
                                     <i class="bi bi-telegram"></i>
                                 </a>
                             </li>
-                        <?php endif; ?>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

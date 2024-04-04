@@ -311,5 +311,36 @@ input[type="checkbox"]
 .w-calc
     width: calc( 100% - 61px )
 
+// Slick Library
+[data-slick="images"]
+    .slick-next
+        transform: translateX(-30px)
+
+    .slick-prev
+        z-index: 1
+        transform: translateX(30px)
+
+    .slick-list
+        height: 100%
+
+    .slick-track
+        height: 100%
+
+[data-slick="cards"] >
+    .slick-next
+        transform: translate(-38px, -27px)
+
+        &::before
+            font-size: 35px
+            color: $color-main
+
+    .slick-prev
+        z-index: 1
+        transform: translate(28px, -27px)
+
+        &::before
+            font-size: 35px
+            color: $color-main
+
 @import  ./_mediaqueries
 @import ./_keyframes

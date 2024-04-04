@@ -7,6 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <?php if (isset($plugins) && in_array('slick', $plugins)) { ?>
+        <link rel='stylesheet' href='<?php asset('libs/slick/slick.css') ?>' />
+        <link rel='stylesheet' href='<?php asset('libs/slick/slick-theme.css') ?>' />
+    <?php } ?>
+
     <link rel='stylesheet' href='<?php asset('libs/bootstrap-icons/bootstrap-icons.min.css') ?>' />
     <link rel='stylesheet' href='<?php asset('libs/tailwind/client/style.css') ?>' />
     <link rel='stylesheet' href='<?php asset('assets/css/globals.css') ?>' />
@@ -46,6 +51,10 @@
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Preloader.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Message.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/ValidateForm.js') ?>"></script>
+
+    <?php if (isset($plugins) && in_array('slick', $plugins)) { ?>
+        <script type="text/javascript" src="<?php asset('libs/slick/slick.min.js')?>"></script>
+    <?php } ?>
     
     <script type="text/javascript">
         Message.hide('[data-message]');
