@@ -35,6 +35,7 @@ $data = [
     'googleads_pixel' => $requests->googleads_pixel,
     'preloader' => $preloader,
     'cookies' => $cookies,
+    'about_company' => $requests->about_company,
     'preloader_image' => $requests->preloader_image ?? 'preloader_default.gif',
     'site_logo_main' => $requests->site_logo_main ?? null,
     'site_logo_secondary' => $requests->site_logo_secondary ?? null,

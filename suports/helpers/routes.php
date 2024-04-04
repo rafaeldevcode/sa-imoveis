@@ -21,6 +21,8 @@ if (!function_exists('routes')) {
             '/admin/profile',
             '/admin/profile/update',
             '/admin/profile/update-avatar',
+            '/sobre',
+            '/contato',
             '/policies',
             '/login',
             '/login/create',

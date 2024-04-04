@@ -164,15 +164,15 @@
     </div>
 </section>
 
-<section class="py-12 bg-[#F4F4F4]">
+<section class="py-12 bg-[#F4F4F4]" id="sobre">
     <div class="container flex items-center flex-wrap">
         <div class="w-full md:w-6/12 pr-0 pb-3 md:pb-0 md:pr-3 flex flex-col items-start">
             <p class="text-secondary text-md">SOBRE NÓS</p>
             <h2 class="text-color-main font-bold text-2xl mb-6">SANTO ANTÔNIO IMÓVEIS</h2>
 
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mollis quam ex, nec molestie orci eleifend vitae. Ut a velit laoreet, congue felis non, lacinia est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse arcu quam, vehicula eget dictum nec, feugiat fermentum leo. Quisque aliquet odio risus, ac convallis libero iaculis vitae.</p>
+             <p><?php echo getExcerpt($about, 400) ?></p>
         
-             <a href='/' title='Leia Mais' class='text-xs btn btn-color-main font-bold mx-1 text-center mt-6'>Leia Mais</a>    
+             <a href='<?php route('/sobre') ?>' title='Leia Mais' class='text-xs btn btn-color-main font-bold mx-1 text-center mt-6'>Leia Mais</a>    
         </div>
 
         <div class="w-full md:w-6/12 flex flex-wrap">

@@ -11,6 +11,8 @@ module.exports = {
         "./public/assets/scripts/**/*.js",
         "./resources/partials/**/*.php",
         "./policies/*.php",
+        "./sobre/**/*.php",
+        "./contato/**/*.php",
         "./body/*.php",
         "./*.php"
     ],
