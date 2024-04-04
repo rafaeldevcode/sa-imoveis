@@ -23,12 +23,12 @@ function loadInFooter(): void
     loadHtml(__DIR__ . '/../../resources/admin/partials/modal-delete');
     loadHtml(__DIR__ . '/../../resources/admin/partials/gallery-preview') ?>
 
-        <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js') ?>"></script>
 
-        <script type="text/javascript">
-            const gallery = new Gallery();
-        
-            gallery.changeInputType('checkbox');
-            gallery.dbClickPreview();
-        </script>
-    <?php }
+    <script type="text/javascript">
+        const gallery = new Gallery();
+    
+        gallery.changeInputType('checkbox');
+        gallery.dbClickPreview();
+    </script>
+<?php }

@@ -46,7 +46,7 @@
                         </li>
 
                         <li>
-                            <a href="<?php route('/alugar') ?>" class="border-b-2 border-transparent hover:border-secondary transition ease-in-out text-color-main md:text-white font-bold px-2" title="CONTATO">CONTATO</a>
+                            <a href="<?php route('/contato') ?>" class="border-b-2 border-transparent hover:border-secondary transition ease-in-out text-color-main md:text-white font-bold px-2" title="CONTATO">CONTATO</a>
                         </li>
                     </ul>
 

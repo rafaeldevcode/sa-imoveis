@@ -23,6 +23,7 @@ if (!function_exists('routes')) {
             '/admin/profile/update-avatar',
             '/sobre',
             '/contato',
+            '/contato/create',
             '/policies',
             '/login',
             '/login/create',

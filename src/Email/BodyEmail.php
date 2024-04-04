@@ -24,7 +24,7 @@ class BodyEmail
 
     private static function getLayout(string $slot, string $title): string
     {
-        $copy = !is_null(SETTINGS) && !empty(SETTINGS['copyright']) ? SETTINGS['copyright'] : '';
+        $copy = SETTINGS->copyright;
 
         return <<<EOT
         <!DOCTYPE html>
