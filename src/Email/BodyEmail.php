@@ -10,7 +10,7 @@ class BodyEmail
         $emailTrans = __('Email');
 
         $message = <<<EOT
-            <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #3695FF;">
+            <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">
                 <ul style="list-style: none; margin: 0;">
                     <li><strong>{$nameTrans}</strong>: {$data['name']}</li>
                     <li><strong>{$emailTrans}</strong>: {$data['email']}</li>
@@ -33,7 +33,7 @@ class BodyEmail
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="padding: 1.4rem; background: #3695FF; font-family: sans-serif">
+        <body style="padding: 1.4rem; background: #711613; font-family: sans-serif">
             <div style="color: #ffffff; padding: 1rem 0; text-align: center;">
                 <h1>{$title}</h1>
             </div>

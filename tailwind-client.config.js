@@ -13,6 +13,7 @@ module.exports = {
         "./policies/*.php",
         "./sobre/**/*.php",
         "./contato/**/*.php",
+        "./categoria/**/.*php",
         "./body/*.php",
         "./*.php"
     ],
