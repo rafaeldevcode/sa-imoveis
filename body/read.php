@@ -70,7 +70,7 @@
                     <h2 class="text-color-main font-bold text-2xl">LANÇAMENTOS</h2>    
                 </div>
 
-                <a href='<?php route('/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                <a href='<?php route('/imoveis/categoria/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
             <div class="flex flex-wrap w-full" data-slick="cards">
@@ -89,7 +89,7 @@
                     <h2 class="text-color-main font-bold text-2xl">VENDAS</h2>    
                 </div>
 
-                <a href='<?php route('/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                <a href='<?php route('/imoveis/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
             <div class="flex flex-wrap w-full" data-slick="cards">
@@ -108,7 +108,7 @@
                     <h2 class="text-color-main font-bold text-2xl">ALUGUÉIS</h2>    
                 </div>
 
-                <a href='<?php route('/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                <a href='<?php route('/imoveis/categoria/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
             <div class="flex flex-wrap w-full" data-slick="cards">

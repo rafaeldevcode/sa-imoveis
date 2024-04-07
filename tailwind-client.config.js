@@ -14,6 +14,7 @@ module.exports = {
         "./sobre/**/*.php",
         "./contato/**/*.php",
         "./categoria/**/.*php",
+        "./imoveis/**/*.php",
         "./body/*.php",
         "./*.php"
     ],

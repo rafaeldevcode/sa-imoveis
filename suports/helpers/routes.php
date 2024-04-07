@@ -3,7 +3,8 @@
 if (!function_exists('routes')) {
     function routes(): array
     {
-        $slug = slug(2);
+        $slug_one = slug(2);
+        $slug_two = slug(3);
         
         return [
             "/",
@@ -26,7 +27,8 @@ if (!function_exists('routes')) {
             "/sobre",
             "/contato",
             "/contato/create",
-            "/categoria/{$slug}",
+            "/imoveis/{$slug_one}",
+            "/imoveis/categoria/{$slug_two}",
             "/policies",
             "/login",
             "/login/create",

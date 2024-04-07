@@ -2,10 +2,8 @@
 
 verifyMethod(405, 'GET');
 
-$slug = slug(2);
-
 loadHtml(__DIR__.'/../resources/client/layout', [
-    'title' => "Categoria {$slug}",
+    'title' => "Imóvel",
     'body' => __DIR__."/body/read",
     'plugins' => ['slick'],
 ]);
@@ -24,3 +22,4 @@ function loadInFooter()
         });
     </script>
 <?php }
+

@@ -5,13 +5,8 @@
                 <div class="w-full m-w-[250px] mx-auto">
                     <a href="<?php route('/') ?>" title="Acessar a página inicial">
                         <img class='w-2/3 mx-auto' src='<?php asset('assets/images/' . SETTINGS->site_logo_secondary) ?>' alt="Logo <?php echo SETTINGS->site_name ?>" />
+                        <img class='w-2/3 mx-auto' src='<?php asset('assets/images/phrase.png') ?>' alt="<?php echo SETTINGS->site_description?>" />
                     </a>
-                </div>
-
-                <div>
-                    <p class="italic font-semibold text-center font-main">
-                        <?php echo SETTINGS->site_description?>
-                    </p>
                 </div>
             </div>
 
@@ -23,10 +18,10 @@
                         <a href="<?php route('/') ?>" title="Inicio">Inicio</a>
                     </li>
                     <li>
-                        <a href="<?php route('/comprar') ?>" title="Comprar">Comprar</a>
+                        <a href="<?php route('/imoveis/categoria/comprar') ?>" title="Comprar">Comprar</a>
                     </li>
                     <li>
-                        <a href="<?php route('/alugar') ?>" title="Alugar">Alugar</a>
+                        <a href="<?php route('/imoveis/categoria/alugar') ?>" title="Alugar">Alugar</a>
                     </li>
                     <li>
                         <a href="<?php route('/#sobre') ?>" title="Quem Somos">Quem Somos</a>
@@ -35,10 +30,10 @@
                         <a href="<?php route('/contato') ?>" title="Contato">Contato</a>
                     </li>
                     <li>
-                        <a href="<?php route('/') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
+                        <a href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
                     </li>
                     <li>
-                        <a href="<?php route('/') ?>" title="Anuncie seu Imóvel">Anuncie seu Imóvel</a>
+                        <a href="<?php route('/anunciar-imovel') ?>" title="Anuncie seu Imóvel">Anuncie seu Imóvel</a>
                     </li>
                 </ul>
             </div>
