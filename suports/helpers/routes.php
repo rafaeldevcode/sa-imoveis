@@ -30,6 +30,7 @@ if (!function_exists('routes')) {
             "/imoveis/{$slug_one}",
             "/imoveis/categoria/{$slug_two}",
             "/policies",
+            "/favoritos",
             "/login",
             "/login/create",
             "/login/logout",
