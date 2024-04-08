@@ -10,14 +10,44 @@
     </section>
 
     <section class="py-12 container flex w-full flex-wrap">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="rounded-lg cursor-pointer col-span-1 md:col-span-2 row-span-1 md:row-span-2">
+                <img class="rounded-lg" src="https://www.eurokidsindia.com/blog/wp-content/webp-express/webp-images/uploads/2023/09/galaxy-types-and-facts.jpg.webp" alt="">
+            </div>
+
+            <div class="rounded-lg cursor-pointer">
+                <img class="rounded-lg" src="https://www.eurokidsindia.com/blog/wp-content/webp-express/webp-images/uploads/2023/09/galaxy-types-and-facts.jpg.webp" alt="">
+            </div>
+
+            <div class="rounded-lg cursor-pointer">
+                <img class="rounded-lg" src="https://www.eurokidsindia.com/blog/wp-content/webp-express/webp-images/uploads/2023/09/galaxy-types-and-facts.jpg.webp" alt="">
+            </div>
+
+            <div class="rounded-lg cursor-pointer">
+                <img class="rounded-lg" src="https://www.eurokidsindia.com/blog/wp-content/webp-express/webp-images/uploads/2023/09/galaxy-types-and-facts.jpg.webp" alt="">
+            </div>
+
+            <div class="rounded-lg cursor-pointer relative flex items-center justify-center">
+                <div class="z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
+
+                <button class='z-[2] absolute text-white font-bold' type="button" title="FOTOS">
+                    VER MAIS
+                </button>
+
+                <img class="rounded-lg" src="https://www.eurokidsindia.com/blog/wp-content/webp-express/webp-images/uploads/2023/09/galaxy-types-and-facts.jpg.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 container flex w-full flex-wrap">
         <div class="w-full lg:w-8/12 pr-3">
             <div class="border-b-2 pb-10">
                 <div class="flex gap-2">
-                    <button class='flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-white' type="button" title="FOTOS">
+                    <button class='ease-in duration-300 flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-white' type="button" title="FOTOS">
                         FOTOS
                         <i class="bi bi-camera-fill"></i>
                     </button>
-                    <button class='flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
+                    <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
                         VIDEOS
                         <i class="bi bi-play-circle-fill"></i>
                     </button>
@@ -142,17 +172,17 @@
                 </div>
 
                 <div class="w-full flex flex-col gap-4 mt-4">
-                    <button class='flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-white hover:text-color-main py-4 w-full font-bold text-lg text-white' type="button" title="FOTOS">
+                    <button class='ease-in duration-300 flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-text-white py-4 w-full font-bold text-lg text-white' type="button" title="FOTOS">
                         <i class="bi bi-whatsapp"></i>
                         Falar com um Corretor
                     </button>
 
-                    <button class='flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
+                    <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
                         <i class="bi bi-heart"></i>
                         Adicionar aos Favoritos
                     </button>
 
-                    <button class='flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
+                    <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
                         <i class="bi bi-calculator"></i>
                         Simular um Financiamento
                     </button>
@@ -162,15 +192,26 @@
     </section>
 
     <section class="py-12 container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14477.39300238624!2d-52.21169629999999!3d-24.8861001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ee6f42e6e043ed%3A0x1214ac243c4ff5e6!2sPalmital%2C%20PR%2C%2085270-000!5e0!3m2!1spt-BR!2sbr!4v1712310122454!5m2!1spt-BR!2sbr" 
-            width="100%" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            class="rounded-lg"
-        ></iframe>
+        <div class="w-full h-[450px] relative">
+            <div class="w-full h-full rounded-lg flex items-center justify-center">
+                <img class="absolute top-0 left-0 z-[1] rounded-lg w-full h-full object-cover" src="<?php asset('assets/images/map.png') ?>" alt="Google Maps">
+
+                <button data-iframe="location" class='ease-in duration-300 w-auto absolute z-[2] bg-color-main rounded-lg border border-color-main hover:bg-white hover:text-color-main py-2 px-4 w-full font-bold text-lg text-white' type="button" title="CLIQUE PARA VER NO MAPA">
+                    CLIQUE PARA VER NO MAPA
+                </button>
+            </div>    
+
+            <iframe
+                id="location"
+                data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27994.499800450525!2d-51.935612600000006!3d-28.710206250000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951d98d2bcf5da67%3A0x423761e5e9407396!2sSerafina%20Corr%C3%AAa%2C%20RS%2C%2099250-000!5e0!3m2!1spt-BR!2sbr!4v1712568220072!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                class="rounded-lg"
+            ></iframe>  
+        </div>
     </section>
 
     <section class="py-12 container">

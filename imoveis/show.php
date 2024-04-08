@@ -11,6 +11,13 @@ loadHtml(__DIR__.'/../resources/client/layout', [
 function loadInFooter() 
 { ?>
     <script type="text/javascript">
+        $('[data-iframe="location"]').on('click', (event) => {
+            const iframe = $(`#${$(event.target).attr('data-iframe')}`);
+            
+            iframe.attr('src', iframe.attr('data-src'));
+
+            $(event.target).parent().remove();
+        });
 
         $(document).ready(function(){
             $('[data-slick="images"]').slick({
