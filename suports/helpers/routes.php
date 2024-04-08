@@ -111,3 +111,20 @@ if(!function_exists('verifySlug')):
         return $array;
     }
 endif;
+
+if(!function_exists('isActive')):
+    function isActive(string $item): void 
+    {
+        $paths = explode('/', path());
+
+        if (empty($item) && count($paths) === 1) {
+            echo "border-secondary";
+        } else {
+            if (in_array($item, $paths) && ! empty($item)) {
+                echo "border-secondary";
+            } else {
+                echo "border-transparent";
+            }
+        }
+    }
+endif;
