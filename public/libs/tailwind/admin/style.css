@@ -1143,7 +1143,7 @@ video {
 
 .border-secondary {
   --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
+  border-color: rgb(183 137 44 / var(--tw-border-opacity));
 }
 
 .border-transparent {
@@ -1187,7 +1187,7 @@ video {
 
 .bg-secondary {
   --tw-bg-opacity: 1;
-  background-color: rgb(108 117 125 / var(--tw-bg-opacity));
+  background-color: rgb(183 137 44 / var(--tw-bg-opacity));
 }
 
 .bg-success {
@@ -1433,7 +1433,7 @@ video {
 
 .text-secondary {
   --tw-text-opacity: 1;
-  color: rgb(108 117 125 / var(--tw-text-opacity));
+  color: rgb(183 137 44 / var(--tw-text-opacity));
 }
 
 .text-transparent {
@@ -1543,15 +1543,15 @@ video {
 }
 
 .btn-secondary {
-  background-color: #6C757D;
-  border: 1px solid #6C757D;
+  background-color: #B7892C;
+  border: 1px solid #B7892C;
   color: #fff;
   transition: .4s all;
 }
 
 .btn-secondary:hover {
   background-color: #fff;
-  color: #6C757D;
+  color: #B7892C;
 }
 
 .btn-info {
@@ -1576,12 +1576,12 @@ video {
 
 .placeholder\:text-secondary::-moz-placeholder {
   --tw-text-opacity: 1;
-  color: rgb(108 117 125 / var(--tw-text-opacity));
+  color: rgb(183 137 44 / var(--tw-text-opacity));
 }
 
 .placeholder\:text-secondary::placeholder {
   --tw-text-opacity: 1;
-  color: rgb(108 117 125 / var(--tw-text-opacity));
+  color: rgb(183 137 44 / var(--tw-text-opacity));
 }
 
 .after\:absolute::after {
@@ -1627,7 +1627,7 @@ video {
 .after\:border-secondary::after {
   content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
+  border-color: rgb(183 137 44 / var(--tw-border-opacity));
 }
 
 .after\:bg-white::after {
