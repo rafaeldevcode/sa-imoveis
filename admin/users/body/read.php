@@ -69,7 +69,7 @@
                                 </span>
                             </td>
                             <td class="flex items-center justify-end py-1 px-3 space-x-2 right">
-                                <a href="<?php route("/admin/users/?method=edit&id={$user->id}") ?>" title='<?php _e('Edit user :name', [':name' => $user->name]) ?>' class='text-xs p-2 rounded btn-primary text-light fw-bold'>
+                                <a href="<?php route("/admin/users/?method=edit&id={$user->id}") ?>" title='<?php _e('Edit user :name.', [':name' => $user->name]) ?>' class='text-xs p-2 rounded btn-primary text-light fw-bold'>
                                     <i class='bi bi-pencil-square'></i>
                                 </a>
 
@@ -77,9 +77,9 @@
                                     data-button="delete"
                                     data-route='<?php route('/admin/users/delete') ?>'
                                     data-delete-id='<?php echo $user->id ?>'
-                                    data-message-delete='<?php _e('This action will remove the user :name!', [':name' => $user->name]) ?>'
+                                    data-message-delete='<?php _e('This action will remove the user :name.', [':name' => $user->name]) ?>'
                                     type='button'
-                                    title='<?php _e('Remove user :name', [':name' => $user->name]) ?>'
+                                    title='<?php _e('Remove user :name.', [':name' => $user->name]) ?>'
                                     class='p-2 text-xs rounded btn-danger text-light fw-bold'
                                 >
                                     <i class='bi bi-trash-fill'></i>
@@ -89,7 +89,7 @@
                                     <input type="hidden" name="id" value="<?php echo $user->id ?>">
                                     <button
                                         type='submit'
-                                        title='<?php _e('Log out user :name', [':name' => $user->name]) ?>'
+                                        title='<?php _e('Log out user :name.', [':name' => $user->name]) ?>'
                                         class='p-2 text-xs rounded cursor-pointer btn-<?php echo (!in_array($user->id, $ids) || $user->id === $_SESSION['user_id']) ? 'secondary' : 'info' ?> text-light'
                                         <?php echo (!in_array($user->id, $ids) || $user->id === $_SESSION['user_id']) ? 'disabled' : '' ?>
                                     >

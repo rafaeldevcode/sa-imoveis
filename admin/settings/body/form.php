@@ -258,7 +258,7 @@
             </div>
 
             <div class="w-full p-4 mt-5">
-                <label for="tinymce" class="text-secondary"><?php _e('Escreva aqui sobre sua empresa.') ?></label>
+                <label for="tinymce" class="text-secondary"><?php _e('Write about your company here.') ?></label>
                 <textarea id="tinymce" name="about_company"><?php echo isset($settings) ? $settings->about_company : null ?></textarea>
             </div>
 

@@ -27,5 +27,12 @@
         </div>
     </main>
 
+    <script type="text/javascript" src="<?php asset('libs/jquery/jquery.js')?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/main.js') ?>"></script>
+    
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/PageBack.js') ?>"></script>
+    <script type="text/javascript">
+        PageBack.init();
+    </script>
 </body>
 </html>

@@ -13,10 +13,10 @@ if (!function_exists('routes')) {
             "/admin/users/update",
             "/admin/users/create",
             "/admin/users/delete",
-            "/admin/posts",
-            "/admin/posts/create",
-            "/admin/posts/update",
-            "/admin/posts/delete",
+            "/admin/properties/categories",
+            "/admin/properties/categories/create",
+            "/admin/properties/categories/update",
+            "/admin/properties/categories/delete",
             "/admin/gallery",
             "/admin/gallery/delete",
             "/admin/settings",
@@ -125,6 +125,19 @@ if(!function_exists('isActive')):
             } else {
                 echo "border-transparent";
             }
+        }
+    }
+endif;
+
+if(!function_exists('isActiveAdmin')):
+    function isActiveAdmin(string $item): void 
+    {
+        $paths = explode('/', path());
+
+        if (in_array($item, $paths)) {
+            echo "active";
+        } else {
+            echo "inactive";
         }
     }
 endif;
