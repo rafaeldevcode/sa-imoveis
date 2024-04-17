@@ -12,8 +12,8 @@ $category = new Category();
 $setting = $settings->first();
 $property = new Property();
 $lancamentos = $property->where('category_id', '=', 3)->paginate(6);
-$vendas = $property->where('category_id', '=', 5)->paginate(6);
-$alugueis = $property->where('category_id', '=', 2)->paginate(6);
+$vendas = $property->where('category_id', '=', 1)->paginate(6);
+$alugueis = $property->where('category_id', '=', 4)->paginate(6);
 
 loadHtml(__DIR__.'/resources/client/layout', [
     'title' => 'Inicio',

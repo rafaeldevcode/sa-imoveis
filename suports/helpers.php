@@ -168,7 +168,7 @@ if (!function_exists('getDetails')) {
             'total_area' => $data->total_area,
             'private_area' => $data->private_area,
             'bathrooms' => $data->bathrooms,
-            'furnished' => isset($data->furnished) ?? $data->furnished
+            'furnished' => isset($data->furnished) ? $data->furnished : false,
         ];
 
         return $data;

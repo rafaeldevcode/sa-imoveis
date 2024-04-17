@@ -19,7 +19,7 @@
                                         <i class="bi bi-check2-square absolute mr-2 my-2 ml-1 text-secondary"></i>
                                     </span>
                                     
-                                    <input value="<?php echo $characteristic ?>" class="placeholder:italic placeholder:text-secondary block bg-white w-full border border-secondary rounded-l py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-color-main focus:ring-color-main focus:ring-1 sm:text-sm" placeholder="Video <?php $indice+1 ?>" type="text" name="videos[]" onkeyup="ChangeLocationMaps.init(event)">
+                                    <input value="<?php echo $characteristic ?>" class="placeholder:italic placeholder:text-secondary block bg-white w-full border border-secondary rounded-l py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-color-main focus:ring-color-main focus:ring-1 sm:text-sm" placeholder="<?php _e('Characteristic') ?> <?php $indice+1 ?>" type="text" name="characteristics[]" onkeyup="ChangeLocationMaps.init(event)">
                                 </label>
                                 <button class="bg-danger rounded-r text-white px-4 font-bold border border-danger hover:bg-white hover:text-danger ease-in duration-300" type="button" title="Video <?php $indice+1 ?>" data-item="remove">
                                     <i class="bi bi-trash3-fill"></i>
