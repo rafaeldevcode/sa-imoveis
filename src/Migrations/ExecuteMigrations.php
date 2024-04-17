@@ -209,7 +209,7 @@ class ExecuteMigrations
             case 'datetime':
                 return 'DATETIME';
             case 'text':
-                return "TEXT({$lenght})";
+                return "TEXT";
             case 'longtext':
                 return 'LONGTEXT';
             case 'boolean':
