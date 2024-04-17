@@ -29,6 +29,7 @@ if (!function_exists('getDefaultSiteSettings')) {
             'googleads_pixel' => '',
             'preloader' => 'off',
             'cookies' => '',
+            'about_company' => '',
             'preloader_image' => '',
             'site_logo_main' => 'logo_main.svg',
             'site_logo_secondary' => 'logo_secondary.png',
@@ -131,6 +132,7 @@ if (!function_exists('getSiteSettings')) {
                     $settings->site_logo_main = $gallery->find($settings->site_logo_main)->data->file;
                     $settings->site_logo_secondary = $gallery->find($settings->site_logo_secondary)->data->file;
                     $settings->site_bg_login = $gallery->find($settings->site_bg_login)->data->file;
+                    $settings->about_company = '';
 
                     $settings = json_encode($settings);
                 } else {

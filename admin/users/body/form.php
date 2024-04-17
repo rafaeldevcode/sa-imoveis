@@ -59,7 +59,6 @@
                 'type' => 'submit',
                 'style' => 'color-main',
                 'title' => __('Save'),
-                'value' => __('Save'),
             ]) ?>
         </div>
     </form>

@@ -257,6 +257,11 @@
                 </div>
             </div>
 
+            <div class="w-full p-4 mt-5">
+                <label for="tinymce" class="text-secondary"><?php _e('Write about your company here.') ?></label>
+                <textarea id="tinymce" name="about_company"><?php echo isset($settings) ? $settings->about_company : null ?></textarea>
+            </div>
+
             <div class='w-full flex flex-wrap mt-6 px-3'>
                 <?php loadHtml(__DIR__ . '/../../../resources/partials/form/button-upload', [
                     'name' => 'site_logo_main',
@@ -293,7 +298,6 @@
                 'type' => 'submit',
                 'style' => 'color-main',
                 'title' => __('Save'),
-                'value' => __('Save'),
             ]) ?>
         </div>
     </form>

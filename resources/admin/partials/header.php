@@ -1,4 +1,4 @@
-<header class='bg-color-main flex items-center w-full shadow-md h-[61px] sticky top-0 z-[2]'>
+<header class='bg-color-main flex items-center w-full shadow-md h-[61px] sticky top-0 z-[3]'>
     <div class='flex justify-between items-center w-full'>
         <div class='flex items-center'>
             <form id='menu' class='menu'>

@@ -54,9 +54,9 @@ class User extends Model
         return $this->hasMany(AccessToken::class, 'access_token', 'user_id');
     }
 
-    public function posts(): Posts
+    public function properties(): Property
     {
-        return $this->hasMany(Posts::class, 'posts', 'user_id');
+        return $this->hasMany(Property::class, 'properties', 'user_id');
     }
 
     protected function generateToken(): string

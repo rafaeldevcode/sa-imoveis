@@ -1,5 +1,7 @@
 <?php
 
+use Src\Models\Property;
+
 require __DIR__ . '/helpers/trans.php';
 require __DIR__ . '/helpers/env.php';
 require __DIR__ . '/helpers/settings.php';
@@ -141,15 +143,45 @@ if (!function_exists('redirectIfTotalEqualsZero')) {
 };
 
 if (!function_exists('getArraySelect')) {
-    function getArraySelect(array $object, string $key, string $value): array
+    function getArraySelect(array $object, string $key, ?string $value = null): array
     {
         $data = [];
 
         foreach ($object as $object) {
-            $data = $data + [$object->{$key} => $object->{$value}];
+            if (is_null($value)) {
+                array_push($data, $object->{$key});
+            } else {
+                $data = $data + [$object->{$key} => $object->{$value}];
+            }
         };
 
         return $data;
+    }
+};
+
+if (!function_exists('getDetails')) {
+    function getDetails(stdClass $data): array
+    {
+        $data = [
+            'bedrooms' => $data->bedrooms,
+            'garage' => $data->garage,
+            'total_area' => $data->total_area,
+            'private_area' => $data->private_area,
+            'bathrooms' => $data->bathrooms,
+            'furnished' => $data->furnished
+        ];
+
+        return $data;
+    }
+};
+
+if (!function_exists('getImages')) {
+    function getImages(int $id): stdClass|array
+    {
+        $property = new Property();
+        $property = $property->find($id);
+
+        return isset($property) ? $property->images()->data : [];
     }
 };
 

@@ -3,8 +3,8 @@
 
     <nav class="sticky top-[61px]">
         <ul class='m-0 p-2'>
-            <?php foreach (menusAdmin() as $menu) { ?>
-                <li class='mainmenu flex flex-row items-center rounded relative border border-transparent hover:border-color-main ease-linear duration-300' data-item-menu='<?php echo path() == $menu['path'] ? 'active' : 'inactive' ?>'>
+            <?php foreach (menusAdmin() as $indice => $menu) { ?>
+                <li class='mainmenu flex flex-row items-center rounded relative border border-transparent hover:border-color-main ease-linear duration-300' data-item-menu='<?php isActiveAdmin($indice) ?>'>
                     <?php if (isset($menu['count']) && $menu['count'] !== 0) { ?>
                         <span class="menu-count badge bg-danger absolute top-0 right-0 px-1 py-0 text-xs block rounded-full text-white font-bold"><?php echo $menu['count'] ?></span>
                     <?php } ?>

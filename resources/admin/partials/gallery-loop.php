@@ -1,7 +1,7 @@
 <div class="relative">
     <?php loadHtml(__DIR__ . '/../../partials/preloader', ['position' => 'absolute', 'type' => 'gallery']) ?>
 
-    <div class="flex flex-wrap justify-center" id="gallery">
+    <div class="flex flex-wrap justify-center h-[600px] overflow-x-auto" id="gallery">
         <?php foreach ($images->data as $image) { ?>
             <div class="m-2 gallery">
                 <input 

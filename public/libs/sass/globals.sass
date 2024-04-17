@@ -1,6 +1,10 @@
 @import ./_variables
 @import ./_mixins
 
+@font-face
+    font-family: font-main
+    src: url(/assets/fonts/NunitoSans-Regular.ttf)
+
 *
     margin: 0
     padding: 0
@@ -8,6 +12,7 @@
     text-decoration: none
     font-size: 16px
     box-sizing: border-box
+    font-family: font-main
 
 ::-webkit-scrollbar
     width: 8px
@@ -305,6 +310,85 @@ input[type="checkbox"]
 
 .w-calc
     width: calc( 100% - 61px )
+
+// Slick Library
+[data-slick="images"]
+    .slick-next
+        transform: translateX(-30px)
+
+    .slick-prev
+        z-index: 1
+        transform: translateX(30px)
+
+    .slick-list
+        height: 100%
+
+    .slick-track
+        height: 100%
+
+[data-slick="cards"] >
+    .slick-next
+        transform: translate(-38px, -27px)
+
+        &::before
+            font-size: 35px
+            color: $color-main
+
+    .slick-prev
+        z-index: 1
+        transform: translate(28px, -27px)
+
+        &::before
+            font-size: 35px
+            color: $color-main
+
+// Content Articles
+.article
+    line-height: 2.0
+
+    p
+        margin: 1rem 0
+        font-size: 1.1rem
+
+    h1
+        font-size: 2.2rem
+        font-weight: bold
+
+    h2
+        font-size: 2rem
+        font-weight: bold
+
+    h3
+        font-size: 1.8rem
+        font-weight: bold
+
+    h4
+        font-size: 1.6rem
+        font-weight: bold
+
+    h5
+        font-size: 1.4rem
+        font-weight: bold
+
+    h6
+        font-size: 1.2rem
+        font-weight: bold
+
+    ul
+        margin-left: 2.5rem
+        list-style: circle
+
+    ol
+        margin-left: 2.5rem
+        list-style: decimal
+
+    a
+        color: $color-main
+        font-weight: bold
+        transition: all .4s
+
+        &:hover
+            color: $secondary
 
 @import  ./_mediaqueries
 @import ./_keyframes

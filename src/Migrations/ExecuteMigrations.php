@@ -218,6 +218,8 @@ class ExecuteMigrations
                 return 'DECIMAL';
             case 'double':
                 return 'DOUBLE';
+            case 'json':
+                return 'JSON';
             default:
                 throw new Exception("Tipo de coluna inválido: {$method}");
         };

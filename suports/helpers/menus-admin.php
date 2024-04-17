@@ -16,11 +16,23 @@ if (!function_exists('menusAdmin')) {
                 'icon' => 'bi bi-people-fill',
                 'count' => null,
             ],
-            'posts' => [
-                'path' => '/admin/posts',
-                'title' => __('Posts'),
-                'icon' => 'bi bi-pin-angle-fill',
+            'properties' => [
+                'path' => null,
+                'title' => __('Properties'),
+                'icon' => 'bi bi-houses-fill',
                 'count' => null,
+                'submenus' => [
+                    'properties' => [
+                        'path' => '/admin/properties',
+                        'title' => __('Properties'),
+                        'count' => null,
+                    ],
+                    'categories' => [
+                        'path' => '/admin/properties/categories',
+                        'title' => __('Categories'),
+                        'count' => null,
+                    ],
+                ]
             ],
             'gallery' => [
                 'path' => '/admin/gallery',

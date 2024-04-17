@@ -1,4 +1,6 @@
 <?php
+
+$values = is_array($value) ? $value : [$value];
 $isRequired = '';
 $attr = '';
 
@@ -37,7 +39,7 @@ if (isset($attributes)) {
             class="<?php echo isset($icon) ? 'pl-9' : 'pl-3' ?> shadow-sm italic border bg-white focus:outline-none border-secondary text-secondary text-sm rounded focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2"
         >
             <?php foreach ($options as $indice => $option) { ?>
-                <option value='<?php echo $indice ?>' <?php echo isset($value) && $indice == $value ? 'selected' : '' ?>><?php echo $option ?></option>
+                <option value='<?php echo $indice ?>' <?php echo isset($value) && in_array($indice, $values) ? 'selected' : '' ?>><?php echo $option ?></option>
             <?php } ?>
         </select>
 

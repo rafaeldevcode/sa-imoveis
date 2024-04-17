@@ -70,7 +70,6 @@
                         'type' => 'submit',
                         'style' => 'color-main',
                         'title' => __('Log in'),
-                        'value' => 'Logar',
                     ]) ?>
                 </div>
             </form>

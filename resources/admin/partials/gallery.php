@@ -9,7 +9,7 @@ $images = $gallery->paginate(30);
 ?>
 
 <div data-modal="gallery" class="z-[99999] fixed top-0 left-0 w-full h-full items-center justify-center hidden z-50">
-    <div class="bg-white overflow-y-auto rounded p-8 relative h-full w-full max-w-[1000px]" data-modal-body="popup">
+    <div class="bg-white overflow-y-auto rounded p-8 relative w-full max-w-[1000px]" data-modal-body="popup">
         <div class='border border-color-main rounded'>
             <div class='bg-color-main p-4 rounded-t'>
                 <h5 class='font-bold text-white' id='modalGalleryLabel'><?php _e('Image gallery') ?></h5>
