@@ -48,8 +48,7 @@
                     <?php loadHtml(__DIR__.'/../../resources/partials/form/input-button', [
                         'type' => 'submit',
                         'style' => 'color-main',
-                        'title' => 'Enviar contato',
-                        'value' => 'Enviar'
+                        'title' => 'Enviar',
                     ]) ?>
                 </div>
             </form>

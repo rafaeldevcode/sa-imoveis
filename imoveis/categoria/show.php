@@ -1,13 +1,23 @@
 <?php
 
-verifyMethod(405, 'GET');
+use Src\Models\Category;
+use Src\Models\Property;
 
-$categoria = slug(3);
+$categoryModel = new Category();
+$property = new Property();
+
+$category = $categoryModel->where('slug', '=', slug(3))->first();
+
+if (! isset($category)) {
+    abort(404, 'Category Not Found', 'danger');
+}
+
+$properties = $property->where('category_id', '=', $category->id)->paginate(15);
 
 loadHtml(__DIR__.'/../../resources/client/layout', [
-    'title' => "Categoria {$categoria}",
+    'title' => "Categoria {$category->name}",
     'body' => __DIR__."/body/read",
-    'data' => ['categoria' => $categoria],
+    'data' => ['category' => $category, 'properties' => $properties],
     'plugins' => ['slick'],
 ]);
 

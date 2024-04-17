@@ -2,9 +2,25 @@
 
 verifyMethod(405, 'GET');
 
+use Src\Models\Property;
+
+$property = new Property();
+$property = $property->find(slug(2));
+
+if (! isset($property)) {
+    abort(404, 'Property Not Found', 'danger');
+}
+
 loadHtml(__DIR__.'/../resources/client/layout', [
     'title' => "Imóvel",
     'body' => __DIR__."/body/read",
+    'data' => [
+        'category' => $property->category()->data[0], 
+        'property' => $property->data, 
+        'videos' => json_decode($property->data->videos, true),
+        'characteristics' => json_decode($property->data->characteristics),
+        'details' => json_decode($property->data->details, true),
+    ],
     'plugins' => ['slick'],
 ]);
 

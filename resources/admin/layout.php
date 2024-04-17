@@ -18,6 +18,12 @@
         <!-- Tinymce end -->
     <?php } ?>
 
+    <?php if (isset($plugins) && in_array('select2', $plugins)) { ?>
+        <!-- Select 2 start -->
+        <link rel='stylesheet' href='<?php asset('libs/select2/select2.min.css') ?>' />
+        <!-- Select 2 end -->
+    <?php } ?>
+
     <link rel='stylesheet' href='<?php asset('libs/tailwind/admin/style.css') ?>' />
     <link rel='stylesheet' href='<?php asset('assets/css/globals.css') ?>' />
     
@@ -117,6 +123,12 @@
         <script type="text/javascript" src="<?php asset('libs/tinymce/plugins/link/plugin.min.js') ?>"></script>
         <script type="text/javascript" src="<?php asset('libs/tinymce/plugins/code/plugin.min.js') ?>"></script>
         <!-- Tinymce end -->
+    <?php } ?>
+
+    <?php if (isset($plugins) && in_array('select2', $plugins)) { ?>
+        <!-- Select 2 start -->
+        <script type="text/javascript" src="<?php asset('libs/select2/select2.full.min.js') ?>"></script>
+        <!-- Select 2 end -->
     <?php } ?>
 
     <?php if (function_exists('loadInFooter')) {

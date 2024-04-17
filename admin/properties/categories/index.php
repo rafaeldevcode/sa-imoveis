@@ -20,23 +20,23 @@ if ($method == 'read') {
     $text = __('Edit');
     $body = __DIR__ . '/body/form';
 
-    $data = ['category' => $category->data, 'action' => '/admin/categories/update'];
+    $data = ['category' => $category->data, 'action' => '/admin/properties/categories/update'];
 } elseif ($method == 'create') {
     $background = 'bg-primary';
     $text = __('Add');
     $body = __DIR__ . '/body/form';
 
-    $data = ['action' => '/admin/categories/create'];
+    $data = ['action' => '/admin/properties/categories/create'];
 };
 
 loadHtml(__DIR__ . '/../../../resources/admin/layout', [
     'background' => $background,
     'type' => $text,
-    'icon' => 'bi bi-people-fill',
+    'icon' => 'bi bi-bookmarks-fill',
     'title' => __('Categories'),
-    'routeDelete' => $method == 'read' ? '/admin/categories/delete' : null,
-    'routeAdd' => $method == 'create' ? null : '/admin/categories?method=create',
-    'routeSearch' => '/admin/categories',
+    'routeDelete' => $method == 'read' ? '/admin/porperties/categories/delete' : null,
+    'routeAdd' => $method == 'create' ? null : '/admin/properties/categories?method=create',
+    'routeSearch' => '/admin/properties/categories',
     'body' => $body,
     'data' => $data,
 ]);

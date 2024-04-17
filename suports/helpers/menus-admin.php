@@ -34,12 +34,6 @@ if (!function_exists('menusAdmin')) {
                     ],
                 ]
             ],
-            'posts' => [
-                'path' => '/admin/posts',
-                'title' => __('Posts'),
-                'icon' => 'bi bi-pin-angle-fill',
-                'count' => null,
-            ],
             'gallery' => [
                 'path' => '/admin/gallery',
                 'title' => __('Gallery'),

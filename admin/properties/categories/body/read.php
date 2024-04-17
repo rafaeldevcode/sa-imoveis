@@ -49,7 +49,7 @@
                                 <span class="text-sm"><?php echo $category->slug ?></span>
                             </td>
                             <td class="flex items-center justify-end py-1 px-3 space-x-2 right">
-                                <a href="<?php route("/admin/categories/?method=edit&id={$category->id}") ?>" title='<?php _e('Edit category :name.', [':name' => $category->name]) ?>' class='text-xs p-2 rounded btn-primary text-light fw-bold'>
+                                <a href="<?php route("/admin/properties/categories/?method=edit&id={$category->id}") ?>" title='<?php _e('Edit category :name.', [':name' => $category->name]) ?>' class='text-xs p-2 rounded btn-primary text-light fw-bold'>
                                     <i class='bi bi-pencil-square'></i>
                                 </a>
 

@@ -1,47 +1,57 @@
 <?php
+
+use Src\Models\Category;
 use Src\Models\Gallery;
-use Src\Models\Posts;
+use Src\Models\Property;
 
 $method = empty(querys('method')) ? 'read' : querys('method');
 
 if ($method == 'read') {
-    $post = new Posts();
+    $property = new Property();
     $requests = requests();
-    $posts = !isset($requests->search) ? $post->paginate(20) : $post->where('title', 'LIKE', "%{$requests->search}%")->paginate(20);
+    $properties = !isset($requests->search) ? $property->paginate(20) : $property->where('title', 'LIKE', "%{$requests->search}%")->paginate(20);
     $background = 'bg-secondary';
     $text = __('View');
     $body = __DIR__ . '/body/read';
 
-    $data = ['posts' => $posts];
+    $data = ['properties' => $properties];
 } elseif ($method == 'edit') {
-    $post = new Posts();
-    $galery = new Gallery();
+    $property = new Property();
+    $category = new Category();
 
-    $post = $post->find(querys('id'));
+    $property = $property->find(querys('id'));
+    $categories = getArraySelect($category->get(['id', 'name']), 'id', 'name');
     $background = 'bg-success';
     $text = __('Edit');
     $body = __DIR__ . '/body/form';
 
-    $data = ['action' => '/admin/posts/update', 'post' => $post->data, 'images' => $post->images()->data];
+    $data = [
+        'action' => '/admin/properties/update', 
+        'property' => $property->data, 
+        'images' => $property->images()->data,
+        'categories' => $categories,
+    ];
 } elseif ($method == 'create') {
+    $category = new Category();
+    $categories = getArraySelect($category->get(['id', 'name']), 'id', 'name');
     $background = 'bg-primary';
     $text = __('Add');
     $body = __DIR__ . '/body/form';
 
-    $data = ['action' => '/admin/posts/create'];
+    $data = ['action' => '/admin/properties/create', 'categories' => $categories];
 };
 
 loadHtml(__DIR__ . '/../../resources/admin/layout', [
     'background' => $background,
     'type' => $text,
-    'icon' => 'bi bi-pin-angle-fill',
-    'title' => __('Posts'),
-    'routeDelete' => $method == 'read' ? '/admin/posts/delete' : null,
-    'routeAdd' => $method == 'create' ? null : '/admin/posts?method=create',
-    'routeSearch' => '/admin/posts',
+    'icon' => 'bi bi-house-fill',
+    'title' => __('Properties'),
+    'routeDelete' => $method == 'read' ? '/admin/properties/delete' : null,
+    'routeAdd' => $method == 'create' ? null : '/admin/properties?method=create',
+    'routeSearch' => '/admin/properties',
     'body' => $body,
     'data' => $data,
-    'plugins' => ['tinymce'],
+    'plugins' => ['tinymce', 'select2'],
 ]);
 
 function loadInFooter(): void
@@ -50,15 +60,25 @@ function loadInFooter(): void
     loadHtml(__DIR__ . '/../../resources/admin/partials/modal-delete') ?>
 
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/CreateInput.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/ChangeLocationMaps.js?') ?>"></script>
     <script type="text/javascript">
         const gallery = new Gallery();
         gallery.openModalSelect($('[data-upload=thumbnail]'), 'radio');
         gallery.openModalSelect($('[data-upload=collection]'), 'checkbox');
 
+        $('[name="categories"]').select2({placeholder: '----Selecione----'});
+
+        const videos = new CreateInput('videos', '<?php _e('Video') ?>');
+        videos.init();
+
+        const characteristics = new CreateInput('characteristics', '<?php _e('Características') ?>');
+        characteristics.init();
+
         tinymce.init({
             selector: '#tinymce',
             language: 'pt_BR',
-            height: 500,
+            height: 630,
             image_advtab: true,
             plugins: 'code anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat code',

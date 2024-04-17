@@ -6,13 +6,8 @@ class Gallery extends Model
 {
     public $table = 'gallery';
 
-    public function posts(): Posts
+    public function property(): Property
     {
-        return $this->belongsToMany(Posts::class, 'post_images', 'image_id', 'post_id');
-    }
-
-    public function postsThumbnail(): Posts
-    {
-        return $this->hasMany(Posts::class, 'posts', 'thumbnail');
+        return $this->belongsToMany(Property::class, 'property_images', 'image_id', 'property_id');
     }
 }

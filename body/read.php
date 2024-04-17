@@ -55,69 +55,97 @@
                 </div>
             </div>
 
-            <a href="" class="absolute right-0 bottom-[-50px] w-[80px] h-[80px] rounded-full bg-[#00A900] text-white flex items-center justify-center">
-                <i class="bi bi-whatsapp text-5xl"></i>
-            </a>
+            <?php if (! empty(SETTINGS->whatsapp)) { ?>
+                <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" class="absolute right-0 bottom-[-50px] w-[80px] h-[80px] rounded-full bg-[#00A900] text-white flex items-center justify-center">
+                    <i class="bi bi-whatsapp text-5xl"></i>
+                </a>
+            <?php } ?>
         </div>
     </section>
 
+    <?php if (! empty($lancamentos)) { ?>
+        <section class="py-12 bg-[#F4F4F4]">
+            <div class="container">
+                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                    <div class="text-center mb-2 md:mb-0">
+                        <p class="text-secondary text-md">DESTAQUES</p>
+                        <h2 class="text-color-main font-bold text-2xl">LANÇAMENTOS</h2>    
+                    </div>
 
-    <section class="py-12 bg-[#F4F4F4]">
-        <div class="container">
-            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                <div class="text-center mb-2 md:mb-0">
-                    <p class="text-secondary text-md">DESTAQUES</p>
-                    <h2 class="text-color-main font-bold text-2xl">LANÇAMENTOS</h2>    
+                    <a href='<?php route('/imoveis/categoria/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
                 </div>
 
-                <a href='<?php route('/imoveis/categoria/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                <div class="flex flex-wrap w-full" data-slick="cards">
+                    <?php foreach ($lancamentos as $lancamento) { 
+                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                            'id' => $lancamento->id,
+                            'code' => $lancamento->code,
+                            'andress' => $lancamento->andress,
+                            'name' => $lancamento->name,
+                            'value' => $lancamento->value,
+                            'details' => json_decode($lancamento->details, true),
+                        ]);
+                    } ?>
+                </div>
             </div>
+        </section>
+    <?php } ?>
 
-            <div class="flex flex-wrap w-full" data-slick="cards">
-                <?php for ($i=0; $i < 6; $i++) { 
-                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties');
-                } ?>
-            </div>
-        </div>
-    </section>
+    <?php if (! empty($vendas)) { ?>
+        <section class="py-12 bg-[#F4F4F4]">
+            <div class="container">
+                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                    <div class="text-center mb-2 md:mb-0">
+                        <p class="text-secondary text-md">DESTAQUES</p>
+                        <h2 class="text-color-main font-bold text-2xl">VENDAS</h2>    
+                    </div>
 
-    <section class="py-12 bg-[#F4F4F4]">
-        <div class="container">
-            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                <div class="text-center mb-2 md:mb-0">
-                    <p class="text-secondary text-md">DESTAQUES</p>
-                    <h2 class="text-color-main font-bold text-2xl">VENDAS</h2>    
+                    <a href='<?php route('/imoveis/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
                 </div>
 
-                <a href='<?php route('/imoveis/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                <div class="flex flex-wrap w-full" data-slick="cards">
+                    <?php foreach ($vendas as $venda) { 
+                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                            'id' => $venda->id,
+                            'code' => $venda->code,
+                            'andress' => $venda->andress,
+                            'name' => $venda->name,
+                            'value' => $venda->value,
+                            'details' => json_decode($venda->details, true),
+                        ]);
+                    } ?>
+                </div>
             </div>
+        </section>
+    <?php } ?>
 
-            <div class="flex flex-wrap w-full" data-slick="cards">
-                <?php for ($i=0; $i < 6; $i++) { 
-                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties');
-                } ?>
-            </div>
-        </div>
-    </section>
+    <?php if (! empty($alugueis)) { ?>
+        <section class="py-12 bg-[#F4F4F4]">
+            <div class="container">
+                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                    <div class="text-center mb-2 md:mb-0">
+                        <p class="text-secondary text-md">DESTAQUES</p>
+                        <h2 class="text-color-main font-bold text-2xl">ALUGUÉIS</h2>    
+                    </div>
 
-    <section class="py-12 bg-[#F4F4F4]">
-        <div class="container">
-            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                <div class="text-center mb-2 md:mb-0">
-                    <p class="text-secondary text-md">DESTAQUES</p>
-                    <h2 class="text-color-main font-bold text-2xl">ALUGUÉIS</h2>    
+                    <a href='<?php route('/imoveis/categoria/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
                 </div>
 
-                <a href='<?php route('/imoveis/categoria/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                <div class="flex flex-wrap w-full" data-slick="cards">
+                    <?php foreach ($alugueis as $aluguel) { 
+                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                            'id' => $aluguel->id,
+                            'code' => $aluguel->code,
+                            'andress' => $aluguel->andress,
+                            'name' => $aluguel->name,
+                            'value' => $aluguel->value,
+                            'details' => json_decode($aluguel->details, true),
+                        ]);
+                    } ?>
+                </div>
             </div>
-
-            <div class="flex flex-wrap w-full" data-slick="cards">
-                <?php for ($i=0; $i < 6; $i++) { 
-                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties');
-                } ?>
-            </div>
-        </div>
-    </section>
+        </section>
+    <?php } ?>
 
     <section class="py-12 bg-color-main">
         <div class="container flex justify-center flex-wrap">

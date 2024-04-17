@@ -2,13 +2,13 @@
 
 namespace Src\Migrations;
 
-class PostImages extends ExecuteMigrations
+class PropertyImages extends ExecuteMigrations
 {
-    public $table = 'post_images';
+    public $table = 'property_images';
 
     public function up()
     {
-        $this->integer('post_id');
+        $this->integer('property_id');
         $this->integer('image_id');
 
         $this->create();
