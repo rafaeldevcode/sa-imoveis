@@ -25,15 +25,20 @@ class Model
         $dbUser = env('DB_USERNAME');
         $dbPassword = env('DB_PASSWORD');
         $dbName = env('DB_DATABASE_NAME');
-
+    
         try {
-            $connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
+            $options = [
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+            ];
+    
+            $connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword, $options);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connection = $connection;
         } catch(PDOException $e) {
             echo 'Query error: ' . $e->getMessage();
         }
     }
+    
 
     public function hasTable(): bool
     {
