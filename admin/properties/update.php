@@ -22,8 +22,8 @@ $property->update([
     'andress' => $requests->andress,
     'location' => $requests->location,
     'details' => json_encode(getDetails($requests)),
-    'videos' => json_encode($requests->videos),
-    'characteristics' => json_encode($requests->characteristics),
+    'videos' => isset($requests->videos) ? json_encode($requests->videos) : null,
+    'characteristics' => isset($requests->characteristics) ? json_encode($requests->characteristics) : null,
     'status' => $status,
     'category_id' => $requests->category_id,
 ]);
