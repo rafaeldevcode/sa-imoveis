@@ -13,19 +13,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach (getImages($property->id) as $indice => $image) { 
                 if ($indice < 4) { ?>
-                    <div class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2' : '' ?>">
-                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg" alt="<?php echo $property->name ?>">
+                    <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2' : '' ?>">
+                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg h-full object-cover" alt="<?php echo $property->name ?>">
                     </div>
                 <?php } elseif($indice === 4) { ?>
                     <div class="rounded-lg cursor-pointer relative flex items-center justify-center">
-                        <div class="z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
+                        <div class="rounded-lg z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
 
-                        <button class='z-[2] absolute text-white font-bold' type="button" title="FOTOS">
+                        <button data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class='z-[2] absolute text-white font-bold w-full h-full' type="button" title="FOTOS">
                             VER MAIS
                         </button>
 
-                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg" alt="<?php echo $property->name ?>">
+                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg w-full h-full object-cover" alt="<?php echo $property->name ?>">
                     </div>
+                <?php } else { ?>
+                    <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="hidden"></div>
                 <?php }
             } ?>
         </div>
@@ -40,7 +42,7 @@
                         <i class="bi bi-camera-fill"></i>
                     </button>
                     <?php if (is_array($videos) && ! empty($videos)) { ?>
-                        <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
+                        <button data-videos="<?php echo implode(',', json_decode($property->videos, true)) ?>" id="gallery-videos" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
                             VIDEOS
                             <i class="bi bi-play-circle-fill"></i>
                         </button>
@@ -206,4 +208,7 @@
             </div>
         </div>
     </section>
+
+    <?php loadHtml(__DIR__ . '/partials/videos') ?>
+    <?php loadHtml(__DIR__ . '/partials/images') ?>
 </main>

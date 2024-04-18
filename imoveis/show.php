@@ -26,7 +26,15 @@ loadHtml(__DIR__.'/../resources/client/layout', [
 
 function loadInFooter() 
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Videos.js') ?>"></script>    
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Images.js') ?>"></script>    
     <script type="text/javascript">
+        const images =  new Images;
+        images.init();
+
+        const videos =  new Videos;
+        videos.init();
+
         $('[data-iframe="location"]').on('click', (event) => {
             const iframe = $(`#${$(event.target).attr('data-iframe')}`);
             
