@@ -1,5 +1,6 @@
 <?php
 
+use Src\Models\Category;
 use Src\Models\Property;
 
 require __DIR__ . '/helpers/trans.php';
@@ -182,6 +183,23 @@ if (!function_exists('getImages')) {
         $property = $property->find($id);
 
         return isset($property) ? $property->images()->data : [];
+    }
+};
+
+if (!function_exists('categoriesInMenu')) {
+    function categoriesInMenu(): array
+    {
+        $category = new Category();
+        $categories = [];
+
+        foreach ($category->where('menu', '=', 'on')->get() as $category) {
+            array_push($categories, [
+                'slug' => $category->slug,
+                'name' => $category->name,
+            ]);
+        }
+
+        return $categories;
     }
 };
 

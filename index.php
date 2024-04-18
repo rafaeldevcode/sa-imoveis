@@ -11,18 +11,23 @@ $category = new Category();
 
 $setting = $settings->first();
 $property = new Property();
-$lancamentos = $property->where('category_id', '=', 3)->paginate(6);
-$vendas = $property->where('category_id', '=', 1)->paginate(6);
-$alugueis = $property->where('category_id', '=', 4)->paginate(6);
+$properties = [];
+
+foreach ($category->where('home', '=', 'on')->get() as $category) {
+    $categories = $property->where('category_id', '=', $category->id)->paginate(6);
+    $properties[$category->slug]['properties'] = $categories->data;
+    $properties[$category->slug]['category_name'] = $category->name;
+    $properties[$category->slug]['category_slug'] = $category->slug;
+}
+
+$properties = array_replace(array_flip(['lancamentos', 'vendas', 'alugar']), $properties);
 
 loadHtml(__DIR__.'/resources/client/layout', [
     'title' => 'Inicio',
     'body' => __DIR__ . '/body/read',
     'data' => [
         'about' => $setting->about_company,
-        'lancamentos' => $lancamentos->data,
-        'vendas' => $vendas->data,
-        'alugueis' => $alugueis->data,
+        'properties' => $properties,
     ],
     'plugins' => ['slick'],
 ]);

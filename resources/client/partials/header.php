@@ -30,23 +30,21 @@
                 <div class="flex flex-col lg:flex-row gap-10">
                     <ul class="flex flex-col lg:flex-row gap-4 lg:gap-6">
                         <li>
-                            <a href="<?php route('/') ?>" class="<?php isActive('') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="INICIO">INICIO</a>
+                            <a href="<?php route('/') ?>" class="<?php isActive('') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="INICIO">INICIO</a>
+                        </li>
+
+                        <?php foreach (categoriesInMenu() as $category) { ?>
+                            <li>
+                                <a href="<?php route("/imoveis/categoria/{$category['slug']}") ?>" class="<?php isActive($category['slug']) ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="<?php echo $category['name'] ?>"><?php echo $category['name'] ?></a>
+                            </li>
+                        <?php } ?>
+
+                        <li>
+                            <a href="<?php route('/sobre') ?>" class="<?php isActive('sobre') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="QUEM SOMOS">QUEM SOMOS</a>
                         </li>
 
                         <li>
-                            <a href="<?php route('/imoveis/categoria/comprar') ?>" class="<?php isActive('comprar') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="COMPRAR">COMPRAR</a>
-                        </li>
-
-                        <li>
-                            <a href="<?php route('/imoveis/categoria/alugar') ?>" class="<?php isActive('alugar') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="ALUGAR">ALUGAR</a>
-                        </li>
-
-                        <li>
-                            <a href="<?php route('/sobre') ?>" class="<?php isActive('sobre') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="QUEM SOMOS">QUEM SOMOS</a>
-                        </li>
-
-                        <li>
-                            <a href="<?php route('/contato') ?>" class="<?php isActive('contato') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="CONTATO">CONTATO</a>
+                            <a href="<?php route('/contato') ?>" class="<?php isActive('contato') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="CONTATO">CONTATO</a>
                         </li>
                     </ul>
 

@@ -63,89 +63,35 @@
         </div>
     </section>
 
-    <?php if (! empty($lancamentos)) { ?>
-        <section class="py-12 bg-[#F4F4F4]">
-            <div class="container">
-                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                    <div class="text-center mb-2 md:mb-0">
-                        <p class="text-secondary text-md">DESTAQUES</p>
-                        <h2 class="text-color-main font-bold text-2xl">LANÇAMENTOS</h2>    
+    <?php foreach ($properties as $property) {
+        if (! empty($property['properties'])) { ?>
+            <section class="py-12 bg-[#F4F4F4]">
+                <div class="container">
+                    <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                        <div class="text-center mb-2 md:mb-0">
+                            <p class="text-secondary text-md">DESTAQUES</p>
+                            <h2 class="text-color-main font-bold text-2xl uppercase"><?php echo $property['category_name'] ?></h2>    
+                        </div>
+
+                        <a href='<?php route("/imoveis/categoria/{$property['category_name']}") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
                     </div>
 
-                    <a href='<?php route('/imoveis/categoria/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
-                </div>
-
-                <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($lancamentos as $lancamento) { 
-                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                            'id' => $lancamento->id,
-                            'code' => $lancamento->code,
-                            'andress' => $lancamento->andress,
-                            'name' => $lancamento->name,
-                            'value' => $lancamento->value,
-                            'details' => json_decode($lancamento->details, true),
-                        ]);
-                    } ?>
-                </div>
-            </div>
-        </section>
-    <?php } ?>
-
-    <?php if (! empty($vendas)) { ?>
-        <section class="py-12 bg-[#F4F4F4]">
-            <div class="container">
-                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                    <div class="text-center mb-2 md:mb-0">
-                        <p class="text-secondary text-md">DESTAQUES</p>
-                        <h2 class="text-color-main font-bold text-2xl">VENDAS</h2>    
+                    <div class="flex flex-wrap w-full" data-slick="cards">
+                        <?php foreach ($property['properties'] as $item) { 
+                            loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                                'id' => $item->id,
+                                'code' => $item->code,
+                                'andress' => $item->andress,
+                                'name' => $item->name,
+                                'value' => $item->value,
+                                'details' => json_decode($item->details, true),
+                            ]);
+                        } ?>
                     </div>
-
-                    <a href='<?php route('/imoveis/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
                 </div>
-
-                <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($vendas as $venda) { 
-                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                            'id' => $venda->id,
-                            'code' => $venda->code,
-                            'andress' => $venda->andress,
-                            'name' => $venda->name,
-                            'value' => $venda->value,
-                            'details' => json_decode($venda->details, true),
-                        ]);
-                    } ?>
-                </div>
-            </div>
-        </section>
-    <?php } ?>
-
-    <?php if (! empty($alugueis)) { ?>
-        <section class="py-12 bg-[#F4F4F4]">
-            <div class="container">
-                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                    <div class="text-center mb-2 md:mb-0">
-                        <p class="text-secondary text-md">DESTAQUES</p>
-                        <h2 class="text-color-main font-bold text-2xl">ALUGUÉIS</h2>    
-                    </div>
-
-                    <a href='<?php route('/imoveis/categoria/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
-                </div>
-
-                <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($alugueis as $aluguel) { 
-                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                            'id' => $aluguel->id,
-                            'code' => $aluguel->code,
-                            'andress' => $aluguel->andress,
-                            'name' => $aluguel->name,
-                            'value' => $aluguel->value,
-                            'details' => json_decode($aluguel->details, true),
-                        ]);
-                    } ?>
-                </div>
-            </div>
-        </section>
-    <?php } ?>
+            </section>
+        <?php }
+    } ?>
 
     <section class="py-12 bg-color-main">
         <div class="container flex justify-center flex-wrap">

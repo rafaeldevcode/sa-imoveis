@@ -683,12 +683,12 @@ video {
   grid-row: span 1 / span 1;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .m-0 {
   margin: 0px;
+}
+
+.m-2 {
+  margin: 0.5rem;
 }
 
 .mx-1 {
@@ -818,6 +818,10 @@ video {
   height: 150px;
 }
 
+.h-\[200px\] {
+  height: 200px;
+}
+
 .h-\[20px\] {
   height: 20px;
 }
@@ -870,28 +874,12 @@ video {
   height: 100vh;
 }
 
-.h-\[600px\] {
-  height: 600px;
-}
-
-.h-\[700px\] {
-  height: 700px;
-}
-
-.h-\[350px\] {
-  height: 350px;
-}
-
-.h-\[200px\] {
-  height: 200px;
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 
 .max-h-\[700px\] {
   max-height: 700px;
-}
-
-.max-h-\[500px\] {
-  max-height: 500px;
 }
 
 .w-11 {
@@ -938,32 +926,16 @@ video {
   width: 100vw;
 }
 
-.min-w-\[1200px\] {
-  min-width: 1200px;
+.max-w-\[1300px\] {
+  max-width: 1300px;
 }
 
 .max-w-\[400px\] {
   max-width: 400px;
 }
 
-.max-w-\[500px\] {
-  max-width: 500px;
-}
-
 .max-w-\[900px\] {
   max-width: 900px;
-}
-
-.max-w-\[1000px\] {
-  max-width: 1000px;
-}
-
-.max-w-\[1200px\] {
-  max-width: 1200px;
-}
-
-.max-w-\[1300px\] {
-  max-width: 1300px;
 }
 
 .max-w-full {
@@ -1033,12 +1005,6 @@ video {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1382,6 +1348,11 @@ video {
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
 .text-light {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1395,11 +1366,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .opacity-50 {
@@ -1725,12 +1691,12 @@ video {
     margin-right: 1rem;
   }
 
-  .md\:h-\[650px\] {
-    height: 650px;
-  }
-
   .md\:h-\[500px\] {
     height: 500px;
+  }
+
+  .md\:h-\[650px\] {
+    height: 650px;
   }
 
   .md\:w-4\/12 {

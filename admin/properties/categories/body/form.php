@@ -27,6 +27,21 @@
                 ]) ?>
             </div>
         </div>
+
+        <div class='w-full px-4'>
+            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-checkbox-switch', [
+                'name' => 'menu',
+                'label' => __('Use in menu (No | Yes)'),
+                'value' => isset($category) ? $category->menu : null,
+            ]) ?>
+        </div>
+
+        <div class='w-full px-4'>
+            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-checkbox-switch', [
+                'name' => 'home',
+                'label' => __('Use on home (No | Yes)'),
+                'value' => isset($category) ? $category->home : null,
+            ]) ?>
         </div>
 
         <div class='flex justify-end px-4'>

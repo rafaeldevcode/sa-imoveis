@@ -11,11 +11,15 @@ $requests = requests();
 $category = new Category();
 $slug = normalizeSlug($requests->slug);
 $categorySlug = $category->where('slug', '=', $slug)->first();
+$menu = isset($requests->menu) ? $requests->menu : 'off';
+$home = isset($requests->home) ? $requests->home : 'off';
 
-if (is_null($categorySlug) || $categorySlug->id === $requests->id) {
+if (is_null($categorySlug) || $categorySlug->id == $requests->id) {
     $category->find($requests->id)->update([
         'name' => $requests->name,
         'slug' => $slug,
+        'menu' => $menu,
+        'home' => $home,
     ]);
 
     session([
