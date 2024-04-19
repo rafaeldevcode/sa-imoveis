@@ -1,24 +1,26 @@
 <?php
 
-use Src\Models\Category;
+verifyMethod(405, 'POST');
+
 use Src\Models\Property;
 
-$categoryModel = new Category();
 $property = new Property();
+$requests = requests();
 
-$category = $categoryModel->where('slug', '=', slug(3))->first();
-
-if (! isset($category)) {
-    abort(404, 'Category Not Found', 'danger');
+if ($requests->type === '1') {
+    $properties = $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%")->paginate(15);
+} else {
+    $property->paginate(15);
 }
 
-$properties = $property->where('category_id', '=', $category->id)->paginate(15);
-
-loadHtml(__DIR__.'/../../resources/client/layout', [
-    'title' => "Categoria {$category->name}",
+loadHtml(__DIR__.'/../resources/client/layout', [
+    'title' => 'Contato',
     'body' => __DIR__."/body/read",
-    'data' => ['category' => $category, 'properties' => $properties],
     'plugins' => ['slick'],
+    'data' => [
+        'properties' => $properties,
+        'search' => $requests->search,
+    ]
 ]);
 
 function loadInFooter() 

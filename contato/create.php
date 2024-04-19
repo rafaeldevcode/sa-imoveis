@@ -1,6 +1,6 @@
 <?php
 
-verifyMethod(403, 'POST');
+verifyMethod(405, 'POST');
 
 use Src\Email\BodyEmail;
 use Src\Email\EmailServices;

@@ -48,7 +48,8 @@
                         </li>
                     </ul>
 
-                    <form action='?' method='POST' class='input-group'>
+                    <form action='<?php route('/pesquisar') ?>' method='POST'>
+                        <input type="hidden" name="type" value="1">
                         <input type='search' class='text-white py-1 px-4 border placeholder:text-secondary lg:placeholder:text-white bg-white lg:bg-color-main border-secondary placeholder:text-sm mr-[-5px] placeholder:italic' name='search' placeholder='Buscar por código ou nome' value='<?php echo isset(requests()->search) ? requests()->search : '' ?>'>
                         
                         <button title="<?php _e('Submit search') ?>" type='submit' class='input-group-text py-1 px-2 btn-secondary' id='search'>

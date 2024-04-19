@@ -1,7 +1,6 @@
 <?php
 
 use Src\Models\Category;
-use Src\Models\Gallery;
 use Src\Models\Property;
 
 $method = empty(querys('method')) ? 'read' : querys('method');

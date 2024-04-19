@@ -1,8 +1,6 @@
 <?php
 
-verifyMethod(500, 'POST');
-
-verifyMethod(500, 'POST');
+verifyMethod(405, 'POST');
 
 use Src\Models\Category;
 

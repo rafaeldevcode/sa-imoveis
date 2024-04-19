@@ -1,4 +1,5 @@
 <?php
+
 use Src\Models\Gallery;
 
 $gallery = new Gallery();

@@ -29,6 +29,7 @@ if (!function_exists('routes')) {
             "/admin/profile/update",
             "/admin/profile/update-avatar",
             "/sobre",
+            "/pesquisar",
             "/contato",
             "/contato/create",
             "/imoveis/{$slug_one}",
