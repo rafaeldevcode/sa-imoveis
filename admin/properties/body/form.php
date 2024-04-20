@@ -81,7 +81,6 @@
                         'label' => __('Link on google map'),
                         'type' => 'text',
                         'attributes' => [
-                            'required' => true,
                             'onkeyup' => 'ChangeLocationMaps.init(event)',
                         ],
                         'value' => isset($property) ? $property->location : null,
@@ -100,10 +99,18 @@
                 </div>
 
                 <div class='w-full'>
-                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-bookmarks-fill',
                         'name' => 'status',
-                        'label' => __('Property status (Inactive | Active)'),
+                        'label' => __('Status'),
+                        'attributes' => ['required' => true],
                         'value' => isset($property) ? $property->status : null,
+                        'options' => [
+                            'available' => __('Available'),
+                            'purchased' => __('Purchased'),
+                            'rented' => __('Rented'),
+                            'reserved' => __('Reserved')
+                        ]
                     ]) ?>
                 </div>
             </div>

@@ -192,22 +192,33 @@
         </div>
     </section>
 
-    <section class="py-12 container">
-        <div>
-            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                <div class="text-center mb-2 md:mb-0">
-                    <p class="text-secondary text-md">VEJA OUTROS IMÓVEIS</p>
-                    <h2 class="text-color-main font-bold text-2xl">QUE ENCONTRAMOS PARA VOCÊ</h2>    
+    <?php if (count($properties) > 1) { ?>
+        <section class="py-12 container">
+            <div>
+                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                    <div class="text-center mb-2 md:mb-0">
+                        <p class="text-secondary text-md">VEJA OUTROS IMÓVEIS</p>
+                        <h2 class="text-color-main font-bold text-2xl">QUE ENCONTRAMOS PARA VOCÊ</h2>    
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap w-full" data-slick="cards">
+                    <?php foreach ($properties as $item) { 
+                        if ($property->id !== $item->id) {
+                            loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
+                                'id' => $item->id,
+                                'code' => $item->code,
+                                'andress' => $item->andress,
+                                'name' => $item->name,
+                                'value' => $item->value,
+                                'details' => json_decode($item->details, true),
+                            ]);
+                        }
+                    } ?>
                 </div>
             </div>
-
-            <div class="flex flex-wrap w-full" data-slick="cards">
-                <?php // for ($i=0; $i < 3; $i++) { 
-                    // loadHtml(__DIR__ . '/../../resources/client/partials/card-properties');
-                // } ?>
-            </div>
-        </div>
-    </section>
+        </section>
+    <?php } ?>
 
     <?php loadHtml(__DIR__ . '/partials/videos') ?>
     <?php loadHtml(__DIR__ . '/partials/images') ?>

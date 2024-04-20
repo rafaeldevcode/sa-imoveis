@@ -176,5 +176,9 @@
     "Code": "Code",
     "Usar no menu (Não | Sim)": "Use in menu (No | Yes)",
     "Usar na home (Não | Sim)": "Use on home (No | Yes)",
-    "Internal server error": "Internal server error"
+    "Internal server error": "Internal server error",
+    "Available": "Available",
+    "Purchased": "Purchased",
+    "Rented": "Rented",
+    "Reserved": "Reserved"
 }

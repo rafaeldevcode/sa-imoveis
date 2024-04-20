@@ -146,7 +146,7 @@
                 <p class="text-secondary text-md">SOBRE NÓS</p>
                 <h2 class="text-color-main font-bold text-2xl mb-6">SANTO ANTÔNIO IMÓVEIS</h2>
 
-                <p><?php echo getExcerpt($about, 400) ?></p>
+                <p><?php echo ! empty($about) ? getExcerpt($about, 400) : '' ?></p>
             
                 <a href='<?php route('/sobre') ?>' title='Leia Mais' class='text-xs btn btn-color-main font-bold mx-1 text-center mt-6'>Leia Mais</a>    
             </div>

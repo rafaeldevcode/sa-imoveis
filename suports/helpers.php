@@ -218,4 +218,26 @@ if (!function_exists('favorites')) {
     }
 };
 
+if (!function_exists('propertyStatus')) {
+    function propertyStatus(string $value, string $type): string
+    {
+        $status = [
+            'colors' => [
+                'available' => 'success',
+                'purchased' => 'color-main',
+                'rented' => 'primary',
+                'reserved' => 'info'
+            ],
+            'texts' => [
+                'available' => __('Available'),
+                'purchased' => __('Purchased'),
+                'rented' => __('Rented'),
+                'reserved' => __('Reserved')
+            ]
+        ];
+
+        return $status[$type][$value];
+    }
+};
+
 !defined('SETTINGS') && define('SETTINGS', getSiteSettings());

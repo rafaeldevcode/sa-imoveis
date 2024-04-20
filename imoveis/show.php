@@ -4,12 +4,13 @@ verifyMethod(405, 'GET');
 
 use Src\Models\Property;
 
-$property = new Property();
-$property = $property->find(slug(2));
+$property = (new Property())->find(slug(2));
 
-if (! isset($property)) {
+if (! isset($property->data)) {
     abort(404, 'Property Not Found', 'danger');
 }
+
+$properties = (new Property())->where('category_id', '=', $property->data->category_id)->paginate(4);
 
 loadHtml(__DIR__.'/../resources/client/layout', [
     'title' => "Imóvel",
@@ -20,6 +21,7 @@ loadHtml(__DIR__.'/../resources/client/layout', [
         'videos' => json_decode($property->data->videos, true),
         'characteristics' => json_decode($property->data->characteristics),
         'details' => json_decode($property->data->details, true),
+        'properties' => $properties->data,
     ],
     'plugins' => ['slick'],
 ]);

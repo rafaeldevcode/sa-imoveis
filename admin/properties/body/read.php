@@ -55,11 +55,11 @@
                                 <span class="text-sm"><?php echo $property->code ?>
                             </td>
                             <td scope="row" class="!py-1 !px-3 font-medium text-gray-900 whitespace-nowrap">
-                                <span class="text-sm"><?php echo $property->value ?>
+                                <span class="text-sm">R$ <?php echo number_format($property->value, 2, ',', '.') ?>
                             </td>
                             <td class="py-1 px-3">
-                                <span class="rounded text-xs text-light px-2 py-1 bg-<?php echo (is_null($property->status) || $property->status == 'off') ? 'danger' : 'primary' ?>">
-                                    <?php echo (is_null($property->status) || $property->status == 'off') ? __('Inactive') : __('Active') ?>
+                                <span class="rounded text-xs text-light px-2 py-1 bg-<?php echo propertyStatus($property->status, 'colors') ?>">
+                                    <?php echo propertyStatus($property->status, 'texts') ?>
                                 </span>
                             </td>
                             <td class="flex items-center justify-end !py-1 !px-3 space-x-2 right">
