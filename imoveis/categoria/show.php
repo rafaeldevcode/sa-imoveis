@@ -23,7 +23,9 @@ loadHtml(__DIR__.'/../../resources/client/layout', [
 
 function loadInFooter() 
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">
+        Favorite.init();
         $(document).ready(function(){
             $('[data-slick="images"]').slick({
                 slidesToShow: 1,

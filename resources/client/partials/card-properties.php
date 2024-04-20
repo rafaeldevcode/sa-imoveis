@@ -11,9 +11,9 @@
 
             <div class="w-full p-2 bg-color-main flex justify-between items-center">
                 <p class="text-white font-bold text-xl">R$ <?php echo number_format($value, 2, ',', '.') ?></p>
-                
-                <button>
-                    <i class="bi bi-heart text-white text-xl"></i>
+
+                <button data-favorite="<?php echo $id ?>" data-favorite-status="<?php echo in_array($id, favorites()) ? 'true' : 'false' ?>">
+                    <i class="bi <?php echo in_array($id, favorites()) ? 'bi-heart-fill' : 'bi-heart' ?> text-white text-xl"></i>
                 </button>
             </div>
         </div>

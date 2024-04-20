@@ -73,6 +73,19 @@ class Model
         return $this;
     }
 
+    public function whereIn(string $column, array $values)
+    {
+        $query = "SELECT * FROM $this->table WHERE $column IN (".implode(",", array_fill(0, count($values), "?")).")";
+            
+        $statement = $this->connection->prepare($query);
+        
+        $statement->execute($values);
+        
+        $this->data = json_decode(json_encode($statement->fetchAll(PDO::FETCH_ASSOC)));
+
+        return $this->data;
+    }
+
     public function find(int $id = 1): self
     {
         $this->wheres = [];

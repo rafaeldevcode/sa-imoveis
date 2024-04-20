@@ -28,7 +28,10 @@ function loadInFooter()
 { ?>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Videos.js') ?>"></script>    
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Images.js') ?>"></script>    
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">
+        Favorite.init();
+        
         const images =  new Images;
         images.init();
 

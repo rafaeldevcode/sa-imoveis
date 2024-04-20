@@ -37,7 +37,9 @@ loadHtml(__DIR__.'/resources/client/layout', [
 function loadInFooter() 
 { ?>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/InputRange.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">
+        Favorite.init();
         InputRange.init();
 
         $(document).ready(function(){

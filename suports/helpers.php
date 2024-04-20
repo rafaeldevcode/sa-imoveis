@@ -203,4 +203,19 @@ if (!function_exists('categoriesInMenu')) {
     }
 };
 
+if (!function_exists('favorites')) {
+    function favorites(): array
+    {
+        static $favorites = [];
+
+        if(isset($_COOKIE['properties::favorites'])) {
+            $favorites = $_COOKIE['properties::favorites'];
+
+            return json_decode($favorites, true);
+        } else {
+            return $favorites;
+        }
+    }
+};
+
 !defined('SETTINGS') && define('SETTINGS', getSiteSettings());

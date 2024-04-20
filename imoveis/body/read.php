@@ -155,8 +155,8 @@
                         </a>
                     <?php } ?>
 
-                    <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
-                        <i class="bi bi-heart"></i>
+                    <button data-favorite="<?php echo $property->id ?>" data-favorite-status="<?php echo in_array($property->id, favorites()) ? 'true' : 'false' ?>" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
+                        <i class="bi <?php echo in_array($property->id, favorites()) ? 'bi-heart-fill' : 'bi-heart' ?>"></i>
                         Adicionar aos Favoritos
                     </button>
 
