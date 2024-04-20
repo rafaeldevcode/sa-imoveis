@@ -18,24 +18,28 @@
                         </div>
 
                         <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
+                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-select', [
                                 'name' => 'bedrooms[]',
-                                'type' => 'text',
                                 'value' => isset($details['bedrooms'][0]) ? $details['bedrooms'][0] : null,
+                                'options' => [
+                                    '01 Dormitório' => '01 Dormitório',
+                                    '02 Dormitórios' => '02 Dormitórios',
+                                    '03 Dormitórios' => '03 Dormitórios',
+                                    '04 Dormitórios ou +' => '04 Dormitórios ou +',
+                                ],
                             ]) ?>
                         </div>
+
                         <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
+                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-select', [
                                 'name' => 'bedrooms[]',
-                                'type' => 'text',
                                 'value' => isset($details['bedrooms'][1]) ? $details['bedrooms'][1] : null,
-                            ]) ?>
-                        </div>
-                        <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
-                                'name' => 'bedrooms[]',
-                                'type' => 'text',
-                                'value' => isset($details['bedrooms'][2]) ? $details['bedrooms'][2] : null,
+                                'options' => [
+                                    '01 Suíte' => '01 Suíte',
+                                    '02 Suítes' => '02 Suítes',
+                                    '03 Suítes' => '03 Suítes',
+                                    '04 Suítes ou +' => '04 Suítes ou +',
+                                ],
                             ]) ?>
                         </div>
                     </li>
@@ -47,10 +51,15 @@
                         </div>                
 
                         <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
+                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-select', [
                                 'name' => 'garage',
-                                'type' => 'text',
                                 'value' => isset($details['garage']) ? $details['garage'] : null,
+                                'options' => [
+                                    '01 Vaga' => '01 Vaga',
+                                    '02 Vagas' => '02 Vagas',
+                                    '03 Vagas' => '03 Vagas',
+                                    '04 Vagas ou +' => '04 Vagas ou +',
+                                ],
                             ]) ?>
                         </div>
                     </li>
@@ -92,26 +101,28 @@
                         </div> 
                         
                         <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
+                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-select', [
                                 'name' => 'bathrooms[]',
-                                'type' => 'text',
                                 'value' => isset($details['bathrooms'][0]) ? $details['bathrooms'][0] : null,
+                                'options' => [
+                                    '01 Banheiro' => '01 Banheiro',
+                                    '02 Banheiros' => '02 Banheiros',
+                                    '03 Banheiros' => '03 Banheiros',
+                                    '04 Banheiros ou +' => '04 Banheiros ou +',
+                                ],
                             ]) ?>
                         </div>
 
                         <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
+                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-select', [
                                 'name' => 'bathrooms[]',
-                                'type' => 'text',
                                 'value' => isset($details['bathrooms'][1]) ? $details['bathrooms'][1] : null,
-                            ]) ?>
-                        </div>
-
-                        <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-default', [
-                                'name' => 'bathrooms[]',
-                                'type' => 'text',
-                                'value' => isset($details['bathrooms'][2]) ? $details['bathrooms'][2] : null,
+                                'options' => [
+                                    '01 Lavabo' => '01 Lavabo',
+                                    '02 Lavabos' => '02 Lavabos',
+                                    '03 Lavabos' => '03 Lavabos',
+                                    '04 Lavabos ou +' => '04 Lavabos ou +',
+                                ],
                             ]) ?>
                         </div>
                     </li>

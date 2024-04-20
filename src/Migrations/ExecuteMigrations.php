@@ -199,7 +199,7 @@ class ExecuteMigrations
         return $statement->rowCount() > 0 ? true : false;
     }
 
-    private function getColumnType(string $method, int $lenght = 255): string
+    private function getColumnType(string $method, int $lenght = 255, int $count = 2): string
     {
         switch ($method) {
             case 'string':
@@ -219,7 +219,7 @@ class ExecuteMigrations
             case 'boolean':
                 return 'BOOLEAN';
             case 'decimal':
-                return 'DECIMAL';
+                return "DECIMAL({$lenght}, {$count})";
             case 'double':
                 return 'DOUBLE';
             case 'json':

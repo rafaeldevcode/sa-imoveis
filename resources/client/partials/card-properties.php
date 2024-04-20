@@ -10,7 +10,7 @@
             </div>
 
             <div class="w-full p-2 bg-color-main flex justify-between items-center">
-                <p class="text-white font-bold text-xl"><?php echo $value ?></p>
+                <p class="text-white font-bold text-xl">R$ <?php echo number_format($value, 2, ',', '.') ?></p>
                 
                 <button>
                     <i class="bi bi-heart text-white text-xl"></i>

@@ -8,9 +8,10 @@ use Src\Models\Setting;
 
 $settings = new Setting();
 $category = new Category();
+$property = new Property();
 
 $setting = $settings->first();
-$property = new Property();
+$categoriesArray = getArraySelect($category->get(), 'id', 'name');
 $properties = [];
 
 foreach ($category->where('home', '=', 'on')->get() as $category) {
@@ -28,13 +29,16 @@ loadHtml(__DIR__.'/resources/client/layout', [
     'data' => [
         'about' => $setting->about_company,
         'properties' => $properties,
+        'categories' => $categoriesArray,
     ],
     'plugins' => ['slick'],
 ]);
 
 function loadInFooter() 
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/InputRange.js') ?>"></script>
     <script type="text/javascript">
+        InputRange.init();
 
         $(document).ready(function(){
             $('[data-slick="images"]').slick({

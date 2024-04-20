@@ -10,7 +10,22 @@ $requests = requests();
 if ($requests->type === '1') {
     $properties = $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%")->paginate(15);
 } else {
-    $property->paginate(15);
+
+    if (! empty($requests->category_id)) {
+        $property = $property->where('category_id', '=', $requests->category_id);
+    }
+
+    if (! empty($requests->bedrooms)) {
+        $property = $property->where('details', 'LIKE', "%{$requests->bedrooms}%");
+    }
+
+    if (! empty($requests->andress)) {
+        $property = $property->where('andress', 'LIKE', "%{$requests->andress}%");
+    }
+
+    $property->where('value', '<=', $requests->value);
+
+    $properties = $property->paginate(15);
 }
 
 loadHtml(__DIR__.'/../resources/client/layout', [
@@ -19,7 +34,7 @@ loadHtml(__DIR__.'/../resources/client/layout', [
     'plugins' => ['slick'],
     'data' => [
         'properties' => $properties,
-        'search' => $requests->search,
+        'search' => isset($requests->search) ? $requests->search : null,
     ]
 ]);
 

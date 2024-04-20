@@ -71,7 +71,7 @@
                             <?php if (isset($details['total_area']) && ! empty($details['total_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
-                                    <span><?php echo $details['total_area'] ?></span>
+                                    <span><?php echo $details['total_area'] ?> m²</span>
                                     <span>Área Total</span>
                                 </li>
                             <?php } ?>
@@ -79,7 +79,7 @@
                             <?php if (isset($details['private_area']) && ! empty($details['private_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
-                                    <span><?php echo $details['private_area'] ?></span>
+                                    <span><?php echo $details['private_area'] ?> m²</span>
                                     <span>Área Privativa</span>
                                 </li>
                             <?php } ?>
@@ -131,17 +131,17 @@
                 <div>
                     <div class="flex justify-between">
                         <span class="text-lg">Valor do Imóvel</span>
-                        <span class="text-color-main font-bold text-2xl"><?php echo $property->value ?></span>
+                        <span class="text-color-main font-bold text-2xl">R$ <?php echo number_format($property->value, 2, ',', '.') ?></span>
                     </div>
 
                     <div class="flex justify-between">
                         <span class="text-lg">Condomínio*</span>
-                        <span class="text-lg"><?php echo $property->condominium ?></span>
+                        <span class="text-lg">R$ <?php echo number_format($property->condominium, 2, ',', '.') ?>/mês</span>
                     </div>
 
                     <div class="flex justify-between">
                         <span class="text-lg">IPTU*</span>
-                        <span class="text-lg"><?php echo $property->iptu ?></span>
+                        <span class="text-lg">R$ <?php echo number_format($property->iptu, 2, ',', '.') ?>/ano</span>
                     </div>
 
                     <p class="text-lg mt-4">*Valores sujeitos a alteração</p>

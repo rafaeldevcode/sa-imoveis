@@ -1,10 +1,12 @@
 <main>
     <section class="w-full h-[500px] md:h-[650px]" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
         <div class="relative container h-full px-4 py-12 flex justify-center items-end">
-            <div class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap">
+            <form action="<?php route('/pesquisar') ?>" method="POST" class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">
+                <input type="hidden" name="type" value="2">
+                
                 <div class="w-full sm:w-2/12">
-                        <div clapx-0 sm:ss=" py-2 sm:py-0px-2">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
+                        <div class="px-0 sm:px-2 py-2 sm:py-0">
+                        <select name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                             <option value="">Interesse</option>
                         </select>
                     </div>
@@ -12,48 +14,47 @@
 
                 <div class="w-full sm:w-2/12">
                     <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Tipo do Imóvel</option>
+                        <select name="category_id" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
+                            <option value="">Categoria</option>
+
+                            <?php foreach ($categories as $indice => $category) { ?>
+                                <option value="<?php echo $indice ?>"><?php echo $category ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
 
                 <div class="w-full sm:w-2/12">
                     <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
+                        <select name="bedrooms" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                             <option value="">Dormitórios</option>
+                            <option value="01 Dormitório">01 Dormitório</option>
+                            <option value="02 Dormitórios">02 Dormitórios</option>
+                            <option value="03 Dormitórios">03 Dormitórios</option>
+                            <option value="04 Dormitórios ou +">04 Dormitórios ou +</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="w-full sm:w-2/12">
                     <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Cidade</option>
-                        </select>
+                        <input type="text" name="andress" placeholder="Cidade" class="py-3 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full" />  
                     </div>
                 </div>
 
                 <div class="w-full sm:w-2/12">
                     <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Bairro</option>
-                        </select>
+                        <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">50.000</span></b></label>
+                        <input type="range" id="value" name="value" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
                     </div>
                 </div>
 
                 <div class="w-full sm:w-2/12">
                     <div class="px-0 sm:px-2 py-2 sm:py-0">
-        
+                        <input type="submit" value="Buscar" title="Buscar" class="uppercase py-3 px-2 bg-color-main text-white font-bold border border-color-main cursor-pointer ease-in duration-300 hover:bg-white hover:text-color-main text-md rounded-lg  block w-full" />  
                     </div>
                 </div>
-
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-
-                    </div>
-                </div>
-            </div>
+            </form>
 
             <?php if (! empty(SETTINGS->whatsapp)) { ?>
                 <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" class="absolute right-0 bottom-[-50px] w-[80px] h-[80px] rounded-full bg-[#00A900] text-white flex items-center justify-center">
