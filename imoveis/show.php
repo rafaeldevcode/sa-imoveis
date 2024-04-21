@@ -6,7 +6,7 @@ use Src\Models\Property;
 
 $property = (new Property())->find(slug(2));
 
-if (! isset($property->data)) {
+if (! isset($property->data) || ($property->data->status === 'unavailable' && ! autenticate())) {
     abort(404, 'Property Not Found', 'danger');
 }
 

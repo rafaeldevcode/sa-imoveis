@@ -75,11 +75,21 @@ class Model
 
     public function whereIn(string $column, array $values)
     {
-        $query = "SELECT * FROM $this->table WHERE $column IN (".implode(",", array_fill(0, count($values), "?")).")";
+        $whereClause = $this->whereClausure();
+
+        $query = "SELECT * FROM $this->table";
+   
+        $query = empty($whereClause->clausure) ? "{$query} WHERE" : "{$query}{$whereClause->clausure} AND";
+
+        $query = "{$query} $column IN (".implode(",", $values).")";
             
         $statement = $this->connection->prepare($query);
+
+        foreach ($whereClause->bindings as $column => $value):
+            $statement->bindValue(":{$column}", $value);
+        endforeach;
         
-        $statement->execute($values);
+        $statement->execute();
         
         $this->data = json_decode(json_encode($statement->fetchAll(PDO::FETCH_ASSOC)));
 

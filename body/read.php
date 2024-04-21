@@ -74,7 +74,7 @@
                             <h2 class="text-color-main font-bold text-2xl uppercase"><?php echo $property['category_name'] ?></h2>    
                         </div>
 
-                        <a href='<?php route("/imoveis/categoria/{$property['category_name']}") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+                        <a href='<?php route("/imoveis/categoria/{$property['category_slug']}") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
                     </div>
 
                     <div class="flex flex-wrap w-full" data-slick="cards">
@@ -85,6 +85,7 @@
                                 'andress' => $item->andress,
                                 'name' => $item->name,
                                 'value' => $item->value,
+                                'status' => $item->status,
                                 'details' => json_decode($item->details, true),
                             ]);
                         } ?>

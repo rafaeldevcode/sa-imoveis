@@ -12,7 +12,7 @@ if (! isset($category)) {
     abort(404, 'Category Not Found', 'danger');
 }
 
-$properties = $property->where('category_id', '=', $category->id)->paginate(15);
+$properties = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable')->paginate(15);
 
 loadHtml(__DIR__.'/../../resources/client/layout', [
     'title' => "Categoria {$category->name}",

@@ -205,12 +205,13 @@
                 <div class="flex flex-wrap w-full" data-slick="cards">
                     <?php foreach ($properties as $item) { 
                         if ($property->id !== $item->id) {
-                            loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
+                            loadHtml(__DIR__ . '/../../resources/client/partials/', [
                                 'id' => $item->id,
                                 'code' => $item->code,
                                 'andress' => $item->andress,
                                 'name' => $item->name,
                                 'value' => $item->value,
+                                'status' => $property->status,
                                 'details' => json_decode($item->details, true),
                             ]);
                         }

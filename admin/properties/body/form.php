@@ -107,8 +107,7 @@
                         'value' => isset($property) ? $property->status : null,
                         'options' => [
                             'available' => __('Available'),
-                            'purchased' => __('Purchased'),
-                            'rented' => __('Rented'),
+                            'unavailable' => __('Unavailable'),
                             'reserved' => __('Reserved')
                         ]
                     ]) ?>

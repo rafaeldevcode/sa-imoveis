@@ -224,14 +224,12 @@ if (!function_exists('propertyStatus')) {
         $status = [
             'colors' => [
                 'available' => 'success',
-                'purchased' => 'color-main',
-                'rented' => 'primary',
+                'unavailable' => 'danger',
                 'reserved' => 'info'
             ],
             'texts' => [
                 'available' => __('Available'),
-                'purchased' => __('Purchased'),
-                'rented' => __('Rented'),
+                'unavailable' => __('Unavailable'),
                 'reserved' => __('Reserved')
             ]
         ];

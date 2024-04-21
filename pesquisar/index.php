@@ -8,7 +8,7 @@ $property = new Property();
 $requests = requests();
 
 if ($requests->type === '1') {
-    $properties = $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%")->paginate(15);
+    $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%");
 } else {
 
     if (! empty($requests->category_id)) {
@@ -24,9 +24,11 @@ if ($requests->type === '1') {
     }
 
     $property->where('value', '<=', $requests->value);
-
-    $properties = $property->paginate(15);
 }
+
+$property->where('status', '!=', 'unavailable');
+
+$properties = $property->paginate(15);
 
 loadHtml(__DIR__.'/../resources/client/layout', [
     'title' => 'Contato',

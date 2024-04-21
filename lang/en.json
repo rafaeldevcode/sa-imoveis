@@ -178,7 +178,6 @@
     "Usar na home (Não | Sim)": "Use on home (No | Yes)",
     "Internal server error": "Internal server error",
     "Available": "Available",
-    "Purchased": "Purchased",
-    "Rented": "Rented",
+    "Unavailable": "Unavailable",
     "Reserved": "Reserved"
 }

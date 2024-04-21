@@ -15,7 +15,7 @@ $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 $properties = [];
 
 foreach ($category->where('home', '=', 'on')->get() as $category) {
-    $categories = $property->where('category_id', '=', $category->id)->paginate(6);
+    $categories = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable')->paginate(6);
     $properties[$category->slug]['properties'] = $categories->data;
     $properties[$category->slug]['category_name'] = $category->name;
     $properties[$category->slug]['category_slug'] = $category->slug;

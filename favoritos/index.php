@@ -5,7 +5,7 @@ use Src\Models\Property;
 verifyMethod(405, 'GET');
 
 $property = new Property();
-$properties = empty(favorites()) ? [] : $property->whereIn('id', favorites());
+$properties = empty(favorites()) ? [] : $property->where('status', '!=', 'unavailable')->whereIn('id', favorites());
 
 loadHtml(__DIR__.'/../resources/client/layout', [
     'title' => "Favoritos",

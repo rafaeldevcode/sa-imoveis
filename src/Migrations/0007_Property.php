@@ -20,7 +20,7 @@ class Property extends ExecuteMigrations
         $this->json('details')->nullable();
         $this->json('videos')->nullable();
         $this->json('characteristics')->nullable();
-        $this->char('status', 9)->default('available');
+        $this->string('status', 11)->default('available');
         $this->integer('user_id');
         $this->integer('category_id');
 

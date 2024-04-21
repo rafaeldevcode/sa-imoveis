@@ -10,6 +10,7 @@
                     'andress' => $property->andress,
                     'name' => $property->name,
                     'value' => $property->value,
+                    'status' => $property->status,
                     'details' => json_decode($property->details, true),
                 ]);
             } ?>
