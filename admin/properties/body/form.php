@@ -106,7 +106,7 @@
                         'attributes' => ['required' => true],
                         'value' => isset($property) ? $property->type : null,
                         'options' => [
-                            'Comprar' => __('Comprar'),
+                            'Alugar' => __('Alugar'),
                             'Vender' => __('Vender'),
                         ]
                     ]) ?>

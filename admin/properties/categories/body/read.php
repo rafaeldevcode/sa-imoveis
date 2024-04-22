@@ -49,13 +49,17 @@
                                 <span class="text-sm"><?php echo $category->slug ?></span>
                             </td>
                             <td class="flex items-center justify-end py-1 px-3 space-x-2 right">
+                                <a target="_blank" rel="noopener" href="<?php route("/imoveis/categoria/{$category->slug}") ?>" title='<?php _e('View category :name', [':name' => $category->name]) ?>' class='text-xs p-2 rounded btn-info text-light fw-bold'>
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+
                                 <a href="<?php route("/admin/properties/categories/?method=edit&id={$category->id}") ?>" title='<?php _e('Edit category :name.', [':name' => $category->name]) ?>' class='text-xs p-2 rounded btn-primary text-light fw-bold'>
                                     <i class='bi bi-pencil-square'></i>
                                 </a>
 
                                 <button
                                     data-button="delete"
-                                    data-route='<?php route('/admin/categories/delete') ?>'
+                                    data-route='<?php route('/admin/properties/categories/delete') ?>'
                                     data-delete-id='<?php echo $category->id ?>'
                                     data-message-delete='<?php _e('This action will remove the category :name.', [':name' => $category->name]) ?>'
                                     type='button'

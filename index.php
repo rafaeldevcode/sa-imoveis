@@ -32,7 +32,9 @@ function loadInFooter()
 { ?>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/InputRange.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/MegaMenu.js') ?>"></script>
     <script type="text/javascript">
+        MegaMenu.init();
         Favorite.init();
         InputRange.init();
 

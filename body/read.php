@@ -1,13 +1,109 @@
 <main>
-    <section class="w-full h-[500px] md:h-[650px]" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
-        <div>
-            
+    <section class="w-full min-h-[500px] md:h-[650px] flex flex-col justify-between" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
+        <div class="container bg-white rounded-b-lg p-10 text-center flex flex-wrap">
+            <div class="w-full md:w-6/12 lg:w-3/12 border-r-none md:border-r border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="1" title="Mais opções">
+                    Apartamentos
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="hidden lg:block" data-open-target="1" data-target-open="false">
+                    <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/apartamentos') ?>">Ver Todos</a>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="01 Dormitório">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 01 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="02 Dormitórios">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 02 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="03 Dormitórios">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 03 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 04 Dorm. ou +</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mt-4 md:mt-0 w-full md:w-6/12 lg:w-3/12 border-l-none md:border-l border-r-none lg:border-r border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="2" title="Mais opções">
+                    Casas
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="hidden lg:block" data-open-target="2" data-target-open="false">
+                    <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/casas') ?>">Ver Todos</a>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="01 Dormitório">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 01 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="02 Dormitórios">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 02 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="03 Dormitórios">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 03 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 04 Dorm. ou +</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 w-full md:w-6/12 lg:w-3/12 border-l-none lg:border-l border-r-none md:border-r border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="3" title="Mais opções">
+                    Comercial
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="mt-5 hidden lg:block" data-open-target="3" data-target-open="false">
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Sala Comercial" href="<?php route('/imoveis/categoria/sala-comercial') ?>">Sala Comercial</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Pavilhão" href="<?php route('/imoveis/categoria/pavilhao') ?>">Pavilhão</a>
+                </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 w-full md:w-6/12 lg:w-3/12 border-l-none md:border-l border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="4" title="Mais opções">
+                    Terrenos
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="mt-5 hidden lg:block" data-open-target="4" data-target-open="false">
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Terrenos Comerciais" href="<?php route('/imoveis/categoria/terrenos-comerciais') ?>">Terrenos Comerciais</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Terrenos Residenciais" href="<?php route('/imoveis/categoria/terrenos-residenciais') ?>">Terrenos Residenciais</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Sítios" href="<?php route('/imoveis/categoria/sitio') ?>">Sítios</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Área Rural" href="<?php route('/imoveis/categoria/area-rural') ?>">Área Rural</a>
+                </div>
+            </div>
         </div>
     
-        <div class="relative container h-full px-4 py-12 flex justify-center items-end">
-            <form action="<?php route('/pesquisar') ?>" method="POST" class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">
-                <input type="hidden" name="type" value="2">
-                
+        <div class="relative container px-4 py-12 flex justify-center items-end">
+            <form action="<?php route('/pesquisar') ?>" method="POST" class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
                 <div class="w-full lg:w-2/12 md:w-4/12">
                         <div class="px-0 md:px-2 py-2 lg:py-0">
                         <select name="type" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">

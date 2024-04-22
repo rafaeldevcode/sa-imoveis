@@ -7,26 +7,28 @@ use Src\Models\Property;
 $property = new Property();
 $requests = requests();
 
-if ($requests->type === '1') {
+if (isset($requests->search_type) && $requests->search_type === '1') {
     $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%");
 } else {
-    if (! empty($requests->type)) {
+    if (isset($requests->type) && ! empty($requests->type)) {
         $property = $property->where('type', '=', $requests->type);
     }
 
-    if (! empty($requests->category_id)) {
+    if (isset($requests->category_id) && ! empty($requests->category_id)) {
         $property = $property->where('category_id', '=', $requests->category_id);
     }
 
-    if (! empty($requests->bedrooms)) {
+    if (isset($requests->bedrooms) && ! empty($requests->bedrooms)) {
         $property = $property->where('details', 'LIKE', "%{$requests->bedrooms}%");
     }
 
-    if (! empty($requests->andress)) {
+    if (isset($requests->andress) && ! empty($requests->andress)) {
         $property = $property->where('andress', 'LIKE', "%{$requests->andress}%");
     }
 
-    $property->where('value', '<=', $requests->value);
+    if (isset($requests->value) && ! empty($requests->value)) {
+        $property->where('value', '<=', $requests->value);
+    }
 }
 
 $property->where('status', '!=', 'unavailable');
