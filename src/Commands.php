@@ -3,6 +3,7 @@
 namespace Src;
 
 use Src\Migrations\ExecuteMigrations;
+use Src\Models\Category;
 use Src\Models\Migrations;
 use Src\Models\Gallery;
 use Src\Models\Setting;
@@ -130,6 +131,14 @@ class Commands
             ]);
 
             (new User())->find($user->id)->update(['avatar' => $avatar->id]);
+
+            // Create default categories
+            foreach (defaultCategories() as $category) {
+                (new Category)->create([
+                    'name' => $category,
+                    'slug' => normalizeSlug($category),
+                ]);
+            }
 
             echo "Email: {$email} \n";
             echo "Senha: {$password}\n\n";
