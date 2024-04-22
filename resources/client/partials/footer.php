@@ -18,13 +18,13 @@
                         <a href="<?php route('/') ?>" title="Inicio">Inicio</a>
                     </li>
                     <li>
-                        <a href="<?php route('/imoveis/categoria/comprar') ?>" title="Comprar">Comprar</a>
+                        <a href="<?php route("/comprar") ?>" title="Comprar">Comprar</a>
                     </li>
                     <li>
-                        <a href="<?php route('/imoveis/categoria/alugar') ?>" title="Alugar">Alugar</a>
+                        <a href="<?php route("/alugar") ?>" title="Alugar">Alugar</a>
                     </li>
                     <li>
-                        <a href="<?php route('/#sobre') ?>" title="Quem Somos">Quem Somos</a>
+                        <a href="<?php route('/sobre') ?>" title="Quem Somos">Quem Somos</a>
                     </li>
                     <li>
                         <a href="<?php route('/contato') ?>" title="Contato">Contato</a>

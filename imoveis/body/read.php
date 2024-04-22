@@ -13,19 +13,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach (getImages($property->id) as $indice => $image) { 
                 if ($indice < 4) { ?>
-                    <div class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2' : '' ?>">
-                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg" alt="<?php echo $property->name ?>">
+                    <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2' : '' ?>">
+                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg h-full object-cover" alt="<?php echo $property->name ?>">
                     </div>
                 <?php } elseif($indice === 4) { ?>
                     <div class="rounded-lg cursor-pointer relative flex items-center justify-center">
-                        <div class="z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
+                        <div class="rounded-lg z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
 
-                        <button class='z-[2] absolute text-white font-bold' type="button" title="FOTOS">
+                        <button data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class='z-[2] absolute text-white font-bold w-full h-full' type="button" title="FOTOS">
                             VER MAIS
                         </button>
 
-                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg" alt="<?php echo $property->name ?>">
+                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg w-full h-full object-cover" alt="<?php echo $property->name ?>">
                     </div>
+                <?php } else { ?>
+                    <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="hidden"></div>
                 <?php }
             } ?>
         </div>
@@ -40,7 +42,7 @@
                         <i class="bi bi-camera-fill"></i>
                     </button>
                     <?php if (is_array($videos) && ! empty($videos)) { ?>
-                        <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
+                        <button data-videos="<?php echo implode(',', json_decode($property->videos, true)) ?>" id="gallery-videos" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
                             VIDEOS
                             <i class="bi bi-play-circle-fill"></i>
                         </button>
@@ -69,7 +71,7 @@
                             <?php if (isset($details['total_area']) && ! empty($details['total_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
-                                    <span><?php echo $details['total_area'] ?></span>
+                                    <span><?php echo $details['total_area'] ?> m²</span>
                                     <span>Área Total</span>
                                 </li>
                             <?php } ?>
@@ -77,7 +79,7 @@
                             <?php if (isset($details['private_area']) && ! empty($details['private_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
-                                    <span><?php echo $details['private_area'] ?></span>
+                                    <span><?php echo $details['private_area'] ?> m²</span>
                                     <span>Área Privativa</span>
                                 </li>
                             <?php } ?>
@@ -129,17 +131,17 @@
                 <div>
                     <div class="flex justify-between">
                         <span class="text-lg">Valor do Imóvel</span>
-                        <span class="text-color-main font-bold text-2xl"><?php echo $property->value ?></span>
+                        <span class="text-color-main font-bold text-2xl">R$ <?php echo number_format($property->value, 2, ',', '.') ?></span>
                     </div>
 
                     <div class="flex justify-between">
                         <span class="text-lg">Condomínio*</span>
-                        <span class="text-lg"><?php echo $property->condominium ?></span>
+                        <span class="text-lg">R$ <?php echo number_format($property->condominium, 2, ',', '.') ?>/mês</span>
                     </div>
 
                     <div class="flex justify-between">
                         <span class="text-lg">IPTU*</span>
-                        <span class="text-lg"><?php echo $property->iptu ?></span>
+                        <span class="text-lg">R$ <?php echo number_format($property->iptu, 2, ',', '.') ?>/ano</span>
                     </div>
 
                     <p class="text-lg mt-4">*Valores sujeitos a alteração</p>
@@ -153,8 +155,8 @@
                         </a>
                     <?php } ?>
 
-                    <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
-                        <i class="bi bi-heart"></i>
+                    <button data-favorite="<?php echo $property->id ?>" data-favorite-status="<?php echo in_array($property->id, favorites()) ? 'true' : 'false' ?>" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
+                        <i class="bi <?php echo in_array($property->id, favorites()) ? 'bi-heart-fill' : 'bi-heart' ?>"></i>
                         Adicionar aos Favoritos
                     </button>
 
@@ -190,20 +192,35 @@
         </div>
     </section>
 
-    <section class="py-12 container">
-        <div>
-            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                <div class="text-center mb-2 md:mb-0">
-                    <p class="text-secondary text-md">VEJA OUTROS IMÓVEIS</p>
-                    <h2 class="text-color-main font-bold text-2xl">QUE ENCONTRAMOS PARA VOCÊ</h2>    
+    <?php if (count($properties) > 1) { ?>
+        <section class="py-12 container">
+            <div>
+                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                    <div class="text-center mb-2 md:mb-0">
+                        <p class="text-secondary text-md">VEJA OUTROS IMÓVEIS</p>
+                        <h2 class="text-color-main font-bold text-2xl">QUE ENCONTRAMOS PARA VOCÊ</h2>    
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap w-full" data-slick="cards">
+                    <?php foreach ($properties as $item) { 
+                        if ($property->id !== $item->id) {
+                            loadHtml(__DIR__ . '/../../resources/client/partials/', [
+                                'id' => $item->id,
+                                'code' => $item->code,
+                                'andress' => $item->andress,
+                                'name' => $item->name,
+                                'value' => $item->value,
+                                'status' => $property->status,
+                                'details' => json_decode($item->details, true),
+                            ]);
+                        }
+                    } ?>
                 </div>
             </div>
+        </section>
+    <?php } ?>
 
-            <div class="flex flex-wrap w-full" data-slick="cards">
-                <?php // for ($i=0; $i < 3; $i++) { 
-                    // loadHtml(__DIR__ . '/../../resources/client/partials/card-properties');
-                // } ?>
-            </div>
-        </div>
-    </section>
+    <?php loadHtml(__DIR__ . '/partials/videos') ?>
+    <?php loadHtml(__DIR__ . '/partials/images') ?>
 </main>

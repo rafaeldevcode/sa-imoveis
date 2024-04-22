@@ -12,7 +12,7 @@ if (! isset($category)) {
     abort(404, 'Category Not Found', 'danger');
 }
 
-$properties = $property->where('category_id', '=', $category->id)->paginate(15);
+$properties = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable')->paginate(15);
 
 loadHtml(__DIR__.'/../../resources/client/layout', [
     'title' => "Categoria {$category->name}",
@@ -23,8 +23,9 @@ loadHtml(__DIR__.'/../../resources/client/layout', [
 
 function loadInFooter() 
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">
-
+        Favorite.init();
         $(document).ready(function(){
             $('[data-slick="images"]').slick({
                 slidesToShow: 1,

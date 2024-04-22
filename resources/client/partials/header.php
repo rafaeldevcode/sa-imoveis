@@ -30,27 +30,28 @@
                 <div class="flex flex-col lg:flex-row gap-10">
                     <ul class="flex flex-col lg:flex-row gap-4 lg:gap-6">
                         <li>
-                            <a href="<?php route('/') ?>" class="<?php isActive('') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="INICIO">INICIO</a>
+                            <a href="<?php route('/') ?>" class="<?php isActive('') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="INICIO">INICIO</a>
                         </li>
 
                         <li>
-                            <a href="<?php route('/imoveis/categoria/comprar') ?>" class="<?php isActive('comprar') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="COMPRAR">COMPRAR</a>
+                            <a href="<?php route("/comprar") ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
                         </li>
 
                         <li>
-                            <a href="<?php route('/imoveis/categoria/alugar') ?>" class="<?php isActive('alugar') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="ALUGAR">ALUGAR</a>
+                            <a href="<?php route("/alugar") ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
                         </li>
 
                         <li>
-                            <a href="<?php route('/sobre') ?>" class="<?php isActive('sobre') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="QUEM SOMOS">QUEM SOMOS</a>
+                            <a href="<?php route('/sobre') ?>" class="<?php isActive('sobre') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="QUEM SOMOS">QUEM SOMOS</a>
                         </li>
 
                         <li>
-                            <a href="<?php route('/contato') ?>" class="<?php isActive('contato') ?> border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="CONTATO">CONTATO</a>
+                            <a href="<?php route('/contato') ?>" class="<?php isActive('contato') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="CONTATO">CONTATO</a>
                         </li>
                     </ul>
 
-                    <form action='?' method='POST' class='input-group'>
+                    <form action='<?php route('/pesquisar') ?>' method='POST' class="flex">
+                        <input type="hidden" name="search_type" value="1">
                         <input type='search' class='text-white py-1 px-4 border placeholder:text-secondary lg:placeholder:text-white bg-white lg:bg-color-main border-secondary placeholder:text-sm mr-[-5px] placeholder:italic' name='search' placeholder='Buscar por código ou nome' value='<?php echo isset(requests()->search) ? requests()->search : '' ?>'>
                         
                         <button title="<?php _e('Submit search') ?>" type='submit' class='input-group-text py-1 px-2 btn-secondary' id='search'>

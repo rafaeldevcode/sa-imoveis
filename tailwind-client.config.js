@@ -10,6 +10,7 @@ module.exports = {
         "./resources/client/**/*.php",
         "./public/assets/scripts/**/*.js",
         "./resources/partials/**/*.php",
+        "./resources/*.php",
         "./suports/**/*.php",
         "./policies/*.php",
         "./sobre/**/*.php",

@@ -73,6 +73,29 @@ class Model
         return $this;
     }
 
+    public function whereIn(string $column, array $values)
+    {
+        $whereClause = $this->whereClausure();
+
+        $query = "SELECT * FROM $this->table";
+   
+        $query = empty($whereClause->clausure) ? "{$query} WHERE" : "{$query}{$whereClause->clausure} AND";
+
+        $query = "{$query} $column IN (".implode(",", $values).")";
+            
+        $statement = $this->connection->prepare($query);
+
+        foreach ($whereClause->bindings as $column => $value):
+            $statement->bindValue(":{$column}", $value);
+        endforeach;
+        
+        $statement->execute();
+        
+        $this->data = json_decode(json_encode($statement->fetchAll(PDO::FETCH_ASSOC)));
+
+        return $this->data;
+    }
+
     public function find(int $id = 1): self
     {
         $this->wheres = [];

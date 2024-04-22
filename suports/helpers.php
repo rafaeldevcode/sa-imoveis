@@ -1,5 +1,6 @@
 <?php
 
+use Src\Models\Category;
 use Src\Models\Property;
 
 require __DIR__ . '/helpers/trans.php';
@@ -9,7 +10,7 @@ require __DIR__ . '/helpers/requests.php';
 require __DIR__ . '/helpers/menus-admin.php';
 require __DIR__ . '/helpers/routes.php';
 
-!defined('APP_VERSION') && define('APP_VERSION', '1.5.0');
+!defined('APP_VERSION') && define('APP_VERSION', '1.6.0');
 
 if (!function_exists('server')) {
     function server(?string $option = null): stdClass|string
@@ -182,6 +183,60 @@ if (!function_exists('getImages')) {
         $property = $property->find($id);
 
         return isset($property) ? $property->images()->data : [];
+    }
+};
+
+if (!function_exists('favorites')) {
+    function favorites(): array
+    {
+        static $favorites = [];
+
+        if(isset($_COOKIE['properties::favorites'])) {
+            $favorites = $_COOKIE['properties::favorites'];
+
+            return json_decode($favorites, true);
+        } else {
+            return $favorites;
+        }
+    }
+};
+
+if (!function_exists('propertyStatus')) {
+    function propertyStatus(string $value, string $type): string
+    {
+        $status = [
+            'colors' => [
+                'available' => 'success',
+                'unavailable' => 'danger',
+                'reserved' => 'info'
+            ],
+            'texts' => [
+                'available' => __('Available'),
+                'unavailable' => __('Unavailable'),
+                'reserved' => __('Reserved')
+            ]
+        ];
+
+        return $status[$type][$value];
+    }
+};
+
+if (!function_exists('defaultCategories')) {
+    function defaultCategories(): array
+    {
+        $categories = [
+            'Apartamentos',
+            'Casas',
+            'Sala Comercial',
+            'Terrenos',
+            'Pavilhão',
+            'Terrenos Comerciais',
+            'Terrenos Residenciais',
+            'Sítio',
+            'Área Rural'
+        ];
+
+        return $categories;
     }
 };
 

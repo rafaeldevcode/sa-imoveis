@@ -12,15 +12,17 @@ class Property extends ExecuteMigrations
         $this->string('name', 255);
         $this->longtext('description')->nullable();
         $this->integer('code');
-        $this->string('value', 17);
-        $this->string('condominium', 17);
-        $this->string('iptu', 17)->nullable();
+        $this->decimal('value', 12, 2);
+        $this->decimal('condominium', 10, 2);
+        $this->decimal('iptu', 10, 2)->nullable();
         $this->string('andress', 255);
         $this->text('location')->nullable();
         $this->json('details')->nullable();
         $this->json('videos')->nullable();
         $this->json('characteristics')->nullable();
-        $this->char('status', 3)->default('off');
+        $this->string('status', 11)->default('available');
+        $this->string('type', 8);
+        $this->char('is_launch', 3)->default('off');
         $this->integer('user_id');
         $this->integer('category_id');
 

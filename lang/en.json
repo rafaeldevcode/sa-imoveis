@@ -173,5 +173,14 @@
     "Total area": "Total area",
     "Garage": "Garage",
     "Dormitories": "Dormitories",
-    "Code": "Code"
+    "Code": "Code",
+    "Usar no menu (Não | Sim)": "Use in menu (No | Yes)",
+    "Usar na home (Não | Sim)": "Use on home (No | Yes)",
+    "Internal server error": "Internal server error",
+    "Available": "Available",
+    "Unavailable": "Unavailable",
+    "Reserved": "Reserved",
+    "Purpose of the property": "Purpose of the property",
+    "Category": "Category",
+    "View category :name": "View category :name"
 }

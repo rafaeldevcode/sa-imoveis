@@ -27,7 +27,6 @@
                 ]) ?>
             </div>
         </div>
-        </div>
 
         <div class='flex justify-end px-4'>
             <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-button', [

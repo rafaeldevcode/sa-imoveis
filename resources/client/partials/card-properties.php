@@ -1,6 +1,14 @@
 <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12">
     <div class="rounded-xl bg-white h-[500px]">
-        <div class="h-[60%]">
+        <div class="h-[60%] relative">
+            <?php if ($status === 'reserved') { ?>
+                <div class="-rotate-45 translate-x-[-37px] translate-y-[37px] absolute top-0 left-0 z-[2] px-10 py-1 opacity-70 bg-color-main h-auto w-auto text-white uppercase text-center font-bold">
+                    <div class="absolute top-0 left-0 w-[0px] border-b-[32px] border-l-[32px] border-b-transparent border-l-[#F4F4F4]"></div>
+                    Reservado
+                    <div class="absolute top-0 right-0 w-[0px] border-t-[30px] border-l-[30px] border-t-[#F4F4F4] border-l-transparent"></div>
+                </div>    
+            <?php } ?>
+
             <div class="h-[256px] rounded-t-xl" data-slick="images">
                 <?php foreach (getImages($id) as $image) { ?>
                     <a href="<?php route("/imoveis/{$id}") ?>" title="<?php echo $name ?>">
@@ -10,10 +18,10 @@
             </div>
 
             <div class="w-full p-2 bg-color-main flex justify-between items-center">
-                <p class="text-white font-bold text-xl"><?php echo $value ?></p>
-                
-                <button>
-                    <i class="bi bi-heart text-white text-xl"></i>
+                <p class="text-white font-bold text-xl">R$ <?php echo number_format($value, 2, ',', '.') ?></p>
+
+                <button data-favorite="<?php echo $id ?>" data-favorite-status="<?php echo in_array($id, favorites()) ? 'true' : 'false' ?>">
+                    <i class="bi <?php echo in_array($id, favorites()) ? 'bi-heart-fill' : 'bi-heart' ?> text-white text-xl"></i>
                 </button>
             </div>
         </div>

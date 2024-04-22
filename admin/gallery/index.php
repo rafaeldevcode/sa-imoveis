@@ -1,4 +1,5 @@
 <?php
+
 use Src\Models\Gallery;
 
 $gallery = new Gallery();
@@ -12,8 +13,8 @@ loadHtml(__DIR__ . '/../../resources/admin/layout', [
     'type' => __('View'),
     'icon' => 'bi bi-images',
     'title' => __('Gallery'),
-    'routeelete' => '/admin/gallery/delete',
-    'route_search' => '/admin/gallery',
+    'routeDelete' => '/admin/gallery/delete',
+    'routeSearch' => '/admin/gallery',
     'body' => __DIR__ . '/body/read',
     'data' => ['images' => $images, 'search' => $search],
 ]);

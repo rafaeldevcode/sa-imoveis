@@ -1,8 +1,6 @@
 <?php
 
-verifyMethod(500, 'POST');
-
-verifyMethod(500, 'POST');
+verifyMethod(405, 'POST');
 
 use Src\Models\Category;
 
@@ -12,7 +10,7 @@ $category = new Category();
 $slug = normalizeSlug($requests->slug);
 $categorySlug = $category->where('slug', '=', $slug)->first();
 
-if (is_null($categorySlug) || $categorySlug->id === $requests->id) {
+if (is_null($categorySlug) || $categorySlug->id == $requests->id) {
     $category->find($requests->id)->update([
         'name' => $requests->name,
         'slug' => $slug,

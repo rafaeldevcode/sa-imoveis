@@ -1,59 +1,162 @@
 <main>
-    <section class="w-full h-[500px] md:h-[650px]" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
-        <div class="relative container h-full px-4 py-12 flex justify-center items-end">
-            <div class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap">
-                <div class="w-full sm:w-2/12">
-                        <div clapx-0 sm:ss=" py-2 sm:py-0px-2">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Interesse</option>
-                        </select>
-                    </div>
-                </div>
+    <section class="w-full min-h-[500px] md:h-[650px] flex flex-col justify-between" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
+        <div class="container bg-white rounded-b-lg p-10 text-center flex flex-wrap">
+            <div class="w-full md:w-6/12 lg:w-3/12 border-r-none md:border-r border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="1" title="Mais opções">
+                    Apartamentos
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Tipo do Imóvel</option>
-                        </select>
-                    </div>
-                </div>
+                <div class="hidden lg:block" data-open-target="1" data-target-open="false">
+                    <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/apartamentos') ?>">Ver Todos</a>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Dormitórios</option>
-                        </select>
-                    </div>
-                </div>
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="01 Dormitório">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 01 Dorm.</button>
+                    </form>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Cidade</option>
-                        </select>
-                    </div>
-                </div>
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="02 Dormitórios">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 02 Dorm.</button>
+                    </form>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select id="" name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full py-2">
-                            <option value="">Bairro</option>
-                        </select>
-                    </div>
-                </div>
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="03 Dormitórios">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 03 Dorm.</button>
+                    </form>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-        
-                    </div>
-                </div>
-
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
-
-                    </div>
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
+                        <input type="hidden" name="category_id" value="1">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 04 Dorm. ou +</button>
+                    </form>
                 </div>
             </div>
+
+            <div class="mt-4 md:mt-0 w-full md:w-6/12 lg:w-3/12 border-l-none md:border-l border-r-none lg:border-r border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="2" title="Mais opções">
+                    Casas
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="hidden lg:block" data-open-target="2" data-target-open="false">
+                    <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/casas') ?>">Ver Todos</a>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="01 Dormitório">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 01 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="02 Dormitórios">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 02 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="03 Dormitórios">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 03 Dorm.</button>
+                    </form>
+
+                    <form method="POST" action="<?php route('/pesquisar') ?>">
+                        <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
+                        <input type="hidden" name="category_id" value="2">
+                        <button class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 04 Dorm. ou +</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 w-full md:w-6/12 lg:w-3/12 border-l-none lg:border-l border-r-none md:border-r border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="3" title="Mais opções">
+                    Comercial
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="mt-5 hidden lg:block" data-open-target="3" data-target-open="false">
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Sala Comercial" href="<?php route('/imoveis/categoria/sala-comercial') ?>">Sala Comercial</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Pavilhão" href="<?php route('/imoveis/categoria/pavilhao') ?>">Pavilhão</a>
+                </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 w-full md:w-6/12 lg:w-3/12 border-l-none md:border-l border-color-main">
+                <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="4" title="Mais opções">
+                    Terrenos
+                    <i class="bi bi-chevron-right block lg:hidden"></i>
+                </button>
+
+                <div class="mt-5 hidden lg:block" data-open-target="4" data-target-open="false">
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Terrenos Comerciais" href="<?php route('/imoveis/categoria/terrenos-comerciais') ?>">Terrenos Comerciais</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Terrenos Residenciais" href="<?php route('/imoveis/categoria/terrenos-residenciais') ?>">Terrenos Residenciais</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Sítios" href="<?php route('/imoveis/categoria/sitio') ?>">Sítios</a>
+
+                    <a class="py-2 hover:text-secondary ease-in duration-300 block" title="Área Rural" href="<?php route('/imoveis/categoria/area-rural') ?>">Área Rural</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="relative container px-4 py-12 flex justify-center items-end">
+            <form action="<?php route('/pesquisar') ?>" method="POST" class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                        <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <select name="type" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
+                            <option value="">Interesse</option>
+                            <option value="Vender">Comprar</option>
+                            <option value="Alugar">Alugar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <select name="category_id" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
+                            <option value="">Categoria</option>
+
+                            <?php foreach ($categories as $indice => $category) { ?>
+                                <option value="<?php echo $indice ?>"><?php echo $category ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <select name="bedrooms" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
+                            <option value="">Dormitórios</option>
+                            <option value="01 Dormitório">01 Dormitório</option>
+                            <option value="02 Dormitórios">02 Dormitórios</option>
+                            <option value="03 Dormitórios">03 Dormitórios</option>
+                            <option value="04 Dormitórios ou +">04 Dormitórios ou +</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <input type="text" name="andress" placeholder="Cidade" class="py-3 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full" />  
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">50.000</span></b></label>
+                        <input type="range" id="value" name="value" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <input type="submit" value="Buscar" title="Buscar" class="uppercase py-3 px-2 bg-color-main text-white font-bold border border-color-main cursor-pointer ease-in duration-300 hover:bg-white hover:text-color-main text-md rounded-lg  block w-full" />  
+                    </div>
+                </div>
+            </form>
 
             <?php if (! empty(SETTINGS->whatsapp)) { ?>
                 <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" class="absolute right-0 bottom-[-50px] w-[80px] h-[80px] rounded-full bg-[#00A900] text-white flex items-center justify-center">
@@ -63,89 +166,86 @@
         </div>
     </section>
 
-    <?php if (! empty($lancamentos)) { ?>
-        <section class="py-12 bg-[#F4F4F4]">
-            <div class="container">
-                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                    <div class="text-center mb-2 md:mb-0">
-                        <p class="text-secondary text-md">DESTAQUES</p>
-                        <h2 class="text-color-main font-bold text-2xl">LANÇAMENTOS</h2>    
-                    </div>
-
-                    <a href='<?php route('/imoveis/categoria/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Lançamentos</h2>    
                 </div>
 
-                <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($lancamentos as $lancamento) { 
-                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                            'id' => $lancamento->id,
-                            'code' => $lancamento->code,
-                            'andress' => $lancamento->andress,
-                            'name' => $lancamento->name,
-                            'value' => $lancamento->value,
-                            'details' => json_decode($lancamento->details, true),
-                        ]);
-                    } ?>
-                </div>
+                <a href='<?php route("/lancamentos") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
-        </section>
-    <?php } ?>
 
-    <?php if (! empty($vendas)) { ?>
-        <section class="py-12 bg-[#F4F4F4]">
-            <div class="container">
-                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                    <div class="text-center mb-2 md:mb-0">
-                        <p class="text-secondary text-md">DESTAQUES</p>
-                        <h2 class="text-color-main font-bold text-2xl">VENDAS</h2>    
-                    </div>
-
-                    <a href='<?php route('/imoveis/categoria/vendas') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
-                </div>
-
-                <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($vendas as $venda) { 
-                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                            'id' => $venda->id,
-                            'code' => $venda->code,
-                            'andress' => $venda->andress,
-                            'name' => $venda->name,
-                            'value' => $venda->value,
-                            'details' => json_decode($venda->details, true),
-                        ]);
-                    } ?>
-                </div>
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($releases as $item) { 
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
             </div>
-        </section>
-    <?php } ?>
+        </div>
+    </section>
 
-    <?php if (! empty($alugueis)) { ?>
-        <section class="py-12 bg-[#F4F4F4]">
-            <div class="container">
-                <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                    <div class="text-center mb-2 md:mb-0">
-                        <p class="text-secondary text-md">DESTAQUES</p>
-                        <h2 class="text-color-main font-bold text-2xl">ALUGUÉIS</h2>    
-                    </div>
-
-                    <a href='<?php route('/imoveis/categoria/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Comprar</h2>    
                 </div>
 
-                <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($alugueis as $aluguel) { 
-                        loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                            'id' => $aluguel->id,
-                            'code' => $aluguel->code,
-                            'andress' => $aluguel->andress,
-                            'name' => $aluguel->name,
-                            'value' => $aluguel->value,
-                            'details' => json_decode($aluguel->details, true),
-                        ]);
-                    } ?>
-                </div>
+                <a href='<?php route("/comprar") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
-        </section>
-    <?php } ?>
+
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($sell as $item) { 
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Alugar</h2>    
+                </div>
+
+                <a href='<?php route("/alugar") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            </div>
+
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($toHire as $item) { 
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
+        </div>
+    </section>
 
     <section class="py-12 bg-color-main">
         <div class="container flex justify-center flex-wrap">
@@ -199,7 +299,7 @@
                 <p class="text-secondary text-md">SOBRE NÓS</p>
                 <h2 class="text-color-main font-bold text-2xl mb-6">SANTO ANTÔNIO IMÓVEIS</h2>
 
-                <p><?php echo getExcerpt($about, 400) ?></p>
+                <p><?php echo ! empty($about) ? getExcerpt($about, 400) : '' ?></p>
             
                 <a href='<?php route('/sobre') ?>' title='Leia Mais' class='text-xs btn btn-color-main font-bold mx-1 text-center mt-6'>Leia Mais</a>    
             </div>

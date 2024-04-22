@@ -72,6 +72,11 @@ if (!function_exists('verifyMethod')) {
         switch ($error) {
             case 500:
                 $type = 'warning';
+                $message = __('Internal server error');
+
+                break;
+            case 405:
+                $type = 'warning';
                 $message = __(':method method not allowed', [':method' => $server->REQUEST_METHOD]);
 
                 break;

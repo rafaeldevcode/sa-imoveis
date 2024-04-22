@@ -1,7 +1,6 @@
 <?php
 
 use Src\Models\Category;
-use Src\Models\Gallery;
 use Src\Models\Property;
 
 $method = empty(querys('method')) ? 'read' : querys('method');
@@ -59,10 +58,16 @@ function loadInFooter(): void
     loadHtml(__DIR__ . '/../../resources/admin/partials/gallery');
     loadHtml(__DIR__ . '/../../resources/admin/partials/modal-delete') ?>
 
+    <script type="text/javascript" src="<?php asset('libs/jquery/jquery.mask.min.js?')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/CreateInput.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/ChangeLocationMaps.js?') ?>"></script>
     <script type="text/javascript">
+        // Apply mask
+        $('#value').mask('000.000.000.000.000,00', {reverse: true});
+        $('#condominium').mask('000.000.000.000.000,00', {reverse: true});
+        $('#iptu').mask('000.000.000.000.000,00', {reverse: true});
+
         const gallery = new Gallery();
         gallery.openModalSelect($('[data-upload=thumbnail]'), 'radio');
         gallery.openModalSelect($('[data-upload=collection]'), 'checkbox');
@@ -78,7 +83,7 @@ function loadInFooter(): void
         tinymce.init({
             selector: '#tinymce',
             language: 'pt_BR',
-            height: 630,
+            height: 773,
             image_advtab: true,
             plugins: 'code anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat code',

@@ -4,12 +4,13 @@ verifyMethod(405, 'GET');
 
 use Src\Models\Property;
 
-$property = new Property();
-$property = $property->find(slug(2));
+$property = (new Property())->find(slug(2));
 
-if (! isset($property)) {
+if (! isset($property->data) || ($property->data->status === 'unavailable' && ! autenticate())) {
     abort(404, 'Property Not Found', 'danger');
 }
+
+$properties = (new Property())->where('category_id', '=', $property->data->category_id)->paginate(4);
 
 loadHtml(__DIR__.'/../resources/client/layout', [
     'title' => "Imóvel",
@@ -20,13 +21,25 @@ loadHtml(__DIR__.'/../resources/client/layout', [
         'videos' => json_decode($property->data->videos, true),
         'characteristics' => json_decode($property->data->characteristics),
         'details' => json_decode($property->data->details, true),
+        'properties' => $properties->data,
     ],
     'plugins' => ['slick'],
 ]);
 
 function loadInFooter() 
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Videos.js') ?>"></script>    
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Images.js') ?>"></script>    
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">
+        Favorite.init();
+        
+        const images =  new Images;
+        images.init();
+
+        const videos =  new Videos;
+        videos.init();
+
         $('[data-iframe="location"]').on('click', (event) => {
             const iframe = $(`#${$(event.target).attr('data-iframe')}`);
             

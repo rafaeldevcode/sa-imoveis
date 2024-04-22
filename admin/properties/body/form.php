@@ -81,7 +81,6 @@
                         'label' => __('Link on google map'),
                         'type' => 'text',
                         'attributes' => [
-                            'required' => true,
                             'onkeyup' => 'ChangeLocationMaps.init(event)',
                         ],
                         'value' => isset($property) ? $property->location : null,
@@ -100,10 +99,39 @@
                 </div>
 
                 <div class='w-full'>
-                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-hash',
+                        'name' => 'type',
+                        'label' => __('Purpose of the property'),
+                        'attributes' => ['required' => true],
+                        'value' => isset($property) ? $property->type : null,
+                        'options' => [
+                            'Alugar' => __('Alugar'),
+                            'Vender' => __('Vender'),
+                        ]
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-hash',
                         'name' => 'status',
-                        'label' => __('Property status (Inactive | Active)'),
+                        'label' => __('Status'),
+                        'attributes' => ['required' => true],
                         'value' => isset($property) ? $property->status : null,
+                        'options' => [
+                            'available' => __('Available'),
+                            'unavailable' => __('Unavailable'),
+                            'reserved' => __('Reserved'),
+                        ]
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
+                        'name' => 'is_launch',
+                        'label' => __('É lançamento? (Não | Sim)'),
+                        'value' => isset($property) ? $property->is_launch : null,
                     ]) ?>
                 </div>
             </div>

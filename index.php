@@ -10,26 +10,33 @@ $settings = new Setting();
 $category = new Category();
 
 $setting = $settings->first();
-$property = new Property();
-$lancamentos = $property->where('category_id', '=', 3)->paginate(6);
-$vendas = $property->where('category_id', '=', 1)->paginate(6);
-$alugueis = $property->where('category_id', '=', 4)->paginate(6);
+$releases = (new Property)->where('is_launch', '=', 'on')->where('status', '!=', 'unavailable')->paginate(6);
+$sell = (new Property)->where('type', '=', 'Vender')->where('status', '!=', 'unavailable')->paginate(6);
+$toHire = (new Property)->where('type', '=', 'Alugar')->where('status', '!=', 'unavailable')->paginate(6);
+$categoriesArray = getArraySelect($category->get(), 'id', 'name');
 
 loadHtml(__DIR__.'/resources/client/layout', [
     'title' => 'Inicio',
     'body' => __DIR__ . '/body/read',
     'data' => [
         'about' => $setting->about_company,
-        'lancamentos' => $lancamentos->data,
-        'vendas' => $vendas->data,
-        'alugueis' => $alugueis->data,
+        'releases' => $releases->data,
+        'sell' => $sell->data,
+        'toHire' => $toHire->data,
+        'categories' => $categoriesArray,
     ],
     'plugins' => ['slick'],
 ]);
 
 function loadInFooter() 
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/InputRange.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/MegaMenu.js') ?>"></script>
     <script type="text/javascript">
+        MegaMenu.init();
+        Favorite.init();
+        InputRange.init();
 
         $(document).ready(function(){
             $('[data-slick="images"]').slick({
