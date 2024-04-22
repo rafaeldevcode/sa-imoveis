@@ -8,6 +8,7 @@ $requests = requests();
 $property = new Property();
 
 $collection = isset($requests->collection) ? $requests->collection : null;
+$isLaunch = isset($requests->is_launch) ? $requests->is_launch : 'off';
 
 $newProperty = $property->create([
     'name' => $requests->name,
@@ -22,6 +23,8 @@ $newProperty = $property->create([
     'videos' => isset($requests->videos) ? json_encode($requests->videos) : null,
     'characteristics' => isset($requests->characteristics) ? json_encode($requests->characteristics) : null,
     'status' => $requests->status,
+    'type' => $requests->type,
+    'is_launch' => $isLaunch,
     'user_id' => $_SESSION['user_id'],
     'category_id' => $requests->category_id,
 ]);

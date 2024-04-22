@@ -1,19 +1,25 @@
 <main>
     <section class="w-full h-[500px] md:h-[650px]" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
+        <div>
+            
+        </div>
+    
         <div class="relative container h-full px-4 py-12 flex justify-center items-end">
             <form action="<?php route('/pesquisar') ?>" method="POST" class="bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">
                 <input type="hidden" name="type" value="2">
                 
-                <div class="w-full sm:w-2/12">
-                        <div class="px-0 sm:px-2 py-2 sm:py-0">
-                        <select name="" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                        <div class="px-0 md:px-2 py-2 lg:py-0">
+                        <select name="type" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                             <option value="">Interesse</option>
+                            <option value="Vender">Comprar</option>
+                            <option value="Alugar">Alugar</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
                         <select name="category_id" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                             <option value="">Categoria</option>
 
@@ -24,8 +30,8 @@
                     </div>
                 </div>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
                         <select name="bedrooms" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                             <option value="">Dormitórios</option>
                             <option value="01 Dormitório">01 Dormitório</option>
@@ -36,21 +42,21 @@
                     </div>
                 </div>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
                         <input type="text" name="andress" placeholder="Cidade" class="py-3 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full" />  
                     </div>
                 </div>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
                         <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">50.000</span></b></label>
                         <input type="range" id="value" name="value" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
                     </div>
                 </div>
 
-                <div class="w-full sm:w-2/12">
-                    <div class="px-0 sm:px-2 py-2 sm:py-0">
+                <div class="w-full lg:w-2/12 md:w-4/12">
+                    <div class="px-0 md:px-2 py-2 lg:py-0">
                         <input type="submit" value="Buscar" title="Buscar" class="uppercase py-3 px-2 bg-color-main text-white font-bold border border-color-main cursor-pointer ease-in duration-300 hover:bg-white hover:text-color-main text-md rounded-lg  block w-full" />  
                     </div>
                 </div>
@@ -64,36 +70,86 @@
         </div>
     </section>
 
-    <?php foreach ($properties as $property) {
-        if (! empty($property['properties'])) { ?>
-            <section class="py-12 bg-[#F4F4F4]">
-                <div class="container">
-                    <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-                        <div class="text-center mb-2 md:mb-0">
-                            <p class="text-secondary text-md">DESTAQUES</p>
-                            <h2 class="text-color-main font-bold text-2xl uppercase"><?php echo $property['category_name'] ?></h2>    
-                        </div>
-
-                        <a href='<?php route("/imoveis/categoria/{$property['category_slug']}") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
-                    </div>
-
-                    <div class="flex flex-wrap w-full" data-slick="cards">
-                        <?php foreach ($property['properties'] as $item) { 
-                            loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                                'id' => $item->id,
-                                'code' => $item->code,
-                                'andress' => $item->andress,
-                                'name' => $item->name,
-                                'value' => $item->value,
-                                'status' => $item->status,
-                                'details' => json_decode($item->details, true),
-                            ]);
-                        } ?>
-                    </div>
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Lançamentos</h2>    
                 </div>
-            </section>
-        <?php }
-    } ?>
+
+                <a href='<?php route("/lancamentos") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            </div>
+
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($releases as $item) { 
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Comprar</h2>    
+                </div>
+
+                <a href='<?php route("/comprar") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            </div>
+
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($sell as $item) { 
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Alugar</h2>    
+                </div>
+
+                <a href='<?php route("/alugar") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            </div>
+
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($toHire as $item) { 
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
+        </div>
+    </section>
 
     <section class="py-12 bg-color-main">
         <div class="container flex justify-center flex-wrap">

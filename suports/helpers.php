@@ -186,23 +186,6 @@ if (!function_exists('getImages')) {
     }
 };
 
-if (!function_exists('categoriesInMenu')) {
-    function categoriesInMenu(): array
-    {
-        $category = new Category();
-        $categories = [];
-
-        foreach ($category->where('menu', '=', 'on')->get() as $category) {
-            array_push($categories, [
-                'slug' => $category->slug,
-                'name' => $category->name,
-            ]);
-        }
-
-        return $categories;
-    }
-};
-
 if (!function_exists('favorites')) {
     function favorites(): array
     {

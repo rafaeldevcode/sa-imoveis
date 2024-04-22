@@ -8,7 +8,7 @@ $requests = requests();
 $property = new Property();
 
 $collection = isset($requests->collection) ? $requests->collection : null;
-
+$isLaunch = isset($requests->is_launch) ? $requests->is_launch : 'off';
 $property = $property->find($requests->id);
 
 $property->update([
@@ -24,6 +24,8 @@ $property->update([
     'videos' => isset($requests->videos) ? json_encode($requests->videos) : null,
     'characteristics' => isset($requests->characteristics) ? json_encode($requests->characteristics) : null,
     'status' => $requests->status,
+    'type' => $requests->type,
+    'is_launch' => $isLaunch,
     'category_id' => $requests->category_id,
 ]);
 

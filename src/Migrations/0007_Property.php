@@ -21,6 +21,8 @@ class Property extends ExecuteMigrations
         $this->json('videos')->nullable();
         $this->json('characteristics')->nullable();
         $this->string('status', 11)->default('available');
+        $this->string('type', 8);
+        $this->char('is_launch', 3)->default('off');
         $this->integer('user_id');
         $this->integer('category_id');
 

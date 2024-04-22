@@ -33,11 +33,13 @@
                             <a href="<?php route('/') ?>" class="<?php isActive('') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="INICIO">INICIO</a>
                         </li>
 
-                        <?php foreach (categoriesInMenu() as $category) { ?>
-                            <li>
-                                <a href="<?php route("/imoveis/categoria/{$category['slug']}") ?>" class="<?php isActive($category['slug']) ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="<?php echo $category['name'] ?>"><?php echo $category['name'] ?></a>
-                            </li>
-                        <?php } ?>
+                        <li>
+                            <a href="<?php route("/comprar") ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
+                        </li>
+
+                        <li>
+                            <a href="<?php route("/alugar") ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
+                        </li>
 
                         <li>
                             <a href="<?php route('/sobre') ?>" class="<?php isActive('sobre') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="QUEM SOMOS">QUEM SOMOS</a>

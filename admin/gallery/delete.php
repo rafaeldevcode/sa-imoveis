@@ -11,7 +11,7 @@ foreach (requests()->ids as $id) {
 
     isset($image->data) && deleteDir(__DIR__ . "/../../public/assets/images/{$image->data->file}");
 
-    $image->posts()->detach($id);
+    $image->properties()->detach($id);
 
     $image->delete();
 };

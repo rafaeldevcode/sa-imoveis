@@ -8,27 +8,21 @@ use Src\Models\Setting;
 
 $settings = new Setting();
 $category = new Category();
-$property = new Property();
 
 $setting = $settings->first();
+$releases = (new Property)->where('is_launch', '=', 'on')->where('status', '!=', 'unavailable')->paginate(6);
+$sell = (new Property)->where('type', '=', 'Vender')->where('status', '!=', 'unavailable')->paginate(6);
+$toHire = (new Property)->where('type', '=', 'Alugar')->where('status', '!=', 'unavailable')->paginate(6);
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
-$properties = [];
-
-foreach ($category->where('home', '=', 'on')->get() as $category) {
-    $categories = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable')->paginate(6);
-    $properties[$category->slug]['properties'] = $categories->data;
-    $properties[$category->slug]['category_name'] = $category->name;
-    $properties[$category->slug]['category_slug'] = $category->slug;
-}
-
-$properties = array_replace(array_flip(['lancamentos', 'vendas', 'alugar']), $properties);
 
 loadHtml(__DIR__.'/resources/client/layout', [
     'title' => 'Inicio',
     'body' => __DIR__ . '/body/read',
     'data' => [
         'about' => $setting->about_company,
-        'properties' => $properties,
+        'releases' => $releases->data,
+        'sell' => $sell->data,
+        'toHire' => $toHire->data,
         'categories' => $categoriesArray,
     ],
     'plugins' => ['slick'],

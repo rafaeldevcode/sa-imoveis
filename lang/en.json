@@ -179,5 +179,7 @@
     "Internal server error": "Internal server error",
     "Available": "Available",
     "Unavailable": "Unavailable",
-    "Reserved": "Reserved"
+    "Reserved": "Reserved",
+    "Purpose of the property": "Purpose of the property",
+    "Category": "Category"
 }

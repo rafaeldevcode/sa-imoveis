@@ -10,6 +10,9 @@ $requests = requests();
 if ($requests->type === '1') {
     $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%");
 } else {
+    if (! empty($requests->type)) {
+        $property = $property->where('type', '=', $requests->type);
+    }
 
     if (! empty($requests->category_id)) {
         $property = $property->where('category_id', '=', $requests->category_id);

@@ -9,15 +9,11 @@ $requests = requests();
 $category = new Category();
 
 $slug = normalizeSlug($requests->slug);
-$menu = isset($requests->menu) ? $requests->menu : 'off';
-$home = isset($requests->home) ? $requests->home : 'off';
 
 if (is_null($category->where('slug', '=', $slug)->first())) {
     $category->create([
         'name' => $requests->name,
         'slug' => $slug,
-        'menu' => $menu,
-        'home' => $home,
     ]);
 
     session([

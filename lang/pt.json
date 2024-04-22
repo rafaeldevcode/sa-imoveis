@@ -179,5 +179,7 @@
     "Internal server error": "Erro interno do servidor",
     "Available": "Disponível",
     "Unavailable": "Indiponível",
-    "Reserved": "Reservado"
+    "Reserved": "Reservado",
+    "Purpose of the property": "Finalidade do imóvel",
+    "Category": "Categoria"
 }

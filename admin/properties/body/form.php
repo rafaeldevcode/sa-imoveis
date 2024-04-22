@@ -100,7 +100,21 @@
 
                 <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
-                        'icon' => 'bi bi-bookmarks-fill',
+                        'icon' => 'bi bi-hash',
+                        'name' => 'type',
+                        'label' => __('Purpose of the property'),
+                        'attributes' => ['required' => true],
+                        'value' => isset($property) ? $property->type : null,
+                        'options' => [
+                            'Comprar' => __('Comprar'),
+                            'Vender' => __('Vender'),
+                        ]
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-hash',
                         'name' => 'status',
                         'label' => __('Status'),
                         'attributes' => ['required' => true],
@@ -108,8 +122,16 @@
                         'options' => [
                             'available' => __('Available'),
                             'unavailable' => __('Unavailable'),
-                            'reserved' => __('Reserved')
+                            'reserved' => __('Reserved'),
                         ]
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
+                        'name' => 'is_launch',
+                        'label' => __('É lançamento? (Não | Sim)'),
+                        'value' => isset($property) ? $property->is_launch : null,
                     ]) ?>
                 </div>
             </div>

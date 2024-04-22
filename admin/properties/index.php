@@ -83,7 +83,7 @@ function loadInFooter(): void
         tinymce.init({
             selector: '#tinymce',
             language: 'pt_BR',
-            height: 650,
+            height: 773,
             image_advtab: true,
             plugins: 'code anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat code',

@@ -17,11 +17,12 @@
                     <li>
                         <a href="<?php route('/') ?>" title="Inicio">Inicio</a>
                     </li>
-                    <?php foreach (categoriesInMenu() as $category) { ?>
-                        <li>
-                        <a href="<?php route("/imoveis/categoria/{$category['slug']}") ?>" title="<?php echo $category['name'] ?>"><?php echo $category['name'] ?></a>
+                    <li>
+                        <a href="<?php route("/comprar") ?>" title="Comprar">Comprar</a>
                     </li>
-                    <?php } ?>
+                    <li>
+                        <a href="<?php route("/alugar") ?>" title="Alugar">Alugar</a>
+                    </li>
                     <li>
                         <a href="<?php route('/sobre') ?>" title="Quem Somos">Quem Somos</a>
                     </li>
