@@ -39,6 +39,7 @@ if (!function_exists('routes')) {
             "/comprar",
             "/alugar",
             "/lancamentos",
+            "/politicas",
             "/login",
             "/login/create",
             "/login/logout",

@@ -1,4 +1,4 @@
-<main class="py-12 bg-[#F4F4F4]">
+<section class="py-12 bg-[#F4F4F4]">
     <section class="py-12 container flex justify-between items-end w-full">
         <div class="flex flex-col">
             <h1 class="text-color-main font-bold text-2xl"><?php echo $property->name ?></h1>
@@ -223,4 +223,4 @@
 
     <?php loadHtml(__DIR__ . '/partials/videos') ?>
     <?php loadHtml(__DIR__ . '/partials/images') ?>
-</main>
+</section>

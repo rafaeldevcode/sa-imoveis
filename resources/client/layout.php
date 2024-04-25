@@ -41,7 +41,7 @@
     <?php SETTINGS->preloader == 'on' && loadHtml(__DIR__ . '/../partials/preloader', ['position' => 'fixed', 'type' => 'body']) ?>
 
     <!-- Cookies -->
-    <?php SETTINGS->cookies == 'on' && loadHtml(__DIR__.'/../client/partials/alert-cookies') ?>
+    <?php SETTINGS->cookies == 'on' && loadHtml(__DIR__.'/../partials/alert-cookies') ?>
 
     <script type="text/javascript" src="<?php asset('libs/jquery/jquery.js')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/main.js') ?>"></script>

@@ -12,7 +12,7 @@ module.exports = {
         "./resources/partials/**/*.php",
         "./resources/*.php",
         "./suports/**/*.php",
-        "./policies/*.php",
+        "./politicas/*.php",
         "./sobre/**/*.php",
         "./contato/**/*.php",
         "./categoria/**/.*php",

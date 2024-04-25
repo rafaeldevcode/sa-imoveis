@@ -1,4 +1,4 @@
-<main class="py-12 bg-[#F4F4F4]">
+<section class="py-12 bg-[#F4F4F4]">
     <div class="container">
         <h1 class="font-bold text-center text-4xl text-color-main font-main uppercase">MEUS FAVORITOS</h1>
 
@@ -22,4 +22,4 @@
             <?php } ?>
         </div>
     </div>
-</main>
+</section>
