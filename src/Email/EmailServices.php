@@ -12,7 +12,7 @@ class EmailServices
     private $mail;
     private $emailsTo;
 
-    public function __construct(string $body, string $subject, bool $contact = false)
+    public function __construct(string $body, string $subject)
     {
         $this->body = $body;
         $this->subject = $subject;
@@ -54,11 +54,11 @@ class EmailServices
             $this->mail->isSMTP();
             $this->mail->Host = env('SMTP_HOST');
             $this->mail->SMTPAuth = true;
-            $this->mail->Username = env('SMTP_EMAIL_ORIGIN');
+            $this->mail->Username = env('SMTP_USERNAME');
             $this->mail->Password = env('SMTP_PASSWORD');
             $this->mail->Port = env('SMTP_PORT');
 
-            $this->mail->setFrom(env('SMTP_EMAIL_ORIGIN'));
+            $this->mail->setFrom(env('SMTP_EMAIL_FROM'));
             $this->setAddress();
 
             $this->mail->isHTML(true);

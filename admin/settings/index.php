@@ -16,7 +16,7 @@ loadHtml(__DIR__ . '/../../resources/admin/layout', [
 
 function loadInFooter(): void
 {
-    loadHtml(__DIR__.'/../../resources/admin/partials/gallery') ?>
+    loadHtml(__DIR__ . '/../../resources/admin/partials/gallery') ?>
 
     <script type="text/javascript" src="<?php asset('libs/jquery/jquery.mask.min.js?')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js?') ?>"></script>

@@ -1,13 +1,18 @@
 <?php
-    verifyMethod(405, 'GET');
 
-    use Src\Models\Setting;
+verifyMethod(405, 'GET');
 
-    $settings = new Setting();
-    $setting =  $settings->first();
+use Src\Models\Broker;
+use Src\Models\Setting;
 
-    loadHtml(__DIR__.'/../resources/client/layout', [
-        'title' => 'Sobre nós',
-        'body' => __DIR__ . '/body/read',
-        'data' => ['about' => $setting->about_company],
-    ]);
+$settings = new Setting();
+$broker = new Broker();
+
+$brokers = $broker->get();
+$setting = $settings->first();
+
+loadHtml(__DIR__ . '/../resources/client/layout', [
+    'title' => 'Sobre nós',
+    'body' => __DIR__ . '/body/read',
+    'data' => ['about' => $setting->about_company, 'brokers' => $brokers],
+]);

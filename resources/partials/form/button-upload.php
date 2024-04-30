@@ -55,7 +55,7 @@ if (isset($value)) {
                             </button>
                         </div>
 
-                        <img class="rounded-b w-full h-full object-contain" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $image->name ?>">
+                        <img class="rounded-b w-[150px] h-[150px] object-contain" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $image->name ?>">
                     </div>
 
                     <?php if (isset($isRequired)) { ?>

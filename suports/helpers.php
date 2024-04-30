@@ -1,6 +1,5 @@
 <?php
 
-use Src\Models\Category;
 use Src\Models\Property;
 
 require __DIR__ . '/helpers/trans.php';
@@ -208,13 +207,13 @@ if (!function_exists('propertyStatus')) {
             'colors' => [
                 'available' => 'success',
                 'unavailable' => 'danger',
-                'reserved' => 'info'
+                'reserved' => 'info',
             ],
             'texts' => [
                 'available' => __('Available'),
                 'unavailable' => __('Unavailable'),
-                'reserved' => __('Reserved')
-            ]
+                'reserved' => __('Reserved'),
+            ],
         ];
 
         return $status[$type][$value];
@@ -233,11 +232,46 @@ if (!function_exists('defaultCategories')) {
             'Terrenos Comerciais',
             'Terrenos Residenciais',
             'Sítio',
-            'Área Rural'
+            'Área Rural',
         ];
 
         return $categories;
     }
 };
+
+if (!function_exists('getStates')) :
+    function getStates(): array
+    {
+        return [
+            'AC' => 'Acre',
+            'AL' => 'Alagoas',
+            'AP' => 'Amapá',
+            'AM' => 'Amazonas',
+            'BA' => 'Bahia',
+            'CE' => 'Ceará',
+            'ES' => 'Espírito Santo',
+            'GO' => 'Goiás',
+            'MA' => 'Maranhão',
+            'MT' => 'Mato Grosso',
+            'MS' => 'Mato Grosso do Sul',
+            'MG' => 'Minas Gerais',
+            'PA' => 'Pará',
+            'PB' => 'Paraíba',
+            'PR' => 'Paraná',
+            'PE' => 'Pernambuco',
+            'PI' => 'Piauí',
+            'RJ' => 'Rio de Janeiro',
+            'RN' => 'Rio Grande do Norte',
+            'RS' => 'Rio Grande do Sul',
+            'RO' => 'Rondônia',
+            'RR' => 'Roraima',
+            'SC' => 'Santa Catarina',
+            'SP' => 'São Paulo',
+            'SE' => 'Sergipe',
+            'TO' => 'Tocantins',
+            'DF' => 'Distrito Federal',
+        ];
+    }
+endif;
 
 !defined('SETTINGS') && define('SETTINGS', getSiteSettings());

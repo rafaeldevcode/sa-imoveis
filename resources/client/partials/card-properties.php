@@ -34,23 +34,23 @@
             </div>
 
             <div class="flex px-6 py-2 justify-between">
-                <?php if (isset($details['bedrooms']) && ! empty($details['bedrooms'][0])) { ?>
+                <?php if (isset($details['bedrooms']) && !empty($details['bedrooms'][0])) { ?>
                     <div class="text-color-main text-center">
                         <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/dormitorios.png') ?>" alt="Dormitórios">
-                        <p><?php echo ! empty($details['bedrooms'][0]) ? $details['bedrooms'][0] : '' ?></p>
-                        <p><?php echo ! empty($details['bedrooms'][1]) ? $details['bedrooms'][1] : '' ?></p>
-                        <p><?php echo ! empty($details['bedrooms'][2]) ? $details['bedrooms'][2] : '' ?></p>
+                        <p><?php echo !empty($details['bedrooms'][0]) ? $details['bedrooms'][0] : '' ?></p>
+                        <p><?php echo !empty($details['bedrooms'][1]) ? $details['bedrooms'][1] : '' ?></p>
+                        <p><?php echo !empty($details['bedrooms'][2]) ? $details['bedrooms'][2] : '' ?></p>
                     </div>
                 <?php } ?>
 
-                <?php if (isset($details['garage']) && ! empty($details['garage'])) { ?>
+                <?php if (isset($details['garage']) && !empty($details['garage'])) { ?>
                     <div class="text-color-main text-center">
                         <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/garagem.png') ?>" alt="Garagem">
                         <p><?php echo $details['garage'] ?></p>
                     </div>
                 <?php } ?>
 
-                <?php if (isset($details['total_area']) && ! empty($details['total_area'])) { ?>
+                <?php if (isset($details['total_area']) && !empty($details['total_area'])) { ?>
                     <div class="text-color-main text-center">
                         <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
                         <p><?php echo $details['total_area'] ?></p>

@@ -2,9 +2,9 @@
 
 verifyMethod(405, 'GET');
 
-loadHtml(__DIR__.'/../resources/client/layout', [
+loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Contato',
-    'body' => __DIR__."/body/form"
+    'body' => __DIR__ . '/body/form',
 ]);
 
 function loadInFooter(): void

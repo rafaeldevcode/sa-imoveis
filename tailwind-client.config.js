@@ -14,6 +14,8 @@ module.exports = {
         "./suports/**/*.php",
         "./politicas/*.php",
         "./sobre/**/*.php",
+        "./anunciar-imovel/**/*.php",
+        "./simular-financiamento/**/*.php",
         "./contato/**/*.php",
         "./categoria/**/.*php",
         "./imoveis/**/*.php",

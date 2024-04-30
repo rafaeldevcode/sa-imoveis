@@ -25,8 +25,8 @@ if ($method == 'read') {
     $body = __DIR__ . '/body/form';
 
     $data = [
-        'action' => '/admin/properties/update', 
-        'property' => $property->data, 
+        'action' => '/admin/properties/update',
+        'property' => $property->data,
         'images' => $property->images()->data,
         'categories' => $categories,
     ];

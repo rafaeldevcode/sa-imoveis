@@ -8,12 +8,47 @@ class BodyEmail
     {
         $nameTrans = __('Name');
         $emailTrans = __('Email');
+        $phoneTrans = __('Phone');
 
         $message = <<<EOT
             <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">
                 <ul style="list-style: none; margin: 0;">
                     <li><strong>{$nameTrans}</strong>: {$data['name']}</li>
                     <li><strong>{$emailTrans}</strong>: {$data['email']}</li>
+                    <li><strong>{$phoneTrans}</strong>: {$data['phone']}</li>
+                    <li style="margin-top: 20px;">{$data['message']}</li>
+                </ul>
+            </div>
+        EOT;
+
+        return self::getLayout($message, $title);
+    }
+
+    public static function announce(array $data, string $title = ''): string
+    {
+        $nameTrans = __('Name');
+        $emailTrans = __('Email');
+        $phoneTrans = __('Phone');
+        $typePropertyTrans = __('Purpose of the property');
+
+        $stateTrans = __('State');
+        $cityTrans = __('City');
+        $neighborhoodTrans = __('Neighborhood');
+        $streetTrans = __('Street');
+
+        $message = <<<EOT
+            <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">
+                <ul style="list-style: none; margin: 0;">
+                    <li><strong>{$nameTrans}</strong>: {$data['name']}</li>
+                    <li><strong>{$emailTrans}</strong>: {$data['email']}</li>
+                    <li><strong>{$phoneTrans}</strong>: {$data['phone']}</li>
+                    <li><strong>Whatsapp</strong>: {$data['whatsapp']}</li>
+                    <li><strong>{$typePropertyTrans}</strong>: {$data['type']}</li>
+
+                    <li><strong>{$stateTrans}</strong>: {$data['state']}</li>
+                    <li><strong>{$cityTrans}</strong>: {$data['city']}</li>
+                    <li><strong>{$neighborhoodTrans}</strong>: {$data['neighborhood']}</li>
+                    <li><strong>{$streetTrans}</strong>: {$data['street']}</li>
                     <li style="margin-top: 20px;">{$data['message']}</li>
                 </ul>
             </div>

@@ -16,6 +16,12 @@ if (!function_exists('menusAdmin')) {
                 'icon' => 'bi bi-people-fill',
                 'count' => null,
             ],
+            'brokers' => [
+                'path' => '/admin/brokers',
+                'title' => __('Brokers'),
+                'icon' => 'bi bi-person-bounding-box',
+                'count' => null,
+            ],
             'properties' => [
                 'path' => null,
                 'title' => __('Properties'),
@@ -32,7 +38,13 @@ if (!function_exists('menusAdmin')) {
                         'title' => __('Categories'),
                         'count' => null,
                     ],
-                ]
+                ],
+            ],
+            'announce' => [
+                'path' => '/admin/announce',
+                'title' => __('Announce'),
+                'icon' => 'bi bi-megaphone-fill',
+                'count' => null,
             ],
             'gallery' => [
                 'path' => '/admin/gallery',

@@ -6,18 +6,18 @@ use Src\Models\Property;
 
 $property = (new Property())->find(slug(2));
 
-if (! isset($property->data) || ($property->data->status === 'unavailable' && ! autenticate())) {
+if (!isset($property->data) || ($property->data->status === 'unavailable' && !autenticate())) {
     abort(404, 'Property Not Found', 'danger');
 }
 
 $properties = (new Property())->where('category_id', '=', $property->data->category_id)->paginate(4);
 
-loadHtml(__DIR__.'/../resources/client/layout', [
-    'title' => "Imóvel",
-    'body' => __DIR__."/body/read",
+loadHtml(__DIR__ . '/../resources/client/layout', [
+    'title' => 'Imóvel',
+    'body' => __DIR__ . '/body/read',
     'data' => [
-        'category' => $property->category()->data[0], 
-        'property' => $property->data, 
+        'category' => $property->category()->data[0],
+        'property' => $property->data,
         'videos' => json_decode($property->data->videos, true),
         'characteristics' => json_decode($property->data->characteristics),
         'details' => json_decode($property->data->details, true),
@@ -26,7 +26,7 @@ loadHtml(__DIR__.'/../resources/client/layout', [
     'plugins' => ['slick'],
 ]);
 
-function loadInFooter() 
+function loadInFooter()
 { ?>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Videos.js') ?>"></script>    
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Images.js') ?>"></script>    
@@ -58,4 +58,3 @@ function loadInFooter()
         });
     </script>
 <?php }
-
