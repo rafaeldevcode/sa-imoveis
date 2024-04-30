@@ -183,5 +183,9 @@
     "Purpose of the property": "Finalidade do imóvel",
     "Category": "Categoria",
     "View category :name": "Visualizar categoria :name",
-    "Privacy": "Políticas"
+    "Privacy": "Políticas",
+    "State": "Estado",
+    "City": "Cidade",
+    "Neighborhood": "Bairro",
+    "Street": "Rua"
 }

@@ -32,6 +32,8 @@ if (!function_exists('routes')) {
             "/pesquisar",
             "/contato",
             "/contato/create",
+            "/anunciar-imovel",
+            "/anunciar-imovel/create",
             "/imoveis/{$slug_one}",
             "/imoveis/categoria/{$slug_two}",
             "/policies",

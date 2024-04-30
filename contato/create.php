@@ -7,7 +7,8 @@ use Src\Email\EmailServices;
 
 $title = 'Novo contato através do site';
 
-$email = new EmailServices(BodyEmail::contact(json_decode(json_encode(requests()), true), $title), $title, env('SMTP_EMAIL_FROM'));
+$email = new EmailServices(BodyEmail::contact(json_decode(json_encode(requests()), true), $title), $title);
+$email->setEmailTo(env('SMTP_EMAIL_TO'));
 $email->send();
 
 session([

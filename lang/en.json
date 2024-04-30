@@ -183,5 +183,9 @@
     "Purpose of the property": "Purpose of the property",
     "Category": "Category",
     "View category :name": "View category :name",
-    "Privacy": "Privacy"
+    "Privacy": "Privacy",
+    "State": "State",
+    "City": "City",
+    "Neighborhood": "Neighborhood",
+    "Street": "Street"
 }
