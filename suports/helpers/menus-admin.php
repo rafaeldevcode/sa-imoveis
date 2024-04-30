@@ -38,7 +38,7 @@ if (!function_exists('menusAdmin')) {
                         'title' => __('Categories'),
                         'count' => null,
                     ],
-                ]
+                ],
             ],
             'announce' => [
                 'path' => '/admin/announce',

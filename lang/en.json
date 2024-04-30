@@ -202,5 +202,9 @@
     "Display on home page (No | Yes)": "Display on home page (No | Yes)",
     "Broker added successfully!": "Broker added successfully!",
     "Broker edited successfully!": "Broker edited successfully!",
-    "Broker(s) removed successfully!": "Broker(s) removed successfully!"
+    "Broker(s) removed successfully!": "Broker(s) removed successfully!",
+    "properties": "properties",
+    "categories": "categories",
+    "announce": "announce",
+    "brokers": "brokers"
 }

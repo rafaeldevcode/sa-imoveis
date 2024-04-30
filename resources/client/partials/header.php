@@ -34,11 +34,11 @@
                         </li>
 
                         <li>
-                            <a href="<?php route("/comprar") ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
+                            <a href="<?php route('/comprar') ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
                         </li>
 
                         <li>
-                            <a href="<?php route("/alugar") ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
+                            <a href="<?php route('/alugar') ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
                         </li>
 
                         <li>

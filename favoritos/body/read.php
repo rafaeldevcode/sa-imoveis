@@ -3,7 +3,7 @@
         <h1 class="font-bold text-center text-4xl text-color-main font-main uppercase">MEUS FAVORITOS</h1>
 
         <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($properties as $property) { 
+            <?php foreach ($properties as $property) {
                 loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
                     'id' => $property->id,
                     'code' => $property->code,

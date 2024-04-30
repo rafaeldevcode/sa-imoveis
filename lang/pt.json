@@ -202,5 +202,9 @@
     "Display on home page (No | Yes)": "Exibir na página inicial (Não | Sim)",
     "Broker added successfully!": "Corretor adicionado com sucesso!",
     "Broker edited successfully!": "Corretor editado com sucesso!",
-    "Broker(s) removed successfully!": "Corretor(es) removido(s) com sucesso!"
+    "Broker(s) removed successfully!": "Corretor(es) removido(s) com sucesso!",
+    "properties": "imoveis",
+    "categories": "categorias",
+    "announce": "anunciar",
+    "brokers": "corretores"
 }

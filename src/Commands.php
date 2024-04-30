@@ -134,7 +134,7 @@ class Commands
 
             // Create default categories
             foreach (defaultCategories() as $category) {
-                (new Category)->create([
+                (new Category())->create([
                     'name' => $category,
                     'slug' => normalizeSlug($category),
                 ]);

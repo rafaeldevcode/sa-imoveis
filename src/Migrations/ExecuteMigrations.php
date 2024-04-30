@@ -26,9 +26,9 @@ class ExecuteMigrations
 
         try {
             $options = [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
             ];
-    
+
             $connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword, $options);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connection = $connection;
@@ -213,7 +213,7 @@ class ExecuteMigrations
             case 'datetime':
                 return 'DATETIME';
             case 'text':
-                return "TEXT";
+                return 'TEXT';
             case 'longtext':
                 return 'LONGTEXT';
             case 'boolean':

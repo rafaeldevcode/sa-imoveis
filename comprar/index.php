@@ -5,14 +5,14 @@ use Src\Models\Property;
 $property = new Property();
 $properties = $property->where('type', '=', 'Vender')->where('status', '!=', 'unavailable')->paginate(15);
 
-loadHtml(__DIR__.'/../resources/client/layout', [
-    'title' => "Comprar",
-    'body' => __DIR__."/body/read",
+loadHtml(__DIR__ . '/../resources/client/layout', [
+    'title' => 'Comprar',
+    'body' => __DIR__ . '/body/read',
     'data' => ['properties' => $properties],
     'plugins' => ['slick'],
 ]);
 
-function loadInFooter() 
+function loadInFooter()
 { ?>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">

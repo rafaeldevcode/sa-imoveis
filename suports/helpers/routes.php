@@ -5,55 +5,55 @@ if (!function_exists('routes')) {
     {
         $slug_one = slug(2);
         $slug_two = slug(3);
-        
+
         return [
-            "/",
-            "/admin/dashboard",
-            "/admin/users",
-            "/admin/users/update",
-            "/admin/users/create",
-            "/admin/users/delete",
-            "/admin/brokers",
-            "/admin/brokers/update",
-            "/admin/brokers/create",
-            "/admin/brokers/delete",
-            "/admin/properties",
-            "/admin/properties/create",
-            "/admin/properties/update",
-            "/admin/properties/delete",
-            "/admin/properties/categories",
-            "/admin/properties/categories/create",
-            "/admin/properties/categories/update",
-            "/admin/properties/categories/delete",
-            "/admin/announce",
-            "/admin/announce/update",
-            "/admin/gallery",
-            "/admin/gallery/delete",
-            "/admin/settings",
-            "/admin/settings/update",
-            "/admin/profile",
-            "/admin/profile/update",
-            "/admin/profile/update-avatar",
-            "/sobre",
-            "/pesquisar",
-            "/contato",
-            "/contato/create",
-            "/anunciar-imovel",
-            "/anunciar-imovel/create",
-            "/simular-financiamento",
+            '/',
+            '/admin/dashboard',
+            '/admin/users',
+            '/admin/users/update',
+            '/admin/users/create',
+            '/admin/users/delete',
+            '/admin/brokers',
+            '/admin/brokers/update',
+            '/admin/brokers/create',
+            '/admin/brokers/delete',
+            '/admin/properties',
+            '/admin/properties/create',
+            '/admin/properties/update',
+            '/admin/properties/delete',
+            '/admin/properties/categories',
+            '/admin/properties/categories/create',
+            '/admin/properties/categories/update',
+            '/admin/properties/categories/delete',
+            '/admin/announce',
+            '/admin/announce/update',
+            '/admin/gallery',
+            '/admin/gallery/delete',
+            '/admin/settings',
+            '/admin/settings/update',
+            '/admin/profile',
+            '/admin/profile/update',
+            '/admin/profile/update-avatar',
+            '/sobre',
+            '/pesquisar',
+            '/contato',
+            '/contato/create',
+            '/anunciar-imovel',
+            '/anunciar-imovel/create',
+            '/simular-financiamento',
             "/imoveis/{$slug_one}",
             "/imoveis/categoria/{$slug_two}",
-            "/policies",
-            "/favoritos",
-            "/comprar",
-            "/alugar",
-            "/lancamentos",
-            "/politicas",
-            "/login",
-            "/login/create",
-            "/login/logout",
-            "/api/gallery",
-            "/api/gallery/create",
+            '/policies',
+            '/favoritos',
+            '/comprar',
+            '/alugar',
+            '/lancamentos',
+            '/politicas',
+            '/login',
+            '/login/create',
+            '/login/logout',
+            '/api/gallery',
+            '/api/gallery/create',
         ];
     }
 };
@@ -77,7 +77,7 @@ if(!function_exists('slug')):
     {
         $path = path();
         $paths = explode('/', $path);
-        
+
         if(isset($paths[$indice])):
             return $paths[$indice];
         endif;
@@ -87,12 +87,12 @@ if(!function_exists('slug')):
 endif;
 
 if (!function_exists('getFileName')) {
-    function getFileName(string $path): string 
+    function getFileName(string $path): string
     {
         $method_posts = ['update', 'delete', 'create', 'update-avatar', 'logout'];
         $array = explode('/', $path);
         $count = count($array);
-        $file = $array[$count-1];
+        $file = $array[$count - 1];
         $file = in_array($file, $method_posts) ? $file : 'index';
 
         if (in_array($file, $method_posts)) {
@@ -109,15 +109,15 @@ if (!function_exists('getFileName')) {
 };
 
 if(!function_exists('verifySlug')):
-    function verifySlug(array $array, int $count, string $file): array 
+    function verifySlug(array $array, int $count, string $file): array
     {
-        $last_path = $array[$count-1];
+        $last_path = $array[$count - 1];
 
-        unset($array[$count-1]);
-        
-        $path = implode('/', $array).'/show.php';
+        unset($array[$count - 1]);
 
-        if (is_file(__DIR__."/../..{$path}")) {
+        $path = implode('/', $array) . '/show.php';
+
+        if (is_file(__DIR__ . "/../..{$path}")) {
             array_push($array, 'show');
 
             return $array;
@@ -131,31 +131,31 @@ if(!function_exists('verifySlug')):
 endif;
 
 if(!function_exists('isActive')):
-    function isActive(string $item): void 
+    function isActive(string $item): void
     {
         $paths = explode('/', path());
 
         if (empty($item) && count($paths) === 1) {
-            echo "border-secondary";
+            echo 'border-secondary';
         } else {
-            if (in_array($item, $paths) && ! empty($item)) {
-                echo "border-secondary";
+            if (in_array($item, $paths) && !empty($item)) {
+                echo 'border-secondary';
             } else {
-                echo "border-transparent";
+                echo 'border-transparent';
             }
         }
     }
 endif;
 
 if(!function_exists('isActiveAdmin')):
-    function isActiveAdmin(string $item): void 
+    function isActiveAdmin(string $item): void
     {
         $paths = explode('/', path());
 
         if (in_array($item, $paths)) {
-            echo "active";
+            echo 'active';
         } else {
-            echo "inactive";
+            echo 'inactive';
         }
     }
 endif;

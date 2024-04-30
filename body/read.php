@@ -157,7 +157,7 @@
             </div>
         </form>
 
-        <?php if (! empty(SETTINGS->whatsapp)) { ?>
+        <?php if (!empty(SETTINGS->whatsapp)) { ?>
             <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" class="absolute right-0 bottom-[-50px] w-[80px] h-[80px] rounded-full bg-[#00A900] text-white flex items-center justify-center">
                 <i class="bi bi-whatsapp text-5xl"></i>
             </a>
@@ -173,11 +173,11 @@
                 <h2 class="text-color-main font-bold text-2xl uppercase">Lançamentos</h2>    
             </div>
 
-            <a href='<?php route("/lancamentos") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            <a href='<?php route('/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
         </div>
 
         <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($releases as $item) { 
+            <?php foreach ($releases as $item) {
                 loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
                     'id' => $item->id,
                     'code' => $item->code,
@@ -200,11 +200,11 @@
                 <h2 class="text-color-main font-bold text-2xl uppercase">Comprar</h2>    
             </div>
 
-            <a href='<?php route("/comprar") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            <a href='<?php route('/comprar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
         </div>
 
         <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($sell as $item) { 
+            <?php foreach ($sell as $item) {
                 loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
                     'id' => $item->id,
                     'code' => $item->code,
@@ -227,11 +227,11 @@
                 <h2 class="text-color-main font-bold text-2xl uppercase">Alugar</h2>    
             </div>
 
-            <a href='<?php route("/alugar") ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            <a href='<?php route('/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
         </div>
 
         <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($toHire as $item) { 
+            <?php foreach ($toHire as $item) {
                 loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
                     'id' => $item->id,
                     'code' => $item->code,
@@ -298,19 +298,21 @@
             <p class="text-secondary text-md">SOBRE NÓS</p>
             <h2 class="text-color-main font-bold text-2xl mb-6">SANTO ANTÔNIO IMÓVEIS</h2>
 
-            <p><?php echo ! empty($about) ? getExcerpt($about, 400) : '' ?></p>
+            <p><?php echo !empty($about) ? getExcerpt($about, 400) : '' ?></p>
         
             <a href='<?php route('/sobre') ?>' title='Leia Mais' class='text-xs btn btn-color-main font-bold mx-1 text-center mt-6'>Leia Mais</a>    
         </div>
 
         <div class="w-full md:w-6/12 flex flex-wrap">
-            <div class="w-full sm:w-6/12 px-0 sm:px-3 sm:py-0 py-3  rounded-xl h-[400px]">
-                <img class="w-full h-full rounded-xl object-cover" src="https://static.wikia.nocookie.net/disney/images/9/90/Angelina_Jolie.jpg" alt="">
-            </div>
-
-            <div class="w-full sm:w-6/12 px-0 sm:px-3 sm:py-0 py-3 rounded-xl h-[400px]">
-                <img class="w-full h-full rounded-xl object-cover" src="https://static.wikia.nocookie.net/disney/images/9/90/Angelina_Jolie.jpg" alt="">
-            </div>
+            <?php foreach ($brokers as $broker) { ?>
+                <div class="w-full sm:w-6/12 p-3 rounded-xl h-[400px]">
+                    <?php loadHtml(__DIR__ . '/../resources/partials/image', [
+                        'id' => $broker->thumbnail,
+                        'class' => 'w-full h-full rounded-xl object-cover',
+                        'alt' => $broker->name,
+                    ]) ?>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </section>

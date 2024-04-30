@@ -35,13 +35,13 @@
     <?php loadHtml(__DIR__ . '/partials/footer.php') ?>
 
     <!-- Include flash message -->
-    <?php loadHtml(__DIR__.'/../partials/message') ?>
+    <?php loadHtml(__DIR__ . '/../partials/message') ?>
 
     <!-- Include Preloader -->
     <?php SETTINGS->preloader == 'on' && loadHtml(__DIR__ . '/../partials/preloader', ['position' => 'fixed', 'type' => 'body']) ?>
 
     <!-- Cookies -->
-    <?php SETTINGS->cookies == 'on' && loadHtml(__DIR__.'/../partials/alert-cookies') ?>
+    <?php SETTINGS->cookies == 'on' && loadHtml(__DIR__ . '/../partials/alert-cookies') ?>
 
     <script type="text/javascript" src="<?php asset('libs/jquery/jquery.js')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/main.js') ?>"></script>
@@ -104,6 +104,8 @@
         });
     </script>
 
-    <?php if(function_exists('loadInFooter')) loadInFooter(); ?>
+    <?php if (function_exists('loadInFooter')) {
+        loadInFooter();
+    } ?>
 </body>
 </html>

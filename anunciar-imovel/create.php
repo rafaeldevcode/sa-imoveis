@@ -13,7 +13,7 @@ $email->send();
 
 session([
     'message' => 'Imóvel enviado com sucesso! Aguarde nosso retorno.',
-    'type' => 'success'
+    'type' => 'success',
 ]);
 
 return header(route('/anunciar-imovel', true), true, 302);

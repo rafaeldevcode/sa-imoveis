@@ -11,12 +11,12 @@
 
     <section class="py-12 container flex w-full flex-wrap">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <?php foreach (getImages($property->id) as $indice => $image) { 
+            <?php foreach (getImages($property->id) as $indice => $image) {
                 if ($indice < 4) { ?>
                     <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2' : '' ?>">
                         <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg h-full object-cover" alt="<?php echo $property->name ?>">
                     </div>
-                <?php } elseif($indice === 4) { ?>
+                <?php } elseif ($indice === 4) { ?>
                     <div class="rounded-lg cursor-pointer relative flex items-center justify-center">
                         <div class="rounded-lg z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
 
@@ -29,7 +29,7 @@
                 <?php } else { ?>
                     <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="hidden"></div>
                 <?php }
-            } ?>
+                } ?>
         </div>
     </section>
 
@@ -41,7 +41,7 @@
                         FOTOS
                         <i class="bi bi-camera-fill"></i>
                     </button>
-                    <?php if (is_array($videos) && ! empty($videos)) { ?>
+                    <?php if (is_array($videos) && !empty($videos)) { ?>
                         <button data-videos="<?php echo implode(',', json_decode($property->videos, true)) ?>" id="gallery-videos" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
                             VIDEOS
                             <i class="bi bi-play-circle-fill"></i>
@@ -52,7 +52,7 @@
                 <?php if (is_array($details)) { ?>
                     <div class="pt-10">
                         <ul class="flex flex-wrap gap-10">
-                            <?php if (isset($details['bedrooms']) && ! empty($details['bedrooms'][0])) { ?>
+                            <?php if (isset($details['bedrooms']) && !empty($details['bedrooms'][0])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/dormitorios.png') ?>" alt="Dormitórios">
                                     <span><?php echo isset($details['bedrooms'][0]) ? $details['bedrooms'][0] : '' ?></span>
@@ -61,14 +61,14 @@
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['garage']) && ! empty($details['garage'])) { ?>
+                            <?php if (isset($details['garage']) && !empty($details['garage'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/garagem.png') ?>" alt="Garagem">
                                     <span><?php echo $details['garage'] ?></span>
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['total_area']) && ! empty($details['total_area'])) { ?>
+                            <?php if (isset($details['total_area']) && !empty($details['total_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
                                     <span><?php echo $details['total_area'] ?> m²</span>
@@ -76,7 +76,7 @@
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['private_area']) && ! empty($details['private_area'])) { ?>
+                            <?php if (isset($details['private_area']) && !empty($details['private_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
                                     <span><?php echo $details['private_area'] ?> m²</span>
@@ -84,7 +84,7 @@
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['bedrooms']) && ! empty($details['bathrooms'][0])) { ?>
+                            <?php if (isset($details['bedrooms']) && !empty($details['bathrooms'][0])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/banheiros.png') ?>" alt="Banheiros">
                                     <span><?php echo isset($details['bathrooms'][0]) ? $details['bathrooms'][0] : '' ?></span>
@@ -93,7 +93,7 @@
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['furnished']) && $details['furnished'] === 'on' ) { ?>
+                            <?php if (isset($details['furnished']) && $details['furnished'] === 'on') { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/mobiliado.png') ?>" alt="Mobiliado">
                                     <span>Mobiliado</span>
@@ -148,7 +148,7 @@
                 </div>
 
                 <div class="w-full flex flex-col gap-4 mt-4">
-                    <?php if (! empty(SETTINGS->whatsapp)) { ?>
+                    <?php if (!empty(SETTINGS->whatsapp)) { ?>
                         <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" title="Falar com um Corretor" class='ease-in duration-300 flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-white'>
                             <i class="bi bi-whatsapp"></i>
                             Falar com um Corretor
@@ -203,7 +203,7 @@
                 </div>
 
                 <div class="flex flex-wrap w-full" data-slick="cards">
-                    <?php foreach ($properties as $item) { 
+                    <?php foreach ($properties as $item) {
                         if ($property->id !== $item->id) {
                             loadHtml(__DIR__ . '/../../resources/client/partials/', [
                                 'id' => $item->id,

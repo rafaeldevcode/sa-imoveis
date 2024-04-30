@@ -94,7 +94,7 @@
                         'label' => __('Category'),
                         'attributes' => ['required' => true],
                         'value' => isset($property) ? $property->category_id : null,
-                        'options' => $categories
+                        'options' => $categories,
                     ]) ?>
                 </div>
 
@@ -108,7 +108,7 @@
                         'options' => [
                             'Alugar' => __('Alugar'),
                             'Vender' => __('Vender'),
-                        ]
+                        ],
                     ]) ?>
                 </div>
 
@@ -123,7 +123,7 @@
                             'available' => __('Available'),
                             'unavailable' => __('Unavailable'),
                             'reserved' => __('Reserved'),
-                        ]
+                        ],
                     ]) ?>
                 </div>
 
@@ -144,7 +144,7 @@
                 'title' => __('Videos'),
                 'attributes' => [
                     'data-toggle' => 'videos',
-                ]
+                ],
             ]) ?>
 
             <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
@@ -153,7 +153,7 @@
                 'title' => __('Characteristics'),
                 'attributes' => [
                     'data-toggle' => 'characteristics',
-                ]
+                ],
             ]) ?>
 
             <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
@@ -162,7 +162,7 @@
                 'title' => __('Details'),
                 'attributes' => [
                     'data-toggle' => 'details',
-                ]
+                ],
             ]) ?>
         </div>
 

@@ -25,12 +25,12 @@ class Model
         $dbUser = env('DB_USERNAME');
         $dbPassword = env('DB_PASSWORD');
         $dbName = env('DB_DATABASE_NAME');
-    
+
         try {
             $options = [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
             ];
-    
+
             $connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword, $options);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connection = $connection;
@@ -38,7 +38,7 @@ class Model
             echo 'Query error: ' . $e->getMessage();
         }
     }
-    
+
 
     public function hasTable(): bool
     {
@@ -55,7 +55,7 @@ class Model
             'column' => $column,
             'operator' => $operator,
             'value' => $value,
-            'bind' => $bind
+            'bind' => $bind,
         ];
 
         return $this;
@@ -67,7 +67,7 @@ class Model
             'column' => $column,
             'operator' => $operator,
             'value' => $value,
-            'bind' => $bind
+            'bind' => $bind,
         ];
 
         return $this;
@@ -78,19 +78,19 @@ class Model
         $whereClause = $this->whereClausure();
 
         $query = "SELECT * FROM $this->table";
-   
+
         $query = empty($whereClause->clausure) ? "{$query} WHERE" : "{$query}{$whereClause->clausure} AND";
 
-        $query = "{$query} $column IN (".implode(",", $values).")";
-            
+        $query = "{$query} $column IN (" . implode(',', $values) . ')';
+
         $statement = $this->connection->prepare($query);
 
         foreach ($whereClause->bindings as $column => $value):
             $statement->bindValue(":{$column}", $value);
         endforeach;
-        
+
         $statement->execute();
-        
+
         $this->data = json_decode(json_encode($statement->fetchAll(PDO::FETCH_ASSOC)));
 
         return $this->data;
@@ -505,7 +505,7 @@ class Model
 
         return json_decode(json_encode([
             'clausure' => $where_clause,
-            'bindings' => $bindings
+            'bindings' => $bindings,
         ]));
     }
 

@@ -8,9 +8,9 @@
             <article class="article flex flex-wrap">
                 <div class="w-full md:w-6/12">
                     <?php loadHtml(__DIR__ . '/../../resources/partials/image', [
-                        'id' => $announce->thumbnail, 
+                        'id' => $announce->thumbnail,
                         'class' => 'w-full md:w-8/12',
-                        'alt' => $announce->title
+                        'alt' => $announce->title,
                     ]) ?>
                 </div>
 

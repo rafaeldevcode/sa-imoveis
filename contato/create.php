@@ -13,7 +13,7 @@ $email->send();
 
 session([
     'message' => 'Contato enviado com sucesso! Aguarde nosso retorno.',
-    'type' => 'success'
+    'type' => 'success',
 ]);
 
 return header(route('/contato', true), true, 302);
