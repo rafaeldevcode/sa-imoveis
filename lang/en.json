@@ -191,5 +191,16 @@
     "Announce": "Announce",
     "Button Text": "Button Text",
     "Button Link": "Button Link",
-    "Announce updated successfully!": "Announce updated successfully!"
+    "Announce updated successfully!": "Announce updated successfully!",
+    "Brokers": "Brokers",
+    "Thumbnail": "Thumbnail",
+    "Display on home page": "Display on home page",
+    "This action will remove all selected brokers!": "This action will remove all selected brokers!",
+    "Edit broker :name.": "Edit broker :name.",
+    "Remove broker :name.": "Remove broker :name.",
+    "This action will remove the broke :name.": "This action will remove the broke :name.",
+    "Display on home page (No | Yes)": "Display on home page (No | Yes)",
+    "Broker added successfully!": "Broker added successfully!",
+    "Broker edited successfully!": "Broker edited successfully!",
+    "Broker(s) removed successfully!": "Broker(s) removed successfully!"
 }

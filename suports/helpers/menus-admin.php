@@ -16,6 +16,12 @@ if (!function_exists('menusAdmin')) {
                 'icon' => 'bi bi-people-fill',
                 'count' => null,
             ],
+            'brokers' => [
+                'path' => '/admin/brokers',
+                'title' => __('Brokers'),
+                'icon' => 'bi bi-person-bounding-box',
+                'count' => null,
+            ],
             'properties' => [
                 'path' => null,
                 'title' => __('Properties'),
