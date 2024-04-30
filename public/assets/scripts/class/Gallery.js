@@ -276,7 +276,7 @@ class Gallery{
 
                     const img = $('<img />');
                     img.attr({
-                        class: 'rounded-b w-full h-full object-contain',
+                        class: 'rounded-b w-[150px] h-[150px] object-contain',
                         src: selected.url,
                         alt: selected.alt
                     });
