@@ -187,5 +187,9 @@
     "State": "State",
     "City": "City",
     "Neighborhood": "Neighborhood",
-    "Street": "Street"
+    "Street": "Street",
+    "Announce": "Announce",
+    "Button Text": "Button Text",
+    "Button Link": "Button Link",
+    "Announce updated successfully!": "Announce updated successfully!"
 }

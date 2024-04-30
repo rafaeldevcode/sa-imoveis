@@ -3,7 +3,7 @@
 verifyMethod(405, 'GET');
 
 loadHtml(__DIR__.'/../resources/client/layout', [
-    'title' => 'Anunciar imóvel',
+    'title' => 'Anunciar Imóvel',
     'body' => __DIR__."/body/form"
 ]);
 

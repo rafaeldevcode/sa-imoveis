@@ -34,6 +34,12 @@ if (!function_exists('menusAdmin')) {
                     ],
                 ]
             ],
+            'announce' => [
+                'path' => '/admin/announce',
+                'title' => __('Announce'),
+                'icon' => 'bi bi-megaphone-fill',
+                'count' => null,
+            ],
             'gallery' => [
                 'path' => '/admin/gallery',
                 'title' => __('Gallery'),

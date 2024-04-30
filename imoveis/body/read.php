@@ -149,21 +149,21 @@
 
                 <div class="w-full flex flex-col gap-4 mt-4">
                     <?php if (! empty(SETTINGS->whatsapp)) { ?>
-                        <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" title="Falar com um Corretor" class='ease-in duration-300 flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-text-white py-4 w-full font-bold text-lg text-white' type="button" title="FOTOS">
+                        <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" title="Falar com um Corretor" class='ease-in duration-300 flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-white'>
                             <i class="bi bi-whatsapp"></i>
                             Falar com um Corretor
                         </a>
                     <?php } ?>
 
-                    <button data-favorite="<?php echo $property->id ?>" data-favorite-status="<?php echo in_array($property->id, favorites()) ? 'true' : 'false' ?>" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
+                    <button title="Adicionar aos Favoritos" data-favorite="<?php echo $property->id ?>" data-favorite-status="<?php echo in_array($property->id, favorites()) ? 'true' : 'false' ?>" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main'>
                         <i class="bi <?php echo in_array($property->id, favorites()) ? 'bi-heart-fill' : 'bi-heart' ?>"></i>
                         Adicionar aos Favoritos
                     </button>
 
-                    <button class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main' type="button" title="FOTOS">
+                    <a href="<?php route('/simular-financiamento') ?>" title="Simular um Financiamento" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main'>
                         <i class="bi bi-calculator"></i>
                         Simular um Financiamento
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

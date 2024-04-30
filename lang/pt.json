@@ -187,5 +187,9 @@
     "State": "Estado",
     "City": "Cidade",
     "Neighborhood": "Bairro",
-    "Street": "Rua"
+    "Street": "Rua",
+    "Announce": "Anunciar",
+    "Button Text": "Texto do Botão",
+    "Button Link": "Link do Botão",
+    "Announce updated successfully!": "Anuncie atualizado com sucesso!"
 }
