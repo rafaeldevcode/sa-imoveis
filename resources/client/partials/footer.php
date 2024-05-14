@@ -142,7 +142,7 @@
     </section>
 
     <section class="container text-white p-4 flex flex-col md:flex-row justify-center items-center md:justify-evenly space-y-4 md:space-y-0">
-        <div class="text-center md:text-left">
+        <div class="flex flex-col items-center md:text-left">
             <p><?php echo SETTINGS->copyright ?></p>
             <a href="<?php route('/politicas') ?>">Políticas</a>
         </div>
