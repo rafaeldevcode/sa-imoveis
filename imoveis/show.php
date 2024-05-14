@@ -18,8 +18,8 @@ loadHtml(__DIR__ . '/../resources/client/layout', [
     'data' => [
         'category' => $property->category()->data[0],
         'property' => $property->data,
-        'videos' => json_decode($property->data->videos, true),
-        'characteristics' => json_decode($property->data->characteristics),
+        'videos' => isset($property->data->videos) ? json_decode($property->data->videos, true) : [],
+        'characteristics' => isset($property->data->characteristics) ? json_decode($property->data->characteristics) : [],
         'details' => json_decode($property->data->details, true),
         'properties' => $properties->data,
     ],
