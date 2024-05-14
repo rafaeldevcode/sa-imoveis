@@ -18,7 +18,7 @@
                     <?php echo $announce->content ?>
 
                     <div class='flex justify-center item-center px-4 mt-6'>
-                        <a href="<?php echo $announce->button_link ?>" title="<?php echo $announce->button_text ?>" class='ease-in duration-300 bg-color-main rounded-lg gap-2 border border-color-main hover:bg-white hover:!text-color-main py-2 px-4 font-bold text-lg !text-white'>
+                        <a target="_blank" rel="noopener" href="<?php echo $announce->button_link ?>" title="<?php echo $announce->button_text ?>" class='ease-in duration-300 bg-color-main rounded-lg gap-2 border border-color-main hover:bg-white hover:!text-color-main py-2 px-4 font-bold text-lg !text-white'>
                             <?php echo $announce->button_text ?>
                         </a>
                     </div>
