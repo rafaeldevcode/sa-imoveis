@@ -7,14 +7,12 @@ class BodyEmail
     public static function contact(array $data, string $title = ''): string
     {
         $nameTrans = __('Name');
-        $emailTrans = __('Email');
         $phoneTrans = __('Phone');
 
         $message = <<<EOT
             <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">
                 <ul style="list-style: none; margin: 0;">
                     <li><strong>{$nameTrans}</strong>: {$data['name']}</li>
-                    <li><strong>{$emailTrans}</strong>: {$data['email']}</li>
                     <li><strong>{$phoneTrans}</strong>: {$data['phone']}</li>
                     <li style="margin-top: 20px;">{$data['message']}</li>
                 </ul>

@@ -78,7 +78,7 @@
                     <div>
                         <h2 class="font-bold text-xl font-main">Endereço</h2>
 
-                        <p><?php echo SETTINGS->andress ?></p>
+                        <p><i class="bi bi-geo-alt-fill"></i> <?php echo SETTINGS->andress ?></p>
                     </div>
                 <?php } ?>
 
