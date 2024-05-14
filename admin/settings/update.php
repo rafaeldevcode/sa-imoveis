@@ -44,6 +44,7 @@ $data = [
     'construction' => $construction,
     'maintenance' => $maintenance,
     'admin_lang' => $requests->admin_lang,
+    'cities' => json_encode($requests->cities),
 ];
 
 if (!isset($currentSetting)) {

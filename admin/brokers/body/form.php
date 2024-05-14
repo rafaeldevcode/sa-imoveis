@@ -15,6 +15,16 @@
                     'attributes' => 'required',
                 ]) ?>
             </div>
+
+            <div class='w-full md:w-6/12 px-4'>
+                <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
+                    'icon' => 'bi bi-whatsapp',
+                    'name' => 'whatsapp',
+                    'label' => __('WhatsApp (add area code)'),
+                    'type' => 'text',
+                    'value' => isset($broker) ? $broker->whatsapp : '',
+                ]) ?>
+            </div>
         </div>
 
         <div class='w-full md:w-6/12 px-4'>

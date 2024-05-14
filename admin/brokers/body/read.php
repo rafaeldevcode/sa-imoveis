@@ -22,6 +22,9 @@
                             <span class="text-sm"><?php _e('Name') ?></span>
                         </th>
                         <th scope="col" class="py-1 px-3">
+                            <span class="text-sm"><?php _e('Whatsapp') ?></span>
+                        </th>
+                        <th scope="col" class="py-1 px-3">
                             <span class="text-sm"><?php _e('Display on home page') ?></span>
                         </th>
                         <th scope="col" class="py-1 px-3 text-right">
@@ -56,6 +59,9 @@
                             </td>
                             <td scope="row" class="py-1 px-3 whitespace-nowrap">
                                 <span class="text-sm"><?php echo $broker->name ?></span>
+                            </td>
+                            <td scope="row" class="py-1 px-3 whitespace-nowrap">
+                                <span class="text-sm"><?php echo $broker->whatsapp ?></span>
                             </td>
                             <td class="py-1 px-3">
                                 <span class="rounded text-xs text-light px-2 py-1 bg-<?php echo (is_null($broker->show_in_home) || $broker->show_in_home == 'off') ? 'danger' : 'primary' ?>">

@@ -239,7 +239,7 @@ if (!function_exists('defaultCategories')) {
     }
 };
 
-if (!function_exists('getStates')) :
+if (!function_exists('getStates')) {
     function getStates(): array
     {
         return [
@@ -272,6 +272,30 @@ if (!function_exists('getStates')) :
             'DF' => 'Distrito Federal',
         ];
     }
-endif;
+}
+
+if (! function_exists('generatePropertyCode')) {
+    function generatePropertyCode (): int
+    {
+        $property = (new Property)->last('id', ['code']);
+        $lastCode = $property->code;
+        $year = date('y');
+
+        if ((int) substr($lastCode, 0, 2) !== (int) $year) {
+            return (int) "{$year}0001";
+        } else {
+            return $lastCode + 1;
+        }
+    }
+}
+
+if (! function_exists('thereIsProperty')) {
+    function thereIsProperty (string $type)
+    {
+        $property = (new Property)->where('type', '=', $type)->where('status', '!=', 'unavailable')->count();
+
+        return $property > 0 ? true : false;
+    }
+}
 
 !defined('SETTINGS') && define('SETTINGS', getSiteSettings());

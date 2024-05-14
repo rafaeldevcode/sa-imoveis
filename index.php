@@ -13,9 +13,9 @@ $broker = new Broker();
 
 $setting = $settings->first();
 $brokers = $broker->where('show_in_home', '=', 'on')->get();
-$releases = (new Property())->where('is_launch', '=', 'on')->where('status', '!=', 'unavailable')->paginate(6);
-$sell = (new Property())->where('type', '=', 'Vender')->where('status', '!=', 'unavailable')->paginate(6);
-$toHire = (new Property())->where('type', '=', 'Alugar')->where('status', '!=', 'unavailable')->paginate(6);
+$releases = (new Property())->where('is_launch', '=', 'on')->where('is_highlighted', '=', 'on')->where('status', '!=', 'unavailable')->paginate(6);
+$sell = (new Property())->where('type', '=', 'Vender')->where('is_highlighted', '=', 'on')->where('status', '!=', 'unavailable')->paginate(6);
+$toHire = (new Property())->where('type', '=', 'Alugar')->where('is_highlighted', '=', 'on')->where('status', '!=', 'unavailable')->paginate(6);
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 
 loadHtml(__DIR__ . '/resources/client/layout', [
@@ -23,6 +23,7 @@ loadHtml(__DIR__ . '/resources/client/layout', [
     'body' => __DIR__ . '/body/read',
     'data' => [
         'about' => $setting->about_company,
+        'cities' => json_decode($setting->cities, true),
         'releases' => $releases->data,
         'sell' => $sell->data,
         'toHire' => $toHire->data,

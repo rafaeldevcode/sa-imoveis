@@ -46,8 +46,11 @@ function loadInFooter(): void
     loadHtml(__DIR__ . '/../../resources/admin/partials/modal-delete');
     loadHtml(__DIR__ . '/../../resources/admin/partials/gallery') ?>
 
+    <script type="text/javascript" src="<?php asset('libs/jquery/jquery.mask.min.js?')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js?') ?>"></script>
     <script type="text/javascript">
+        $('#whatsapp').mask('+00 (00) 0 0000-0000');
+
         const gallery = new Gallery();
         gallery.openModalSelect($('[data-upload=thumbnail]'), 'radio');
     </script>

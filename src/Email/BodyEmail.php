@@ -7,14 +7,12 @@ class BodyEmail
     public static function contact(array $data, string $title = ''): string
     {
         $nameTrans = __('Name');
-        $emailTrans = __('Email');
         $phoneTrans = __('Phone');
 
         $message = <<<EOT
             <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">
                 <ul style="list-style: none; margin: 0;">
                     <li><strong>{$nameTrans}</strong>: {$data['name']}</li>
-                    <li><strong>{$emailTrans}</strong>: {$data['email']}</li>
                     <li><strong>{$phoneTrans}</strong>: {$data['phone']}</li>
                     <li style="margin-top: 20px;">{$data['message']}</li>
                 </ul>
@@ -30,11 +28,7 @@ class BodyEmail
         $emailTrans = __('Email');
         $phoneTrans = __('Phone');
         $typePropertyTrans = __('Purpose of the property');
-
-        $stateTrans = __('State');
-        $cityTrans = __('City');
-        $neighborhoodTrans = __('Neighborhood');
-        $streetTrans = __('Street');
+        $andressTrans = __('Andress');
 
         $message = <<<EOT
             <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">
@@ -44,11 +38,7 @@ class BodyEmail
                     <li><strong>{$phoneTrans}</strong>: {$data['phone']}</li>
                     <li><strong>Whatsapp</strong>: {$data['whatsapp']}</li>
                     <li><strong>{$typePropertyTrans}</strong>: {$data['type']}</li>
-
-                    <li><strong>{$stateTrans}</strong>: {$data['state']}</li>
-                    <li><strong>{$cityTrans}</strong>: {$data['city']}</li>
-                    <li><strong>{$neighborhoodTrans}</strong>: {$data['neighborhood']}</li>
-                    <li><strong>{$streetTrans}</strong>: {$data['street']}</li>
+                    <li><strong>{$andressTrans}</strong>: {$data['andress']}</li>
                     <li style="margin-top: 20px;">{$data['message']}</li>
                 </ul>
             </div>

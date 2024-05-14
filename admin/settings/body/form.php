@@ -191,8 +191,6 @@
                 ]) ?>
             </div>
 
-            <?php getAvailableLanguages() ?>
-
             <div class='w-full md:w-6/12 px-4'>
                 <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
                     'icon' => 'bi bi-translate',
@@ -200,6 +198,17 @@
                     'label' => __('Admin panel language'),
                     'value' => isset($settings) ? $settings->admin_lang : null,
                     'options' => getAvailableLanguages(),
+                ]) ?>
+            </div>
+
+            <div class='w-full px-4'>
+                <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
+                    'type' => 'button',
+                    'style' => 'color-main',
+                    'title' => __('Cities'),
+                    'attributes' => [
+                        'data-toggle' => 'cities',
+                    ],
                 ]) ?>
             </div>
 
@@ -300,5 +309,9 @@
                 'title' => __('Save'),
             ]) ?>
         </div>
+
+        <?php loadHtml(__DIR__ . '/partials/cities', [
+            'cities' => isset($settings) ? json_decode($settings->cities, true) : [],
+        ]) ?>
     </form>
 </section>

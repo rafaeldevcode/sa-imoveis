@@ -17,21 +17,31 @@
                     <li>
                         <a href="<?php route('/') ?>" title="Inicio">Inicio</a>
                     </li>
-                    <li>
-                        <a href="<?php route('/comprar') ?>" title="Comprar">Comprar</a>
-                    </li>
-                    <li>
-                        <a href="<?php route('/alugar') ?>" title="Alugar">Alugar</a>
-                    </li>
+
+                    <?php if (thereIsProperty('Vender')) { ?>
+                        <li>
+                            <a href="<?php route('/comprar') ?>" title="Comprar">Comprar</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if (thereIsProperty('Alugar')) { ?>
+                        <li>
+                            <a href="<?php route('/alugar') ?>" title="Alugar">Alugar</a>
+                        </li>
+                    <?php } ?>
+
                     <li>
                         <a href="<?php route('/sobre') ?>" title="Quem Somos">Quem Somos</a>
                     </li>
+
                     <li>
                         <a href="<?php route('/contato') ?>" title="Contato">Contato</a>
                     </li>
+
                     <li>
-                        <a href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
+                        <a target="_blank" rel="noopener" href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
                     </li>
+
                     <li>
                         <a href="<?php route('/anunciar-imovel') ?>" title="Anuncie seu Imóvel">Anuncie seu Imóvel</a>
                     </li>
@@ -78,7 +88,7 @@
                     <div>
                         <h2 class="font-bold text-xl font-main">Endereço</h2>
 
-                        <p><?php echo SETTINGS->andress ?></p>
+                        <p><i class="bi bi-geo-alt-fill"></i> <?php echo SETTINGS->andress ?></p>
                     </div>
                 <?php } ?>
 

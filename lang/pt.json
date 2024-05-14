@@ -206,5 +206,16 @@
     "properties": "imoveis",
     "categories": "categorias",
     "announce": "anunciar",
-    "brokers": "corretores"
+    "brokers": "corretores",
+    "WhatsApp (add area code)": "WhatsApp (adicionar código de área)",
+    "Cities": "Cidades",
+    "Add cities": "Adicionar cidades",
+    "Video :indice": "Video :indice",
+    "City :indice": "Cidade :indice",
+    "Characteristic :indice": "Caracteristica :indice",
+    "Is it a launch? (No | Yes)": "É lançamento? (Não | Sim)",
+    "Is it highlighted? (No | Yes)": "É destaque? (Não | Sim)",
+    "Highlighted": "Destaque",
+    "Launch": "Lançamento",
+    "Type": "Tipo"
 }

@@ -23,17 +23,6 @@
 
                 <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
-                        'icon' => 'bi bi-123',
-                        'name' => 'code',
-                        'label' => __('Property code'),
-                        'type' => 'number',
-                        'attributes' => 'required',
-                        'value' => isset($property) ? $property->code : null,
-                    ]) ?>
-                </div>
-
-                <div class='w-full'>
-                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-currency-dollar',
                         'name' => 'value',
                         'label' => __('Value'),
@@ -130,8 +119,16 @@
                 <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
                         'name' => 'is_launch',
-                        'label' => __('É lançamento? (Não | Sim)'),
+                        'label' => __('Is it a launch? (No | Yes)'),
                         'value' => isset($property) ? $property->is_launch : null,
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
+                        'name' => 'is_highlighted',
+                        'label' => __('Is it highlighted? (No | Yes)'),
+                        'value' => isset($property) ? $property->is_highlighted : null,
                     ]) ?>
                 </div>
             </div>

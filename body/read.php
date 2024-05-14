@@ -116,7 +116,7 @@
             <div class="w-full lg:w-2/12 md:w-4/12">
                 <div class="px-0 md:px-2 py-2 lg:py-0">
                     <select name="category_id" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
-                        <option value="">Categoria</option>
+                        <option value="">Tipo do imóvel</option>
 
                         <?php foreach ($categories as $indice => $category) { ?>
                             <option value="<?php echo $indice ?>"><?php echo $category ?></option>
@@ -139,7 +139,12 @@
 
             <div class="w-full lg:w-2/12 md:w-4/12">
                 <div class="px-0 md:px-2 py-2 lg:py-0">
-                    <input type="text" name="andress" placeholder="Cidade" class="py-3 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full" />  
+                    <select name="andress" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
+                        <option value="">Cidade</option>
+                        <?php foreach ($cities as $city) { ?>
+                            <option value="<?php echo $city ?>"><?php echo $city ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
             </div>
 
@@ -165,86 +170,92 @@
     </div>
 </section>
 
-<section class="py-12 bg-[#F4F4F4]">
-    <div class="container">
-        <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-            <div class="text-center mb-2 md:mb-0">
-                <p class="text-secondary text-md">DESTAQUES</p>
-                <h2 class="text-color-main font-bold text-2xl uppercase">Lançamentos</h2>    
+<?php if (! empty($releases)) { ?>
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Lançamentos</h2>    
+                </div>
+
+                <a href='<?php route('/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
-            <a href='<?php route('/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($releases as $item) {
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
         </div>
+    </section>
+<?php } ?>
 
-        <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($releases as $item) {
-                loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                    'id' => $item->id,
-                    'code' => $item->code,
-                    'andress' => $item->andress,
-                    'name' => $item->name,
-                    'value' => $item->value,
-                    'status' => $item->status,
-                    'details' => json_decode($item->details, true),
-                ]);
-            } ?>
-        </div>
-    </div>
-</section>
+<?php if (! empty($sell)) { ?>
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Comprar</h2>    
+                </div>
 
-<section class="py-12 bg-[#F4F4F4]">
-    <div class="container">
-        <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-            <div class="text-center mb-2 md:mb-0">
-                <p class="text-secondary text-md">DESTAQUES</p>
-                <h2 class="text-color-main font-bold text-2xl uppercase">Comprar</h2>    
+                <a href='<?php route('/comprar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
-            <a href='<?php route('/comprar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($sell as $item) {
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
         </div>
+    </section>
+<?php } ?>
 
-        <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($sell as $item) {
-                loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                    'id' => $item->id,
-                    'code' => $item->code,
-                    'andress' => $item->andress,
-                    'name' => $item->name,
-                    'value' => $item->value,
-                    'status' => $item->status,
-                    'details' => json_decode($item->details, true),
-                ]);
-            } ?>
-        </div>
-    </div>
-</section>
+<?php if (! empty($toHire)) { ?>
+    <section class="py-12 bg-[#F4F4F4]">
+        <div class="container">
+            <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
+                <div class="text-center mb-2 md:mb-0">
+                    <p class="text-secondary text-md">DESTAQUES</p>
+                    <h2 class="text-color-main font-bold text-2xl uppercase">Alugar</h2>    
+                </div>
 
-<section class="py-12 bg-[#F4F4F4]">
-    <div class="container">
-        <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
-            <div class="text-center mb-2 md:mb-0">
-                <p class="text-secondary text-md">DESTAQUES</p>
-                <h2 class="text-color-main font-bold text-2xl uppercase">Alugar</h2>    
+                <a href='<?php route('/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
-            <a href='<?php route('/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
+            <div class="flex flex-wrap w-full" data-slick="cards">
+                <?php foreach ($toHire as $item) {
+                    loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
+                        'id' => $item->id,
+                        'code' => $item->code,
+                        'andress' => $item->andress,
+                        'name' => $item->name,
+                        'value' => $item->value,
+                        'status' => $item->status,
+                        'details' => json_decode($item->details, true),
+                    ]);
+                } ?>
+            </div>
         </div>
-
-        <div class="flex flex-wrap w-full" data-slick="cards">
-            <?php foreach ($toHire as $item) {
-                loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
-                    'id' => $item->id,
-                    'code' => $item->code,
-                    'andress' => $item->andress,
-                    'name' => $item->name,
-                    'value' => $item->value,
-                    'status' => $item->status,
-                    'details' => json_decode($item->details, true),
-                ]);
-            } ?>
-        </div>
-    </div>
-</section>
+    </section>
+<?php } ?>
 
 <section class="py-12 bg-color-main">
     <div class="container flex justify-center flex-wrap">
@@ -311,6 +322,13 @@
                         'class' => 'w-full h-full rounded-xl object-cover',
                         'alt' => $broker->name,
                     ]) ?>
+
+                    <?php if (!empty($broker->whatsapp)) { ?>
+                        <a class="btn bg-[#00A900] text-white text-center mt-2" href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', $broker->whatsapp) ?>" title="<?php echo $broker->name ?>" target="_blank" rel="noopener">
+                            <?php echo $broker->name ?>
+                            <i class="ml-2 bi bi-whatsapp"></i>
+                        </a>
+                    <?php } ?>
                 </div>
             <?php } ?>
         </div>

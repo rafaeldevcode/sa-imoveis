@@ -22,6 +22,7 @@
                                 'name' => 'bedrooms[]',
                                 'value' => isset($details['bedrooms'][0]) ? $details['bedrooms'][0] : null,
                                 'options' => [
+                                    '' => 'Sem dormitório',
                                     '01 Dormitório' => '01 Dormitório',
                                     '02 Dormitórios' => '02 Dormitórios',
                                     '03 Dormitórios' => '03 Dormitórios',
@@ -35,6 +36,7 @@
                                 'name' => 'bedrooms[]',
                                 'value' => isset($details['bedrooms'][1]) ? $details['bedrooms'][1] : null,
                                 'options' => [
+                                    '' => 'Sem suíte',
                                     '01 Suíte' => '01 Suíte',
                                     '02 Suítes' => '02 Suítes',
                                     '03 Suítes' => '03 Suítes',
@@ -55,6 +57,7 @@
                                 'name' => 'garage',
                                 'value' => isset($details['garage']) ? $details['garage'] : null,
                                 'options' => [
+                                    '' => 'Sem vaga',
                                     '01 Vaga' => '01 Vaga',
                                     '02 Vagas' => '02 Vagas',
                                     '03 Vagas' => '03 Vagas',
@@ -105,6 +108,7 @@
                                 'name' => 'bathrooms[]',
                                 'value' => isset($details['bathrooms'][0]) ? $details['bathrooms'][0] : null,
                                 'options' => [
+                                    '' => 'Sem banheiro',
                                     '01 Banheiro' => '01 Banheiro',
                                     '02 Banheiros' => '02 Banheiros',
                                     '03 Banheiros' => '03 Banheiros',
@@ -118,6 +122,7 @@
                                 'name' => 'bathrooms[]',
                                 'value' => isset($details['bathrooms'][1]) ? $details['bathrooms'][1] : null,
                                 'options' => [
+                                    '' => 'Sem lavabo',
                                     '01 Lavabo' => '01 Lavabo',
                                     '02 Lavabos' => '02 Lavabos',
                                     '03 Lavabos' => '03 Lavabos',
