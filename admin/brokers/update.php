@@ -14,6 +14,7 @@ $broker->find($requests->id)->update([
     'name' => $requests->name,
     'thumbnail' => $requests->thumbnail,
     'show_in_home' => $showInHome,
+    'whatsapp' => $requests->whatsapp,
 ]);
 
 session([

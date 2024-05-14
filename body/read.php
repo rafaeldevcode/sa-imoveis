@@ -311,6 +311,13 @@
                         'class' => 'w-full h-full rounded-xl object-cover',
                         'alt' => $broker->name,
                     ]) ?>
+
+                    <?php if (!empty($broker->whatsapp)) { ?>
+                        <a class="btn bg-[#00A900] text-white text-center mt-2" href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', $broker->whatsapp) ?>" title="<?php echo $broker->name ?>" target="_blank" rel="noopener">
+                            <?php echo $broker->name ?>
+                            <i class="ml-2 bi bi-whatsapp"></i>
+                        </a>
+                    <?php } ?>
                 </div>
             <?php } ?>
         </div>
