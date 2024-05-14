@@ -1,7 +1,5 @@
 <?php
 
-verifyMethod(405, 'POST');
-
 use Src\Models\Property;
 
 $property = new Property();
@@ -33,7 +31,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
 
 $property->where('status', '!=', 'unavailable');
 
-$properties = $property->paginate(15);
+$properties = $property->paginate(2);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Contato',
