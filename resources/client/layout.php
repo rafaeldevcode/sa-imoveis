@@ -43,6 +43,9 @@
     <!-- Cookies -->
     <?php SETTINGS->cookies == 'on' && loadHtml(__DIR__ . '/../partials/alert-cookies') ?>
 
+    <!-- Whatsapp Float Button -->
+    <?php ! empty(SETTINGS->whatsapp) && loadHtml(__DIR__ . '/partials/whatsapp-float') ?>
+
     <script type="text/javascript" src="<?php asset('libs/jquery/jquery.js')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/main.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Modal.js') ?>"></script>
