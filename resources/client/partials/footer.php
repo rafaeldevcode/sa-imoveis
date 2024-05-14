@@ -39,7 +39,7 @@
                     </li>
 
                     <li>
-                        <a target="_blank" rel="noopener" href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
+                        <a href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
                     </li>
 
                     <li>
