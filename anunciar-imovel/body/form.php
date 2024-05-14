@@ -49,9 +49,7 @@
                             'type' => 'text',
                         ]) ?>
                     </div>
-                </div>
 
-                <div class='flex justify-between flex-wrap'>
                     <div class='w-full md:w-6/12'>
                         <?php loadHtml(__DIR__ . '/../../resources/partials/form/input-select', [
                             'icon' => 'bi bi-hash',
@@ -65,50 +63,19 @@
                             ],
                         ]) ?>
                     </div>
+
+                    <div class='w-full md:w-6/12'>
+                        <?php loadHtml(__DIR__ . '/../../resources/partials/form/input-default', [
+                            'icon' => 'bi bi-geo-alt-fill',
+                            'name' => 'andress',
+                            'label' => 'Endereço',
+                            'type' => 'text',
+                            'attributes' => 'required',
+                        ]) ?>
+                    </div>
                 </div>
 
                 <div class='flex justify-between flex-wrap'>
-                    <div class='w-full md:w-6/12'>
-                        <?php loadHtml(__DIR__ . '/../../resources/partials/form/input-select', [
-                            'icon' => 'bi bi-hash',
-                            'name' => 'state',
-                            'label' => 'Estado',
-                            'attributes' => ['required' => true],
-                            'value' => null,
-                            'options' => getStates(),
-                        ]) ?>
-                    </div>
-
-                    <div class='w-full md:w-6/12'>
-                        <?php loadHtml(__DIR__ . '/../../resources/partials/form/input-default', [
-                            'icon' => 'bi bi-alphabet',
-                            'name' => 'city',
-                            'label' => 'Cidade',
-                            'type' => 'text',
-                            'attributes' => 'required',
-                        ]) ?>
-                    </div>
-
-                    <div class='w-full md:w-6/12'>
-                        <?php loadHtml(__DIR__ . '/../../resources/partials/form/input-default', [
-                            'icon' => 'bi bi-alphabet',
-                            'name' => 'neighborhood',
-                            'label' => 'Bairro',
-                            'type' => 'text',
-                            'attributes' => 'required',
-                        ]) ?>
-                    </div>
-
-                    <div class='w-full md:w-6/12'>
-                        <?php loadHtml(__DIR__ . '/../../resources/partials/form/input-default', [
-                            'icon' => 'bi bi-alphabet',
-                            'name' => 'street',
-                            'label' => 'Rua',
-                            'type' => 'text',
-                            'attributes' => 'required',
-                        ]) ?>
-                    </div>
-
                     <div class='w-full'>
                         <?php loadHtml(__DIR__ . '/../../resources/partials/form/text-area', [
                             'icon' => 'bi bi-chat-left-text-fill',
