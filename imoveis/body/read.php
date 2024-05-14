@@ -104,7 +104,7 @@
                 <?php } ?>
             </div>
 
-            <?php if (is_array($characteristics)) { ?>
+            <?php if (! empty($characteristics)) { ?>
                 <div class="border-b-2 py-10">
                     <h2 class="text-color-main font-bold text-2xl">Características do Imóvel</h2>
 
@@ -119,11 +119,13 @@
                 </div>
             <?php } ?>
 
-            <div class="py-10">
-                <h2 class="text-color-main font-bold text-2xl">Descrição do Imóvel</h2>
+            <?php if (! empty($property->description)) {?>
+                <div class="py-10">
+                    <h2 class="text-color-main font-bold text-2xl">Descrição do Imóvel</h2>
 
-                <p><?php echo $property->description ?></p>
-            </div>
+                    <p><?php echo $property->description ?></p>
+                </div>
+            <?php } ?>
         </div>
 
         <div class="w-full lg:w-4/12 pl-0 lg:pl-3">
@@ -134,15 +136,19 @@
                         <span class="text-color-main font-bold text-2xl">R$ <?php echo number_format($property->value, 2, ',', '.') ?></span>
                     </div>
 
-                    <div class="flex justify-between">
-                        <span class="text-lg">Condomínio*</span>
-                        <span class="text-lg">R$ <?php echo number_format($property->condominium, 2, ',', '.') ?>/mês</span>
-                    </div>
+                    <?php if (isset($property->condominium)) { ?>
+                        <div class="flex justify-between">
+                            <span class="text-lg">Condomínio*</span>
+                            <span class="text-lg">R$ <?php echo number_format($property->condominium, 2, ',', '.') ?>/mês</span>
+                        </div>
+                    <?php } ?>
 
-                    <div class="flex justify-between">
-                        <span class="text-lg">IPTU*</span>
-                        <span class="text-lg">R$ <?php echo number_format($property->iptu, 2, ',', '.') ?>/ano</span>
-                    </div>
+                    <?php if (isset($property->iptu)) { ?>
+                        <div class="flex justify-between">
+                            <span class="text-lg">IPTU*</span>
+                            <span class="text-lg">R$ <?php echo number_format($property->iptu, 2, ',', '.') ?>/ano</span>
+                        </div>
+                    <?php } ?>
 
                     <p class="text-lg mt-4">*Valores sujeitos a alteração</p>
                 </div>
@@ -169,28 +175,30 @@
         </div>
     </section>
 
-    <section class="py-12 container">
-        <div class="w-full h-[450px] relative">
-            <div class="w-full h-full rounded-lg flex items-center justify-center">
-                <img class="absolute top-0 left-0 z-[1] rounded-lg w-full h-full object-cover" src="<?php asset('assets/images/map.png') ?>" alt="Google Maps">
+    <?php if (! empty($property->location)) {?>
+        <section class="py-12 container">
+            <div class="w-full h-[450px] relative">
+                <div class="w-full h-full rounded-lg flex items-center justify-center">
+                    <img class="absolute top-0 left-0 z-[1] rounded-lg w-full h-full object-cover" src="<?php asset('assets/images/map.png') ?>" alt="Google Maps">
 
-                <button data-iframe="location" class='ease-in duration-300 w-auto absolute z-[2] bg-color-main rounded-lg border border-color-main hover:bg-white hover:text-color-main py-2 px-4 font-bold text-lg text-white' type="button" title="CLIQUE PARA VER NO MAPA">
-                    CLIQUE PARA VER NO MAPA
-                </button>
-            </div>    
+                    <button data-iframe="location" class='ease-in duration-300 w-auto absolute z-[2] bg-color-main rounded-lg border border-color-main hover:bg-white hover:text-color-main py-2 px-4 font-bold text-lg text-white' type="button" title="CLIQUE PARA VER NO MAPA">
+                        CLIQUE PARA VER NO MAPA
+                    </button>
+                </div>    
 
-            <iframe
-                id="location"
-                data-src="<?php echo $property->location ?>" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                class="rounded-lg"
-            ></iframe>  
-        </div>
-    </section>
+                <iframe
+                    id="location"
+                    data-src="<?php echo $property->location ?>" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="rounded-lg"
+                ></iframe>  
+            </div>
+        </section>
+    <?php } ?>
 
     <?php if (count($properties) > 1) { ?>
         <section class="py-12 container">
@@ -205,7 +213,7 @@
                 <div class="flex flex-wrap w-full" data-slick="cards">
                     <?php foreach ($properties as $item) {
                         if ($property->id !== $item->id) {
-                            loadHtml(__DIR__ . '/../../resources/client/partials/', [
+                            loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
                                 'id' => $item->id,
                                 'code' => $item->code,
                                 'andress' => $item->andress,

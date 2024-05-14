@@ -2,7 +2,9 @@
 
 class Videos {
     constructor () {
-        this.videos = $('#gallery-videos').attr('data-videos').split(',');
+        const videos = $('#gallery-videos');
+
+        this.videos = videos.length > 0 ? videos.attr('data-videos').split(',') : [];
         this.iframe = $('#iframe-videos');
         this.indice = 0;
 
