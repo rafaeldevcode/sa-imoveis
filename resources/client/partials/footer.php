@@ -30,7 +30,7 @@
                         <a href="<?php route('/contato') ?>" title="Contato">Contato</a>
                     </li>
                     <li>
-                        <a href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
+                        <a target="_blank" rel="noopener" href="<?php route('/simular-financiamento') ?>" title="Simula um Financiamento">Simula um Financiamento</a>
                     </li>
                     <li>
                         <a href="<?php route('/anunciar-imovel') ?>" title="Anuncie seu Imóvel">Anuncie seu Imóvel</a>

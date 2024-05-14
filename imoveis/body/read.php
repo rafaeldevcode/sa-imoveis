@@ -166,7 +166,7 @@
                         Adicionar aos Favoritos
                     </button>
 
-                    <a href="<?php route('/simular-financiamento') ?>" title="Simular um Financiamento" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main'>
+                    <a target="_blank" rel="noopener" href="<?php route('/simular-financiamento') ?>" title="Simular um Financiamento" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-4 w-full font-bold text-lg text-color-main'>
                         <i class="bi bi-calculator"></i>
                         Simular um Financiamento
                     </a>

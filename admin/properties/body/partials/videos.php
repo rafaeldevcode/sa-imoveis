@@ -21,7 +21,7 @@
                                     
                                     <input value="<?php echo $video ?>" class="placeholder:italic placeholder:text-secondary block bg-white w-full border border-secondary rounded-l py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-color-main focus:ring-color-main focus:ring-1 sm:text-sm" placeholder="Video <?php $indice + 1 ?>" type="text" name="videos[]" onkeyup="ChangeLocationMaps.init(event)">
                                 </label>
-                                <button class="bg-danger rounded-r text-white px-4 font-bold border border-danger hover:bg-white hover:text-danger ease-in duration-300" type="button" title="<?php _e('Video') ?> <?php $indice + 1 ?>" data-item="remove">
+                                <button class="bg-danger rounded-r text-white px-4 font-bold border border-danger hover:bg-white hover:text-danger ease-in duration-300" type="button" title="<?php _e('Video :indice', [':indice' => $indice + 1]) ?>" data-item="remove">
                                     <i class="bi bi-trash3-fill"></i>
                                 </button>
                             </div>

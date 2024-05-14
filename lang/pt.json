@@ -207,5 +207,10 @@
     "categories": "categorias",
     "announce": "anunciar",
     "brokers": "corretores",
-    "WhatsApp (add area code)": "WhatsApp (adicionar código de área)"
+    "WhatsApp (add area code)": "WhatsApp (adicionar código de área)",
+    "Cities": "Cidades",
+    "Add cities": "Adicionar cidades",
+    "Video :indice": "Video :indice",
+    "City :indice": "Cidade :indice",
+    "Characteristic :indice": "Caracteristica :indice"
 }

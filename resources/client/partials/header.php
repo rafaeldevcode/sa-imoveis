@@ -12,7 +12,7 @@
             <nav class="flex flex-col">
                 <ul class="flex justify-start lg:justify-end flex-col lg:flex-row gap-4 lg:gap-10 mb-6">
                     <li>
-                        <a href="<?php route('/simular-financiamento') ?>" class="text-secondary font-bold" title="SIMULE UM FINANCIAMENTO">SIMULE UM FINANCIAMENTO</a>
+                        <a target="_blank" rel="noopener" href="<?php route('/simular-financiamento') ?>" class="text-secondary font-bold" title="SIMULE UM FINANCIAMENTO">SIMULE UM FINANCIAMENTO</a>
                     </li>
 
                     <li>

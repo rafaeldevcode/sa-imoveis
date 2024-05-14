@@ -20,9 +20,13 @@ function loadInFooter(): void
 
     <script type="text/javascript" src="<?php asset('libs/jquery/jquery.mask.min.js?')?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Gallery.js?') ?>"></script>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/CreateInput.js') ?>"></script>
     <script type="text/javascript">
         $('#phone').mask('(00) 0 0000-0000');
         $('#whatsapp').mask('+00 (00) 0 0000-0000');
+
+        const cities = new CreateInput('cities', '<?php _e('City') ?>');
+        cities.init();
 
         const gallery = new Gallery();
 
