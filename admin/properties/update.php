@@ -9,6 +9,7 @@ $property = new Property();
 
 $collection = isset($requests->collection) ? $requests->collection : null;
 $isLaunch = isset($requests->is_launch) ? $requests->is_launch : 'off';
+$isHighlighted = isset($requests->is_highlighted) ? $requests->is_highlighted : 'off';
 $property = $property->find($requests->id);
 
 $property->update([
@@ -25,6 +26,7 @@ $property->update([
     'status' => $requests->status,
     'type' => $requests->type,
     'is_launch' => $isLaunch,
+    'is_highlighted' => $isHighlighted,
     'category_id' => $requests->category_id,
 ]);
 

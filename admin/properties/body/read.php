@@ -25,6 +25,15 @@
                             <span class="text-sm"><?php _e('Value') ?></span>
                         </th>
                         <th scope="col" class="!py-1 !px-3">
+                            <span class="text-sm"><?php _e('Type') ?></span>
+                        </th>
+                        <th scope="col" class="!py-1 !px-3">
+                            <span class="text-sm"><?php _e('Launch') ?></span>
+                        </th>
+                        <th scope="col" class="!py-1 !px-3">
+                            <span class="text-sm"><?php _e('Highlighted') ?></span>
+                        </th>
+                        <th scope="col" class="!py-1 !px-3">
                             <span class="text-sm"><?php _e('Status') ?></span>
                         </th>
                         <th scope="col" class="!py-1 !px-3 text-right">
@@ -57,11 +66,29 @@
                             <td scope="row" class="!py-1 !px-3 font-medium text-gray-900 whitespace-nowrap">
                                 <span class="text-sm">R$ <?php echo number_format($property->value, 2, ',', '.') ?>
                             </td>
+
+                            <td class="py-1 px-3">
+                               <span class="text-sm"><?php echo $property->type ?>
+                            </td>
+
+                            <td class="py-1 px-3">
+                                <span class="rounded text-xs text-light px-2 py-1 bg-<?php echo (is_null($property->is_launch) || $property->is_launch == 'off') ? 'danger' : 'primary' ?>">
+                                    <?php echo (is_null($property->is_launch) || $property->is_launch == 'off') ? __('No') : __('Yes') ?>
+                                </span>
+                            </td>
+
+                            <td class="py-1 px-3">
+                                <span class="rounded text-xs text-light px-2 py-1 bg-<?php echo (is_null($property->is_highlighted) || $property->is_highlighted == 'off') ? 'danger' : 'primary' ?>">
+                                    <?php echo (is_null($property->is_highlighted) || $property->is_highlighted == 'off') ? __('No') : __('Yes') ?>
+                                </span>
+                            </td>
+
                             <td class="py-1 px-3">
                                 <span class="rounded text-xs text-light px-2 py-1 bg-<?php echo propertyStatus($property->status, 'colors') ?>">
                                     <?php echo propertyStatus($property->status, 'texts') ?>
                                 </span>
                             </td>
+
                             <td class="flex items-center justify-end !py-1 !px-3 space-x-2 right">
                                 <a target="_blank" rel="noopener" href="<?php route("/imoveis/{$property->id}") ?>" title='<?php _e('View property :name', [':name' => $property->name]) ?>' class='text-xs p-2 rounded btn-info text-light fw-bold'>
                                     <i class="bi bi-eye-fill"></i>

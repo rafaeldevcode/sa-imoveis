@@ -33,13 +33,17 @@
                             <a href="<?php route('/') ?>" class="<?php isActive('') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="INICIO">INICIO</a>
                         </li>
 
-                        <li>
-                            <a href="<?php route('/comprar') ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
-                        </li>
+                        <?php if (thereIsProperty('Vender')) { ?>
+                            <li>
+                                <a href="<?php route('/comprar') ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
+                            </li>
+                        <?php } ?>
 
-                        <li>
-                            <a href="<?php route('/alugar') ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
-                        </li>
+                        <?php if (thereIsProperty('Alugar')) { ?>
+                            <li>
+                                <a href="<?php route('/alugar') ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
+                            </li>
+                        <?php } ?>
 
                         <li>
                             <a href="<?php route('/sobre') ?>" class="<?php isActive('sobre') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="QUEM SOMOS">QUEM SOMOS</a>

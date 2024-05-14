@@ -9,6 +9,7 @@ $property = new Property();
 
 $collection = isset($requests->collection) ? $requests->collection : null;
 $isLaunch = isset($requests->is_launch) ? $requests->is_launch : 'off';
+$isHighlighted = isset($requests->is_highlighted) ? $requests->is_highlighted : 'off';
 
 $newProperty = $property->create([
     'name' => $requests->name,
@@ -25,6 +26,7 @@ $newProperty = $property->create([
     'status' => $requests->status,
     'type' => $requests->type,
     'is_launch' => $isLaunch,
+    'is_highlighted' => $isHighlighted,
     'user_id' => $_SESSION['user_id'],
     'category_id' => $requests->category_id,
 ]);

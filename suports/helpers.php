@@ -289,4 +289,13 @@ if (! function_exists('generatePropertyCode')) {
     }
 }
 
+if (! function_exists('thereIsProperty')) {
+    function thereIsProperty (string $type)
+    {
+        $property = (new Property)->where('type', '=', $type)->where('status', '!=', 'unavailable')->count();
+
+        return $property > 0 ? true : false;
+    }
+}
+
 !defined('SETTINGS') && define('SETTINGS', getSiteSettings());

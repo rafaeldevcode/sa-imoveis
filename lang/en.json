@@ -212,5 +212,10 @@
     "Add cities": "Add cities",
     "Video :indice": "Video :indice",
     "City :indice": "City :indice",
-    "Characteristic :indice": "Characteristic :indice"
+    "Characteristic :indice": "Characteristic :indice",
+    "Is it a launch? (No | Yes)": "Is it a launch? (No | Yes)",
+    "Is it highlighted? (No | Yes)": "Is it highlighted? (No | Yes)",
+    "Highlighted": "Highlighted",
+    "Launch": "Launch",
+    "Type": "Type"
 }
