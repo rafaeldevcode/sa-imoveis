@@ -23,17 +23,6 @@
 
                 <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
-                        'icon' => 'bi bi-123',
-                        'name' => 'code',
-                        'label' => __('Property code'),
-                        'type' => 'number',
-                        'attributes' => 'required',
-                        'value' => isset($property) ? $property->code : null,
-                    ]) ?>
-                </div>
-
-                <div class='w-full'>
-                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-currency-dollar',
                         'name' => 'value',
                         'label' => __('Value'),
