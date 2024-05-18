@@ -1,5 +1,29 @@
-<section class="w-full min-h-[500px] md:h-[650px] flex flex-col justify-between" style="background: url(<?php asset('assets/images/' . SETTINGS->site_bg_login) ?>) no-repeat center; background-size: cover;">
-    <div class="container shadow-lg bg-white rounded-b-lg p-10 text-center flex flex-wrap">
+<section class="w-full min-h-[500px] md:h-[650px] flex flex-col justify-between relative">
+    <div data-banner="mobile" class="absolute z-[1] top-0 left-0 w-full h-full">
+        <?php loadHtml(__DIR__ . '/../resources/partials/image', [
+            'id' => SETTINGS->home_featured_mob,
+            'class' => 'w-full h-full object-cover',
+            'attributes' => [
+                'autoplay' => true,
+                'muted' => true,
+                'loop' => true,
+            ]
+        ]) ?>
+    </div>
+
+    <div data-banner="desktop" class="absolute z-[1] top-0 left-0 w-full h-full">
+        <?php loadHtml(__DIR__ . '/../resources/partials/image', [
+            'id' => SETTINGS->home_featured_desk,
+            'class' => 'w-full h-full object-cover',
+            'attributes' => [
+                'autoplay' => true,
+                'muted' => true,
+                'loop' => true,
+            ]
+        ]) ?>
+    </div>
+
+    <div class="container z-[2] shadow-lg bg-white rounded-b-lg p-10 text-center flex flex-wrap">
         <div class="w-full md:w-6/12 lg:w-3/12 border-r-none md:border-r border-color-main">
             <button class="text-color-main uppercase font-bold flex gap-2 justify-center w-full" data-open="1" title="Mais opções">
                 Apartamentos
@@ -101,7 +125,7 @@
         </div>
     </div>
 
-    <div class="relative container px-4 py-12 flex justify-center items-end">
+    <div class="z-[2] relative container px-4 py-12 flex justify-center items-end">
         <form action="<?php route('/pesquisar') ?>" method="POST" class="shadow-lg bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
             <div class="w-full lg:w-2/12 md:w-4/12">
                     <div class="px-0 md:px-2 py-2 lg:py-0">

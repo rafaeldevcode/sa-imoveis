@@ -14,8 +14,13 @@
                     data-checked="add-style"
                 >
 
-                <label class="block rounded cursor-pointer w-[150px] h-[150px] border border-secondary p-1" data-click="double" for="image_<?php echo $image->id ?>">
-                    <img class="rounded w-full h-full object-contain" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $image->name ?>">
+                <label class="block rounded cursor-pointer w-[150px] h-[150px] border border-secondary p-1 relative flex justify-center items-center" data-click="double" for="image_<?php echo $image->id ?>">
+                    <?php if ($image->type === 2) { ?>
+                        <i class="bi bi-play-circle-fill text-4xl text-color-main absolute"></i>
+                        <video data-type="<?php echo $image->type ?>" class="rounded w-full h-full object-contain" src="<?php asset("assets/images/{$image->file}") ?>">
+                    <?php } else { ?>
+                        <img data-type="<?php echo $image->type ?>" class="rounded w-full h-full object-contain" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $image->name ?>">
+                    <?php } ?>
                 </label>
             </div>
         <?php } ?>
@@ -41,7 +46,7 @@
             <span class="text-secondary"><?php _e('Maximum 20 files') ?></span>
 
             <form class="flex flex-row justify-center sm:justify-end items-end space-x-2">
-                <input type="file" id="input-upload" hidden accept=".svg, .jpg, .jpeg, .png, .webp" multiple>
+                <input type="file" id="input-upload" hidden accept=".svg, .jpg, .jpeg, .png, .webp, .mp4" multiple>
 
                 <?php if (isset($close) && $close == true) { ?>
                     <button title='<?php _e('Close') ?>' type='button' class='btn btn-secondary' data-modal-close="popup"><?php _e('Close') ?></button>

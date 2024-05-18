@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     'file_path' => asset("assets/images/{$image->file}", true),
                     'id' => $image->id,
                     'name' => $image->name,
+                    'type' => $image->type,
                 ]);
             };
         };
@@ -28,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'file_path' => asset("assets/images/{$image->file}", true),
             'id' => $image->id,
             'name' => $image->name,
+            'type' => $image->type,
         ]);
     };
 };

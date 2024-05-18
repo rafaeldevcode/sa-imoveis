@@ -55,7 +55,14 @@ if (isset($value)) {
                             </button>
                         </div>
 
-                        <img class="rounded-b w-[150px] h-[150px] object-contain" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $image->name ?>">
+                        <div class="relative flex items-center justify-center">
+                            <?php if ($image->type == 2) { ?>
+                                <i class="bi bi-play-circle-fill text-4xl text-color-main absolute"></i>
+                                <video class="rounded-b w-[150px] h-[150px] object-contain" src="<?php asset("assets/images/{$image->file}") ?>">
+                            <?php } else { ?>
+                                <img class="rounded-b w-[150px] h-[150px] object-contain" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $image->name ?>">
+                            <?php } ?>
+                        </div>
                     </div>
 
                     <?php if (isset($isRequired)) { ?>

@@ -217,5 +217,7 @@
     "Is it highlighted? (No | Yes)": "É destaque? (Não | Sim)",
     "Highlighted": "Destaque",
     "Launch": "Lançamento",
-    "Type": "Tipo"
+    "Type": "Tipo",
+    "Home screen mobile background": "Plano de fundo mobile da tela inicial",
+    "Home screen desktop background": "Plano de fundo desktop da tela inicial"
 }
