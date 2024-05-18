@@ -976,6 +976,10 @@ video {
   max-width: 400px;
 }
 
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+
 .max-w-\[900px\] {
   max-width: 900px;
 }
@@ -1589,6 +1593,18 @@ video {
 .btn-secondary:hover {
   background-color: #fff;
   color: #B7892C;
+}
+
+.btn-info {
+  background-color: #0DCAF0;
+  border: 1px solid #0DCAF0;
+  color: #fff;
+  transition: .4s all;
+}
+
+.btn-info:hover {
+  background-color: #fff;
+  color: #0DCAF0;
 }
 
 .placeholder\:text-sm::-moz-placeholder {
