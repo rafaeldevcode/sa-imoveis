@@ -34,6 +34,8 @@ function loadInFooter(): void
         gallery.openModalSelect($('[data-upload=site_logo_secondary]'), 'radio');
         gallery.openModalSelect($('[data-upload=site_favicon]'), 'radio');
         gallery.openModalSelect($('[data-upload=site_bg_login]'), 'radio');
+        gallery.openModalSelect($('[data-upload=home_featured_mob]'), 'radio');
+        gallery.openModalSelect($('[data-upload=home_featured_desk]'), 'radio');
 
         tinymce.init({
             selector: '#tinymce',

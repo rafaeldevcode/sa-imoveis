@@ -299,6 +299,20 @@
                     'value' => (isset($settings) && !empty($settings->site_bg_login)) ? $settings->site_bg_login : null,
                     'type' => 'radio',
                 ]) ?>
+
+                <?php loadHtml(__DIR__ . '/../../../resources/partials/form/button-upload', [
+                    'name' => 'home_featured_mob',
+                    'label' => __('Home screen mobile background'),
+                    'value' => (isset($settings) && !empty($settings->home_featured_mob)) ? $settings->home_featured_mob : null,
+                    'type' => 'radio',
+                ]) ?>
+
+                <?php loadHtml(__DIR__ . '/../../../resources/partials/form/button-upload', [
+                    'name' => 'home_featured_desk',
+                    'label' => __('Home screen desktop background'),
+                    'value' => (isset($settings) && !empty($settings->home_featured_desk)) ? $settings->home_featured_desk : null,
+                    'type' => 'radio',
+                ]) ?>
             </div>
         </div>
 

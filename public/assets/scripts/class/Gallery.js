@@ -45,7 +45,6 @@ class Gallery{
                             processData: false,
                             contentType: false,
                             success: function(response) {
-                                console.log(response)
                                 resolve(response);
                             },
                             error: function(xhr, status, error) {
@@ -252,9 +251,9 @@ class Gallery{
 
                     div.append(input);
 
-                    const contentImage = $('<div />')
-                    contentImage.attr('class', 'relative');
-                    contentImage.attr('data-upload-image', 'selected');
+                    const content = $('<div />')
+                    content.attr('class', 'relative');
+                    content.attr('data-upload-image', 'selected');
 
                     const contentRemove = $('<div />');
                     contentRemove.attr('class', 'bg-color-main rounded-t flex justify-end p-1 w-full');
@@ -272,17 +271,36 @@ class Gallery{
 
                     button.append(i);
                     contentRemove.append(button);
-                    contentImage.append(contentRemove);
+                    content.append(contentRemove);
 
-                    const img = $('<img />');
-                    img.attr({
-                        class: 'rounded-b w-[150px] h-[150px] object-contain',
-                        src: selected.url,
-                        alt: selected.alt
-                    });
+                    const contentFile = $('<div />');
+                    contentFile.attr('class', 'relative flex items-center justify-center');
 
-                    contentImage.append(img);
-                    div.append(contentImage);
+                    if (selected.type == 2) {
+                        const file = $('<video />');
+                        file.attr({
+                            class: 'rounded-b w-[150px] h-[150px] object-contain',
+                            src: selected.url
+                        });
+
+                        const icon = $('<i />');
+                        icon.attr('class', 'bi bi-play-circle-fill text-4xl text-color-main absolute');
+
+                        contentFile.append(icon);
+                        contentFile.append(file);
+                    } else {
+                        const file = $('<img />');
+                        file.attr({
+                            class: 'rounded-b w-[150px] h-[150px] object-contain',
+                            src: selected.url,
+                            alt: selected.alt
+                        });
+
+                        contentFile.append(file);
+                    }
+
+                    content.append(contentFile);
+                    div.append(content);
 
                     if(required == 'required'){
                         const span = $('<span />');
@@ -327,11 +345,14 @@ class Gallery{
             const selectedRadio = $('#gallery').find('input[type="radio"]:checked');
 
             if(selectedRadio.length > 0){
-                const image = selectedRadio.parent().find('img');
+                const image = selectedRadio.parent().find('img, video');
+                const type = image.attr('data-type');
+
                 const data = {
                     url: image.attr('src'),
-                    alt: image.attr('alt'),
-                    id: selectedRadio.val()
+                    alt: type == 1 ? image.attr('alt') : '',
+                    id: selectedRadio.val(),
+                    type: type
                 };
 
                 this.selected = [];
@@ -372,10 +393,18 @@ class Gallery{
 
     dbClickPreview() {
         $('label[data-click="double"]').dblclick((event) => {
-            this.images = this.extractInfoImage($('#gallery').find('img'));
+            this.images = this.extractInfoImage($('#gallery').find('img, video'));
 
-            const image = $(event.target).attr('alt') ? $(event.target) : $(event.target).find('img');
-            const imagePreview = $('#image-preview');
+            const image = $(event.target).attr('data-type') ? $(event.target) : $(event.target).find('img, video');
+            const imagePreview = image.attr('data-type') == 1 ? $('#image-preview') : $('#video-preview');
+
+            if (image.attr('data-type') == 1) {
+                $('#video-preview').hide();
+                $('#image-preview').show();
+            } else {
+                $('#video-preview').show();
+                $('#image-preview').hide();
+            }
 
             this.setCurrentPosition(image.attr('src'));
 
@@ -387,18 +416,27 @@ class Gallery{
 
             Modal.open('preview');
 
-            gallery.next($('#image-preview'));
-            gallery.previous($('#image-preview'));
+            gallery.next();
+            gallery.previous();
         });
     }
 
-    previous(imagePreview){
+    previous(){
         $('#previous').click(() => {
             this.currentPosition = this.currentPosition === 0
                 ? this.images.length-1
                 : this.currentPosition-1;
 
             const nextImage = this.images[this.currentPosition];
+            const imagePreview = nextImage.type == 1 ? $('#image-preview') : $('#video-preview');
+
+            if (nextImage.type == 1) {
+                $('#video-preview').hide();
+                $('#image-preview').show();
+            } else {
+                $('#video-preview').show();
+                $('#image-preview').hide();
+            }
 
             imagePreview.attr('src', nextImage.src);
             imagePreview.attr('alt', nextImage.alt);
@@ -408,13 +446,22 @@ class Gallery{
         });
     }
 
-    next(imagePreview){
+    next(){
         $('#next').click(() => {
             this.currentPosition = this.currentPosition === this.images.length-1
                 ? 0
                 : this.currentPosition+1;
 
             const nextImage = this.images[this.currentPosition];
+            const imagePreview = nextImage.type == 1 ? $('#image-preview') : $('#video-preview');
+
+            if (nextImage.type == 1) {
+                $('#video-preview').hide();
+                $('#image-preview').show();
+            } else {
+                $('#video-preview').show();
+                $('#image-preview').hide();
+            }
 
             imagePreview.attr('src', nextImage.src);
             imagePreview.attr('alt', nextImage.alt);
@@ -428,10 +475,13 @@ class Gallery{
         const imagesObj = [];
 
         for(let i = 0; i < images.length; i++){
+            const type = $(images[i]).attr('data-type');
+
             const imageObj = {
                 id: i,
                 src: images[i].src,
-                alt: images[i].alt
+                alt: type == 1 ? images[i].alt : '',
+                type: type 
             }
 
             imagesObj.push(imageObj);

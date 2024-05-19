@@ -35,6 +35,8 @@ if (!function_exists('getDefaultSiteSettings')) {
             'site_logo_secondary' => 'logo_secondary.png',
             'site_favicon' => 'favicon.png',
             'site_bg_login' => 'bg_login.jpg',
+            'home_featured_mob' => 'bg_login.jpg',
+            'home_featured_desk' => 'bg_login.jpg',
             'construction' => '',
             'maintenance' => 'on',
             'admin_lang' => 'en',
@@ -90,9 +92,11 @@ if (!function_exists('saveImage')) {
             $fileName = bin2hex(random_bytes(25));
             $extencion = explode('/', $file['images']['type'])[1];
             $extencion = str_replace('+xml', '', $extencion);
+            $type = explode('/', $file['images']['type'])[0];
+            $type = $type === 'video' ? 2 : 1;
             $filePath = "uploads/{$year}/{$month}/{$fileName}.{$extencion}";
 
-            $name = str_replace(['.jpeg', '.jpg', '.webp', '.svg', '.svg+xml', '.png'], '', $file['images']['name']);
+            $name = str_replace(['.jpeg', '.jpg', '.webp', '.svg', '.svg+xml', '.png', '.mp4'], '', $file['images']['name']);
             $name = str_replace(['_', '-'], ' ', $name);
 
             $gallery = $gallery->create([
@@ -100,6 +104,7 @@ if (!function_exists('saveImage')) {
                 'file' => $filePath,
                 'user_id' => $_SESSION['user_id'],
                 'size' => $file['images']['size'],
+                'type' => $type,
             ]);
 
             move_uploaded_file($file['images']['tmp_name'], __DIR__ . "/../../public/assets/images/{$filePath}");
@@ -132,6 +137,8 @@ if (!function_exists('getSiteSettings')) {
                     $settings->site_logo_main = $gallery->find($settings->site_logo_main)->data->file;
                     $settings->site_logo_secondary = $gallery->find($settings->site_logo_secondary)->data->file;
                     $settings->site_bg_login = $gallery->find($settings->site_bg_login)->data->file;
+                    $settings->home_featured_desk = $gallery->find($settings->home_featured_desk)->data->id;
+                    $settings->home_featured_mob = $gallery->find($settings->home_featured_mob)->data->id;
                     $settings->about_company = '';
 
                     $settings = json_encode($settings);

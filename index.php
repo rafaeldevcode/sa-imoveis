@@ -44,6 +44,14 @@ function loadInFooter()
         InputRange.init();
 
         $(document).ready(function(){
+            const viewportWidth = window.innerWidth;
+
+            if (viewportWidth >= 700) {
+                $('[data-banner="mobile"]').remove();
+            } else {
+                $('[data-banner="desktop"]').remove();
+            }
+
             $('[data-slick="images"]').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,

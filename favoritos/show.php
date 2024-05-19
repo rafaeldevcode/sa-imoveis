@@ -5,12 +5,13 @@ use Src\Models\Property;
 verifyMethod(405, 'GET');
 
 $property = new Property();
-$properties = empty(favorites()) ? [] : $property->where('status', '!=', 'unavailable')->whereIn('id', favorites());
+$ids = explode('-', slug(2));
+$properties = empty($ids) ? [] : $property->where('status', '!=', 'unavailable')->whereIn('id', $ids);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Favoritos',
     'body' => __DIR__ . '/body/read',
-    'data' => ['properties' => $properties, 'showButtonShare' => true],
+    'data' => ['properties' => $properties, 'showButtonShare' => false],
     'plugins' => ['slick'],
 ]);
 

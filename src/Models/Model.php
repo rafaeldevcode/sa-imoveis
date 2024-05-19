@@ -13,7 +13,7 @@ class Model
     public $data = null;
     private $wheres = [];
     private $orWheres = [];
-    private $connection;
+    protected $connection;
     private $foreignPivotKey = null;
     private $relatedPivotKey = null;
     private $relatedId = null;
@@ -482,7 +482,7 @@ class Model
         }
     }
 
-    private function whereClausure(): stdClass
+    protected function whereClausure(): stdClass
     {
         $where_clause = '';
         $bindings = [];
