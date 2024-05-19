@@ -5,6 +5,8 @@ use Src\Models\Property;
 $property = new Property();
 $requests = requests();
 
+$property = $property->where('status', '!=', 'unavailable');
+
 if (isset($requests->search_type) && $requests->search_type === '1') {
     $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%");
 } else {

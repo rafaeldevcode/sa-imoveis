@@ -73,6 +73,16 @@ if (!function_exists('route')) {
     }
 };
 
+if (!function_exists('getRoute')) {
+    function getRoute(string $path = '', bool $redirection = false): string
+    {
+        $projectPath = env('PROJECT_PATH');
+        $path = $projectPath . $path;
+
+        return $path;
+    }
+};
+
 if(!function_exists('slug')):
     function slug(int $indice): string
     {

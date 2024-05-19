@@ -1,5 +1,6 @@
 <?php
 
+use Src\Models\Category;
 use Src\Models\Property;
 
 require __DIR__ . '/helpers/trans.php';
@@ -290,11 +291,38 @@ if (! function_exists('generatePropertyCode')) {
 }
 
 if (! function_exists('thereIsProperty')) {
-    function thereIsProperty (string $type)
+    function thereIsProperty (string $type): bool
     {
         $property = (new Property)->where('type', '=', $type)->where('status', '!=', 'unavailable')->count();
 
         return $property > 0 ? true : false;
+    }
+}
+
+if (! function_exists('enableOrDisableLink')) {
+    function enableOrDisableLink (string $search_type, array $data): void
+    {
+        $property = new Property();
+        $property = $property->where('status', '!=', 'unavailable');
+        
+        if (isset($search_type) && $search_type === '1') {
+            $category = new Category();
+            $category = $category->where('slug', '=', $data['category_slug'])->first();
+            
+            $property = $property->where('category_id', '=', $category->id);
+
+            echo $property->count() > 0 ? "href=\"{$data['href']}\"" : 'disabled href="javascript:void(0)"';
+        } else {        
+            if (isset($data['category_id'])) {
+                $property = $property->where('category_id', '=', $data['category_id']);
+            }
+        
+            if (isset($data['bedrooms'])) {
+                $property = $property->where('details', 'LIKE', "%{$data['bedrooms']}%");
+            }
+
+            echo $property->count() > 0 ? '' : 'disabled';
+        }
     }
 }
 
