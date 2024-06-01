@@ -104,7 +104,7 @@
                 <?php } ?>
             </div>
 
-            <?php if (! empty($characteristics)) { ?>
+            <?php if (!empty($characteristics)) { ?>
                 <div class="border-b-2 py-10">
                     <h2 class="text-color-main font-bold text-2xl">Características do Imóvel</h2>
 
@@ -119,7 +119,7 @@
                 </div>
             <?php } ?>
 
-            <?php if (! empty($property->description)) {?>
+            <?php if (!empty($property->description)) {?>
                 <div class="py-10">
                     <h2 class="text-color-main font-bold text-2xl">Descrição do Imóvel</h2>
 
@@ -175,7 +175,7 @@
         </div>
     </section>
 
-    <?php if (! empty($property->location)) {?>
+    <?php if (!empty($property->location)) {?>
         <section class="py-12 container">
             <div class="w-full h-[450px] relative">
                 <div class="w-full h-full rounded-lg flex items-center justify-center">

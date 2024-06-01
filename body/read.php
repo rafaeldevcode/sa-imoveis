@@ -7,7 +7,7 @@
                 'autoplay' => true,
                 'muted' => true,
                 'loop' => true,
-            ]
+            ],
         ]) ?>
     </div>
 
@@ -19,7 +19,7 @@
                 'autoplay' => true,
                 'muted' => true,
                 'loop' => true,
-            ]
+            ],
         ]) ?>
     </div>
 
@@ -194,7 +194,7 @@
     </div>
 </section>
 
-<?php if (! empty($releases)) { ?>
+<?php if (!empty($releases)) { ?>
     <section class="py-12 bg-[#F4F4F4]">
         <div class="container">
             <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
@@ -223,7 +223,7 @@
     </section>
 <?php } ?>
 
-<?php if (! empty($sell)) { ?>
+<?php if (!empty($sell)) { ?>
     <section class="py-12 bg-[#F4F4F4]">
         <div class="container">
             <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
@@ -252,7 +252,7 @@
     </section>
 <?php } ?>
 
-<?php if (! empty($toHire)) { ?>
+<?php if (!empty($toHire)) { ?>
     <section class="py-12 bg-[#F4F4F4]">
         <div class="container">
             <div class="relative flex justify-center w-full items-center flex-col md:flex-row">

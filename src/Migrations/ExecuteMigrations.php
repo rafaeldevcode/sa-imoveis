@@ -112,6 +112,7 @@ class ExecuteMigrations
     public function after(string $column): self
     {
         $this->columns[$this->currentIndice]['after'] = " AFTER {$column}";
+
         return $this;
     }
 
@@ -189,10 +190,12 @@ class ExecuteMigrations
         endforeach;
 
         if($this->timestamps):
-            $query .= "`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
+            $query .= '`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP';
         endif;
 
-        if($count_column > 0) $query .= ";";
+        if($count_column > 0) {
+            $query .= ';';
+        }
         $query = str_replace(', ;', ';', $query);
 
         $this->connection->exec($query);
@@ -201,7 +204,7 @@ class ExecuteMigrations
             foreach($this->constraint as $key):
                 $query = "ALTER TABLE {$this->table} ADD KEY `fk_{$key['table']}_{$this->table}` (`{$key['foreign_key']}`)";
                 $this->connection->exec($query);
-                
+
                 $query = "ALTER TABLE {$this->table} ADD CONSTRAINT `fk_{$key['table']}_{$this->table}` FOREIGN KEY (`{$key['foreign_key']}`) REFERENCES `{$key['table']}` (`{$key['column_references']}`)";
                 $this->connection->exec($query);
             endforeach;

@@ -14,7 +14,7 @@ if(isset($attributes)):
 endif;
 ?>
 
-<?php if($thumbnail->data) { 
+<?php if($thumbnail->data) {
     if ($thumbnail->data->type == 1) {?>
         <img 
             class="<?php echo isset($class) ? $class : '' ?>" 
@@ -32,4 +32,4 @@ endif;
             <?php echo $attr ?>
         >
     <?php }
-} ?>
+    } ?>
