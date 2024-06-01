@@ -220,5 +220,18 @@
     "Launch": "Lançamento",
     "Type": "Tipo",
     "Home screen mobile background": "Plano de fundo mobile da tela inicial",
-    "Home screen desktop background": "Plano de fundo desktop da tela inicial"
+    "Home screen desktop background": "Plano de fundo desktop da tela inicial",
+    "Price Index": "Índice de Preços",
+    "This action will remove the entire selected price index!": "Esta ação removerá todo o índice de preço selecionado!",
+    "Edit price index :type.": "Editar indice de preço :type.",
+    "This action will remove the :type price index.": "Esta ação removerá o índice de preço :type.",
+    "Remove from :type price index.": "Remover de índice de preço :type.",
+    "Month": "Mês",
+    "Year": "Ano",
+    "Percentage month": "Percentual mês",
+    "Percentage year": "Percentual ano",
+    "economic": "economico",
+    "Price index added successfully!": "Índice de preço adicionado com sucesso!",
+    "Price index updated successfully!": "Índice de preço atualizado com sucesso!",
+    "Price indice(s) removed successfully!": "Indíce(s) de preço removido(s) com sucesso!"
 }

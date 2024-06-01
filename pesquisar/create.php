@@ -38,7 +38,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
 
 $property->where('status', '!=', 'unavailable');
 
-$properties = $property->paginate(5);
+$properties = $property->paginate(15);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Contato',

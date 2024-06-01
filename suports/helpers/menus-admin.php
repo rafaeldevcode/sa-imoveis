@@ -52,6 +52,12 @@ if (!function_exists('menusAdmin')) {
                 'icon' => 'bi bi-images',
                 'count' => null,
             ],
+            'economic' => [
+                'path' => '/admin/economic',
+                'title' => __('Price Index'),
+                'icon' => 'bi bi-bar-chart-line-fill',
+                'count' => null,
+            ],
             'settings' => [
                 'path' => '/admin/settings',
                 'title' => __('Settings'),
