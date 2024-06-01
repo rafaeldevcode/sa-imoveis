@@ -28,7 +28,7 @@ class BodyEmail
         $emailTrans = __('Email');
         $phoneTrans = __('Phone');
         $typePropertyTrans = __('Purpose of the property');
-        $andressTrans = __('Andress');
+        $andressTrans = __('Property address');
 
         $message = <<<EOT
             <div style="padding: 1rem; background: #ffffff; border-radius: 5px; color: #711613;">

@@ -133,7 +133,7 @@
                 <div>
                     <div class="flex justify-between">
                         <span class="text-lg">Valor do Imóvel</span>
-                        <span class="text-color-main font-bold text-2xl">R$ <?php echo number_format($property->value, 2, ',', '.') ?></span>
+                        <span class="text-color-main font-bold text-2xl">R$ <?php echo isset($property->value) ? number_format($property->value, 2, ',', '.') : 'Venha nos consultar' ?></span>
                     </div>
 
                     <?php if (isset($property->condominium)) { ?>
@@ -150,7 +150,9 @@
                         </div>
                     <?php } ?>
 
-                    <p class="text-lg mt-4">*Valores sujeitos a alteração</p>
+                    <?php if (isset($property->condominium) || isset($property->iptu)) { ?>
+                        <p class="text-lg mt-4">*Valores aproximados</p>
+                    <?php } ?>
                 </div>
 
                 <div class="w-full flex flex-col gap-4 mt-4">

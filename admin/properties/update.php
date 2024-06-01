@@ -15,7 +15,7 @@ $property = $property->find($requests->id);
 $property->update([
     'name' => $requests->name,
     'description' => $requests->description,
-    'value' => str_replace(['.', ','], ['', '.'], $requests->value),
+    'value' => empty($requests->value) ? null : str_replace(['.', ','], ['', '.'], $requests->value),
     'condominium' => empty($requests->condominium) ? null : str_replace(['.', ','], ['', '.'], $requests->condominium),
     'iptu' => empty($requests->iptu) ? null : str_replace(['.', ','], ['', '.'], $requests->iptu),
     'andress' => $requests->andress,

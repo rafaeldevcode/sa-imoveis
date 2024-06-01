@@ -1,11 +1,14 @@
 <?php
 
+use Src\Models\Category;
 use Src\Models\Property;
 
 $property = new Property();
+$category = new Category();
 $requests = requests();
 
 $property = $property->where('status', '!=', 'unavailable');
+$categoriesArray = getArraySelect($category->get(), 'id', 'name');
 
 if (isset($requests->search_type) && $requests->search_type === '1') {
     $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%");
@@ -42,6 +45,7 @@ loadHtml(__DIR__ . '/../resources/client/layout', [
     'data' => [
         'properties' => $properties,
         'search' => isset($requests->search) ? $requests->search : null,
+        'categories' => $categoriesArray,
     ],
 ]);
 
