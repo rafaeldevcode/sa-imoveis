@@ -52,7 +52,7 @@ class Favorite {
             let favorites = Cookies.get('properties::favorites');
             favorites = favorites ? JSON.parse(favorites) : [];
              
-            if (favorites.length >= 3) {
+            if (favorites.length >= 2) {
                 const link = this.generateLink(favorites.join('-'));
                 
                 $('#link-favorites').text(link);

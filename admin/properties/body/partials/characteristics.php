@@ -26,7 +26,7 @@
                                 </button>
                             </div>
                         <?php }
-                    } ?>
+                        } ?>
                 </div>
 
                 <button id="add-characteristics" type="button" title="<?php _e('Add') ?>" class="mx-auto btn btn-color-main font-bold mt-4">

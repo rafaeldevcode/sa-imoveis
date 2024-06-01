@@ -104,7 +104,7 @@
                 <?php } ?>
             </div>
 
-            <?php if (! empty($characteristics)) { ?>
+            <?php if (!empty($characteristics)) { ?>
                 <div class="border-b-2 py-10">
                     <h2 class="text-color-main font-bold text-2xl">Características do Imóvel</h2>
 
@@ -119,7 +119,7 @@
                 </div>
             <?php } ?>
 
-            <?php if (! empty($property->description)) {?>
+            <?php if (!empty($property->description)) {?>
                 <div class="py-10">
                     <h2 class="text-color-main font-bold text-2xl">Descrição do Imóvel</h2>
 
@@ -133,7 +133,7 @@
                 <div>
                     <div class="flex justify-between">
                         <span class="text-lg">Valor do Imóvel</span>
-                        <span class="text-color-main font-bold text-2xl">R$ <?php echo number_format($property->value, 2, ',', '.') ?></span>
+                        <span class="text-color-main font-bold text-2xl">R$ <?php echo isset($property->value) ? number_format($property->value, 2, ',', '.') : 'Venha nos consultar' ?></span>
                     </div>
 
                     <?php if (isset($property->condominium)) { ?>
@@ -150,7 +150,9 @@
                         </div>
                     <?php } ?>
 
-                    <p class="text-lg mt-4">*Valores sujeitos a alteração</p>
+                    <?php if (isset($property->condominium) || isset($property->iptu)) { ?>
+                        <p class="text-lg mt-4">*Valores aproximados</p>
+                    <?php } ?>
                 </div>
 
                 <div class="w-full flex flex-col gap-4 mt-4">
@@ -175,7 +177,7 @@
         </div>
     </section>
 
-    <?php if (! empty($property->location)) {?>
+    <?php if (!empty($property->location)) {?>
         <section class="py-12 container">
             <div class="w-full h-[450px] relative">
                 <div class="w-full h-full rounded-lg flex items-center justify-center">

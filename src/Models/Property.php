@@ -29,16 +29,16 @@ class Property extends Model
         $count = ceil(($this->count() / $limit));
         $page = ($count == 0 ? 0 : 1);
         $requests = requests();
-    
+
         if (isset($requests->page)) {
             $page = filter_var($requests->page, FILTER_VALIDATE_INT);
             $page = !$page ? 1 : $page;
         }
-    
+
         $start = (($page == 0 ? 1 : $page) * $limit) - $limit;
-    
+
         $whereClause = $this->whereClausure();
-    
+
         $query = "SELECT * FROM {$this->table}{$whereClause->clausure} 
                   ORDER BY 
                       CASE WHEN `is_launch` = 'on' THEN 1 ELSE 4 END,
@@ -48,7 +48,7 @@ class Property extends Model
                           ELSE 4 
                       END 
                   LIMIT $start, $limit";
-    
+
         $statement = $this->connection->prepare($query);
 
         foreach ($whereClause->bindings as $column => $value):
@@ -58,7 +58,7 @@ class Property extends Model
         $statement->execute();
 
         $this->data = json_decode(json_encode($statement->fetchAll(PDO::FETCH_ASSOC)));
-    
+
         return json_decode(json_encode([
             'count' => $count,
             'page' => ($count == 0 ? 0 : $page),

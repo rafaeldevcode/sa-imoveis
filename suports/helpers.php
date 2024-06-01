@@ -191,7 +191,7 @@ if (!function_exists('favorites')) {
     {
         static $favorites = [];
 
-        if(isset($_COOKIE['properties::favorites'])) {
+        if (isset($_COOKIE['properties::favorites'])) {
             $favorites = $_COOKIE['properties::favorites'];
 
             return json_decode($favorites, true);
@@ -275,10 +275,10 @@ if (!function_exists('getStates')) {
     }
 }
 
-if (! function_exists('generatePropertyCode')) {
-    function generatePropertyCode (): int
+if (!function_exists('generatePropertyCode')) {
+    function generatePropertyCode(): int
     {
-        $property = (new Property)->last('id', ['code']);
+        $property = (new Property())->last('id', ['code']);
         $lastCode = $property->code;
         $year = date('y');
 
@@ -290,33 +290,33 @@ if (! function_exists('generatePropertyCode')) {
     }
 }
 
-if (! function_exists('thereIsProperty')) {
-    function thereIsProperty (string $type): bool
+if (!function_exists('thereIsProperty')) {
+    function thereIsProperty(string $type): bool
     {
-        $property = (new Property)->where('type', '=', $type)->where('status', '!=', 'unavailable')->count();
+        $property = (new Property())->where('type', '=', $type)->where('status', '!=', 'unavailable')->count();
 
         return $property > 0 ? true : false;
     }
 }
 
-if (! function_exists('enableOrDisableLink')) {
-    function enableOrDisableLink (string $search_type, array $data): void
+if (!function_exists('enableOrDisableLink')) {
+    function enableOrDisableLink(string $search_type, array $data): void
     {
         $property = new Property();
         $property = $property->where('status', '!=', 'unavailable');
-        
+
         if (isset($search_type) && $search_type === '1') {
             $category = new Category();
             $category = $category->where('slug', '=', $data['category_slug'])->first();
-            
+
             $property = $property->where('category_id', '=', $category->id);
 
             echo $property->count() > 0 ? "href=\"{$data['href']}\"" : 'disabled href="javascript:void(0)"';
-        } else {        
+        } else {
             if (isset($data['category_id'])) {
                 $property = $property->where('category_id', '=', $data['category_id']);
             }
-        
+
             if (isset($data['bedrooms'])) {
                 $property = $property->where('details', 'LIKE', "%{$data['bedrooms']}%");
             }

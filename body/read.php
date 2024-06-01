@@ -7,7 +7,7 @@
                 'autoplay' => true,
                 'muted' => true,
                 'loop' => true,
-            ]
+            ],
         ]) ?>
     </div>
 
@@ -19,7 +19,7 @@
                 'autoplay' => true,
                 'muted' => true,
                 'loop' => true,
-            ]
+            ],
         ]) ?>
     </div>
 
@@ -33,25 +33,25 @@
             <div class="hidden lg:block" data-open-target="1" data-target-open="false">
                 <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/apartamentos') ?>">Ver Todos</a>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="GET" action="<?php route('/pesquisar') ?>">
                     <input type="hidden" name="bedrooms" value="01 Dormitório">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '01 Dormitório', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 01 Dorm.</button>
                 </form>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="GET" action="<?php route('/pesquisar') ?>">
                     <input type="hidden" name="bedrooms" value="02 Dormitórios">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '02 Dormitórios', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 02 Dorm.</button>
                 </form>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="GET" action="<?php route('/pesquisar') ?>">
                     <input type="hidden" name="bedrooms" value="03 Dormitórios">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '03 Dormitórios', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 03 Dorm.</button>
                 </form>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="GET" action="<?php route('/pesquisar') ?>">
                     <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '04 Dormitórios ou +', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 04 Dorm. ou +</button>
@@ -114,9 +114,9 @@
             </button>
 
             <div class="mt-5 hidden lg:block" data-open-target="4" data-target-open="false">
-                <a <?php enableOrDisableLink('1', ['category_slug' => 'terrenos-comerciais', 'href' => getRoute('/imoveis/categoria/terrenos-comerciais')]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terrenos Comerciais">Terrenos Comerciais</a>
+                <a <?php enableOrDisableLink('1', ['category_slug' => 'terreno-comercial', 'href' => getRoute('/imoveis/categoria/terreno-comercial')]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Comercial">Terreno Comercial</a>
 
-                <a <?php enableOrDisableLink('1', ['category_slug' => 'terrenos-residenciais', 'href' => getRoute('/imoveis/categoria/terrenos-residenciais')]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terrenos Residenciais">Terrenos Residenciais</a>
+                <a <?php enableOrDisableLink('1', ['category_slug' => 'terreno-residencial', 'href' => getRoute('/imoveis/categoria/terreno-residencial')]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Residencial">Terreno Residencial</a>
 
                 <a <?php enableOrDisableLink('1', ['category_slug' => 'sitio', 'href' => getRoute('/imoveis/categoria/sitio')]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Sítios">Sítios</a>
 
@@ -194,7 +194,7 @@
     </div>
 </section>
 
-<?php if (! empty($releases)) { ?>
+<?php if (!empty($releases)) { ?>
     <section class="py-12 bg-[#F4F4F4]">
         <div class="container">
             <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
@@ -218,12 +218,18 @@
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
+
+                <?php if (count($releases) < 3) {
+                    for ($i = 0; $i < count($releases) - 1; $i++) { ?>
+                        <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12"></div>
+                    <?php }
+                } ?>
             </div>
         </div>
     </section>
 <?php } ?>
 
-<?php if (! empty($sell)) { ?>
+<?php if (!empty($sell)) { ?>
     <section class="py-12 bg-[#F4F4F4]">
         <div class="container">
             <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
@@ -247,12 +253,18 @@
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
+
+                <?php if (count($sell) < 3) {
+                    for ($i = 0; $i < count($sell) - 1; $i++) { ?>
+                        <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12"></div>
+                    <?php }
+                } ?>
             </div>
         </div>
     </section>
 <?php } ?>
 
-<?php if (! empty($toHire)) { ?>
+<?php if (!empty($toHire)) { ?>
     <section class="py-12 bg-[#F4F4F4]">
         <div class="container">
             <div class="relative flex justify-center w-full items-center flex-col md:flex-row">
@@ -275,6 +287,12 @@
                         'status' => $item->status,
                         'details' => json_decode($item->details, true),
                     ]);
+                } ?>
+
+                <?php if (count($toHire) < 3) {
+                    for ($i = 0; $i < count($toHire) - 1; $i++) { ?>
+                        <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12"></div>
+                    <?php }
                 } ?>
             </div>
         </div>
@@ -339,22 +357,25 @@
         </div>
 
         <div class="w-full md:w-6/12 flex flex-wrap">
-            <?php foreach ($brokers as $broker) { ?>
-                <div class="w-full sm:w-6/12 p-3 rounded-xl h-[400px]">
-                    <?php loadHtml(__DIR__ . '/../resources/partials/image', [
-                        'id' => $broker->thumbnail,
-                        'class' => 'w-full h-full rounded-xl object-cover',
-                        'alt' => $broker->name,
-                    ]) ?>
+            <?php if ($brokers) {
+                    foreach ($brokers as $broker) { ?>
+                        <div class="w-full sm:w-6/12 p-3 rounded-xl h-[400px]">
+                            <?php loadHtml(__DIR__ . '/../resources/partials/image', [
+                                'id' => $broker->thumbnail,
+                                'class' => 'w-full h-full rounded-xl object-cover',
+                                'alt' => $broker->name,
+                            ]) ?>
 
-                    <?php if (!empty($broker->whatsapp)) { ?>
-                        <a class="btn bg-[#00A900] text-white text-center mt-2" href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', $broker->whatsapp) ?>" title="<?php echo $broker->name ?>" target="_blank" rel="noopener">
-                            <?php echo $broker->name ?>
-                            <i class="ml-2 bi bi-whatsapp"></i>
-                        </a>
-                    <?php } ?>
-                </div>
-            <?php } ?>
+                            <?php if (!empty($broker->whatsapp)) { ?>
+                                <a class="btn bg-[#00A900] text-white text-center mt-2" href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', $broker->whatsapp) ?>" title="<?php echo $broker->name ?>" target="_blank" rel="noopener">
+                                    <?php echo $broker->name ?>
+                                    <i class="ml-2 bi bi-whatsapp"></i>
+                                </a>
+                            <?php } ?>
+                        </div>
+                    <?php }
+                } 
+            ?>
         </div>
     </div>
 </section>

@@ -23,11 +23,21 @@
 
                 <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
+                        'icon' => 'bi bi-123',
+                        'name' => 'name',
+                        'label' => __('Property code'),
+                        'type' => 'text',
+                        'attributes' => 'disabled',
+                        'value' => isset($property) ? $property->code : null,
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-currency-dollar',
                         'name' => 'value',
                         'label' => __('Value'),
                         'type' => 'text',
-                        'attributes' => 'required',
                         'value' => isset($property) ? $property->value : null,
                     ]) ?>
                 </div>
@@ -56,7 +66,7 @@
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-geo-alt-fill',
                         'name' => 'andress',
-                        'label' => __('Andress'),
+                        'label' => __('Property address'),
                         'type' => 'text',
                         'attributes' => 'required',
                         'value' => isset($property) ? $property->andress : null,

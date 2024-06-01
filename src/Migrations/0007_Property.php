@@ -12,7 +12,7 @@ class Property extends ExecuteMigrations
         $this->string('name', 255);
         $this->longtext('description')->nullable();
         $this->integer('code');
-        $this->decimal('value', 12, 2);
+        $this->decimal('value', 12, 2)->nullable();
         $this->decimal('condominium', 10, 2)->nullable();
         $this->decimal('iptu', 10, 2)->nullable();
         $this->string('andress', 255);
