@@ -33,25 +33,25 @@
             <div class="hidden lg:block" data-open-target="1" data-target-open="false">
                 <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/apartamentos') ?>">Ver Todos</a>
 
-                <form method="GET" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="01 Dormitório">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '01 Dormitório', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 01 Dorm.</button>
                 </form>
 
-                <form method="GET" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="02 Dormitórios">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '02 Dormitórios', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 02 Dorm.</button>
                 </form>
 
-                <form method="GET" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="03 Dormitórios">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '03 Dormitórios', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 03 Dorm.</button>
                 </form>
 
-                <form method="GET" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
                     <input type="hidden" name="category_id" value="1">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '04 Dormitórios ou +', 'category_id' => 1]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Apartamentos 04 Dorm. ou +</button>
@@ -68,25 +68,25 @@
             <div class="hidden lg:block" data-open-target="2" data-target-open="false">
                 <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route('/imoveis/categoria/casas') ?>">Ver Todos</a>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="01 Dormitório">
                     <input type="hidden" name="category_id" value="2">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '01 Dormitório', 'category_id' => 2]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 01 Dorm.</button>
                 </form>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="02 Dormitórios">
                     <input type="hidden" name="category_id" value="2">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '02 Dormitórios', 'category_id' => 2]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 02 Dorm.</button>
                 </form>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="03 Dormitórios">
                     <input type="hidden" name="category_id" value="2">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '03 Dormitórios', 'category_id' => 2]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 03 Dorm.</button>
                 </form>
 
-                <form method="POST" action="<?php route('/pesquisar') ?>">
+                <form method="POST" action="<?php route('/pesquisar/create') ?>">
                     <input type="hidden" name="bedrooms" value="04 Dormitórios ou +">
                     <input type="hidden" name="category_id" value="2">
                     <button <?php enableOrDisableLink('2', ['bedrooms' => '04 Dormitórios ou +', 'category_id' => 2]) ?> class="py-2 hover:text-secondary ease-in duration-300" type="submit" title="Visualizar">Casas 04 Dorm. ou +</button>
@@ -126,7 +126,7 @@
     </div>
 
     <div class="z-[2] relative container px-4 py-12 flex justify-center items-end">
-        <form action="<?php route('/pesquisar') ?>" method="POST" class="shadow-lg bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
+        <form action="<?php route('/pesquisar/create') ?>" method="POST" class="shadow-lg bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
             <div class="w-full lg:w-2/12 md:w-4/12">
                     <div class="px-0 md:px-2 py-2 lg:py-0">
                     <select name="type" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
