@@ -4,12 +4,34 @@ verifyMethod(405, 'GET');
 
 use Src\Models\Broker;
 use Src\Models\Category;
+use Src\Models\Economic;
 use Src\Models\Property;
 use Src\Models\Setting;
 
 $settings = new Setting();
 $category = new Category();
 $broker = new Broker();
+
+$economic = [];
+$year = date('Y');
+$month = date('m');
+
+$igpm = (new Economic)->where('type', '=', 'IGPM')->where('year', '=', $year)->where('month', '=', $month)->first();
+$incc = (new Economic)->where('type', '=', 'INCC')->where('year', '=', $year)->where('month', '=', $month)->first();
+$ipca = (new Economic)->where('type', '=', 'IPCA')->where('year', '=', $year)->where('month', '=', $month)->first();
+
+if (!is_null($igpm)) {
+    $economic['igpm'] = $igpm;
+}
+
+if (!is_null($incc)) {
+    $economic['incc'] = $incc;
+}
+
+if (!is_null($ipca)) {
+    $economic['ipca'] = $ipca;
+}
+
 
 $setting = $settings->first();
 $brokers = $broker->where('show_in_home', '=', 'on')->get();
@@ -29,6 +51,7 @@ loadHtml(__DIR__ . '/resources/client/layout', [
         'toHire' => $toHire->data,
         'categories' => $categoriesArray,
         'brokers' => $brokers,
+        'economic' => $economic,
     ],
     'plugins' => ['slick'],
 ]);

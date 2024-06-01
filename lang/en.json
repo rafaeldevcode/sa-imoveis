@@ -220,5 +220,18 @@
     "Launch": "Launch",
     "Type": "Type",
     "Home screen mobile background": "Home screen mobile background",
-    "Home screen desktop background": "Home screen desktop background"
+    "Home screen desktop background": "Home screen desktop background",
+    "Price Index": "Price Index",
+    "This action will remove the entire selected price index!": "This action will remove the entire selected price index!",
+    "Edit price index :type.": "Edit price index :type.",
+    "This action will remove the :type price index.": "This action will remove the :type price index.",
+    "Remove from :type price index.": "Remove from :type price index.",
+    "Month": "Month",
+    "Year": "Year",
+    "Percentage month": "Percentage month",
+    "Percentage year": "Percentage year",
+    "economic": "economic",
+    "Price index added successfully!": "Price index added successfully!",
+    "Price index updated successfully!": "Price index updated successfully!",
+    "Price indice(s) removed successfully!": "Price indice(s) removed successfully!"
 }

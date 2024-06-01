@@ -270,6 +270,8 @@ class ExecuteMigrations
                 return 'DOUBLE';
             case 'json':
                 return 'JSON';
+            case 'year':
+                return 'YEAR';
             default:
                 throw new Exception("Tipo de coluna inválido: {$method}");
         };

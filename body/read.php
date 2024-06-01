@@ -301,47 +301,21 @@
 
 <section class="py-12 bg-color-main">
     <div class="container flex justify-center flex-wrap">
-        <div class="w-full sm:w-4/12 px-6">
-            <div class="flex items-center justify-center md:flex-row flex-col py-3 md:py-0">
-                <div class="mr-0 md:mr-4">
-                    <h2 class="text-secondary font-bold text-3xl">IGPM</h2>
-                </div>
+        <?php foreach ($economic as $item) { ?>
+            <div class="w-full sm:w-4/12 px-6">
+                <div class="flex items-center justify-center md:flex-row flex-col py-3 md:py-0">
+                    <div class="mr-0 md:mr-4">
+                        <h2 class="text-secondary font-bold text-3xl"><?php echo $item->type ?></h2>
+                    </div>
 
-                <div class="text-white font-semibold">
-                    <p>Fevereiro / 2024</p>
-                    <p>Mês: 0,07%</p>
-                    <p>12 meses: -3,32%</p>
+                    <div class="text-white font-semibold">
+                        <p><?php echo getMonths($item->month) ?> / <?php echo $item->year ?></p>
+                        <p>Mês: <?php echo $item->percentage_month ?>%</p>
+                        <p>12 meses: <?php echo $item->percentage_year ?>%</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="w-full sm:w-4/12 px-6">
-            <div class="flex items-center justify-center md:flex-row flex-col py-3 md:py-0">
-                <div class="mr-0 md:mr-4">
-                    <h2 class="text-secondary font-bold text-3xl">INCC</h2>
-                </div>
-
-                <div class="text-white font-semibold">
-                    <p>Fevereiro / 2024</p>
-                    <p>Mês: 0,07%</p>
-                    <p>12 meses: -3,32%</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-full sm:w-4/12 px-6">
-            <div class="flex items-center justify-center md:flex-row flex-col py-3 md:py-0">
-                <div class="mr-0 md:mr-4">
-                    <h2 class="text-secondary font-bold text-3xl">IPCA</h2>
-                </div>
-
-                <div class="text-white font-semibold">
-                    <p>Fevereiro / 2024</p>
-                    <p>Mês: 0,07%</p>
-                    <p>12 meses: -3,32%</p>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 
