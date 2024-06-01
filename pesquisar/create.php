@@ -1,5 +1,7 @@
 <?php
 
+verifyMethod(405, 'POST');
+
 use Src\Models\Category;
 use Src\Models\Property;
 
@@ -11,7 +13,7 @@ $property = $property->where('status', '!=', 'unavailable');
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 
 if (isset($requests->search_type) && $requests->search_type === '1') {
-    $property->where('code', '=', $requests->search)->orWhere('name', 'LIKE', "%{$requests->search}%");
+    $property->where('code', 'LIKE', "%{$requests->search}%")->orWhere('name', 'LIKE', "%{$requests->search}%");
 } else {
     if (isset($requests->type) && !empty($requests->type)) {
         $property = $property->where('type', '=', $requests->type);
@@ -36,7 +38,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
 
 $property->where('status', '!=', 'unavailable');
 
-$properties = $property->paginate(15);
+$properties = $property->paginate(5);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Contato',
@@ -51,10 +53,12 @@ loadHtml(__DIR__ . '/../resources/client/layout', [
 
 function loadInFooter()
 { ?>
+    <script type="text/javascript" src="<?php asset('assets/scripts/class/InputRange.js') ?>"></script>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Favorite.js') ?>"></script>
     <script type="text/javascript">
         Favorite.init();
-        
+        InputRange.init();
+
         $(document).ready(function(){
             $('[data-slick="images"]').slick({
                 slidesToShow: 1,
