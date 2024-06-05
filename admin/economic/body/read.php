@@ -71,7 +71,7 @@
                                     <i class='bi bi-pencil-square'></i>
                                 </a>
 
-                                <button
+                                <!-- <button
                                     data-button="delete"
                                     data-route='<?php route('/admin/economic/delete') ?>'
                                     data-delete-id='<?php echo $item->id ?>'
@@ -81,7 +81,7 @@
                                     class='p-2 text-xs rounded btn-danger text-light fw-bold'
                                 >
                                     <i class='bi bi-trash-fill'></i>
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                     <?php } ?>

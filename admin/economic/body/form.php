@@ -10,7 +10,7 @@
                     'icon' => 'bi bi-check2-square',
                     'name' => 'type',
                     'label' => __('Type'),
-                    'attributes' => ['required' => true],
+                    'attributes' => 'disabled',
                     'value' => isset($economic) ? $economic->type : null,
                     'options' => [
                         'IGPM' => 'IGPM',

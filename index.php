@@ -16,9 +16,13 @@ $economic = [];
 $year = date('Y');
 $month = date('m');
 
-$igpm = (new Economic)->where('type', '=', 'IGPM')->where('year', '=', $year)->where('month', '=', $month)->first();
-$incc = (new Economic)->where('type', '=', 'INCC')->where('year', '=', $year)->where('month', '=', $month)->first();
-$ipca = (new Economic)->where('type', '=', 'IPCA')->where('year', '=', $year)->where('month', '=', $month)->first();
+// $igpm = (new Economic)->where('type', '=', 'IGPM')->where('year', '=', $year)->where('month', '=', $month)->first();
+// $incc = (new Economic)->where('type', '=', 'INCC')->where('year', '=', $year)->where('month', '=', $month)->first();
+// $ipca = (new Economic)->where('type', '=', 'IPCA')->where('year', '=', $year)->where('month', '=', $month)->first();
+
+$igpm = (new Economic)->where('type', '=', 'IGPM')->first();
+$incc = (new Economic)->where('type', '=', 'INCC')->first();
+$ipca = (new Economic)->where('type', '=', 'IPCA')->first();
 
 if (!is_null($igpm)) {
     $economic['igpm'] = $igpm;
