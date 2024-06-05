@@ -4,13 +4,16 @@ verifyMethod(405, 'POST');
 
 use Src\Models\Category;
 use Src\Models\Property;
+use Src\Models\Setting;
 
 $property = new Property();
 $category = new Category();
+$settings = new Setting();
 $requests = requests();
 
 $property = $property->where('status', '!=', 'unavailable');
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
+$setting = $settings->first();
 
 if (isset($requests->search_type) && $requests->search_type === '1') {
     $property->where('code', 'LIKE', "%{$requests->search}%")->orWhere('name', 'LIKE', "%{$requests->search}%");
@@ -48,6 +51,8 @@ loadHtml(__DIR__ . '/../resources/client/layout', [
         'properties' => $properties,
         'search' => isset($requests->search) ? $requests->search : null,
         'categories' => $categoriesArray,
+        'requests' => $requests,
+        'cities' => isset($setting->cities) ? json_decode($setting->cities, true) : [],
     ],
 ]);
 

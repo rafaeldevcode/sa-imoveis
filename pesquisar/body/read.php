@@ -9,8 +9,8 @@
                     <div class="px-0 md:px-2 py-2 lg:py-0">
                     <select name="type" class="border border-color-main py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                         <option value="">Interesse</option>
-                        <option value="Vender">Comprar</option>
-                        <option value="Alugar">Alugar</option>
+                        <option <?php echo $requests->type == 'Vender' ? 'selected' : ''  ?> value="Vender">Comprar</option>
+                        <option <?php echo $requests->type == 'Alugar' ? 'selected' : ''  ?> value="Alugar">Alugar</option>
                     </select>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                         <option value="">Tipo do imóvel</option>
 
                         <?php foreach ($categories as $indice => $category) { ?>
-                            <option value="<?php echo $indice ?>"><?php echo $category ?></option>
+                            <option <?php echo $requests->category_id == $indice ? 'selected' : ''  ?> value="<?php echo $indice ?>"><?php echo $category ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -31,10 +31,10 @@
                 <div class="px-0 md:px-2 py-2 lg:py-0">
                     <select name="bedrooms" class="border border-color-main py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                         <option value="">Dormitórios</option>
-                        <option value="01 Dormitório">01 Dormitório</option>
-                        <option value="02 Dormitórios">02 Dormitórios</option>
-                        <option value="03 Dormitórios">03 Dormitórios</option>
-                        <option value="04 Dormitórios ou +">04 Dormitórios ou +</option>
+                        <option <?php echo $requests->bedrooms == '01 Dormitório' ? 'selected' : ''  ?> value="01 Dormitório">01 Dormitório</option>
+                        <option <?php echo $requests->bedrooms == '02 Dormitórios' ? 'selected' : ''  ?> value="02 Dormitórios">02 Dormitórios</option>
+                        <option <?php echo $requests->bedrooms == '03 Dormitórios' ? 'selected' : ''  ?> value="03 Dormitórios">03 Dormitórios</option>
+                        <option <?php echo $requests->bedrooms == '04 Dormitórios ou +' ? 'selected' : ''  ?> value="04 Dormitórios ou +">04 Dormitórios ou +</option>
                     </select>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <select name="andress" class="border border-color-main py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                         <option value="">Cidade</option>
                         <?php foreach ($cities as $city) { ?>
-                            <option value="<?php echo $city ?>"><?php echo $city ?></option>
+                            <option <?php echo $requests->andress == $city ? 'selected' : ''  ?> value="<?php echo $city ?>"><?php echo $city ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -53,7 +53,7 @@
             <div class="w-full lg:w-2/12 md:w-4/12">
                 <div class="px-0 md:px-2 py-2 lg:py-0">
                     <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">50.000</span></b></label>
-                    <input type="range" id="value" name="value" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
+                    <input type="range" id="value" name="value" value="<?php echo $requests->value ?>" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
                 </div>
             </div>
 

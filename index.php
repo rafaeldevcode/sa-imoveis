@@ -49,7 +49,7 @@ loadHtml(__DIR__ . '/resources/client/layout', [
     'body' => __DIR__ . '/body/read',
     'data' => [
         'about' => $setting->about_company,
-        'cities' => json_decode($setting->cities, true),
+        'cities' => isset($setting->cities) ? json_decode($setting->cities, true) : [],
         'releases' => $releases->data,
         'sell' => $sell->data,
         'toHire' => $toHire->data,
