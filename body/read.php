@@ -219,8 +219,8 @@
                     ]);
                 } ?>
 
-                <?php if (count($releases) < 3) {
-                    for ($i = 0; $i < count($releases) - 1; $i++) { ?>
+                <?php if (count($releases) <= 3) {
+                    for ($i = 0; $i < 4 - count($releases); $i++) { ?>
                         <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12"></div>
                     <?php }
                 } ?>
@@ -254,8 +254,8 @@
                     ]);
                 } ?>
 
-                <?php if (count($sell) < 3) {
-                    for ($i = 0; $i < count($sell) - 1; $i++) { ?>
+                <?php if (count($sell) <= 3) {
+                    for ($i = 0; $i < 4 - count($sell); $i++) { ?>
                         <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12"></div>
                     <?php }
                 } ?>
@@ -289,8 +289,8 @@
                     ]);
                 } ?>
 
-                <?php if (count($toHire) < 3) {
-                    for ($i = 0; $i < count($toHire) - 1; $i++) { ?>
+                <?php if (count($toHire) <= 3) {
+                    for ($i = 0; $i < 4 - count($toHire); $i++) { ?>
                         <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12"></div>
                     <?php }
                 } ?>
