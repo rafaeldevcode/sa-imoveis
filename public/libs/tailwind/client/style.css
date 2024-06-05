@@ -659,6 +659,14 @@ video {
   top: 5rem;
 }
 
+.right-\[20px\] {
+  right: 20px;
+}
+
+.right-\[100px\] {
+  right: 100px;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -1800,6 +1808,14 @@ video {
 @media (min-width: 720px) {
   .md\:absolute {
     position: absolute;
+  }
+
+  .md\:relative {
+    position: relative;
+  }
+
+  .md\:right-\[100px\] {
+    right: 100px;
   }
 
   .md\:col-span-2 {

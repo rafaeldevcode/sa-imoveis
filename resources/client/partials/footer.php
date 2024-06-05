@@ -141,10 +141,16 @@
         </div>
     </section>
 
-    <section class="container text-white p-4 flex flex-col md:flex-row justify-center items-center md:justify-evenly space-y-4 md:space-y-0">
+    <section class="container relative text-white p-4 flex flex-col justify-center items-center md:justify-evenly space-y-4 md:space-y-0">
         <div class="flex flex-col items-center md:text-left">
             <p><?php echo SETTINGS->copyright ?></p>
             <a href="<?php route('/politicas') ?>">Políticas</a>
+        </div>
+
+        <div class="w-[100px] relative md:absolute top-0 right-0 md:right-[100px] bottom-0">
+            <a href="https://www.plugarsites.com/" target="_blank" rel="noopener">
+                <img class="w-full" src="<?php asset('assets/images/plugarsites.png') ?>" alt="Plugar Sites">
+            </a>
         </div>
     </section>
 </footer>
