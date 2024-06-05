@@ -7,7 +7,7 @@ $method = empty(querys('method')) ? 'read' : querys('method');
 if ($method == 'read') {
     $economic = new Economic();
     $requests = requests();
-    $economic = !isset($requests->search) ? $economic->paginate(20) : $economic->where('name', 'LIKE', "%{$requests->search}%")->paginate(20);
+    $economic = !isset($requests->search) ? $economic->paginate(20) : $economic->where('type', 'LIKE', "%{$requests->search}%")->paginate(20);
     $background = 'bg-secondary';
     $text = __('View');
     $body = __DIR__ . '/body/read';
@@ -34,9 +34,9 @@ loadHtml(__DIR__ . '/../../resources/admin/layout', [
     'type' => $text,
     'icon' => 'bi-bar-chart-line-fill',
     'title' => __('Price Index'),
-    'routeDelete' => $method == 'read' ? '/admin/economic/delete' : null,
-    'routeAdd' => $method == 'create' ? null : '/admin/economic?method=create',
-    'routeSearch' => '/admin/economic',
+    // 'routeDelete' => $method == 'read' ? '/admin/economic/delete' : null,
+    // 'routeAdd' => $method == 'create' ? null : '/admin/economic?method=create',
+    // 'routeSearch' => '/admin/economic',
     'body' => $body,
     'data' => $data,
 ]);
