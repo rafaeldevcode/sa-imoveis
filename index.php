@@ -18,11 +18,11 @@ $month = date('m');
 
 // $igpm = (new Economic)->where('type', '=', 'IGPM')->where('year', '=', $year)->where('month', '=', $month)->first();
 // $incc = (new Economic)->where('type', '=', 'INCC')->where('year', '=', $year)->where('month', '=', $month)->first();
-// $ipca = (new Economic)->where('type', '=', 'IPCA')->where('year', '=', $year)->where('month', '=', $month)->first();
+// $cub = (new Economic)->where('type', '=', 'CUB')->where('year', '=', $year)->where('month', '=', $month)->first();
 
 $igpm = (new Economic)->where('type', '=', 'IGPM')->first();
 $incc = (new Economic)->where('type', '=', 'INCC')->first();
-$ipca = (new Economic)->where('type', '=', 'IPCA')->first();
+$cub = (new Economic)->where('type', '=', 'CUB')->first();
 
 if (!is_null($igpm)) {
     $economic['igpm'] = $igpm;
@@ -32,8 +32,8 @@ if (!is_null($incc)) {
     $economic['incc'] = $incc;
 }
 
-if (!is_null($ipca)) {
-    $economic['ipca'] = $ipca;
+if (!is_null($cub)) {
+    $economic['cub'] = $cub;
 }
 
 

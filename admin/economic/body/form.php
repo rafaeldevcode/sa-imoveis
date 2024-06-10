@@ -15,7 +15,8 @@
                     'options' => [
                         'IGPM' => 'IGPM',
                         'INCC' => 'INCC',
-                        'IPCA' => 'IPCA'
+                        'IPCA' => 'IPCA',
+                        'CUB' => 'CUB',
                     ],
                 ]) ?>
             </div>
