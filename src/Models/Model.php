@@ -491,7 +491,7 @@ class Model
             $bind = !is_null($where['bind']) ? $where['bind'] : $where['column'];
 
             $where_clause .= ($index === 0 ? ' WHERE ' : ' AND ');
-            $where_clause .= "{$where['column']} {$where['operator']} :{$bind}";
+            $where_clause .= "{$where['column']} {$where['operator']} LOWER(:{$bind})";
             $bindings[$bind] = $where['value'];
         endforeach;
 
@@ -499,7 +499,7 @@ class Model
             $bind = !is_null($where['bind']) ? $where['bind'] : $where['column'];
 
             $where_clause .= ' OR ';
-            $where_clause .= "{$where['column']} {$where['operator']} :{$bind}";
+            $where_clause .= "{$where['column']} {$where['operator']} LOWER(:{$bind})";
             $bindings[$bind] = $where['value'];
         endforeach;
 
