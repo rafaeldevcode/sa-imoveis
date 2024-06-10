@@ -16,7 +16,7 @@ $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 $setting = $settings->first();
 
 if (isset($requests->search_type) && $requests->search_type === '1') {
-    $property->where('code', 'LIKE', '%' . strtolower($requests->search) . '%')->orWhere('name', 'LIKE', '%' . strtolower($requests->search) . '%');
+    $property->where('code', 'LIKE', "%{$requests->search}%")->orWhere('name', 'LIKE', "%{$requests->search}%");
 } else {
     if (isset($requests->type) && !empty($requests->type)) {
         $property = $property->where('type', '=', $requests->type);
@@ -27,11 +27,11 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
     }
 
     if (isset($requests->bedrooms) && !empty($requests->bedrooms)) {
-        $property = $property->where('details', 'LIKE', '%' . strtolower($requests->bedrooms) . '%');
+        $property = $property->where('details', 'LIKE', "%{$requests->bedrooms}%");
     }
 
     if (isset($requests->andress) && !empty($requests->andress)) {
-        $property = $property->where('andress', 'LIKE', '%' . strtolower($requests->andress) . '%');
+        $property = $property->where('andress', 'LIKE', "%{$requests->andress}%");
     }
 
     if (isset($requests->value) && !empty($requests->value)) {
