@@ -336,7 +336,7 @@
                         <div class="w-full sm:w-6/12 p-3 rounded-xl h-[400px]">
                             <?php loadHtml(__DIR__ . '/../resources/partials/image', [
                                 'id' => $broker->thumbnail,
-                                'class' => 'w-full h-full rounded-xl object-cover',
+                                'class' => 'w-full h-[340px] rounded-xl object-cover',
                                 'alt' => $broker->name,
                             ]) ?>
 
