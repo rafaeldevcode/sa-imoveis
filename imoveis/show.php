@@ -3,14 +3,20 @@
 verifyMethod(405, 'GET');
 
 use Src\Models\Property;
+use Src\Models\PropertyView;
 
 $property = (new Property())->find(slug(2));
+$propertyView = new PropertyView();
 
 if (!isset($property->data) || ($property->data->status === 'unavailable' && !autenticate())) {
     abort(404, 'Property Not Found', 'danger');
 }
 
 $properties = (new Property())->where('category_id', '=', $property->data->category_id)->paginate(4);
+$propertyView->create([
+    'property_id' => $property->data->id,
+    'date' => date('Y-m-d H:i:s'),
+]);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Imóvel',

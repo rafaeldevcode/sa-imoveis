@@ -90,8 +90,12 @@
                             </td>
 
                             <td class="flex items-center justify-end !py-1 !px-3 space-x-2 right">
-                                <a target="_blank" rel="noopener" href="<?php route("/imoveis/{$property->id}") ?>" title='<?php _e('View property :name', [':name' => $property->name]) ?>' class='text-xs p-2 rounded btn-info text-light fw-bold'>
+                                <a href="<?php route("/admin/properties/views?property={$property->id}") ?>" title='<?php _e('Number of views of the :name property', [':name' => $property->name]) ?>' class='text-xs p-2 rounded btn-info text-light fw-bold'>
                                     <i class="bi bi-eye-fill"></i>
+                                </a>
+
+                                <a target="_blank" rel="noopener" href="<?php route("/imoveis/{$property->id}") ?>" title='<?php _e('View property :name', [':name' => $property->name]) ?>' class='text-xs p-2 rounded btn-info text-light fw-bold'>
+                                    <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
 
                                 <a href="<?php route("/admin/properties/?method=edit&id={$property->id}") ?>" title='<?php _e('Edit property :name', [':name' => $property->name]) ?>' class='text-xs p-2 rounded btn-primary text-light fw-bold'>

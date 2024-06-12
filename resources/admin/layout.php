@@ -51,6 +51,7 @@
                 'routeDelete' => isset($routeDelete) ? $routeDelete : null,
                 'routeAdd' => isset($routeAdd) ? $routeAdd : null,
                 'routeSearch' => isset($routeSearch) ? $routeSearch : null,
+                'subOptions' => isset($subOptions) ? $subOptions : null,
             ]) ?>
 
             <?php loadHtml($body, isset($data) ? $data : []) ?>

@@ -24,6 +24,11 @@ class Property extends Model
         return $this->belongsTo(User::class, 'users', 'user_id');
     }
 
+    public function views(): PropertyView
+    {
+        return $this->hasMany(PropertyView::class, 'properties', 'property_id');
+    }
+
     public function paginateWithOrder(int $limit): stdClass
     {
         $count = ceil(($this->count() / $limit));

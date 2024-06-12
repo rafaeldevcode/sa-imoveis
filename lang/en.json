@@ -233,5 +233,10 @@
     "economic": "economic",
     "Price index added successfully!": "Price index added successfully!",
     "Price index updated successfully!": "Price index updated successfully!",
-    "Price indice(s) removed successfully!": "Price indice(s) removed successfully!"
+    "Price indice(s) removed successfully!": "Price indice(s) removed successfully!",
+    "Number of views of the :name property": "Number of views of the :name property",
+    "Views": "Views",
+    "Date": "Date",
+    ":total views for the date of :date": ":total views for the date of :date",
+    "views": "views"
 }

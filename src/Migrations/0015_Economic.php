@@ -15,6 +15,8 @@ class Economic extends ExecuteMigrations
         $this->char('percentage_month', 6);
         $this->char('percentage_year', 6);
 
+        $this->timestamps();
+
         $this->create();
     }
 
