@@ -659,14 +659,6 @@ video {
   top: 5rem;
 }
 
-.right-\[20px\] {
-  right: 20px;
-}
-
-.right-\[100px\] {
-  right: 100px;
-}
-
 .z-50 {
   z-index: 50;
 }
@@ -914,6 +906,18 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[310px\] {
+  height: 310px;
+}
+
+.h-\[350px\] {
+  height: 350px;
+}
+
+.h-\[340px\] {
+  height: 340px;
 }
 
 .max-h-\[500px\] {
@@ -1808,10 +1812,6 @@ video {
 @media (min-width: 720px) {
   .md\:absolute {
     position: absolute;
-  }
-
-  .md\:relative {
-    position: relative;
   }
 
   .md\:right-\[100px\] {

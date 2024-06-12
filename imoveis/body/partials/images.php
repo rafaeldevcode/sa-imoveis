@@ -13,7 +13,7 @@
                 <i class="bi bi-arrow-left-short text-gray-800"></i>
             </button>
 
-            <div class="w-full h-[200px] md:h-[500px]">
+            <div class="w-full">
                 <img class="max-w-full max-h-[500px] object-contain" id="images" width="100%" height="100%" src=""></img>
             </div>
 
