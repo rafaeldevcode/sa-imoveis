@@ -23,6 +23,7 @@ if ($method == 'read') {
     $setting = $settings->first();
     $property = $property->find(querys('id'));
     $categories = getArraySelect($category->get(['id', 'name']), 'id', 'name');
+    $sities = isset($setting->cities) ? json_decode($setting->cities, true) : [];
     $background = 'bg-success';
     $text = __('Edit');
     $body = __DIR__ . '/body/form';
@@ -32,7 +33,7 @@ if ($method == 'read') {
         'property' => $property->data,
         'images' => $property->images()->data,
         'categories' => $categories,
-        'cities' => isset($setting->cities) ? json_decode($setting->cities, true) : [],
+        'cities' => array_combine($sities, $sities),
     ];
 } elseif ($method == 'create') {
     $category = new Category();
@@ -40,6 +41,7 @@ if ($method == 'read') {
 
     $setting = $settings->first();
     $categories = getArraySelect($category->get(['id', 'name']), 'id', 'name');
+    $sities = isset($setting->cities) ? json_decode($setting->cities, true) : [];
     $background = 'bg-primary';
     $text = __('Add');
     $body = __DIR__ . '/body/form';
@@ -47,7 +49,7 @@ if ($method == 'read') {
     $data = [
         'action' => '/admin/properties/create', 
         'categories' => $categories,
-        'cities' => isset($setting->cities) ? json_decode($setting->cities, true) : [],
+        'cities' => array_combine($sities, $sities),
     ];
 };
 

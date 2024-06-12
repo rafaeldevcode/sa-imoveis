@@ -31,7 +31,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
     }
 
     if (isset($requests->andress) && !empty($requests->andress)) {
-        $property = $property->where('andress', 'LIKE', "%{$requests->andress}%");
+        $property = $property->where('city', 'LIKE', "%{$requests->andress}%");
     }
 
     if (isset($requests->value) && !empty($requests->value)) {
