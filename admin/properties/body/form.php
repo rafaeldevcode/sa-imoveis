@@ -74,6 +74,17 @@
                 </div>
 
                 <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-hash',
+                        'name' => 'city',
+                        'label' => __('City'),
+                        'attributes' => ['required' => true],
+                        'value' => isset($property) ? $property->city : null,
+                        'options' => $cities,
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-map-fill',
                         'name' => 'location',

@@ -2,6 +2,7 @@
 
 use Src\Models\Category;
 use Src\Models\Property;
+use Src\Models\Setting;
 
 $method = empty(querys('method')) ? 'read' : querys('method');
 
@@ -15,9 +16,11 @@ if ($method == 'read') {
 
     $data = ['properties' => $properties];
 } elseif ($method == 'edit') {
+    $settings = new Setting();
     $property = new Property();
     $category = new Category();
 
+    $setting = $settings->first();
     $property = $property->find(querys('id'));
     $categories = getArraySelect($category->get(['id', 'name']), 'id', 'name');
     $background = 'bg-success';
@@ -29,15 +32,23 @@ if ($method == 'read') {
         'property' => $property->data,
         'images' => $property->images()->data,
         'categories' => $categories,
+        'cities' => isset($setting->cities) ? json_decode($setting->cities, true) : [],
     ];
 } elseif ($method == 'create') {
     $category = new Category();
+    $settings = new Setting();
+
+    $setting = $settings->first();
     $categories = getArraySelect($category->get(['id', 'name']), 'id', 'name');
     $background = 'bg-primary';
     $text = __('Add');
     $body = __DIR__ . '/body/form';
 
-    $data = ['action' => '/admin/properties/create', 'categories' => $categories];
+    $data = [
+        'action' => '/admin/properties/create', 
+        'categories' => $categories,
+        'cities' => isset($setting->cities) ? json_decode($setting->cities, true) : [],
+    ];
 };
 
 loadHtml(__DIR__ . '/../../resources/admin/layout', [
@@ -83,7 +94,7 @@ function loadInFooter(): void
         tinymce.init({
             selector: '#tinymce',
             language: 'pt_BR',
-            height: 820,
+            height: 880,
             image_advtab: true,
             plugins: 'code anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat code',
