@@ -233,5 +233,10 @@
     "economic": "economico",
     "Price index added successfully!": "Índice de preço adicionado com sucesso!",
     "Price index updated successfully!": "Índice de preço atualizado com sucesso!",
-    "Price indice(s) removed successfully!": "Indíce(s) de preço removido(s) com sucesso!"
+    "Price indice(s) removed successfully!": "Indíce(s) de preço removido(s) com sucesso!",
+    "Number of views of the :name property": "Quantidade de views da propriedade :name",
+    "Views": "Visualizações",
+    "Date": "Data",
+    ":total views for the date of :date": ":total visualizações referente á data de :date",
+    "views": "visualizações"
 }

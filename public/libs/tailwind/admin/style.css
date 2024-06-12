@@ -1847,6 +1847,10 @@ video {
     display: none;
   }
 
+  .md\:w-2\/12 {
+    width: 16.666667%;
+  }
+
   .md\:w-4\/12 {
     width: 33.333333%;
   }
