@@ -238,5 +238,6 @@
     "Views": "Visualizações",
     "Date": "Data",
     ":total views for the date of :date": ":total visualizações referente á data de :date",
-    "views": "visualizações"
+    "views": "visualizações",
+    ":total views in total": ":total visualizações no total geral"
 }
