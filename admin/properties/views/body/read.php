@@ -1,7 +1,10 @@
 <section class='p-3 bg-light mx-0 sm:mx-3 my-3 rounded shadow-sm'>
     <section>
         <div class="flex justify-between items-end">
-            <p class="text-color-main font-bold text-2xl mb-2"><?php echo _e(':total views for the date of :date', [':total' => $total, ':date' => (new DateTime($date))->format('d/m/Y')]) ?></p>
+            <div>
+                <p class="text-color-main font-bold text-xl mb-2"><?php echo _e(':total views in total', [':total' => $total]) ?></p>
+                <p class="text-color-main font-bold text-xl mb-2"><?php echo _e(':total views for the date of :date', [':total' => $totalByDay, ':date' => (new DateTime($date))->format('d/m/Y')]) ?></p>
+            </div>
         
             <form data-views="submit" method="GET" class="w-full md:w-2/12 px-4">
                 <input type="hidden" name="property" value="<?php echo requests()->property ?>">

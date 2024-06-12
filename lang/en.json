@@ -238,5 +238,6 @@
     "Views": "Views",
     "Date": "Date",
     ":total views for the date of :date": ":total views for the date of :date",
-    "views": "views"
+    "views": "views",
+    ":total views in total": ":total views in total"
 }

@@ -12,10 +12,12 @@ if (!isset($requests->property) || empty($requests->property)) {
 
 $date = isset($requests->date) ? $requests->date : date('Y-m-d');
 $views = (new PropertyView())->where('date', 'LIKE', "{$date}%")->where('property_id', '=', $requests->property)->paginate(20);
-$total = (new PropertyView())->where('date', 'LIKE', "{$date}%")->where('property_id', '=', $requests->property)->count();
+$totalByDay = (new PropertyView())->where('date', 'LIKE', "{$date}%")->where('property_id', '=', $requests->property)->count();
+$total = (new PropertyView())->where('property_id', '=', $requests->property)->count();
 
 $data = [
     'views' => $views,
+    'totalByDay' => $totalByDay,
     'total' => $total,
     'date' => $date,
 ];
