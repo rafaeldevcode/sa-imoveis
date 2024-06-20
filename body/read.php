@@ -174,8 +174,8 @@
 
             <div class="w-full lg:w-2/12 md:w-4/12">
                 <div class="px-0 md:px-2 py-2 lg:py-0">
-                    <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">50.000</span></b></label>
-                    <input type="range" id="value" name="value" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
+                    <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">3.000.000</span></b></label>
+                    <input type="range" id="value" value="3000000" name="value" min="300" max="3000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
                 </div>
             </div>
 
