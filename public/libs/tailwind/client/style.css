@@ -724,6 +724,11 @@ video {
   margin-bottom: 0.25rem;
 }
 
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -868,6 +873,10 @@ video {
   height: 300px;
 }
 
+.h-\[340px\] {
+  height: 340px;
+}
+
 .h-\[40\%\] {
   height: 40%;
 }
@@ -906,18 +915,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[310px\] {
-  height: 310px;
-}
-
-.h-\[350px\] {
-  height: 350px;
-}
-
-.h-\[340px\] {
-  height: 340px;
 }
 
 .max-h-\[500px\] {
@@ -998,6 +995,22 @@ video {
 
 .max-w-full {
   max-width: 100%;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px;
+}
+
+.max-w-\[250px\] {
+  max-width: 250px;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+
+.max-w-\[310px\] {
+  max-width: 310px;
 }
 
 .translate-x-\[-37px\] {
@@ -1202,6 +1215,11 @@ video {
 
 .border-transparent {
   border-color: transparent;
+}
+
+.border-\[\#00A900\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 169 0 / var(--tw-border-opacity));
 }
 
 .border-b-transparent {
@@ -1754,6 +1772,11 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\#00A900\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 169 0 / var(--tw-text-opacity));
 }
 
 .focus\:border-color-main:focus {

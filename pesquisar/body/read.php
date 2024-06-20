@@ -44,7 +44,7 @@
                     <select name="andress" class="border border-color-main py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">
                         <option value="">Cidade</option>
                         <?php foreach ($cities as $city) { ?>
-                            <option <?php echo $requests->andress == $city ? 'selected' : ''  ?> value="<?php echo $city ?>"><?php echo $city ?></option>
+                            <option <?php echo isset($requests->andress) && $requests->andress == $city ? 'selected' : ''  ?> value="<?php echo $city ?>"><?php echo $city ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -52,8 +52,8 @@
 
             <div class="w-full lg:w-2/12 md:w-4/12">
                 <div class="px-0 md:px-2 py-2 lg:py-0">
-                    <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">50.000</span></b></label>
-                    <input type="range" id="value" name="value" value="<?php echo $requests->value ?>" min="300" max="2000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
+                    <label for="value">De <b>R$ 300,00</b> à <b>R$ <span id="result-value">3.000.000</span></b></label>
+                    <input type="range" id="value" value="3000000" name="value" value="<?php echo $requests->value ?>" min="300" max="3000000" class="w-full h-2 bg-color-main rounded-lg appearance-none cursor-pointer">
                 </div>
             </div>
 
@@ -77,11 +77,9 @@
                 ]);
             } ?>
 
-            <?php if (count($properties->data) == 0) { ?>
-                <div class="p-2 w-full h-[300px] flex justify-center items-center">
-                    <img class="h-full" src="<?php asset('assets/images/empty.svg') ?>" alt="<?php _e('No data found') ?>">
-                </div>
-            <?php } ?>
+            <?php if (count($properties->data) == 0) { 
+                loadHtml(__DIR__ . '/../../resources/client/partials/not-properties');
+            } ?>
         </div>
 
         <div class="p-4">

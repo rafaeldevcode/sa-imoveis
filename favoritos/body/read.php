@@ -24,11 +24,9 @@
                 ]);
             } ?>
 
-            <?php if (count($properties) == 0) { ?>
-                <div class="p-2 w-full h-[300px] flex justify-center items-center">
-                    <img class="h-full" src="<?php asset('assets/images/empty.svg') ?>" alt="<?php _e('No data found') ?>">
-                </div>
-            <?php } ?>
+            <?php if (count($properties) == 0) { 
+                loadHtml(__DIR__ . '/../../resources/client/partials/not-properties');
+            } ?>
         </div>
     </div>
 
