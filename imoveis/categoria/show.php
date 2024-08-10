@@ -7,12 +7,20 @@ $categoryModel = new Category();
 $property = new Property();
 
 $category = $categoryModel->where('slug', '=', slug(3))->first();
+$requests = requests();
+$type = isset($requests->type) ? $requests->type : null;
 
 if (!isset($category)) {
     abort(404, 'Category Not Found', 'danger');
 }
 
-$properties = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable')->paginate(15);
+$query = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable');
+
+if (!is_null($type)) {
+    $properties = $query->where('type', '=', $type)->paginate(15);
+} else {
+    $properties = $query->paginate(15);
+}
 
 loadHtml(__DIR__ . '/../../resources/client/layout', [
     'title' => "Categoria {$category->name}",

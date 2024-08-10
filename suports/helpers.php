@@ -333,6 +333,10 @@ if (!function_exists('enableOrDisableLink')) {
 
             $property = $property->where('category_id', '=', $category->id);
 
+            if (isset($data['type'])) {
+                $property = $property->where('type', '=', $data['type']);
+            }
+
             echo $property->count() > 0 ? "href=\"{$data['href']}\"" : 'disabled href="javascript:void(0)"';
         } else {
             if (isset($data['category_id'])) {
@@ -341,6 +345,10 @@ if (!function_exists('enableOrDisableLink')) {
 
             if (isset($data['bedrooms'])) {
                 $property = $property->where('details', 'LIKE', "%{$data['bedrooms']}%");
+            }
+
+            if (isset($data['type'])) {
+                $property = $property->where('type', '=', $data['type']);
             }
 
             echo $property->count() > 0 ? '' : 'disabled';

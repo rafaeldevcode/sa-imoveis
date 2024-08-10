@@ -37,6 +37,10 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
     if (isset($requests->value) && !empty($requests->value)) {
         $property->where('value', '<=', $requests->value);
     }
+
+    if (isset($requests->type) && !empty($requests->type)) {
+        $property->where('type', '=', $requests->type);
+    }
 }
 
 $property->where('status', '!=', 'unavailable');

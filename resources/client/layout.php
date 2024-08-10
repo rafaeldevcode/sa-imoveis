@@ -97,10 +97,16 @@
 
             if(button.attr('data-menu') == 'close'){
                 menu.removeClass('hidden');
+                menu.addClass('fixed');
+                menu.addClass('top-20');
+                menu.addClass('right-2');
 
                 button.attr('data-menu', 'open');
             } else {
                 menu.addClass('hidden');
+                menu.removeClass('fixed');
+                menu.removeClass('top-20');
+                menu.removeClass('right-2');
 
                 button.attr('data-menu', 'close');
             }

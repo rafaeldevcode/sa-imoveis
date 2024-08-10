@@ -9,6 +9,12 @@
                 <input type="hidden" name="search" value="<?php echo $search ?>">
             <?php } ?>
 
+            <?php foreach (requests() as $indice => $request) {
+                if ($indice !== 'page' && $indice !== 'search') { ?>
+                    <input type="hidden" name="<?php echo $indice ?>" value="<?php echo $request ?>">
+                <?php }
+            } ?>
+
             <button type="submit" title='<?php _e('Previous page') ?>' class='btn btn-secondary' <?php echo is_null($prev) ? 'disabled' : '' ?>>
                 <i class='bi bi-arrow-left-short'></i>
                 <?php _e('Previous') ?>
@@ -30,6 +36,12 @@
             <?php if (!is_null($search)) { ?>
                 <input type="hidden" name="search" value="<?php echo $search ?>">
             <?php } ?>
+
+            <?php foreach (requests() as $indice => $request) {
+                if ($indice !== 'page' && $indice !== 'search') { ?>
+                    <input type="hidden" name="<?php echo $indice ?>" value="<?php echo $request ?>">
+                <?php }
+            } ?>
 
             <button type="submit" title='<?php _e('Next page') ?>' class='btn btn-secondary' <?php echo is_null($next) ? 'disabled' : '' ?>>
                 <?php _e('Next') ?>
