@@ -1,5 +1,5 @@
 <header class="bg-color-main sticky top-0 shadow-lg p-4 z-[10]">
-    <section class="container flex flex-row justify-between">
+    <section class="container flex flex-row justify-between relative">
         <div class="flex items-center">
             <div class="h-[60px] lg:h-[80px] mr-4">
                 <a href='<?php route('/') ?>' title='<?php _e('Return to home page') ?>'>
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div id="menu-client" class="hidden lg:flex flex-col lg:flex-row gap-4 fixed bg-white lg:bg-color-main lg:relative lg:top-0 lg:right-0 top-20 right-2 rounded p-4 lg:p-0">
+        <div id="menu-client" class="hidden lg:flex flex-col lg:flex-row gap-4 bg-white lg:bg-color-main rounded p-4 lg:p-0">
             <nav class="flex flex-col">
                 <ul class="flex justify-start lg:justify-end flex-col lg:flex-row gap-4 lg:gap-10 mb-6">
                     <li>
@@ -34,14 +34,16 @@
                         </li>
 
                         <?php if (thereIsProperty('Vender')) { ?>
-                            <li>
+                            <li data-mm="Vender">
                                 <a href="<?php route('/comprar') ?>" class="<?php isActive('comprar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Comprar">Comprar</a>
+                                <?php loadHtml(__DIR__ . '/megamenu', ['type' => 'Vender']) ?>
                             </li>
                         <?php } ?>
 
                         <?php if (thereIsProperty('Alugar')) { ?>
-                            <li>
+                            <li data-mm="Alugar">
                                 <a href="<?php route('/alugar') ?>" class="<?php isActive('alugar') ?> uppercase border-b-2 hover:border-secondary transition ease-in-out text-color-main lg:text-white font-bold px-2" title="Alugar">Alugar</a>
+                                <?php loadHtml(__DIR__ . '/megamenu', ['type' => 'Alugar']) ?>
                             </li>
                         <?php } ?>
 
