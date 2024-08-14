@@ -83,12 +83,6 @@
                 </div>
             </div>
         </form>
-
-        <?php if (!empty(SETTINGS->whatsapp)) { ?>
-            <a href="https://wa.me/+<?php echo preg_replace('/[^0-9]/', '', SETTINGS->whatsapp) ?>?text=<?php echo SETTINGS->whatsapp_message ?>" class="absolute right-0 bottom-[-50px] w-[80px] h-[80px] rounded-full bg-[#00A900] text-white flex items-center justify-center">
-                <i class="bi bi-whatsapp text-5xl"></i>
-            </a>
-        <?php } ?>
     </div>
 </section>
 
