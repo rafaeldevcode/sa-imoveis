@@ -93,10 +93,10 @@
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['furnished']) && $details['furnished'] === 'on') { ?>
+                            <?php if (isset($details['furnished'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/mobiliado.png') ?>" alt="Mobiliado">
-                                    <span>Mobiliado</span>
+                                    <span><?php echo $details['furnished'] ?></span>
                                 </li>
                             <?php } ?>
                         </ul>
