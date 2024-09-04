@@ -1,4 +1,4 @@
-<div data-modal="details" class="z-[99999] fixed top-0 left-0 w-full h-full items-center justify-center hidden z-50">
+<div data-modal="details" class="z-[99999] fixed top-0 left-0 w-full h-full items-center justify-center hidden">
     <div class="bg-white rounded w-full max-w-[500px]" data-modal-body="popup">
         <div class="p-2 relative bg-color-main rounded-t">
             <button data-modal-close="popup" type="button" title="<?php _e('Close') ?>" class="absolute top-0 right-2 text-white hover:text-gray-800 w-[20px] opacity-50">
@@ -139,10 +139,14 @@
                         </div>
 
                         <div class='w-auto'>
-                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-checkbox-switch', [
+                            <?php loadHtml(__DIR__ . '/../../../../resources/partials/form/input-select', [
                                 'name' => 'furnished',
-                                'label' => __('Furnished (No | Yes)'),
                                 'value' => isset($details['furnished']) ? $details['furnished'] : null,
+                                'options' => [
+                                    'Mobiliado' => 'Mobiliado',
+                                    'Semi Mobiliado' => 'Semi Mobiliado',
+                                    'Não Mobiliado' => 'Não Mobiliado',
+                                ],
                             ]) ?>
                         </div>
                     </li>
