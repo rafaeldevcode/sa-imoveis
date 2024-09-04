@@ -4,6 +4,8 @@
             <input type="hidden" name="id" value="<?php echo $economic->id ?>">
         <?php } ?>
 
+        <input type="hidden" name="type" value="<?php isset($economic) ? $economic->type : null ?>">
+
         <div class='flex flex-wrap'>
             <div class='w-full md:w-4/12 px-4'>
                 <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
