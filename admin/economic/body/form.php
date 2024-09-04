@@ -4,13 +4,13 @@
             <input type="hidden" name="id" value="<?php echo $economic->id ?>">
         <?php } ?>
 
-        <input type="hidden" name="type" value="<?php isset($economic) ? $economic->type : null ?>">
+        <input type="hidden" name="type" value="<?php echo isset($economic) ? $economic->type : null ?>">
 
         <div class='flex flex-wrap'>
             <div class='w-full md:w-4/12 px-4'>
                 <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
                     'icon' => 'bi bi-check2-square',
-                    'name' => 'type',
+                    'name' => 'type_disabled',
                     'label' => __('Type'),
                     'attributes' => 'disabled',
                     'value' => isset($economic) ? $economic->type : null,
