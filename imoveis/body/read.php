@@ -13,11 +13,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach (getImages($property->id) as $indice => $image) {
                 if ($indice < 4) { ?>
-                    <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2' : '' ?>">
-                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg h-full object-cover" alt="<?php echo $property->name ?>">
+                    <div data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg cursor-pointer <?php echo $indice === 0 ? ' col-span-1 md:col-span-2 row-span-1 md:row-span-2 w-full h-[255px] md:h-auto' : ' w-full h-[255px] md:h-auto' ?>">
+                        <img src="<?php asset("assets/images/{$image->file}") ?>" class="rounded-lg w-full h-full object-cover" alt="<?php echo $property->name ?>">
                     </div>
                 <?php } elseif ($indice === 4) { ?>
-                    <div class="rounded-lg cursor-pointer relative flex items-center justify-center">
+                    <div class="rounded-lg cursor-pointer relative flex items-center justify-center w-full h-[255px] md:h-auto">
                         <div class="rounded-lg z-[1] absolute top-0 lef-0 w-full h-full bg-color-main opacity-60"></div>
 
                         <button data-gallery-image="<?php asset("assets/images/{$image->file}") ?>" class='z-[2] absolute text-white font-bold w-full h-full' type="button" title="FOTOS">
