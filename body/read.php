@@ -203,7 +203,7 @@
                     <div class="text-white font-semibold">
                         <p><?php echo getMonths($item->month) ?> / <?php echo $item->year ?></p>
                         <p>Mês: <?php echo $item->percentage_month ?>%</p>
-                        <p>12 meses: <?php echo $item->percentage_year ?>%</p>
+                        <p>Acumulado últimos 12 meses: <?php echo $item->percentage_year ?>%</p>
                     </div>
                 </div>
             </div>
