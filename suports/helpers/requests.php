@@ -24,14 +24,19 @@ if (!function_exists('session')) {
     }
 };
 
+if (!function_exists('cookie')) {
+    function cookie(array $data): void
+    {
+        foreach ($data as $indice => $value) {
+            setcookie($indice, $value, time() + 14400, "/");
+        };
+    }
+};
+
 if (!function_exists('autenticate')) {
     function autenticate(?bool $redirect = null): bool
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        };
-
-        $token = isset($_SESSION['token']) ? $_SESSION['token'] : false;
+        $token = isset($_COOKIE['token']) ? $_COOKIE['token'] : false;
 
         if ($token) {
             $accToken = new AccessToken();

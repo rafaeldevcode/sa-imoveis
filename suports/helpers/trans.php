@@ -37,10 +37,6 @@ if (!function_exists('getLangKey')) {
 if (!function_exists('getLang')) {
     function getLang(): string
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        };
-
         $lang = !autenticate() ? 'en' : SETTINGS->admin_lang;
 
         return is_null($lang) ? 'en' : $lang;

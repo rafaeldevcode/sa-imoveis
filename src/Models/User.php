@@ -41,9 +41,15 @@ class User extends Model
         if (isset($userId)) {
             $accToken->where('user_id', '=', $userId)->delete();
         } else {
-            $token = $_SESSION['token'];
+            $token = $_COOKIE['token'];
 
             $accToken->where('token', '=', $token)->delete();
+
+            setcookie('token', '', time() - 3600, "/");
+            setcookie('user_name', '', time() - 3600, "/");
+            setcookie('user_id', '', time() - 3600, "/");
+            setcookie('user_avatar', '', time() - 3600, "/");
+            setcookie('site_settings', '', time() - 3600, "/");
 
             session_destroy();
         };
