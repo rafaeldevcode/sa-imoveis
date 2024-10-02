@@ -102,7 +102,7 @@ if (!function_exists('saveImage')) {
             $gallery = $gallery->create([
                 'name' => $name,
                 'file' => $filePath,
-                'user_id' => $_SESSION['user_id'],
+                'user_id' => $_COOKIE['user_id'],
                 'size' => $file['images']['size'],
                 'type' => $type,
             ]);
@@ -119,12 +119,8 @@ if (!function_exists('saveImage')) {
 if (!function_exists('getSiteSettings')) {
     function getSiteSettings(): ?stdClass
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        };
-
-        if (isset($_SESSION['site_settings'])) {
-            $settings = $_SESSION['site_settings'];
+        if (isset($_COOKIE['site_settings'])) {
+            $settings = $_COOKIE['site_settings'];
         } else {
             $settings = new Setting();
             $gallery = new Gallery();
@@ -149,7 +145,7 @@ if (!function_exists('getSiteSettings')) {
                 $settings = json_encode(getDefaultSiteSettings());
             }
 
-            session(['site_settings' => $settings]);
+            cookie(['site_settings' => $settings]);
         };
 
         return json_decode($settings);

@@ -3,7 +3,7 @@
 use Src\Models\User;
 
 $user = new User();
-$user = $user->find($_SESSION['user_id'])->data;
+$user = $user->find($_COOKIE['user_id'])->data;
 
 loadHtml(__DIR__ . '/../../resources/admin/layout', [
     'background' => 'bg-success',

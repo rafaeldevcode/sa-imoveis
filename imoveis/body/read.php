@@ -68,19 +68,19 @@
                                 </li>
                             <?php } ?>
 
-                            <?php if (isset($details['total_area']) && !empty($details['total_area'])) { ?>
-                                <li class="text-color-main flex flex-col items-center">
-                                    <img class="h-[25px]" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
-                                    <span><?php echo $details['total_area'] ?> m²</span>
-                                    <span>Área Total</span>
-                                </li>
-                            <?php } ?>
-
                             <?php if (isset($details['private_area']) && !empty($details['private_area'])) { ?>
                                 <li class="text-color-main flex flex-col items-center">
                                     <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
                                     <span><?php echo $details['private_area'] ?> m²</span>
                                     <span>Área Privativa</span>
+                                </li>
+                            <?php } ?>
+
+                            <?php if (isset($details['total_area']) && !empty($details['total_area'])) { ?>
+                                <li class="text-color-main flex flex-col items-center">
+                                    <img class="h-[25px]" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
+                                    <span><?php echo $details['total_area'] ?> m²</span>
+                                    <span>Área Total</span>
                                 </li>
                             <?php } ?>
 

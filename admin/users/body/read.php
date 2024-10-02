@@ -90,8 +90,8 @@
                                     <button
                                         type='submit'
                                         title='<?php _e('Log out user :name.', [':name' => $user->name]) ?>'
-                                        class='p-2 text-xs rounded cursor-pointer btn-<?php echo (!in_array($user->id, $ids) || $user->id === $_SESSION['user_id']) ? 'secondary' : 'info' ?> text-light'
-                                        <?php echo (!in_array($user->id, $ids) || $user->id === $_SESSION['user_id']) ? 'disabled' : '' ?>
+                                        class='p-2 text-xs rounded cursor-pointer btn-<?php echo (!in_array($user->id, $ids) || $user->id === $_COOKIE['user_id']) ? 'secondary' : 'info' ?> text-light'
+                                        <?php echo (!in_array($user->id, $ids) || $user->id === $_COOKIE['user_id']) ? 'disabled' : '' ?>
                                     >
                                         <i class="bi bi-box-arrow-right"></i>
                                     </button>

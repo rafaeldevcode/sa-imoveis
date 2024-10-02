@@ -15,11 +15,12 @@ if ($login['status']) {
     session([
         'message' => $login['message'],
         'type' => 'success',
-        'token' => $login['user']->token,
-        'user_name' => $login['user']->name,
-        'user_id' => $login['user']->id,
-        'user_avatar' => $login['user']->avatar,
     ]);
+
+    setcookie('token', $login['user']->token, time() + 14400, "/");
+    setcookie('user_name', $login['user']->name, time() + 14400, "/");
+    setcookie('user_id', $login['user']->id, time() + 14400, "/");
+    setcookie('user_avatar', $login['user']->avatar, time() + 14400, "/");
 
     return header(route('/admin/dashboard', true), true, 302);
 } else {

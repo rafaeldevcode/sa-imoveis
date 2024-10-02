@@ -24,6 +24,9 @@
     <title><?php echo SETTINGS->site_name ?> | <?php echo $title ?></title>
 </head>
 <body>
+    <!-- Include flash message -->
+    <?php loadHtml(__DIR__ . '/../partials/message') ?>
+    
     <!-- Include Header -->
     <?php loadHtml(__DIR__ . '/partials/header.php') ?>
 
@@ -33,9 +36,6 @@
 
     <!-- Include Footer -->
     <?php loadHtml(__DIR__ . '/partials/footer.php') ?>
-
-    <!-- Include flash message -->
-    <?php loadHtml(__DIR__ . '/../partials/message') ?>
 
     <!-- Include Preloader -->
     <?php SETTINGS->preloader == 'on' && loadHtml(__DIR__ . '/../partials/preloader', ['position' => 'fixed', 'type' => 'body']) ?>

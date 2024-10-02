@@ -28,7 +28,7 @@ $newProperty = $property->create([
     'type' => $requests->type,
     'is_launch' => $isLaunch,
     'is_highlighted' => $isHighlighted,
-    'user_id' => $_SESSION['user_id'],
+    'user_id' => $_COOKIE['user_id'],
     'category_id' => $requests->category_id,
 ]);
 

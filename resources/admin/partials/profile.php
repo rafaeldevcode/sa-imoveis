@@ -2,8 +2,8 @@
     <div class='w-[45px] h-[45px]'>
         <a href='<?php route('/admin/profile') ?>' title='<?php _e('Edit profile') ?>'>
             <?php loadHtml(__DIR__ . '/../../partials/image', [
-                'id' => $_SESSION['user_avatar'],
-                'alt' => $_SESSION['user_name'],
+                'id' => $_COOKIE['user_avatar'],
+                'alt' => $_COOKIE['user_name'],
                 'class' => 'border rounded-full border-color-main',
             ]) ?>
         </a>
@@ -11,7 +11,7 @@
     
     <div class='opacity-1 block md:opacity-0 md:hidden profile-dropdawn ml-2'  data-item-active='false'>
         <a href='<?php route('/admin/profile') ?>' title='<?php _e('View and edit profile') ?>' class='profile-dropdawn-btn w-full text-light font-bold' aria-expanded='false'>
-            <?php echo explode(' ', $_SESSION['user_name'])[0] ?>
+            <?php echo explode(' ', $_COOKIE['user_name'])[0] ?>
         </a>
 
         <!-- <ul class='dropdown-menu dropdown-menu-dark'>

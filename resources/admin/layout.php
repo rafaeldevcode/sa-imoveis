@@ -37,6 +37,9 @@
 <body class="bg-[#e4e4e4]">
     <?php !empty(SETTINGS->facebook_pixel) ? loadHtml(__DIR__ . '/../partials/facebook-pixel', ['header' => false]) : ''; ?>
 
+    <!-- Include flash message -->
+    <?php loadHtml(__DIR__ . '/../partials/message') ?>
+
     <section class='flex flex-nowrap justify-between w-full'>
         <?php loadHtml(__DIR__ . '/partials/sidebar') ?>
 
@@ -60,9 +63,6 @@
 
     <!-- Include footer -->
     <?php loadHtml(__DIR__ . '/partials/footer') ?>
-
-    <!-- Include flash message -->
-    <?php loadHtml(__DIR__ . '/../partials/message') ?>
 
     <!-- Include Preloader -->
     <?php SETTINGS->preloader == 'on' && loadHtml(__DIR__ . '/../partials/preloader', ['position' => 'fixed', 'type' => 'body']) ?>

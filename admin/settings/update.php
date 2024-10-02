@@ -55,7 +55,7 @@ if (!isset($currentSetting)) {
     $setting->find($currentSetting->id)->update($data);
 };
 
-unset($_SESSION['site_settings']);
+setcookie('site_settings', '', time() - 3600, "/");
 
 session([
     'message' => __('Settings updated successfully!'),
