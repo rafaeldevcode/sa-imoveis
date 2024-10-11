@@ -180,6 +180,8 @@
     "Internal server error": "Internal server error",
     "Available": "Available",
     "Unavailable": "Unavailable",
+    "Sold": "Sold",
+    "Progress": "Progress",
     "Reserved": "Reserved",
     "Purpose of the property": "Purpose of the property",
     "Category": "Category",

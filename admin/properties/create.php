@@ -24,6 +24,7 @@ $newProperty = $property->create([
     'videos' => isset($requests->videos) ? json_encode($requests->videos) : null,
     'characteristics' => isset($requests->characteristics) ? json_encode($requests->characteristics) : null,
     'status' => $requests->status,
+    'progress' => $requests->progress,
     'city' => $requests->city,
     'type' => $requests->type,
     'is_launch' => $isLaunch,

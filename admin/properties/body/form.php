@@ -133,6 +133,24 @@
                             'available' => __('Available'),
                             'unavailable' => __('Unavailable'),
                             'reserved' => __('Reserved'),
+                            'sold' => __('Sold'),
+                        ],
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-hash',
+                        'name' => 'progress',
+                        'label' => __('Type'),
+                        'attributes' => ['required' => true],
+                        'value' => isset($property) ? $property->progress : null,
+                        'options' => [
+                            'Em construção' => __('Em construção'),
+                            'Na planta' => __('Na planta'),
+                            'Novo' => __('Novo'),
+                            'Seminovo' => __('Seminovo'),
+                            'Lançamento' => __('Lançamento'),
                         ],
                     ]) ?>
                 </div>

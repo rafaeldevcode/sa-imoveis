@@ -6,7 +6,7 @@ verifyMethod(405, 'GET');
 
 $property = new Property();
 $ids = explode('-', slug(2));
-$properties = empty($ids) ? [] : $property->where('status', '!=', 'unavailable')->whereIn('id', $ids);
+$properties = empty($ids) ? [] : $property->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved')->whereIn('id', $ids);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Favoritos',

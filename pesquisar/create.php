@@ -11,7 +11,7 @@ $category = new Category();
 $settings = new Setting();
 $requests = requests();
 
-$property = $property->where('status', '!=', 'unavailable');
+$property = $property->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved');
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 $setting = $settings->first();
 
@@ -43,7 +43,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
     }
 }
 
-$property->where('status', '!=', 'unavailable');
+$property->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved');
 
 $properties = $property->paginate(15);
 
