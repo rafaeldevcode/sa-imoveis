@@ -14,7 +14,7 @@ if (!isset($category)) {
     abort(404, 'Category Not Found', 'danger');
 }
 
-$query = $property->where('category_id', '=', $category->id)->where('status', '!=', 'unavailable');
+$query = $property->where('category_id', '=', $category->id)->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved');
 
 if (!is_null($type)) {
     $properties = $query->where('type', '=', $type)->paginate(15);

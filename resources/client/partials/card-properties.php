@@ -1,6 +1,6 @@
 <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12">
-    <div class="rounded-xl bg-white h-[500px]">
-        <div class="h-[60%] relative">
+    <div class="rounded-xl bg-white h-[530px]">
+        <div class="h-[55%] relative">
             <?php if ($status === 'reserved') { ?>
                 <div class="-rotate-45 translate-x-[-37px] translate-y-[37px] absolute top-0 left-0 z-[2] px-10 py-1 opacity-70 bg-color-main h-auto w-auto text-white uppercase text-center font-bold">
                     <div class="absolute top-0 left-0 w-[0px] border-b-[32px] border-l-[32px] border-b-transparent border-l-[#F4F4F4]"></div>
@@ -9,7 +9,7 @@
                 </div>    
             <?php } ?>
 
-            <div class="h-[256px] rounded-t-xl" data-slick="images">
+            <div class="h-[246px] rounded-t-xl" data-slick="images">
                 <?php foreach (getImages($id) as $image) { ?>
                     <a href="<?php route("/imoveis/{$id}") ?>" title="<?php echo $name ?>">
                         <img class="rounded-t-xl h-full w-full object-cover" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $name ?>">
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="h-[40%] p-4">
+        <div class="h-[45%] p-4 flex flex-col justify-between">
             <div class="flex flex-col justify-between">
                 <span class="text-sm font-semibold">Cód. <?php echo $code ?></span>
                 <a href="<?php route("/imoveis/{$id}") ?>" class="text-color-main font-bold text-lg"><?php echo $name ?></a>
@@ -57,6 +57,10 @@
                         <span>Área Privativa</span>
                     </li>
                 <?php } ?>
+            </div>
+
+            <div class="flex flex-col justify-between">
+                <p class="text-color-main font-bold text-lg"><?php echo $progress ?></p>
             </div>
         </div>
     </div>

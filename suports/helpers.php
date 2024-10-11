@@ -209,11 +209,13 @@ if (!function_exists('propertyStatus')) {
                 'available' => 'success',
                 'unavailable' => 'danger',
                 'reserved' => 'info',
+                'sold' => 'primary',
             ],
             'texts' => [
                 'available' => __('Available'),
                 'unavailable' => __('Unavailable'),
                 'reserved' => __('Reserved'),
+                'sold' => __('Sold'),
             ],
         ];
 

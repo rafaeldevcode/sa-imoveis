@@ -10,6 +10,8 @@
     </section>
 
     <section class="py-12 container flex w-full flex-wrap">
+        <h2 class="text-color-main font-bold text-2xl mb-4"><?php echo $property->progress ?></h2>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach (getImages($property->id) as $indice => $image) {
                 if ($indice < 4) { ?>
@@ -222,6 +224,7 @@
                                 'name' => $item->name,
                                 'value' => $item->value,
                                 'status' => $property->status,
+                                'progress' => $property->progress,
                                 'details' => json_decode($item->details, true),
                             ]);
                         }

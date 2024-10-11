@@ -11,6 +11,7 @@
                     'name' => $property->name,
                     'value' => $property->value,
                     'status' => $property->status,
+                    'progress' => $property->progress,
                     'details' => json_decode($property->details, true),
                 ]);
             } ?>
