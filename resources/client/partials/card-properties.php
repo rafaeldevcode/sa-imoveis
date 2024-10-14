@@ -60,7 +60,7 @@
             </div>
 
             <div class="flex flex-col justify-between">
-                <p class="text-color-main font-bold text-lg"><?php echo $progress ?></p>
+                <p class="text-color-main font-bold text-lg">Imóvel: <?php echo $progress ?></p>
             </div>
         </div>
     </div>
