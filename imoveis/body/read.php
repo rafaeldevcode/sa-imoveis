@@ -10,7 +10,9 @@
     </section>
 
     <section class="py-12 container flex w-full flex-wrap">
-        <h2 class="text-color-main font-bold text-2xl mb-4">Imóvel: <?php echo $property->progress ?></h2>
+        <?php if ($property->progress !== 'Outros') { ?>
+            <h2 class="text-color-main font-bold text-2xl mb-4">Imóvel: <?php echo $property->progress ?></h2>
+        <?php } ?>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach (getImages($property->id) as $indice => $image) {
