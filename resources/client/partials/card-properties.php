@@ -59,9 +59,11 @@
                 <?php } ?>
             </div>
 
-            <div class="flex flex-col justify-between">
-                <p class="text-color-main font-bold text-lg">Imóvel: <?php echo $progress ?></p>
-            </div>
+            <?php if ($progress !== 'Outros') { ?>
+                <div class="flex flex-col justify-between">
+                    <p class="text-color-main font-bold text-lg">Imóvel: <?php echo $progress ?></p>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </div>
