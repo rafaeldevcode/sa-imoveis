@@ -151,6 +151,7 @@
                             'Novo' => __('Novo'),
                             'Seminovo' => __('Seminovo'),
                             'Lançamento' => __('Lançamento'),
+                            'Outros' => __('Outros'),
                         ],
                     ]) ?>
                 </div>
