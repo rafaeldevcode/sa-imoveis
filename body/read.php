@@ -107,7 +107,7 @@
                         'name' => $item->name,
                         'value' => $item->value,
                         'status' => $item->status,
-                        'progress' => $property->progress,
+                        'progress' => $item->progress,
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
@@ -143,7 +143,7 @@
                         'name' => $item->name,
                         'value' => $item->value,
                         'status' => $item->status,
-                        'progress' => $property->progress,
+                        'progress' => $item->progress,
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
@@ -179,7 +179,7 @@
                         'name' => $item->name,
                         'value' => $item->value,
                         'status' => $item->status,
-                        'progress' => $property->progress,
+                        'progress' => $item->progress,
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
