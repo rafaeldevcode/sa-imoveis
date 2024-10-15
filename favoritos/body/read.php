@@ -13,16 +13,18 @@
 
         <div class="flex flex-wrap w-full" data-slick="cards">
             <?php foreach ($properties as $property) {
-                loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
-                    'id' => $property->id,
-                    'code' => $property->code,
-                    'andress' => $property->andress,
-                    'name' => $property->name,
-                    'value' => $property->value,
-                    'status' => $property->status,
-                    'progress' => $property->progress,
-                    'details' => json_decode($property->details, true),
-                ]);
+                if ($property->status === 'available' || $property->status === 'reserved') {
+                    loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
+                        'id' => $property->id,
+                        'code' => $property->code,
+                        'andress' => $property->andress,
+                        'name' => $property->name,
+                        'value' => $property->value,
+                        'status' => $property->status,
+                        'progress' => $property->progress,
+                        'details' => json_decode($property->details, true),
+                    ]);
+                }
             } ?>
 
             <?php if (count($properties) == 0) { 
