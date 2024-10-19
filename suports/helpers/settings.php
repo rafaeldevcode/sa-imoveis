@@ -129,12 +129,12 @@ if (!function_exists('getSiteSettings')) {
                 $settings = $settings->first();
 
                 if (isset($settings)) {
-                    $settings->site_favicon = $gallery->find($settings->site_favicon)->data->file;
-                    $settings->site_logo_main = $gallery->find($settings->site_logo_main)->data->file;
-                    $settings->site_logo_secondary = $gallery->find($settings->site_logo_secondary)->data->file;
-                    $settings->site_bg_login = $gallery->find($settings->site_bg_login)->data->file;
-                    $settings->home_featured_desk = $gallery->find($settings->home_featured_desk)->data->id;
-                    $settings->home_featured_mob = $gallery->find($settings->home_featured_mob)->data->id;
+                    $settings->site_favicon = !is_null($settings->site_favicon) ? $gallery->find($settings->site_favicon)->data->file : '';
+                    $settings->site_logo_main = !is_null($settings->site_logo_main) ? $gallery->find($settings->site_logo_main)->data->file : '';
+                    $settings->site_logo_secondary = !is_null($settings->site_logo_secondary) ? $gallery->find($settings->site_logo_secondary)->data->file : '';
+                    $settings->site_bg_login = !is_null($settings->site_bg_login) ? $gallery->find($settings->site_bg_login)->data->file : '';
+                    $settings->home_featured_desk = !is_null($settings->home_featured_desk) ? $gallery->find($settings->home_featured_desk)->data->id : '';
+                    $settings->home_featured_mob = !is_null($settings->home_featured_mob) ? $gallery->find($settings->home_featured_mob)->data->id : '';
                     $settings->about_company = '';
 
                     $settings = json_encode($settings);
