@@ -1,5 +1,5 @@
 <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12">
-    <div class="rounded-xl bg-white h-[530px]">
+    <div class="rounded-xl bg-white h-[535px]">
         <div class="h-[55%] relative">
             <?php if ($status === 'reserved') { ?>
                 <div class="-rotate-45 translate-x-[-37px] translate-y-[37px] absolute top-0 left-0 z-[2] px-10 py-1 opacity-70 bg-color-main h-auto w-auto text-white uppercase text-center font-bold">
@@ -54,7 +54,7 @@
                     <li class="text-color-main flex flex-col items-center">
                         <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
                         <span><?php echo $details['private_area'] ?>m²</span>
-                        <span>Área Privativa</span>
+                        <span class="text-center">Área Privativa</span>
                     </li>
                 <?php } ?>
             </div>
