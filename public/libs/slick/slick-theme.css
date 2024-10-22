@@ -81,6 +81,10 @@
 {
     left: -25px;
 }
+.card-properties > .slick-prev
+{
+    left: -45px;
+}
 [dir='rtl'] .slick-prev
 {
     right: -25px;
@@ -98,6 +102,10 @@
 .slick-next
 {
     right: -25px;
+}
+.card-properties > .slick-next
+{
+    right: -41px;
 }
 [dir='rtl'] .slick-next
 {

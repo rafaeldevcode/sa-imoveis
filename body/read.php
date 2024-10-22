@@ -98,7 +98,7 @@
                 <a href='<?php route('/lancamentos') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
-            <div class="flex flex-wrap w-full" data-slick="cards">
+            <div class="flex flex-wrap w-full card-properties" data-slick="cards">
                 <?php foreach ($releases as $item) {
                     loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
                         'id' => $item->id,
@@ -134,7 +134,7 @@
                 <a href='<?php route('/comprar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
-            <div class="flex flex-wrap w-full" data-slick="cards">
+            <div class="flex flex-wrap w-full card-properties" data-slick="cards">
                 <?php foreach ($sell as $item) {
                     loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
                         'id' => $item->id,
@@ -170,7 +170,7 @@
                 <a href='<?php route('/alugar') ?>' title='Ver todos' class='text-xs btn btn-color-main font-bold mx-1 text-center relative md:absolute right-0'>VER TODOS</a>
             </div>
 
-            <div class="flex flex-wrap w-full" data-slick="cards">
+            <div class="flex flex-wrap w-full card-properties" data-slick="cards">
                 <?php foreach ($toHire as $item) {
                     loadHtml(__DIR__ . '/../resources/client/partials/card-properties', [
                         'id' => $item->id,
