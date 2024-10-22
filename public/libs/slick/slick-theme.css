@@ -81,7 +81,7 @@
 {
     left: -25px;
 }
-.card-properties > .slick-prev
+[data-slick="cards"] > .slick-prev
 {
     left: -45px;
 }
@@ -103,7 +103,7 @@
 {
     right: -25px;
 }
-.card-properties > .slick-next
+[data-slick="cards"] > .slick-next
 {
     right: -41px;
 }

@@ -10,7 +10,7 @@ require __DIR__ . '/helpers/requests.php';
 require __DIR__ . '/helpers/menus-admin.php';
 require __DIR__ . '/helpers/routes.php';
 
-!defined('APP_VERSION') && define('APP_VERSION', '1.7.0');
+!defined('APP_VERSION') && define('APP_VERSION', '1.8.0');
 
 if (!function_exists('server')) {
     function server(?string $option = null): stdClass|string

@@ -225,8 +225,8 @@
                                 'andress' => $item->andress,
                                 'name' => $item->name,
                                 'value' => $item->value,
-                                'status' => $property->status,
-                                'progress' => $property->progress,
+                                'status' => $item->status,
+                                'progress' => $item->progress,
                                 'details' => json_decode($item->details, true),
                             ]);
                         }
