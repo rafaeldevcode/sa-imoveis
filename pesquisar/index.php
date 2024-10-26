@@ -1,7 +1,5 @@
 <?php
 
-verifyMethod(405, 'POST');
-
 use Src\Models\Category;
 use Src\Models\Property;
 use Src\Models\Setting;
@@ -48,7 +46,7 @@ $property->where('status', '=', 'available', 'available')->orWhere('status', '='
 $properties = $property->paginate(15);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
-    'title' => 'Contato',
+    'title' => 'Pesquisar',
     'body' => __DIR__ . '/body/read',
     'plugins' => ['slick'],
     'data' => [

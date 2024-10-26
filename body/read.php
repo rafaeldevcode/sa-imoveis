@@ -24,7 +24,7 @@
     </div>
 
     <div class="z-[2] relative container px-4 py-12 flex justify-center items-end">
-        <form action="<?php route('/pesquisar/create') ?>" method="POST" class="shadow-lg bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
+        <form action="<?php route('/pesquisar') ?>" class="shadow-lg bg-[#FFFFFF85] p-4 w-full flex flex-wrap items-center">                
             <div class="w-full lg:w-2/12 md:w-4/12">
                     <div class="px-0 md:px-2 py-2 lg:py-0">
                     <select name="type" class="py-4 px-2 bg-white focus:outline-none text-md rounded-lg focus:ring-color-main focus:ring-1 focus:border-color-main block w-full">

@@ -40,7 +40,7 @@ if (!function_exists('routes')) {
             "/admin/profile/update",
             "/admin/profile/update-avatar",
             "/sobre",
-            "/pesquisar/create",
+            "/pesquisar",
             "/contato",
             "/contato/create",
             "/anunciar-imovel",

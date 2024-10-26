@@ -56,7 +56,7 @@
                         </li>
                     </ul>
 
-                    <form action='<?php route('/pesquisar/create') ?>' method='POST' class="flex">
+                    <form action='<?php route('/pesquisar') ?>' class="flex">
                         <input type="hidden" name="search_type" value="1">
                         <input type='search' class='text-white py-1 px-4 border placeholder:text-secondary lg:placeholder:text-white bg-white lg:bg-color-main border-secondary placeholder:text-sm mr-[-5px] placeholder:italic' name='search' placeholder='Buscar por código ou nome' value='<?php echo isset(requests()->search) ? requests()->search : '' ?>'>
                         
