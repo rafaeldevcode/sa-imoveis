@@ -1,6 +1,6 @@
 <section class='w-full border-t-2 border-secondary'>
     <div class='pt-2 flex justify-between'>
-        <form action="" method="POST">
+        <form action="">
             <?php if (!is_null($prev)) { ?>
                 <input type="hidden" name="page" value="<?php echo $prev ?>">
             <?php } ?>
@@ -28,7 +28,7 @@
             <div class='border-t-2 border-secondary'>de <?php echo $count ?></div>
         </div>
 
-        <form action="" method="POST">
+        <form action="">
             <?php if (!is_null($next)) { ?>
                 <input type="hidden" name="page" value="<?php echo $next ?>">
             <?php } ?>
