@@ -8,11 +8,11 @@ use Src\Models\PropertyView;
 $property = (new Property())->find(slug(2));
 $propertyView = new PropertyView();
 
-if (!isset($property->data) || (($property->data->status === 'unavailable' || $property->data->status === 'sold') && !autenticate())) {
+if (!isset($property->data) || (($property->data->status === 'indisponivel' || $property->data->status === 'vendido') && !autenticate())) {
     abort(404, 'Property Not Found', 'danger');
 }
 
-$properties = (new Property())->where('category_id', '=', $property->data->category_id)->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved')->paginate(3);
+$properties = (new Property())->where('category_id', '=', $property->data->category_id)->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(3);
 $propertyView->create([
     'property_id' => $property->data->id,
     'date' => date('Y-m-d H:i:s'),

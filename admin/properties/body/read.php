@@ -1,4 +1,35 @@
 <section class='p-3 bg-light mx-0 sm:mx-3 my-3 rounded shadow-sm'>
+    <form action='?' method='GET' class='flex items-end gap-2'>
+        <div class="w-[120px]">
+            <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                'name' => 'column',
+                'value' => isset(requests()->column) ? requests()->column : '',
+                'attributes' => [
+                    'onchange' => "javascript:changeColumn(event)"
+                ],
+                'options' => [
+                    'name' => __('Name'),
+                    'description' => __('Description'),
+                    'code' => __('Code'),
+                    'value' => __('Value'),
+                    'condominium' => __('Condominium'),
+                    'iptu' => __('IPTU'),
+                    'andress' => __('Andress'),
+                    'location' => __('Location'),
+                    'details' => __('Details'),
+                    'status' => __('Status'),
+                    'type' => __('Type')
+                ],
+            ]) ?>
+        </div>
+        <div class="mb-3">
+            <input type='search' class='py-1 px-2 rounded-l border border-divide-gray-500 mr-[-5px]' name='search' placeholder='<?php _e('Search...') ?>' value='<?php echo isset(requests()->search) ? requests()->search : '' ?>'>
+            
+            <button title="<?php _e('Submit search') ?>" type='submit' class='input-group-text py-1 px-2 btn-primary rounded-r' id='search'>
+                <i class='bi bi-search fs-xs'></i>
+            </button>
+        </div>
+    </form>
     <section>
         <div class="relative overflow-x-auto max-w-[2000px] mx-auto mb-4 rounded border">
             <table class="w-full text-left">

@@ -9,7 +9,7 @@ $category = new Category();
 $settings = new Setting();
 $requests = requests();
 
-$property = $property->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved');
+$property = $property->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado');
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 $setting = $settings->first();
 
@@ -41,7 +41,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
     }
 }
 
-$property->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved');
+$property->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado');
 
 $properties = $property->paginate(15);
 

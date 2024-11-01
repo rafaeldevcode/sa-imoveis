@@ -206,16 +206,16 @@ if (!function_exists('propertyStatus')) {
     {
         $status = [
             'colors' => [
-                'available' => 'success',
-                'unavailable' => 'danger',
-                'reserved' => 'info',
-                'sold' => 'primary',
+                'disponivel' => 'success',
+                'indisponivel' => 'danger',
+                'reservado' => 'info',
+                'vendido' => 'primary',
             ],
             'texts' => [
-                'available' => __('Available'),
-                'unavailable' => __('Unavailable'),
-                'reserved' => __('Reserved'),
-                'sold' => __('Sold'),
+                'disponivel' => __('Available'),
+                'indisponivel' => __('Unavailable'),
+                'reservado' => __('Reserved'),
+                'vendido' => __('Sold'),
             ],
         ];
 
@@ -317,7 +317,7 @@ if (!function_exists('generatePropertyCode')) {
 if (!function_exists('thereIsProperty')) {
     function thereIsProperty(string $type): bool
     {
-        $property = (new Property())->where('type', '=', $type)->where('status', '!=', 'unavailable')->count();
+        $property = (new Property())->where('type', '=', $type)->where('status', '!=', 'indisponivel')->count();
 
         return $property > 0 ? true : false;
     }
@@ -327,7 +327,7 @@ if (!function_exists('enableOrDisableLink')) {
     function enableOrDisableLink(string $search_type, array $data): void
     {
         $property = new Property();
-        $property = $property->where('status', '!=', 'unavailable');
+        $property = $property->where('status', '!=', 'indisponivel');
 
         if (isset($search_type) && $search_type === '1') {
             $category = new Category();
