@@ -13,7 +13,7 @@
 
         <div class="flex flex-wrap w-full" data-slick="cards">
             <?php foreach ($properties as $property) {
-                if ($property->status === 'available' || $property->status === 'reserved') {
+                if ($property->status === 'disponivel' || $property->status === 'reservado') {
                     loadHtml(__DIR__ . '/../../resources/client/partials/card-properties', [
                         'id' => $property->id,
                         'code' => $property->code,

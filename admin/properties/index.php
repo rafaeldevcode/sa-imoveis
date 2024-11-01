@@ -9,7 +9,8 @@ $method = empty(querys('method')) ? 'read' : querys('method');
 if ($method == 'read') {
     $property = new Property();
     $requests = requests();
-    $properties = !isset($requests->search) ? $property->paginate(20) : $property->where('name', 'LIKE', "%{$requests->search}%")->paginate(20);
+    $column = isset($requests->column) && !empty($requests->column) ? $requests->column : 'name';
+    $properties = !isset($requests->search) ? $property->paginate(20) : $property->where($column, 'LIKE', "%{$requests->search}%")->paginate(20);
     $background = 'bg-secondary';
     $text = __('View');
     $body = __DIR__ . '/body/read';
@@ -60,7 +61,6 @@ loadHtml(__DIR__ . '/../../resources/admin/layout', [
     'title' => __('Properties'),
     'routeDelete' => $method == 'read' ? '/admin/properties/delete' : null,
     'routeAdd' => $method == 'create' ? null : '/admin/properties?method=create',
-    'routeSearch' => '/admin/properties',
     'body' => $body,
     'data' => $data,
     'plugins' => ['tinymce', 'select2'],
@@ -112,5 +112,9 @@ function loadInFooter(): void
                 }
             }
         });
+
+        function changeColumn(event) {
+            console.log($(event.target).parent().parent().parent().parent().submit())
+        }
     </script>
 <?php }

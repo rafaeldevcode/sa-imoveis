@@ -1,7 +1,7 @@
 <div class="px-4 w-full md:w-6/12 lg:w-4/12 my-12">
     <div class="rounded-xl bg-white h-[535px]">
         <div class="h-[55%] relative">
-            <?php if ($status === 'reserved') { ?>
+            <?php if ($status === 'reservado') { ?>
                 <div class="-rotate-45 translate-x-[-37px] translate-y-[37px] absolute top-0 left-0 z-[2] px-10 py-1 opacity-70 bg-color-main h-auto w-auto text-white uppercase text-center font-bold">
                     <div class="absolute top-0 left-0 w-[0px] border-b-[32px] border-l-[32px] border-b-transparent border-l-[#F4F4F4]"></div>
                     Reservado

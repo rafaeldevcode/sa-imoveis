@@ -3,7 +3,7 @@
 use Src\Models\Property;
 
 $property = new Property();
-$properties = $property->where('type', '=', 'Vender')->where('status', '=', 'available', 'available')->orWhere('status', '=', 'reserved', 'reserved')->paginate(15);
+$properties = $property->where('type', '=', 'Vender')->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(15);
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Comprar',

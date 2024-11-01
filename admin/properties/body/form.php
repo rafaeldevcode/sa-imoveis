@@ -130,10 +130,10 @@
                         'attributes' => ['required' => true],
                         'value' => isset($property) ? $property->status : null,
                         'options' => [
-                            'available' => __('Available'),
-                            'unavailable' => __('Unavailable'),
-                            'reserved' => __('Reserved'),
-                            'sold' => __('Sold'),
+                            'disponivel' => __('Available'),
+                            'indisponivel' => __('Unavailable'),
+                            'reservado' => __('Reserved'),
+                            'vendido' => __('Sold'),
                         ],
                     ]) ?>
                 </div>
