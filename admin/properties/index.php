@@ -10,7 +10,7 @@ if ($method == 'read') {
     $property = new Property();
     $requests = requests();
     $column = isset($requests->column) && !empty($requests->column) ? $requests->column : 'name';
-    $properties = !isset($requests->search) ? $property->paginate(20) : $property->where($column, 'LIKE', "%{$requests->search}%")->paginate(20);
+    $properties = !isset($requests->search) ? $property->paginate(20, $column) : $property->where($column, 'LIKE', "%{$requests->search}%")->paginate(20, $column);
     $background = 'bg-secondary';
     $text = __('View');
     $body = __DIR__ . '/body/read';
