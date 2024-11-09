@@ -31,6 +31,7 @@ $newProperty = $property->create([
     'is_highlighted' => $isHighlighted,
     'user_id' => $_COOKIE['user_id'],
     'category_id' => $requests->category_id,
+    'dimension' => $requests->dimension,
 ]);
 
 $property->find($newProperty->id)->images()->sync($collection);

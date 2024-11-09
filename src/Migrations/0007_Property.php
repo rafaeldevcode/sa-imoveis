@@ -24,6 +24,7 @@ class Property extends ExecuteMigrations
         $this->string('type', 8);
         $this->string('progress', 13);
         $this->char('is_launch', 3)->default('off');
+        $this->char('dimension', 10);
         $this->integer('user_id');
         $this->integer('category_id');
 

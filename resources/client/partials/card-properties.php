@@ -33,6 +33,12 @@
                 <span class="text-sm font-semibold">Cód. <?php echo $code ?></span>
                 <a href="<?php route("/imoveis/{$id}") ?>" class="text-color-main font-bold text-lg"><?php echo $name ?></a>
                 <p class="text-md folt-bold text-gray-600"><?php echo $andress ?></p>
+
+                <?php if ($dimension) { ?>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-color-main font-bold text-lg">Dimensões: <?php echo $dimension ?></p>
+                    </div>
+                <?php } ?>
             </div>
 
             <div class="flex px-6 py-2 justify-between">
