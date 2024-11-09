@@ -243,5 +243,6 @@
     "views": "visualizações",
     ":total views in total": ":total visualizações no total geral",
     "Description": "Descrição",
-    "Location": "Localização"
+    "Location": "Localização",
+    "Dimension": "Dimensão"
 }

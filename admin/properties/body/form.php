@@ -157,6 +157,16 @@
                 </div>
 
                 <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
+                        'icon' => 'bi bi-currency-dollar',
+                        'name' => 'dimension',
+                        'label' => __('Dimension'),
+                        'type' => 'text',
+                        'value' => isset($property) ? $property->dimension : null,
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-checkbox-switch', [
                         'name' => 'is_launch',
                         'label' => __('Is it a launch? (No | Yes)'),

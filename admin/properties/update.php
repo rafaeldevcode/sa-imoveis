@@ -30,6 +30,7 @@ $property->update([
     'is_launch' => $isLaunch,
     'is_highlighted' => $isHighlighted,
     'category_id' => $requests->category_id,
+    'dimension' => $requests->dimension,
 ]);
 
 $property->images()->sync($collection);

@@ -78,12 +78,12 @@ function loadInFooter()
                 $('[data-banner="desktop"]').remove();
             }
 
-            $('[data-slick="images"]').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                arrows: true,
-            });
+            // $('[data-slick="images"]').slick({
+            //     slidesToShow: 1,
+            //     slidesToScroll: 1,
+            //     infinite: true,
+            //     arrows: true,
+            // });
 
             $('[data-slick="cards"]').slick({
                 slidesToShow: 3,

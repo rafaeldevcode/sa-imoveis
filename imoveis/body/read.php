@@ -1,9 +1,15 @@
 <section class="py-12 bg-[#F4F4F4]">
     <section class="py-12 container flex justify-between items-end w-full">
         <div class="flex flex-col">
+            <p class="text-lg folt-black">Inicio > Imóveis > <?php echo $category->name ?></p>
             <h1 class="text-color-main font-bold text-2xl"><?php echo $property->name ?></h1>
             <p class="text-xl folt-bold text-gray-600"><?php echo $property->andress ?></p>
-            <p class="text-lg folt-black">Inicio > Imóveis > <?php echo $category->name ?></p>
+
+            <?php if ($property->dimension) { ?>
+                <div class="flex flex-col justify-between">
+                    <p class="text-color-main font-bold text-lg">Dimensões: <?php echo $property->dimension ?></p>
+                </div>
+            <?php } ?>
         </div>
 
         <span class="text-sm font-semibold">Cód. <?php echo $property->code ?></span>
@@ -226,6 +232,7 @@
                                 'name' => $item->name,
                                 'value' => $item->value,
                                 'status' => $item->status,
+                                'dimension' => $property->dimension,
                                 'progress' => $item->progress,
                                 'details' => json_decode($item->details, true),
                             ]);

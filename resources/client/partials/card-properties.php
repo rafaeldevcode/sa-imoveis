@@ -10,11 +10,13 @@
             <?php } ?>
 
             <div class="h-[246px] rounded-t-xl" data-slick="images">
-                <?php foreach (getImages($id) as $image) { ?>
-                    <a href="<?php route("/imoveis/{$id}") ?>" title="<?php echo $name ?>">
-                        <img class="rounded-t-xl h-full w-full object-cover" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $name ?>">
-                    </a>
-                <?php } ?>
+                <?php foreach (getImages($id) as $indice => $image) { 
+                    if ($indice === 0) {?>
+                        <a href="<?php route("/imoveis/{$id}") ?>" title="<?php echo $name ?>">
+                            <img class="rounded-t-xl h-full w-full object-cover" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $name ?>">
+                        </a>
+                    <?php }
+                } ?>
             </div>
 
             <div class="w-full p-2 bg-color-main flex justify-between items-center">
@@ -31,6 +33,12 @@
                 <span class="text-sm font-semibold">Cód. <?php echo $code ?></span>
                 <a href="<?php route("/imoveis/{$id}") ?>" class="text-color-main font-bold text-lg"><?php echo $name ?></a>
                 <p class="text-md folt-bold text-gray-600"><?php echo $andress ?></p>
+
+                <?php if ($dimension) { ?>
+                    <div class="flex flex-col justify-between">
+                        <p class="text-color-main font-bold text-lg">Dimensões: <?php echo $dimension ?></p>
+                    </div>
+                <?php } ?>
             </div>
 
             <div class="flex px-6 py-2 justify-between">

@@ -107,6 +107,7 @@
                         'name' => $item->name,
                         'value' => $item->value,
                         'status' => $item->status,
+                        'dimension' => $item->dimension,
                         'progress' => $item->progress,
                         'details' => json_decode($item->details, true),
                     ]);
@@ -143,6 +144,7 @@
                         'name' => $item->name,
                         'value' => $item->value,
                         'status' => $item->status,
+                        'dimension' => $item->dimension,
                         'progress' => $item->progress,
                         'details' => json_decode($item->details, true),
                     ]);
@@ -179,6 +181,7 @@
                         'name' => $item->name,
                         'value' => $item->value,
                         'status' => $item->status,
+                        'dimension' => $item->dimension,
                         'progress' => $item->progress,
                         'details' => json_decode($item->details, true),
                     ]);
