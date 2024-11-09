@@ -10,11 +10,13 @@
             <?php } ?>
 
             <div class="h-[246px] rounded-t-xl" data-slick="images">
-                <?php foreach (getImages($id) as $image) { ?>
-                    <a href="<?php route("/imoveis/{$id}") ?>" title="<?php echo $name ?>">
-                        <img class="rounded-t-xl h-full w-full object-cover" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $name ?>">
-                    </a>
-                <?php } ?>
+                <?php foreach (getImages($id) as $indice => $image) { 
+                    if ($indice === 0) {?>
+                        <a href="<?php route("/imoveis/{$id}") ?>" title="<?php echo $name ?>">
+                            <img class="rounded-t-xl h-full w-full object-cover" src="<?php asset("assets/images/{$image->file}") ?>" alt="<?php echo $name ?>">
+                        </a>
+                    <?php }
+                } ?>
             </div>
 
             <div class="w-full p-2 bg-color-main flex justify-between items-center">

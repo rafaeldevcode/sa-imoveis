@@ -66,13 +66,13 @@ function loadInFooter()
         Favorite.init();
         InputRange.init();
 
-        $(document).ready(function(){
-            $('[data-slick="images"]').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                arrows: true,
-            });
-        });
+        // $(document).ready(function(){
+        //     $('[data-slick="images"]').slick({
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1,
+        //         infinite: true,
+        //         arrows: true,
+        //     });
+        // });
     </script>
 <?php }
