@@ -109,6 +109,7 @@
                         'status' => $item->status,
                         'dimension' => $item->dimension,
                         'progress' => $item->progress,
+                        'show_card' => $item->show_card,
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
@@ -146,6 +147,7 @@
                         'status' => $item->status,
                         'dimension' => $item->dimension,
                         'progress' => $item->progress,
+                        'show_card' => $item->show_card,
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>
@@ -183,6 +185,7 @@
                         'status' => $item->status,
                         'dimension' => $item->dimension,
                         'progress' => $item->progress,
+                        'show_card' => $item->show_card,
                         'details' => json_decode($item->details, true),
                     ]);
                 } ?>

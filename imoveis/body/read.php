@@ -234,6 +234,7 @@
                                 'status' => $item->status,
                                 'dimension' => $property->dimension,
                                 'progress' => $item->progress,
+                                'show_card' => $item->show_card,
                                 'details' => json_decode($item->details, true),
                             ]);
                         }

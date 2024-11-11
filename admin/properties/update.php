@@ -31,6 +31,7 @@ $property->update([
     'is_highlighted' => $isHighlighted,
     'category_id' => $requests->category_id,
     'dimension' => $requests->dimension,
+    'show_card' => $requests->show_card,
 ]);
 
 $property->images()->sync($collection);
