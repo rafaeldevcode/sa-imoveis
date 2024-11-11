@@ -32,6 +32,7 @@ $newProperty = $property->create([
     'user_id' => $_COOKIE['user_id'],
     'category_id' => $requests->category_id,
     'dimension' => $requests->dimension,
+    'show_card' => $requests->show_card,
 ]);
 
 $property->find($newProperty->id)->images()->sync($collection);

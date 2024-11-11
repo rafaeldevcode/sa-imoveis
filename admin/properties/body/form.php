@@ -157,6 +157,20 @@
                 </div>
 
                 <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-select', [
+                        'icon' => 'bi bi-hash',
+                        'name' => 'show_card',
+                        'label' => __('Show in card'),
+                        'attributes' => ['required' => true],
+                        'value' => isset($property) ? $property->show_card : null,
+                        'options' => [
+                            'privative' => __('Area Privative'),
+                            'total' => __('Area Total'),
+                        ],
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-currency-dollar',
                         'name' => 'dimension',

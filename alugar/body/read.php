@@ -13,6 +13,7 @@
                     'status' => $property->status,
                     'dimension' => $property->dimension,
                     'progress' => $property->progress,
+                    'show_card' => $property->show_card,
                     'details' => json_decode($property->details, true),
                 ]);
             } ?>

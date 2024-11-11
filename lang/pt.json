@@ -244,5 +244,8 @@
     ":total views in total": ":total visualizações no total geral",
     "Description": "Descrição",
     "Location": "Localização",
-    "Dimension": "Dimensão"
+    "Dimension": "Dimensão",
+    "Area Privative": "Area Privativa",
+    "Area Total": "Area Total",
+    "Show in Card": "Exibir no Card"
 }
