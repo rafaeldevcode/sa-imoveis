@@ -15,9 +15,9 @@
                 <?php }
             } ?>
 
-            <button type="submit" title='<?php _e('Previous page') ?>' class='btn btn-secondary' <?php echo is_null($prev) ? 'disabled' : '' ?>>
+            <button type="submit" title='<?php _e('Página anterior') ?>' class='btn btn-secondary' <?php echo is_null($prev) ? 'disabled' : '' ?>>
                 <i class='bi bi-arrow-left-short'></i>
-                <?php _e('Previous') ?>
+                Anterior
             </button>
         </form>
 
@@ -43,8 +43,8 @@
                 <?php }
             } ?>
 
-            <button type="submit" title='<?php _e('Next page') ?>' class='btn btn-secondary' <?php echo is_null($next) ? 'disabled' : '' ?>>
-                <?php _e('Next') ?>
+            <button type="submit" title='<?php _e('Próxima página') ?>' class='btn btn-secondary' <?php echo is_null($next) ? 'disabled' : '' ?>>
+                Próximo
                 <i class='bi bi-arrow-right-short'></i>
             </button>
         </form>
