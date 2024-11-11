@@ -33,39 +33,57 @@
                 <span class="text-sm font-semibold">Cód. <?php echo $code ?></span>
                 <a href="<?php route("/imoveis/{$id}") ?>" class="text-color-main font-bold text-lg"><?php echo $name ?></a>
                 <p class="text-md folt-bold text-gray-600"><?php echo $andress ?></p>
-
-                <?php if ($dimension) { ?>
-                    <div class="flex flex-col justify-between">
-                        <p class="text-color-main font-bold text-lg">Dimensões: <?php echo $dimension ?></p>
-                    </div>
-                <?php } ?>
             </div>
 
-            <div class="flex px-6 py-2 justify-between">
-                <?php if (isset($details['bedrooms']) && !empty($details['bedrooms'][0])) { ?>
-                    <div class="text-color-main text-center">
-                        <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/dormitorios.png') ?>" alt="Dormitórios">
-                        <p><?php echo !empty($details['bedrooms'][0]) ? $details['bedrooms'][0] : '' ?></p>
-                        <p><?php echo !empty($details['bedrooms'][1]) ? $details['bedrooms'][1] : '' ?></p>
-                        <p><?php echo !empty($details['bedrooms'][2]) ? $details['bedrooms'][2] : '' ?></p>
-                    </div>
-                <?php } ?>
+            <?php if ($dimension) { ?>
+                <div class="flex px-6 py-2 justify-between">
+                    <?php if (isset($details['total_area']) && !empty($details['total_area'])) { ?>
+                        <li class="text-color-main flex flex-col items-center">
+                            <img class="h-[25px]" src="<?php asset('assets/images/icons/area.png') ?>" alt="Área Total">
+                            <span><?php echo $details['total_area'] ?>m²</span>
+                            <span class="text-center">Área Total</span>
+                        </li>
+                    <?php } ?>
 
-                <?php if (isset($details['garage']) && !empty($details['garage'])) { ?>
-                    <div class="text-color-main text-center">
-                        <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/garagem.png') ?>" alt="Garagem">
-                        <p><?php echo $details['garage'] ?></p>
-                    </div>
-                <?php } ?>
+                    <?php if (isset($details['private_area']) && !empty($details['private_area'])) { ?>
+                        <li class="text-color-main flex flex-col items-center">
+                            <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
+                            <span><?php echo $details['private_area'] ?>m²</span>
+                            <span class="text-center">Área Privativa</span>
+                        </li>
+                    <?php } ?>
+                </div>
 
-                <?php if (isset($details['private_area']) && !empty($details['private_area'])) { ?>
-                    <li class="text-color-main flex flex-col items-center">
-                        <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
-                        <span><?php echo $details['private_area'] ?>m²</span>
-                        <span class="text-center">Área Privativa</span>
-                    </li>
-                <?php } ?>
-            </div>
+                <div class="flex flex-col justify-between">
+                    <p class="text-color-main font-bold text-lg">Dimensões: <?php echo $dimension ?></p>
+                </div>
+            <?php } else { ?>
+                <div class="flex px-6 py-2 justify-between">
+                    <?php if (isset($details['bedrooms']) && !empty($details['bedrooms'][0])) { ?>
+                        <div class="text-color-main text-center">
+                            <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/dormitorios.png') ?>" alt="Dormitórios">
+                            <p><?php echo !empty($details['bedrooms'][0]) ? $details['bedrooms'][0] : '' ?></p>
+                            <p><?php echo !empty($details['bedrooms'][1]) ? $details['bedrooms'][1] : '' ?></p>
+                            <p><?php echo !empty($details['bedrooms'][2]) ? $details['bedrooms'][2] : '' ?></p>
+                        </div>
+                    <?php } ?>
+
+                    <?php if (isset($details['garage']) && !empty($details['garage'])) { ?>
+                        <div class="text-color-main text-center">
+                            <img class="h-[20px] mx-auto" src="<?php asset('assets/images/icons/garagem.png') ?>" alt="Garagem">
+                            <p><?php echo $details['garage'] ?></p>
+                        </div>
+                    <?php } ?>
+
+                    <?php if (isset($details['private_area']) && !empty($details['private_area'])) { ?>
+                        <li class="text-color-main flex flex-col items-center">
+                            <img class="h-[25px]" src="<?php asset('assets/images/icons/area-privativa.png') ?>" alt="Área Privativa">
+                            <span><?php echo $details['private_area'] ?>m²</span>
+                            <span class="text-center">Área Privativa</span>
+                        </li>
+                    <?php } ?>
+                </div>
+            <?php } ?>
 
             <?php if ($progress !== 'Outros') { ?>
                 <div class="flex flex-col justify-between">
