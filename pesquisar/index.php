@@ -43,7 +43,7 @@ if (isset($requests->search_type) && $requests->search_type === '1') {
 
 $property->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado');
 
-$properties = $property->paginate(15);
+$properties = $property->paginate(15, 'value', 'ASC');
 
 loadHtml(__DIR__ . '/../resources/client/layout', [
     'title' => 'Pesquisar',

@@ -46,18 +46,14 @@
     <section class="py-12 container flex w-full flex-wrap">
         <div class="w-full lg:w-8/12 pr-3">
             <div class="border-b-2 pb-10">
-                <div class="flex gap-2">
-                    <button class='ease-in duration-300 flex items-center justify-center bg-color-main rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-white' type="button" title="FOTOS">
-                        FOTOS
-                        <i class="bi bi-camera-fill"></i>
-                    </button>
-                    <?php if (is_array($videos) && !empty($videos)) { ?>
+                <?php if (is_array($videos) && !empty($videos)) { ?>
+                    <div class="flex gap-2">
                         <button data-videos="<?php echo implode(',', json_decode($property->videos, true)) ?>" id="gallery-videos" class='ease-in duration-300 flex items-center justify-center bg-white rounded-lg gap-2 border border-color-main hover:bg-color-main hover:text-white py-2 w-[150px] font-bold text-lg text-color-main' type="button" title="VIDEOS">
                             VIDEOS
                             <i class="bi bi-play-circle-fill"></i>
                         </button>
-                    <?php } ?>
-                </div>
+                    </div>
+                <?php } ?>
 
                 <?php if (is_array($details)) { ?>
                     <div class="pt-10">
@@ -134,6 +130,10 @@
                     <h2 class="text-color-main font-bold text-2xl">Descrição do Imóvel</h2>
 
                     <p><?php echo $property->description ?></p>
+
+                    <div class="border rounded-md text-center p-4 my-4 border-color-main text-color-main bg-color-main/10 font-semibold">
+                        <p>Os valores e a disponibilidade dos imóveis anunciados podem ser alterados a qualquer momento, sem aviso prévio.</p>
+                    </div>
                 </div>
             <?php } ?>
         </div>
