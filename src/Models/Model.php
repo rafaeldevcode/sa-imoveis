@@ -273,7 +273,7 @@ class Model
         return $statement->execute();
     }
 
-    public function paginate(int $limit, string $orderColumn = 'id'): stdClass
+    public function paginate(int $limit, string $orderColumn = 'id', string $orderBy = 'DESC'): stdClass
     {
         $count = ceil(($this->count() / $limit));
         $page = ($count == 0 ? 0 : 1);
@@ -288,7 +288,7 @@ class Model
 
         $whereClause = $this->whereClausure();
 
-        $query = "SELECT * FROM {$this->table}{$whereClause->clausure} ORDER BY $orderColumn DESC LIMIT $start, $limit";
+        $query = "SELECT * FROM {$this->table}{$whereClause->clausure} ORDER BY $orderColumn $orderBy LIMIT $start, $limit";
 
         $statement = $this->connection->prepare($query);
 
