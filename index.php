@@ -39,8 +39,8 @@ if (!is_null($cub)) {
 $setting = $settings->first();
 $brokers = $broker->where('show_in_home', '=', 'on')->get();
 $releases = (new Property())->where('is_launch', '=', 'on')->where('is_highlighted', '=', 'on')->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(6);
-$sell = (new Property())->where('type', '=', 'Vender')->where('is_highlighted', '=', 'on')->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(6);
-$toHire = (new Property())->where('type', '=', 'Alugar')->where('is_highlighted', '=', 'on')->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(6);
+$sell = (new Property())->where('type', '=', 'Vender')->where('is_highlighted', '=', 'on')->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(6, 'highlighted_order', 'ASC');
+$toHire = (new Property())->where('type', '=', 'Alugar')->where('is_highlighted', '=', 'on')->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado')->paginate(6, 'highlighted_order', 'ASC');
 $categoriesArray = getArraySelect($category->get(), 'id', 'name');
 
 loadHtml(__DIR__ . '/resources/client/layout', [

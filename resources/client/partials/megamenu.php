@@ -7,7 +7,9 @@
             </button>
 
             <div class="hidden lg:block" data-open-target="1" data-target-open="false">
-                <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route("/imoveis/categoria/apartamento?type={$type}") ?>">Ver Todos</a>
+                <?php if ($type === 'Vender') { ?>
+                    <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route("/imoveis/categoria/apartamento?type={$type}") ?>">Ver Todos</a> 
+                <?php } ?>
 
                 <form action="<?php route('/pesquisar') ?>">
                     <input type="hidden" name="bedrooms" value="01 Dormitório">
@@ -46,7 +48,9 @@
             </button>
 
             <div class="hidden lg:block" data-open-target="2" data-target-open="false">
-                <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route("/imoveis/categoria/casa?type={$type}") ?>">Ver Todos</a>
+                <?php if ($type === 'Vender') { ?>
+                    <a class="uppercase text-secondary text-xs" title="Ver Todos" href="<?php route("/imoveis/categoria/casa?type={$type}") ?>">Ver Todos</a> 
+                <?php } ?>
 
                 <form action="<?php route('/pesquisar') ?>">
                     <input type="hidden" name="bedrooms" value="01 Dormitório">
@@ -84,7 +88,7 @@
                 <i class="bi bi-chevron-right block lg:hidden"></i>
             </button>
 
-            <div class="mt-5 hidden lg:block" data-open-target="3" data-target-open="false">
+            <div class="hidden lg:block" data-open-target="3" data-target-open="false">
                 <a <?php enableOrDisableLink('1', ['type' => $type, 'category_slug' => 'sala-comercial', 'href' => getRoute("/imoveis/categoria/sala-comercial?type={$type}")]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Sala Comercial">Sala Comercial</a>
 
                 <a <?php enableOrDisableLink('1', ['type' => $type, 'category_slug' => 'pavilhao', 'href' => getRoute("/imoveis/categoria/pavilhao?type={$type}")]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Pavilhão">Pavilhão</a>
@@ -97,7 +101,7 @@
                 <i class="bi bi-chevron-right block lg:hidden"></i>
             </button>
 
-            <div class="mt-5 hidden lg:block" data-open-target="4" data-target-open="false">
+            <div class="hidden lg:block" data-open-target="4" data-target-open="false">
                 <a <?php enableOrDisableLink('1', ['type' => $type, 'category_slug' => 'terreno-comercial', 'href' => getRoute("/imoveis/categoria/terreno-comercial?type={$type}")]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Comercial">Terreno Comercial</a>
 
                 <a <?php enableOrDisableLink('1', ['type' => $type, 'category_slug' => 'terreno-residencial', 'href' => getRoute("/imoveis/categoria/terreno-residencial?type={$type}")]) ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Residencial">Terreno Residencial</a>
