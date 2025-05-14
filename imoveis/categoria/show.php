@@ -17,9 +17,9 @@ if (!isset($category)) {
 $query = $property->where('category_id', '=', $category->id)->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado');
 
 if (!is_null($type)) {
-    $properties = $query->where('type', '=', $type)->paginate(15);
+    $properties = $query->where('type', '=', $type)->paginate(15, 'value', 'ASC');
 } else {
-    $properties = $query->paginate(15);
+    $properties = $query->paginate(15, 'value', 'ASC');
 }
 
 loadHtml(__DIR__ . '/../../resources/client/layout', [

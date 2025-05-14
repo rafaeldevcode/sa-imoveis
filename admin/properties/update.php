@@ -32,6 +32,7 @@ $property->update([
     'category_id' => $requests->category_id,
     'dimension' => $requests->dimension,
     'show_card' => $requests->show_card,
+    'highlighted_order' => $requests->highlighted_order,
 ]);
 
 $property->images()->sync($collection);

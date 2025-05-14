@@ -195,6 +195,17 @@
                         'value' => isset($property) ? $property->is_highlighted : null,
                     ]) ?>
                 </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
+                        'type' => 'number',
+                        'icon' => 'bi bi-map-fill',
+                        'name' => 'highlighted_order',
+                        'label' => __('Highlighted Order'),
+                        'type' => 'text',
+                        'value' => isset($property) ? $property->highlighted_order : null,
+                    ]) ?>
+                </div>
             </div>
         </div>
 
