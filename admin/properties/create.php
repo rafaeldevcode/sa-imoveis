@@ -34,6 +34,7 @@ $newProperty = $property->create([
     'dimension' => $requests->dimension,
     'show_card' => $requests->show_card,
     'highlighted_order' => empty($requests->highlighted_order) ? 0 : $requests->highlighted_order,
+    'value_promotion' => empty($requests->value_promotion) ? null : str_replace(['.', ','], ['', '.'], $requests->value_promotion),
 ]);
 
 $property->find($newProperty->id)->images()->sync($collection);

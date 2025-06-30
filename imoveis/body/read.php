@@ -143,7 +143,16 @@
                 <div>
                     <div class="flex justify-between">
                         <span class="text-lg">Valor do Imóvel</span>
-                        <span class="text-color-main font-bold text-2xl">R$ <?php echo isset($property->value) ? number_format($property->value, 2, ',', '.') : 'Venha nos consultar' ?></span>
+                        <div class="flex flex-col">
+                            <?php 
+                                if (isset($property->value_promotion, $property->value)) { ?>
+                                    <span class="text-color-main font-bold line-through">R$ <?php echo isset($property->value) ? number_format($property->value, 2, ',', '.') : '' ?></span>
+                                    <span class="text-color-main font-bold text-2xl">R$ <?php echo isset($property->value_promotion) ? number_format($property->value_promotion, 2, ',', '.') : 'Venha nos consultar' ?></span>
+                                <?php } else { ?>
+                                    <span class="text-color-main font-bold text-2xl">R$ <?php echo isset($property->value) ? number_format($property->value, 2, ',', '.') : 'Venha nos consultar' ?></span>
+                                <?php }
+                            ?>
+                        </div>
                     </div>
 
                     <?php if (isset($property->condominium)) { ?>
@@ -231,6 +240,7 @@
                                 'andress' => $item->andress,
                                 'name' => $item->name,
                                 'value' => $item->value,
+                                'value_promotion' => $item->value_promotion,
                                 'status' => $item->status,
                                 'dimension' => $property->dimension,
                                 'progress' => $item->progress,
