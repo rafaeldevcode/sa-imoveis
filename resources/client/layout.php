@@ -21,6 +21,10 @@
     <meta name='author' content='Rafael Vieira | github.com/rafaeldevcode' />
     <meta name="description" content="<?php echo SETTINGS->site_description ?>">
 
+    <?php if (function_exists('loadInHead')) {
+        loadInHead();
+    } ?>
+
     <title><?php echo SETTINGS->site_name ?> | <?php echo $title ?></title>
 </head>
 <body>

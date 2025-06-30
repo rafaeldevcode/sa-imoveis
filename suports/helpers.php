@@ -361,4 +361,16 @@ if (!function_exists('enableOrDisableLink')) {
     }
 }
 
+if (!function_exists('getCurrentUrl')) {
+    function getCurrentUrl(): string {
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || 
+                    $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+        $host = $_SERVER['HTTP_HOST'];
+        $requestUri = $_SERVER['REQUEST_URI'];
+
+        return $protocol . $host . $requestUri;
+    }
+}
+
 !defined('SETTINGS') && define('SETTINGS', getSiteSettings());
