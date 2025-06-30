@@ -20,6 +20,7 @@
                         'andress' => $property->andress,
                         'name' => $property->name,
                         'value' => $property->value,
+                        'value_promotion' => $property->value_promotion,
                         'status' => $property->status,
                         'dimension' => $property->dimension,
                         'progress' => $property->progress,

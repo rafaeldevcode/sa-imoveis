@@ -20,7 +20,16 @@
             </div>
 
             <div class="w-full p-2 bg-color-main flex justify-between items-center">
-                <p class="text-white font-bold text-xl">R$ <?php echo isset($value) ? number_format($value, 2, ',', '.') : 'Venha nos consultar' ?></p>
+                <div>
+                    <?php
+                        if (isset($value_promotion, $value)) { ?>
+                            <p class="text-white font-bold line-through text-sm">R$ <?php echo isset($value) ? number_format($value, 2, ',', '.') : 'Venha nos consultar' ?></p>
+                            <p class="text-white font-bold text-xl">R$ <?php echo isset($value_promotion) ? number_format($value_promotion, 2, ',', '.') : '' ?></p>
+                        <?php } else { ?>
+                            <p class="text-white font-bold text-xl">R$ <?php echo isset($value) ? number_format($value, 2, ',', '.') : 'Venha nos consultar' ?></p>
+                        <?php }
+                    ?>
+                </div>
 
                 <button data-favorite="<?php echo $id ?>" data-favorite-status="<?php echo in_array($id, favorites()) ? 'true' : 'false' ?>">
                     <i class="bi <?php echo in_array($id, favorites()) ? 'bi-heart-fill' : 'bi-heart' ?> text-white text-xl"></i>

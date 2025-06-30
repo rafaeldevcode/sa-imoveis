@@ -32,6 +32,35 @@ loadHtml(__DIR__ . '/../resources/client/layout', [
     'plugins' => ['slick'],
 ]);
 
+function loadInHead()
+{
+    $uri = $_SERVER['REQUEST_URI'];
+    $matches = [];
+
+    if (preg_match('#^/imoveis/(\d+)#', $uri, $matches)) {
+        $propertyId = $matches[1];
+
+        $property = (new Property())->find($propertyId)->data ?? null;
+
+        if ($property) {
+            $images = getImages($propertyId);
+
+            $title = htmlspecialchars($property->title ?? 'Imóvel');
+            $description = "A Santo Antônio Imóveis, localizada em Serafina Corrêa, ao lado da Praça Central, está à disposição para ajudar você a encontrar as melhores opções de imóveis. 👉Confira abaixo uma ótima oportunidade:";
+            $image = !empty($images) ? asset("assets/images/{$images[0]->file}", true) : asset('assets/images/'.SETTINGS->site_logo_main, true);
+            ?>
+            <meta property="og:title" content="<?php echo $title ?>" />
+            <meta property="og:description" content="<?php echo htmlspecialchars($description) ?>" />
+            <meta property="og:image" content="<?php echo $image ?>" />
+            <meta property="og:url" content="<?php echo getCurrentUrl() ?>" />
+            <meta property="og:site_name" content="Santo Antônio Imóveis" />
+            <meta property="og:locale" content="pt_BR" />
+            <meta property="og:type" content="website" />
+            <?php
+        }
+    }
+}
+
 function loadInFooter()
 { ?>
     <script type="text/javascript" src="<?php asset('assets/scripts/class/Videos.js') ?>"></script>    

@@ -33,6 +33,7 @@ $property->update([
     'dimension' => $requests->dimension,
     'show_card' => $requests->show_card,
     'highlighted_order' => $requests->highlighted_order,
+    'value_promotion' => empty($requests->value_promotion) ? null : str_replace(['.', ','], ['', '.'], $requests->value_promotion),
 ]);
 
 $property->images()->sync($collection);

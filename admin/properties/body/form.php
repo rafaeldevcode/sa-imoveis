@@ -45,6 +45,16 @@
                 <div class='w-full'>
                     <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
                         'icon' => 'bi bi-currency-dollar',
+                        'name' => 'value_promotion',
+                        'label' => __('Value Promotion'),
+                        'type' => 'text',
+                        'value' => isset($property) ? $property->value_promotion : null,
+                    ]) ?>
+                </div>
+
+                <div class='w-full'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-default', [
+                        'icon' => 'bi bi-currency-dollar',
                         'name' => 'condominium',
                         'label' => __('Condominium'),
                         'type' => 'text',

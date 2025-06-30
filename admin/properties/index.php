@@ -77,6 +77,7 @@ function loadInFooter(): void
     <script type="text/javascript" src="<?php asset('assets/scripts/class/ChangeLocationMaps.js?') ?>"></script>
     <script type="text/javascript">
         // Apply mask
+        $('#value_promotion').mask('000.000.000.000.000,00', {reverse: true});
         $('#value').mask('000.000.000.000.000,00', {reverse: true});
         $('#condominium').mask('000.000.000.000.000,00', {reverse: true});
         $('#iptu').mask('000.000.000.000.000,00', {reverse: true});
