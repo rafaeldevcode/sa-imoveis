@@ -112,9 +112,9 @@
             </button>
 
             <div class="hidden lg:block" data-open-target="3" data-target-open="false">
-                <a <?php $salaComercial > 0 ? "href=\"{$salaComercialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Sala Comercial">Sala Comercial (<?php echo $salaComercial ?>)</a>
+                <a <?php echo $salaComercial > 0 ? "href=\"{$salaComercialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Sala Comercial">Sala Comercial (<?php echo $salaComercial ?>)</a>
 
-                <a <?php $pavilhao > 0 ? "href=\"{$pavilhaoHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Pavilhão">Pavilhão (<?php echo $pavilhao ?>)</a>
+                <a <?php echo $pavilhao > 0 ? "href=\"{$pavilhaoHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Pavilhão">Pavilhão (<?php echo $pavilhao ?>)</a>
             </div>
         </div>
 
@@ -139,13 +139,13 @@
             </button>
 
             <div class="hidden lg:block" data-open-target="4" data-target-open="false">
-                <a <?php $terrenoComercial > 0 ? "href=\"{$terrenoComercialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Comercial">Terreno Comercial (<?php echo $terrenoComercial ?>)</a>
+                <a <?php echo $terrenoComercial > 0 ? "href=\"{$terrenoComercialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Comercial">Terreno Comercial ( echo echo $terrenoComercial ?>)</a>
 
-                <a <?php $terrenoResidencial > 0 ? "href=\"{$terrenoResidencialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Residencial">Terreno Residencial (<?php echo $terrenoResidencial ?>)</a>
+                <a <?php echo $terrenoResidencial > 0 ? "href=\"{$terrenoResidencialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Residencial">Terreno Residencial (<?php echo $terrenoResidencial ?>)</a>
 
-                <a <?php $sitio > 0 ? "href=\"{$sitioHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Sítios">Sítios (<?php echo $sitio ?>)</a>
+                <a <?php echo $sitio > 0 ? "href=\"{$sitioHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Sítios">Sítios (<?php echo $sitio ?>)</a>
 
-                <a <?php $areaRural > 0 ? "href=\"{$areaRuralHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Área Rural">Área Rural (<?php echo $areaRural ?>)</a>
+                <a <?php echo $areaRural > 0 ? "href=\"{$areaRuralHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Área Rural">Área Rural (<?php echo $areaRural ?>)</a>
             </div>
         </div>
     </div>
