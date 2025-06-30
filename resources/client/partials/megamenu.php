@@ -139,7 +139,7 @@
             </button>
 
             <div class="hidden lg:block" data-open-target="4" data-target-open="false">
-                <a <?php echo $terrenoComercial > 0 ? "href=\"{$terrenoComercialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Comercial">Terreno Comercial ( echo echo $terrenoComercial ?>)</a>
+                <a <?php echo $terrenoComercial > 0 ? "href=\"{$terrenoComercialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Comercial">Terreno Comercial (<?php echo $terrenoComercial ?>)</a>
 
                 <a <?php echo $terrenoResidencial > 0 ? "href=\"{$terrenoResidencialHref}\"" : "disabled href='javascript:void(0)' {$hidden}" ?> class="py-2 hover:text-secondary ease-in duration-300 block" title="Terreno Residencial">Terreno Residencial (<?php echo $terrenoResidencial ?>)</a>
 
