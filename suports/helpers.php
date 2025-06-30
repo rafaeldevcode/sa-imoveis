@@ -324,26 +324,21 @@ if (!function_exists('thereIsProperty')) {
 }
 
 if (!function_exists('enableOrDisableLink')) {
-    function enableOrDisableLink(string $search_type, array $data): void
+    function enableOrDisableLink(string $search_type, array $data): int
     {
         $property = new Property();
         $property = $property->where('status', '!=', 'indisponivel');
 
-        if (isset($search_type) && $search_type === '1') {
+        if (isset($search_type, $property->id) && $search_type === '1') {
             $category = new Category();
             $category = $category->where('slug', '=', $data['category_slug'])->first();
-            $hidden = $data['type'] === 'Alugar' ? 'class="hidden"' : null;
 
             $property = $property->where('category_id', '=', $category->id);
 
             if (isset($data['type'])) {
                 $property = $property->where('type', '=', $data['type']);
             }
-
-            echo $property->count() > 0 ? "href=\"{$data['href']}\"" : "disabled href='javascript:void(0)' {$hidden}";
         } else {
-            $hidden = $data['type'] === 'Alugar' ? 'hidden' : null;
-
             if (isset($data['category_id'])) {
                 $property = $property->where('category_id', '=', $data['category_id']);
             }
@@ -355,9 +350,9 @@ if (!function_exists('enableOrDisableLink')) {
             if (isset($data['type'])) {
                 $property = $property->where('type', '=', $data['type']);
             }
-
-            echo $property->count() > 0 ? '' : "disabled {$hidden}";
         }
+
+        return $property->count();
     }
 }
 
