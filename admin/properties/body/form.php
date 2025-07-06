@@ -7,6 +7,53 @@
         <div class='flex justify-between flex-col-reverse lg:flex-row'>
             <div class="w-full lg:w-9/12 mt-4">
                 <textarea id="tinymce" name="description"><?php echo isset($property) ? $property->description : null ?></textarea>
+
+                <div class='flex gap-4 flex-wrap'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
+                        'type' => 'button',
+                        'style' => 'color-main',
+                        'title' => __('Videos'),
+                        'attributes' => [
+                            'data-toggle' => 'videos',
+                        ],
+                    ]) ?>
+
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
+                        'type' => 'button',
+                        'style' => 'color-main',
+                        'title' => __('Characteristics'),
+                        'attributes' => [
+                            'data-toggle' => 'characteristics',
+                        ],
+                    ]) ?>
+
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
+                        'type' => 'button',
+                        'style' => 'color-main',
+                        'title' => __('Details'),
+                        'attributes' => [
+                            'data-toggle' => 'details',
+                        ],
+                    ]) ?>
+                </div>
+
+                <div class='w-full flex flex-wrap my-4'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/button-upload', [
+                        'name' => 'collection',
+                        'label' => __('Image gallery'),
+                        'images' => isset($property) ? $images : null,
+                        'type' => 'checkbox',
+                    ]) ?>
+                </div>
+
+                <div class='w-full flex flex-wrap mt-8'>
+                    <?php loadHtml(__DIR__ . '/../../../resources/partials/form/button-upload', [
+                        'name' => 'ogimage',
+                        'label' => __('Image for meta tag'),
+                        'value' => (isset($property) && !empty($property->ogimage)) ? $property->ogimage : null,
+                        'type' => 'radio',
+                    ]) ?>
+                </div>
             </div>
 
             <div class="w-full lg:w-3/12 px-4">
@@ -217,44 +264,6 @@
                     ]) ?>
                 </div>
             </div>
-        </div>
-
-        <div class='flex gap-4 flex-wrap'>
-            <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
-                'type' => 'button',
-                'style' => 'color-main',
-                'title' => __('Videos'),
-                'attributes' => [
-                    'data-toggle' => 'videos',
-                ],
-            ]) ?>
-
-            <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
-                'type' => 'button',
-                'style' => 'color-main',
-                'title' => __('Characteristics'),
-                'attributes' => [
-                    'data-toggle' => 'characteristics',
-                ],
-            ]) ?>
-
-            <?php loadHtml(__DIR__ . '/../../../resources/partials/form/input-button', [
-                'type' => 'button',
-                'style' => 'color-main',
-                'title' => __('Details'),
-                'attributes' => [
-                    'data-toggle' => 'details',
-                ],
-            ]) ?>
-        </div>
-
-        <div class='w-full flex flex-wrap my-4'>
-            <?php loadHtml(__DIR__ . '/../../../resources/partials/form/button-upload', [
-                'name' => 'collection',
-                'label' => __('Image gallery'),
-                'images' => isset($property) ? $images : null,
-                'type' => 'checkbox',
-            ]) ?>
         </div>
 
         <div class='flex justify-end mt-10 px-4'>

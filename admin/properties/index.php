@@ -83,8 +83,8 @@ function loadInFooter(): void
         $('#iptu').mask('000.000.000.000.000,00', {reverse: true});
 
         const gallery = new Gallery();
-        gallery.openModalSelect($('[data-upload=thumbnail]'), 'radio');
         gallery.openModalSelect($('[data-upload=collection]'), 'checkbox');
+        gallery.openModalSelect($('[data-upload=ogimage]'), 'radio');
 
         $('[name="categories"]').select2({placeholder: '----Selecione----'});
 

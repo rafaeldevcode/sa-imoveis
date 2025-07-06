@@ -32,8 +32,9 @@ $property->update([
     'category_id' => $requests->category_id,
     'dimension' => $requests->dimension,
     'show_card' => $requests->show_card,
-    'highlighted_order' => $requests->highlighted_order,
+    'highlighted_order' => empty($requests->highlighted_order) ? null : $requests->highlighted_order,
     'value_promotion' => empty($requests->value_promotion) ? null : str_replace(['.', ','], ['', '.'], $requests->value_promotion),
+    'ogimage' => $requests->ogimage,
 ]);
 
 $property->images()->sync($collection);

@@ -288,7 +288,7 @@ class Model
 
         $whereClause = $this->whereClausure();
 
-        $query = "SELECT * FROM {$this->table}{$whereClause->clausure} ORDER BY NULLIF({$orderColumn}, 0) $orderBy LIMIT $start, $limit";
+        $query = "SELECT * FROM {$this->table}{$whereClause->clausure} ORDER BY {$orderColumn} IS NULL, {$orderColumn} $orderBy LIMIT $start, $limit";
 
         $statement = $this->connection->prepare($query);
 
