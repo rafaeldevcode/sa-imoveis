@@ -1,6 +1,7 @@
 <?php
 
 use Src\Models\Category;
+use Src\Models\Gallery;
 use Src\Models\Property;
 
 require __DIR__ . '/helpers/trans.php';
@@ -186,6 +187,16 @@ if (!function_exists('getImages')) {
     }
 };
 
+if (!function_exists('getOgImage')) {
+    function getOgImage(int $id): stdClass|null
+    {
+        $gallery = new Gallery();
+        $gallery = $gallery->find($id);
+
+        return isset($gallery) ? $gallery->data : null;
+    }
+};
+
 if (!function_exists('favorites')) {
     function favorites(): array
     {
@@ -327,7 +338,7 @@ if (!function_exists('enableOrDisableLink')) {
     function enableOrDisableLink(string $search_type, array $data): int
     {
         $property = new Property();
-        $property = $property->where('status', '!=', 'indisponivel');
+        $property = $property->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado');
 
         if (isset($search_type, $property->id) && $search_type === '1') {
             $category = new Category();
