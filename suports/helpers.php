@@ -340,7 +340,7 @@ if (!function_exists('enableOrDisableLink')) {
         $property = new Property();
         $property = $property->where('status', '=', 'disponivel', 'disponivel')->orWhere('status', '=', 'reservado', 'reservado');
 
-        if (isset($search_type, $property->id) && $search_type === '1') {
+        if (isset($search_type) && $search_type === '1') {
             $category = new Category();
             $category = $category->where('slug', '=', $data['category_slug'])->first();
 
